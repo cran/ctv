@@ -36,15 +36,15 @@
     multinomial probit, multivariate probit, multivariate mixture of
     normals, hierarchical linear models, hierarchical multinomial logit,
     hierarchical negative binomial regression models, and linear instrumental
-    variable models.
-   
+    variable models. 
+    
     <pkg>bayesSurv</pkg> contains R functions to perform Bayesian
-    inference for various survival regression models.
+    inference for various survival regression models.   
     
     <pkg>MCMCpack</pkg> provides model-specific Markov chain Monte Carlo
     (MCMC) algorithms for wide range of models commonly used in the social
     and behavioral sciences. It contains R functions
-    to fit a number a regression models (linear regression, logit,
+    to fit a number of regression models (linear regression, logit,
     ordinal probit, probit, Poisson regression, etc.), measurement
     models (item response theory and factor models), and models for
     ecological inference.  It also contains a generic Metropolis sampler
@@ -57,8 +57,11 @@
     </li>  
 
     <li><em>Bayesian packages for specific models or methods</em>:
+    <pkg>BACCO</pkg> is an R package for Bayesian analysis of random functions. <pkg>BACCO</pkg> contains two sub-packages,
+    emulator and calibrator, that perform Bayesian emulation and calibration of computer programs.
+     
     The <pkg>baymvb</pkg> package fits multivariate binary regression models (multivariate probit or multivariate t-link models) using posterior simulation.
-    
+       
     <pkg>bqtl</pkg> can be used to fit quantitative trait loci (QTL)
     models. This package allows Bayesian estimation of multi-gene models
     via Laplace approximations and provides tools for interval mapping of 
@@ -105,15 +108,25 @@
     <pkg>geoRglm</pkg> package implements Bayesian posterior simulation
     and spatial prediction for the binomial spatial model (see the
     <view>Spatial</view> view for more information). 
-    
+          
     The <tt>mcmcsamp()</tt> function in <pkg>lme4</pkg> allows 
     MCMC sampling for the linear mixed model and generalized linear mixed model.   
     
+    The <pkg>lmm</pkg> package contains R functions to fit linear mixed models using MCMC methods.
+    
     The <pkg>MNP</pkg> package fits multinomial probit models using MCMC methods.
+    
+    <pkg>MSBVAR</pkg> is an R package for estimating Bayesian Vector Autoregression 
+    models and Bayesian structural Vector Autoregression models.
     
     <pkg>sna</pkg>, an R package for social network analysis, 
     contains functions to generate posterior samples from Butt's 
-    Bayesian network accuracy model using Gibbs sampling. 
+    Bayesian network accuracy model using Gibbs sampling.
+    
+    The <pkg>tgp</pkg> package implements Bayesian treed Gaussian process models: a spaptial
+    modeling and regression package providing fully Bayesian MCMC posterior inference for
+    models ranging from the simple linear model, to nonstationary treed
+    Gaussian process, and others in between. 
     
     The <tt>vcov.gam()</tt> function the <pkg>mgcv</pkg> package can
     extract a Bayesian posterior covariance matrix of the parameters
@@ -141,8 +154,10 @@
     Heidelberger and Welch, and Raftery and Lewis diagnostics.
     
     <pkg>mcgibbsit</pkg> provides the Warnes and Raftery MCGibbsit MCMC
-    diagnostic.  It operates on <tt>mcmc</tt> objects.
-    </li>
+    diagnostic. It operates on <tt>mcmc</tt> objects.
+    
+    <pkg>rv</pkg> provides a simulation-based random variable class in R, 
+    in which posterior simulation objects can be conveniently handled as random variables.</li>
 
     <li><em>Packages that link R to other sampling engines</em>:
     
@@ -155,7 +170,7 @@
     There are two packages that can be used to interface R with
     <a href="http://www.mrc-bsu.cam.ac.uk/bugs/" target="_top">WinBUGS</a>.
     <pkg>R2WinBUGS</pkg> provides a set of
-    functions to call WinBUGS on a Windows system;  <pkg>rbugs</pkg>
+    functions to call WinBUGS on a Windows system and a Linux system;  <pkg>rbugs</pkg>
     supports Linux systems by running WinBUGS through
     <a href="http://www.winehq.com/" target="_top">WINE</a>.
     
@@ -173,12 +188,14 @@
   with suggestions.</p>
  
  <p>
- Last Update: Thu Oct 06 10:44:02 2005
+ Last Update: Sun Apr 16 11:35:07 2006
+
  </p>
  
   </info>
 
   <packagelist>
+    <pkg>BACCO</pkg>
     <pkg priority="core">bayesm</pkg>
     <pkg>bayesmix</pkg>
     <pkg priority="core">bayesSurv</pkg>
@@ -199,14 +216,18 @@
     <pkg>geoRglm</pkg>    
     <pkg>Hmisc</pkg>
     <pkg>lme4</pkg>
+    <pkg>lmm</pkg>
     <pkg>mcgibbsit</pkg>
     <pkg priority="core">mcmc</pkg>
     <pkg priority="core">MCMCpack</pkg>
     <pkg>mgcv</pkg>
     <pkg>MNP</pkg>
+    <pkg>MSBVAR</pkg>
     <pkg>R2WinBUGS</pkg>
     <pkg>rbugs</pkg>
+    <pkg>rv</pkg>
     <pkg>sna</pkg>
+    <pkg>tgp</pkg>
     <pkg>vabayelMix</pkg>
     </packagelist>
 
@@ -222,5 +243,4 @@
     </links>
 
 </CRANTaskView>
-
 
