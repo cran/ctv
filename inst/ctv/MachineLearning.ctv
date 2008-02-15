@@ -2,7 +2,8 @@
 
   <name>MachineLearning</name>
   <topic>Machine Learning &amp; Statistical Learning</topic>
-  <maintainer>Torsten Hothorn</maintainer>
+  <maintainer email="Torsten.Hothorn@R-project.org">Torsten Hothorn</maintainer>
+  <version>2007-11-27</version>
   
   <info>
     Several add-on packages implement ideas and methods developed at the
@@ -50,19 +51,30 @@
              package <pkg>randomForest</pkg>. Package <pkg>ipred</pkg> has bagging
              for regression, classification and survival analysis as well as
              bundling, a combination of multiple models via
-             ensemble learning.</li>
+             ensemble learning. In addition, a random forest variant based on
+             conditional inference trees is implemented in package <pkg>party</pkg>.
+             The <pkg>varSelRF</pkg> package focuses on variable selection by means
+             for random forest algorithms.</li>
       <li><i>Regularized and Shrinkage Methods</i>: Regression models with some
              constraint on the parameter estimates can be fitted with the
              <pkg>lasso2</pkg> and <pkg>lars</pkg> packages. The solutions
              for all values of the shrinkage parameter can be simultaneously 
              computed using the functionality in package <pkg>elasticnet</pkg>.
+             The L1 regularization path for generalized linear models and
+             Cox models can be obtained from functions available in package 
+             <pkg>glmpath</pkg>. The <pkg>penalized</pkg> package provides
+             an alternative implementation of lasso (L1) and ridge (L2) 
+             penalized regression models (both GLM and Cox models).
              The shrunken
              centroids classifier and utilities for gene expression analyses are
              implemented in package <pkg>pamr</pkg>.</li> 
       <li><i>Boosting</i>: Various forms of gradient boosting are
              implemented in packages <pkg>gbm</pkg> (tree-based functional gradient
              descent boosting) and <pkg>boost</pkg> (including LogitBoost
-             and L2Boost).</li>
+             and L2Boost). Package <pkg>GAMBoost</pkg> can be used to fit generalized additive models
+             by a boosting algorithm. An extensible boosting framework for
+             generalized linear, additive and nonparametric models is available in
+             package <pkg>mboost</pkg>.</li>
       <li><i>Support Vector Machines</i>: The function <tt>svm()</tt> from 
              <pkg>e1071</pkg> offers an interface to the LIBSVM library and
              package <pkg>kernlab</pkg> implements a flexible framework 
@@ -70,6 +82,15 @@
 	     learning algorithms). An interface to the SVMlight implementation
 	     (only for one-against-all classification) is provided in package
 	     <pkg>klaR</pkg>.</li>
+      <li><i>Bayesian Methods</i>: Bayesian Additive Regression Trees (BART),
+             where the final model is defined in terms of the sum over
+             many weak learners (not unlike ensemble methods), 
+             are implemented in package <pkg>BayesTree</pkg>. 
+             Bayesian nonstationary, semiparametric nonlinear regression 
+             and design by treed Gaussian processes including Bayesian CART and 
+             treed linear models are made available by package <pkg>tgp</pkg>.</li>
+      <li><i>Optimization using Genetic Algorithms</i> Packages <pkg>gafit</pkg> and
+             <pkg>rgenoud</pkg> offer optimization routines based on genetic algorithms. </li>
       <li><i>Association Rules</i>: Package
              <pkg>arules</pkg> provides both data structures for efficient
              handling of sparse binary data as well as interfaces to
@@ -84,7 +105,12 @@
              <pkg>svmpath</pkg>.
              Functions for ROC analysis and other visualisation techniques 
              for comparing candidate classifiers are available from package 
-             <pkg>ROCR</pkg>.</li>
+             <pkg>ROCR</pkg>.
+             Package <pkg>caret</pkg> provides miscellaneous functions for 
+             building predictive models, including parameter tuning and 
+             variable importance measures. The <pkg>caretLSF</pkg> and 
+             <pkg>caretNWS</pkg> packages provide parallel processing
+             implementations of <pkg>caret</pkg>.</li>
       <li><i>Elements of Statistical Learning</i>: Data sets, functions and
              examples from the book 
              <A HREF="http://www-stat.stanford.edu/~tibs/ElemStatLearn/">The Elements of Statistical Learning: Data Mining,
@@ -96,26 +122,38 @@
 
   <packagelist>
     <pkg>arules</pkg>
+    <pkg>BayesTree</pkg>
     <pkg>boost</pkg>
+    <pkg>caret</pkg>
+    <pkg>caretLSF</pkg>
+    <pkg>caretNWS</pkg>
     <pkg priority="core">e1071</pkg>
     <pkg>elasticnet</pkg>
     <pkg>ElemStatLearn</pkg>
+    <pkg>gafit</pkg>
+    <pkg>GAMBoost</pkg>
     <pkg priority="core">gbm</pkg>
+    <pkg>glmpath</pkg>
     <pkg>ipred</pkg>
     <pkg priority="core">kernlab</pkg>
     <pkg>klaR</pkg>
     <pkg>lars</pkg>
     <pkg>lasso2</pkg>
+    <pkg priority = "core">mboost</pkg>
     <pkg>mvpart</pkg>
     <pkg>pamr</pkg>
     <pkg>party</pkg>
+    <pkg>penalized</pkg>
     <pkg>ROCR</pkg>
     <pkg>rpart.permutation</pkg>
     <pkg priority="core">randomForest</pkg>
+    <pkg>rgenoud</pkg>
     <pkg priority="core">rpart</pkg>
     <pkg>RWeka</pkg>
     <pkg>svmpath</pkg>
+    <pkg>tgp</pkg>
     <pkg>tree</pkg>
+    <pkg>varSelRF</pkg>
     <pkg priority="core">VR</pkg>
   </packagelist>
 

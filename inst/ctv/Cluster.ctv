@@ -2,7 +2,8 @@
 
 <name>Cluster</name>
 <topic>Cluster Analysis &amp; Finite Mixture Models</topic>
-<maintainer>Friedrich Leisch and Bettina Gruen</maintainer>
+<maintainer email="Bettina.Gruen@wu-wien.ac.at">Friedrich Leisch and Bettina Gruen</maintainer>
+<version>2008-02-15</version>
   
 <info> This CRAN Task View contains a list of packages that can be
 used for finding groups in data and modelling unobserved
@@ -28,7 +29,9 @@ listed only once.
   </li>
   <li><pkg>pvclust</pkg> is a package for assessing the uncertainty in
   hierarchical cluster analysis. It provides approximately
-  unbiased p-values as well as boostrap p-values.</li>
+  unbiased p-values as well as bootstrap p-values.</li>
+  <li><pkg>hybridHclust</pkg> implements hybrid hierarchical
+  clustering via mutual clusters.</li>
 </ul>
 </p>
   
@@ -39,7 +42,7 @@ listed only once.
   for computing partitions with respect to
   Euclidean distance.</li>
   <li>Function <tt>pam()</tt> from package <pkg>cluster</pkg> implements
-  partitioning around medoids and can work with arbitray
+  partitioning around medoids and can work with arbitrary
   distances. Function <tt>clara()</tt> is a
   wrapper to <tt>pam()</tt> for larger data sets. Silhouette plots
   and spanning ellipses can be used for visualization.
@@ -49,12 +52,14 @@ listed only once.
   learning, neural gas and QT clustering. Neighborhood graphs and
   image plots of partitions are available for visualization.
   </li>
-</ul>
-</p>
+  <li>Package <pkg>trimcluster</pkg> provides trimmed k-means
+  clustering.</li>
+</ul> </p>
   
 <p><strong>Model-based Clustering:</strong>
 <ul>
-  <li>Package <pkg>mclust</pkg> fits mixtures of Gaussians using the EM
+  <li>Package <pkg>mclust</pkg> (and for backward compatibility
+  <pkg>mclust02</pkg>) fits mixtures of Gaussians using the EM
   algorithm. It allows fine control of volume and shape of
   covariance matrices and agglomerative hierarchical clustering
   based on maximum likelihood. It provides comprehensive strategies
@@ -66,16 +71,25 @@ listed only once.
   from the distances, and applying maximum likelihood Gaussian
   mixtures clustering to the MDS
   points.</li>
+  <li>Bayesian estimation of finite mixtures of multivariate Gaussians
+  is possible using package <pkg>bayesm</pkg>. The package provides
+  functionality for sampling from such a mixture as well as estimating
+  the model using Gibbs sampling. Additional functionality for
+  analyzing the MCMC chains is available for averaging
+  the moments over MCMC draws, for determining the marginal densities,
+  for clustering observations and for plotting the uni- and bivariate
+  marginal densities.</li>
   <li>Mixtures of univariate normal distributions can be printed
   and plotted using package <pkg>nor1mix</pkg>. Package
   <pkg>bayesmix</pkg> provides Bayesian estimation using
   JAGS. Bayesian estimation using a variational approach for
-  multivariate Gausian distributions with a diagonal covariance matrix
+  multivariate Gaussian distributions with a diagonal covariance matrix
   is provided by package <pkg>vabayelMix</pkg>. Robust estimation
   using Weighted Likelihood can be done with package
   <pkg>wle</pkg>.</li>
-</ul>
-</p>
+  <li>Package <pkg>MFDA</pkg> implements model-based functional data
+  analysis.</li>
+</ul> </p>
   
 <p><strong>Other Cluster Algorithms:</strong>
 <ul>
@@ -110,8 +124,6 @@ listed only once.
   using a general purpose optimization routine given linear and
   nonlinear constraints on the parameters.  
   </li>
-  <li>Circular and orthogonal regression clustering is available in
-  <pkg>edci</pkg>.</li>
   <li>Package <pkg>mixreg</pkg> fits mixtures of one-variable
   regressions and provides the bootstrap test for the number of
   components.
@@ -127,6 +139,11 @@ listed only once.
   may have one, two or three parameters. Covariates and concomitant
   variables can be specified as well as constraints for the
   parameters.</li>
+  <li><pkg>mixtools</pkg> provides fitting with the EM algorithm of
+  mixtures of multinomials, multivariate normals, normals with
+  repeated measures, Poisson regressions and Gaussian regressions
+  (with random effects) and with the Metropolis-Hastings algorithm of
+  mixtures of Gaussian regressions.</li>
 </ul>
 </p>
   
@@ -134,25 +151,29 @@ listed only once.
 
 <packagelist>
 <pkg>amap</pkg>
+<pkg>bayesm</pkg>
+<pkg>bayesmix</pkg>
 <pkg>cba</pkg>
 <pkg>clue</pkg>
 <pkg priority="core">cluster</pkg>
 <pkg>e1071</pkg>
-<pkg>edci</pkg>
 <pkg priority="core">flexclust</pkg>
 <pkg priority="core">flexmix</pkg>
 <pkg>fpc</pkg>
 <pkg>hopach</pkg>
+<pkg>hybridHclust</pkg>
 <pkg priority="core">mclust</pkg>
+<pkg>mixtools</pkg>
+<pkg>MFDA</pkg>
 <pkg>prabclus</pkg>
 <pkg>pvclust</pkg>
 <pkg>som</pkg>
 <pkg>nor1mix</pkg>
-<pkg>bayesmix</pkg>
 <pkg>depmix</pkg>
 <pkg>mixreg</pkg>
 <pkg>mmlcr</pkg>
 <pkg>moc</pkg>
+<pkg>trimcluster</pkg>
 <pkg>vabayelMix</pkg>
 <pkg>wle</pkg>
 </packagelist>
