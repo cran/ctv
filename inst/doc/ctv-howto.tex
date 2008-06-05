@@ -3,9 +3,10 @@
 \setlength{\parskip}{0.7ex plus0.1ex minus0.1ex}
 \setlength{\parindent}{0em}
 
+\usepackage{/usr/share/R/share/texmf/Sweave}
 \begin{document}
 
-\SweaveOpts{engine=R}
+
 %\VignetteIndexEntry{Writing CRAN Task Views}
 %\VignetteDepends{XML}
 %\VignetteKeywords{CRAN task views, repository, packages, installation}
@@ -106,11 +107,31 @@ This applies in particular if you need an umlaut in the \verb/<maintainer>/ fiel
 For a template of a \verb/.ctv/ file, look at the included \verb/Econometrics.ctv/.
 It can be read and printed by
 
-<<>>=
-library("ctv")
-x <- read.ctv(file.path(.find.package("ctv"), "ctv", "Econometrics.ctv"))
-x
-@
+\begin{Schunk}
+\begin{Sinput}
+> library("ctv")
+> x <- read.ctv(file.path(.find.package("ctv"), "ctv", "Econometrics.ctv"))
+> x
+\end{Sinput}
+\begin{Soutput}
+CRAN Task View
+--------------
+Name:       Econometrics
+Topic:      Computational Econometrics
+Maintainer: Achim Zeileis
+Contact:    Achim.Zeileis@R-project.org
+Version:    2008-05-15
+
+Packages:   AER, bayesm, betareg, bivpois, boot, bootstrap, car*, CDNmoney,
+            crq, Design, dlm, dse, dyn, dynlm, Ecdat, fCalendar, FinTS,
+            forecasting, Hmisc, ineq, its, lmtest*, Matrix, meboot, mFilter,
+            micEcon, mlogit, MNP, MSBVAR, nlme, np, plm, pscl, pwt, quantreg,
+            reldist, sampleSelection, sandwich*, sde, segmented, sem,
+            simpleboot, SparseM, strucchange, systemfit, tseries*, tsfa, urca*,
+            uroot, vars, VR, zoo*
+            (* = core package)
+\end{Soutput}
+\end{Schunk}
 
 The resulting object can be transformed into HTML by \verb/ctv2html(x)/.
 Once this view has been installed at a CRAN-style repository as

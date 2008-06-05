@@ -3,7 +3,7 @@
   <name>Finance</name>
   <topic>Empirical Finance</topic>
   <maintainer email="Dirk.Eddelbuettel@R-project.org">Dirk Eddelbuettel</maintainer>
-  <version>2008-02-21</version>
+  <version>2008-06-04</version>
   
   <info>
     <p>
@@ -28,12 +28,12 @@
     <strong>Standard regression models</strong>
     <ul>
       <li>Linear models such as ordinary least squares (OLS) can be estimated
-          by <tt>lm()</tt>
-          (from by the stats package contained in the basic R
+          by <code>lm()</code> (from by the stats package contained in the basic R
           distribution). Maximum Likelihood (ML) estimation can be undertaken
-          with the <tt>optim()</tt> function. Non-linear least squares can
-	  be estimated with the <tt>nls()</tt> function, as well as with
-	  <tt>nlme()</tt> from the <pkg>nlme</pkg> package. 
+          with the standard <code>optim()</code> function. Many other suitable methods
+          are listed in the <view>Optimization</view> view. Non-linear least squares can
+	  be estimated with the <code>nls()</code> function, as well as with
+	  <code>nlme()</code> from the <pkg>nlme</pkg> package. 
       </li>
       <li>For the linear model, a variety of regression diagnostic tests 
           are provided by the <pkg>car</pkg>, <pkg>lmtest</pkg>,
@@ -49,7 +49,7 @@
     <strong>Time series</strong>
     <ul>
       <li>Classical time series functionality is provided
-          by the <tt>arima()</tt> and <tt>KalmanLike()</tt>commands in the
+          by the <code>arima()</code> and <code>KalmanLike()</code>commands in the
           basic R distribution.  
       </li>
       <li>The <pkg>dse</pkg> packages provides a variety of more
@@ -59,9 +59,10 @@
           series. 
       </li>
       <li>For volatily modeling, the standard GARCH(1,1) model can be estimated with the 
-	  <tt>garch()</tt> function in the <pkg>tseries</pkg> package. 
+	  <code>garch()</code> function in the <pkg>tseries</pkg> package. 
           Rmetrisc (see below) contains the <pkg>fGarch</pkg> package which
-          has additional models.
+          has additional models.  The <pkg>bayesGARCH</pkg> can perform
+	  Bayesian estimation of a GARCH(1,1) model with Student's t innovations.
       </li>
       <li>The <pkg>realized</pkg> package contains functions to model and
           visualize 'realized' variance (from high-frequency sampling, as
@@ -101,6 +102,9 @@
       <li>
 	  The <pkg>forecasting</pkg> bundle adds functions and dataset for
           forecasting problems.
+      </li> 
+      <li>
+	  The <pkg>tsfa</pkg> provides functions for time series factor analysis.
       </li> 
     </ul>
     </p>
@@ -230,6 +234,7 @@
     <pkg>actuar</pkg>
     <pkg>ArDec</pkg>
     <pkg>backtest</pkg>
+    <pkg>bayesGARCH</pkg>
     <pkg>car</pkg>
     <pkg>copula</pkg>
     <pkg>CreditMetrics</pkg>
@@ -267,7 +272,6 @@
     <pkg>forecasting</pkg>
     <pkg>fracdiff</pkg>
     <pkg>FracSim</pkg>
-    <pkg priority="core">fSeries</pkg>
     <pkg>ghyp</pkg>
     <pkg>ismev</pkg>
     <pkg priority="core">its</pkg>    
@@ -294,6 +298,7 @@
     <pkg>tradeCosts</pkg>
     <pkg>tsDyn</pkg>
     <pkg>tseriesChaos</pkg>
+    <pkg>tsfa</pkg>
     <pkg>TTR</pkg>
     <pkg priority="core">urca</pkg>
     <pkg>uroot</pkg>
@@ -312,6 +317,7 @@
   <links>
     <view>Econometrics</view>
     <view>Multivariate</view>
+    <view>Optimization</view>
     <view>SocialSciences</view>
     <a href="http://www.rmetrics.org">Rmetrics contains a wealth of R code for Finance</a>
     <a href="http://www.quantlib.org">Quantlib is a C++ library for quantitative finance</a>

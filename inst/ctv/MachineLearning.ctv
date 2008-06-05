@@ -3,7 +3,7 @@
   <name>MachineLearning</name>
   <topic>Machine Learning &amp; Statistical Learning</topic>
   <maintainer email="Torsten.Hothorn@R-project.org">Torsten Hothorn</maintainer>
-  <version>$Date: 2008-02-18 18:19:21 +0100 (Mon, 18 Feb 2008) $</version>
+  <version>2008-04-28</version>
   
   <info>
     Several add-on packages implement ideas and methods developed at the
@@ -13,7 +13,7 @@
     The packages can be roughly structured into the following topics:
     <ul>
       <li><i>Neural Networks</i>: Single-hidden-layer neural network are 
-             implemented in package <tt>nnet</tt> as part of the <pkg>VR</pkg>
+             implemented in package nnet as part of the <pkg>VR</pkg>
              bundle (shipped with base R). </li>
       <li><i>Recursive Partitioning</i>: Tree-structured models for
              regression, classification and survival analysis, following the
@@ -28,18 +28,16 @@
              <br/>
              Two recursive partitioning algorithms with unbiased variable
              selection and statistical stopping criterion are implemented in 
-             package <pkg>party</pkg>. Function <tt>ctree()</tt> is based on 
+             package <pkg>party</pkg>. Function <code>ctree()</code> is based on 
              non-parametrical conditional inference procedures for testing 
              independence between response and each input variable whereas
-             <tt>mob()</tt> can be used to partition parametric models.
+             <code>mob()</code> can be used to partition parametric models.
              Extensible tools for visualizing binary trees
              and node distributions of the response are available in package
              <pkg>party</pkg> as well.
              <br/>
              An adaptation of <pkg>rpart</pkg> for multivariate responses
-             is available in package <pkg>mvpart</pkg>. The validity of
-             trees can be investigated via permutation approaches with package 
-             <pkg>rpart.permutation</pkg> and a tree algorithm fitting 
+             is available in package <pkg>mvpart</pkg>. A tree algorithm fitting 
              nearest neighbors in each node is implemented in package 
              <pkg>knnTree</pkg>. For problems with binary input variables
              the package <pkg>LogicReg</pkg> implements logic regression.
@@ -51,15 +49,16 @@
              package <pkg>randomForest</pkg>. Package <pkg>ipred</pkg> has bagging
              for regression, classification and survival analysis as well as
              bundling, a combination of multiple models via
-             ensemble learning. In addition, a random forest variant based on
+             ensemble learning. In addition, a random forest variant for
+             response variables measured at arbitrary scales based on
              conditional inference trees is implemented in package <pkg>party</pkg>.
+             <pkg>randomSurvivalForest</pkg> offers a random forest algorithm for
+             censored data.
              The <pkg>varSelRF</pkg> package focuses on variable selection by means
              for random forest algorithms.</li>
       <li><i>Regularized and Shrinkage Methods</i>: Regression models with some
              constraint on the parameter estimates can be fitted with the
-             <pkg>lasso2</pkg> and <pkg>lars</pkg> packages. The solutions
-             for all values of the shrinkage parameter can be simultaneously 
-             computed using the functionality in package <pkg>elasticnet</pkg>.
+             <pkg>lasso2</pkg> and <pkg>lars</pkg> packages. 
              The L1 regularization path for generalized linear models and
              Cox models can be obtained from functions available in package 
              <pkg>glmpath</pkg>. The <pkg>penalized</pkg> package provides
@@ -77,7 +76,7 @@
              by a boosting algorithm. An extensible boosting framework for
              generalized linear, additive and nonparametric models is available in
              package <pkg>mboost</pkg>.</li>
-      <li><i>Support Vector Machines</i>: The function <tt>svm()</tt> from 
+      <li><i>Support Vector Machines</i>: The function <code>svm()</code> from 
              <pkg>e1071</pkg> offers an interface to the LIBSVM library and
              package <pkg>kernlab</pkg> implements a flexible framework 
              for kernel learning (including SVMs, RVMs and other kernel
@@ -90,7 +89,11 @@
              are implemented in package <pkg>BayesTree</pkg>. 
              Bayesian nonstationary, semiparametric nonlinear regression 
              and design by treed Gaussian processes including Bayesian CART and 
-             treed linear models are made available by package <pkg>tgp</pkg>.</li>
+             treed linear models are made available by package <pkg>tgp</pkg>.
+             Bayesian logistic regression models that consider the high-order interactions
+             are available from package <pkg>BPHO</pkg> and Bayesian naive Bayes models 
+             for binary classification with bias corrected feature selection is implemented in
+             package <pkg>predbayescor</pkg>.</li>
       <li><i>Optimization using Genetic Algorithms</i> Packages <pkg>gafit</pkg> and
              <pkg>rgenoud</pkg> offer optimization routines based on genetic algorithms. </li>
       <li><i>Association Rules</i>: Package
@@ -100,8 +103,8 @@
              frequent itemsets, maximal frequent itemsets, closed 
              frequent itemsets and association rules.</li>
       <li><i>Model selection and validation</i>: Package <pkg>e1071</pkg>
-             has function <tt>tune()</tt> for hyper parameter tuning and 
-             function <tt>errorest()</tt> (<pkg>ipred</pkg>) can be used for
+             has function <code>tune()</code> for hyper parameter tuning and 
+             function <code>errorest()</code> (<pkg>ipred</pkg>) can be used for
              error rate estimation. The cost parameter C for support vector
              machines can be chosen utilizing the functionality of package
              <pkg>svmpath</pkg>.
@@ -126,11 +129,11 @@
     <pkg>arules</pkg>
     <pkg>BayesTree</pkg>
     <pkg>boost</pkg>
+    <pkg>BPHO</pkg>
     <pkg>caret</pkg>
     <pkg>caretLSF</pkg>
     <pkg>caretNWS</pkg>
     <pkg priority="core">e1071</pkg>
-    <pkg>elasticnet</pkg>
     <pkg>ElemStatLearn</pkg>
     <pkg>earth</pkg>
     <pkg>gafit</pkg>
@@ -147,9 +150,10 @@
     <pkg>pamr</pkg>
     <pkg>party</pkg>
     <pkg>penalized</pkg>
+    <pkg>predbayescor</pkg>
     <pkg>ROCR</pkg>
-    <pkg>rpart.permutation</pkg>
     <pkg priority="core">randomForest</pkg>
+    <pkg>randomSurvivalForest</pkg>
     <pkg>rgenoud</pkg>
     <pkg priority="core">rpart</pkg>
     <pkg>RWeka</pkg>
