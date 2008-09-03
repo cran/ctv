@@ -3,7 +3,7 @@
 <name>Optimization</name>
 <topic>Optimization and Mathematical Programming</topic>
 <maintainer email="Stefan.Theussl@wu-wien.ac.at">Stefan Theussl</maintainer>
-<version>2008-06-03</version>
+<version>2008-06-23</version>
 
 <info> 
   <p>This CRAN task view contains a list of packages which offer
@@ -124,10 +124,6 @@
   the list at the end of this task view.
 
   <ul>
-    <li>In the <pkg>boot</pkg> package there is a routine called 
-    <code>simplex()</code> which realizes the two-phase tableau simplex
-    method for (relatively small) linear programming problems. [LP]</li>
-
     <li>Package <pkg>linprog</pkg> solves linear programming problems using 
     the function <code>solveLP()</code> (the solver is based on 
     <pkg>lpSolve</pkg>) and can read model files in MPS
@@ -137,29 +133,38 @@
     quadratic programming problems  
     with linear equality and inequality constraints. [QP]</li>
 
-    <li><pkg>kernlab</pkg> contains the function <code>ipop</code> for
-    solving quadratic programming problems using interior point
-    methods. [IPM, QP] 
-    </li>
-    
     <li><pkg>BB</pkg> contains the function <code>spg()</code> providing a
     spectral projected gradient method for large scale optimization with
     simple constraints. It takes a nonlinear objective function as an
     argument as well as basic constraints. 
     </li>
 
-    <li>In package <a href="http://arumat.net/Rdonlp2/">Rdonlp2</a>function<code>donlp2()</code>, a wrapper for the DONLP2
-    solver, offers the minimization of smooth nonlinear functions and
-    constraints. DONLP2 can be used freely for any kind of research
-    purposes, otherwise it requires licensing. [GO, NLP]
-    </li>
+    <li>In the <pkg>boot</pkg> package there is a routine called 
+    <code>simplex()</code> which realizes the two-phase tableau simplex
+    method for (relatively small) linear programming problems. [LP]</li>
 
+    <li><pkg>kernlab</pkg> contains the function <code>ipop</code> for
+    solving quadratic programming problems using interior point
+    methods. [IPM, QP] 
+    </li>
+    
     <li><pkg>limSolve</pkg> offers to solve linear or quadratic
     optimization functions. [LP, QP]
     </li>
 
     <li><pkg>LowRankQP</pkg> primal/dual interior point method solving
     quadratic programming problems [IPM, QP]</li>
+
+    <li>Package <pkg>rcdd</pkg> offers the function <code>lpcdd()</code> 
+    for solving linear programs with exact arithmetic using the 
+    <a href="http://gmplib.org">GNU Multiple Precision (GMP)
+    </a> library. [LP]</li>
+
+    <li>In package <a href="http://arumat.net/Rdonlp2/">Rdonlp2</a>function<code>donlp2()</code>, a wrapper for the DONLP2
+    solver, offers the minimization of smooth nonlinear functions and
+    constraints. DONLP2 can be used freely for any kind of research
+    purposes, otherwise it requires licensing. [GO, NLP]
+    </li>
 
     <li>Package <forge>stoprog</forge> is a package for scenario
     generation procedures used in 
@@ -171,20 +176,22 @@
    
   <h3>Interfaces to Open Source Optimizers</h3> 
 
-  <ul>
-    <li>Package <pkg>lpSolve</pkg> contains the routine <code>lp()</code>
-    to solve LPs and MILPs by calling the freely available solver
-    <a href="http://lpsolve.sourceforge.net">lp_solve</a>. This solver
-    is based on the  
-    revised simplex method and a branch-and-bound (B&amp;B) approach. It
-    supports semi-continuous variables and Special Ordered Sets
-    (SOS). Furthermore <code>lp.assign()</code> and
-    <code>lp.transport()</code> are aimed at solving assignment problems and
-    transportation problems, respectively. Eventually a fairly new
-    package lp_solve (project <forge>lpsolve</forge>) is currently
-    under development on 
-    <a href="http://R-Forge.R-project.org/">R-Forge</a>. [BP, IP, LP, MILP,
-    SPLP]</li> 
+  <ul> 
+    <li>Package <pkg>lpSolve</pkg> contains the routine
+    <code>lp()</code> to solve LPs and MILPs by calling the freely
+    available solver <a
+    href="http://lpsolve.sourceforge.net">lp_solve</a>. This solver is
+    based on the revised simplex method and a branch-and-bound (B&amp;B)
+    approach. It supports semi-continuous variables and Special Ordered
+    Sets (SOS). Furthermore <code>lp.assign()</code> and
+    <code>lp.transport()</code> are aimed at solving assignment problems
+    and transportation problems, respectively. Additionally, there is the 
+    package <pkg>lpSolveAPI</pkg> which provides an R interface to the 
+    low level API routines of lp_solve (see also project 
+    <forge>lpsolve</forge> on 
+    <a href="http://R-Forge.R-project.org/">R-Forge</a>). 
+    <pkg>lpSolveAPI</pkg> supports reading linear programs from files in lp 
+    and MPS format. [BP, IP, LP, MILP, SPLP]</li> 
   
     <li>Package <pkg>glpk</pkg> as well as package <pkg>Rglpk</pkg>
     provide an interface to  
@@ -193,7 +200,7 @@
     provides high level access to  
     low level routines the latter offers a high level routine
     <code>Rglpk_solve_LP()</code> to solve  
-    MILPS using GLPK. 
+    MILPs using GLPK. 
     Both packages offer the possibility to use models formulated in the
     MPS format. [BP, IP, IPM, LP, MILP]</li> 
     <!--
@@ -346,8 +353,9 @@ steady-state and equilibrium analysis of ordinary differential equations.</li>
     <ul>
       <li>LP (Linear programming, 90C05): <pkg>boot</pkg>,
       <pkg>glpk</pkg>, <pkg>limSolve</pkg>, <pkg>linprog</pkg>,
-      <pkg>lpSolve</pkg>, <pkg>Rcplex</pkg>, <pkg>Rglpk</pkg>,
-      <pkg>Rsymphony</pkg>, <pkg>quantreg</pkg> </li>
+      <pkg>lpSolve</pkg>, <pkg>lpSolveAPI</pkg>, <pkg>rcdd</pkg>, 
+      <pkg>Rcplex</pkg>, 
+      <pkg>Rglpk</pkg>, <pkg>Rsymphony</pkg>, <pkg>quantreg</pkg> </li>
 <!--
       <li>LSP (Large-scale problems, 90C06): makes no sense to me here
 -->
@@ -355,17 +363,18 @@ steady-state and equilibrium analysis of ordinary differential equations.</li>
 
       <li>SPLP (Special problems of linear programming like transportation,
       multi-index, etc., 90C08): <pkg>clue</pkg>, <pkg>lpSolve</pkg>,
-      <pkg>optmatch</pkg>, <pkg>quantreg</pkg>, <pkg>TSP</pkg></li>
+      <pkg>lpSolveAPI</pkg>, <pkg>optmatch</pkg>, <pkg>quantreg</pkg>, <pkg>TSP</pkg></li>
    
-      <li>BP (Boolean programming, 90C09): <pkg>glpk</pkg>,
-      <pkg>lpSolve</pkg>, <pkg>Rcplex</pkg> </li>
+      <li>BP (Boolean programming, 90C09): <pkg>glpk</pkg>, <pkg>Rglpk</pkg>,
+      <pkg>lpSolve</pkg>, <pkg>lpSolveAPI</pkg>, <pkg>Rcplex</pkg> </li>
 
       <li>IP (Integer programming, 90C10): <pkg>glpk</pkg>,
-      <pkg>lpSolve</pkg>, <pkg>Rcplex</pkg>, <pkg>Rglpk</pkg>,
+      <pkg>lpSolve</pkg>, <pkg>lpSolveAPI</pkg>, <pkg>Rcplex</pkg>, <pkg>Rglpk</pkg>,
       <pkg>Rsymphony</pkg></li>
 
       <li>MIP (Mixed integer programming and its variants MILP for LP
       and MIQP for QP, 90C11):  <pkg>glpk</pkg>, <pkg>lpSolve</pkg>,
+      <pkg>lpSolveAPI</pkg>,
       <pkg>Rcplex</pkg>, <pkg>Rglpk</pkg>, <pkg>Rsymphony</pkg></li>
 
       <li>SP (Stochastic programming, 90C15): <forge>stoprog</forge>
@@ -443,10 +452,12 @@ steady-state and equilibrium analysis of ordinary differential equations.</li>
   <pkg>linprog</pkg>
   <pkg>LowRankQP</pkg>
   <pkg priority="core">lpSolve</pkg>
+  <pkg>lpSolveAPI</pkg>
   <pkg>maxLik</pkg>
   <pkg>optmatch</pkg>
   <pkg>quadprog</pkg>
   <pkg>quantreg</pkg>
+  <pkg>rcdd</pkg>
   <pkg>Rcplex</pkg>
   <pkg>rgenoud</pkg>
   <pkg>Rglpk</pkg>
