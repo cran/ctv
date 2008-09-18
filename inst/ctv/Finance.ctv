@@ -3,7 +3,7 @@
   <name>Finance</name>
   <topic>Empirical Finance</topic>
   <maintainer email="Dirk.Eddelbuettel@R-project.org">Dirk Eddelbuettel</maintainer>
-  <version>2008-06-04</version>
+  <version>2008-09-10</version>
   
   <info>
     <p>
@@ -63,6 +63,8 @@
           Rmetrisc (see below) contains the <pkg>fGarch</pkg> package which
           has additional models.  The <pkg>bayesGARCH</pkg> can perform
 	  Bayesian estimation of a GARCH(1,1) model with Student's t innovations.
+          The <pkg>ccgarch</pkg> ccgarch can estimate (multivariate) Conditional 
+          Correlation GARCH models.
       </li>
       <li>The <pkg>realized</pkg> package contains functions to model and
           visualize 'realized' variance (from high-frequency sampling, as
@@ -223,7 +225,10 @@
           financial centers, and provides code for high-frequency data sets.
       </li>
       <li>The <pkg>RBloomberg</pkg> package can access Bloomberg data (but
-	  requires a Bloomberg installations on a Windows PC).
+	  requires a Bloomberg installations on a Windows PC). The
+          <pkg>fame</pkg> package can access Fame time-series databases (but 
+	  also requires a Fame backend). The <pkg>tis</pkg> package provides 
+          time indices and time-indexed series compatible with Fame frequencies.
       </li>
     </ul>
     </p>
@@ -236,6 +241,7 @@
     <pkg>backtest</pkg>
     <pkg>bayesGARCH</pkg>
     <pkg>car</pkg>
+    <pkg>ccgarch</pkg>
     <pkg>copula</pkg>
     <pkg>CreditMetrics</pkg>
     <pkg>dlm</pkg>
@@ -246,6 +252,7 @@
     <pkg>evdbayes</pkg>
     <pkg>evir</pkg>
     <pkg>extRemes</pkg>
+    <pkg>fame</pkg>
     <pkg>fgac</pkg>
     <pkg>financial</pkg>
     <pkg priority="core">fArma</pkg>
@@ -305,6 +312,7 @@
     <pkg>VaR</pkg>
     <pkg>vars</pkg>
     <pkg>rwt</pkg> 
+    <pkg>tis</pkg> 
     <pkg>vrtest</pkg>
     <pkg>wavelets</pkg>
     <pkg>waveslim</pkg>

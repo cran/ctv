@@ -2,8 +2,8 @@
 
   <name>NaturalLanguageProcessing</name>
   <topic>Natural Language Processing</topic>
-  <maintainer email="fridolin.wild@wu-wien.ac.at">Ingo Feinerer and Fridolin Wild</maintainer>
-  <version>2008-04-18</version>
+  <maintainer email="Fridolin.Wild@wu-wien.ac.at">Ingo Feinerer and Fridolin Wild</maintainer>
+  <version>2008-09-16</version>
   
   <info>
       <p>This CRAN Task View contains a list of packages useful for
@@ -15,6 +15,24 @@
 	  lexical database of English.
 	</li>
       </ul>
+	  <h4>Keyword Extraction and General String Manipulation:</h4>
+	  <ul>
+	<li>R's base package already provides a rich set of character manipulation
+	routines. See <code>help.search(keyword = "character", package = "base")</code>
+	for more information on these capabilities.
+	</li>
+	<li><pkg>RKEA</pkg> provides an R interface to <a
+	  href="http://www.nzdl.org/Kea/">KEA</a> (Version 5.0). KEA (for
+	  Keyphrase Extraction Algorithm) allows for extracting keyphrases from
+	  text documents. It can be either used for free indexing or for indexing
+	  with a controlled vocabulary.
+	</li>
+	<li><pkg>gsubfn</pkg> can be used for certain parsing tasks such as 
+	  extracting words from strings by content rather than by delimiters.
+	  <code>demo("gsubfn-gries")</code> shows an example of this in a natural language 
+	  processing context.
+	</li>
+	  </ul>
       <h4>Natural Language Processing:</h4>
       <ul>
 	<li><pkg>openNLP</pkg> provides an R interface
@@ -113,6 +131,8 @@
     <pkg priority="core">tm</pkg>
     <pkg>wordnet</pkg>
     <pkg>zipfR</pkg>
+    <pkg>gsubfn</pkg>
+    <pkg>RKEA</pkg>
   </packagelist>
 
   <links>
