@@ -3,7 +3,7 @@
 <name>Psychometrics</name>
 <topic>Psychometric Models and Methods</topic>
 <maintainer email="Patrick.Mair@wu-wien.ac.at">Patrick Mair and Reinhold Hatzinger</maintainer>
-<version>2008-06-02</version>
+<version>2008-10-15</version>
 
 <info> Psychometrics is concerned with the design and analysis of research and
 the measurement of human characteristics. Psychometricians have also
@@ -93,10 +93,6 @@ should be mentioned here.
 <strong>Correspondence Analysis (CA):</strong>
 <ul>
   <li>
-    Simple and multiple correspondence analysis can be performed using <code>corresp()</code> and <code>mca()</code> in package
-    MASS (and in the corresponding bundle <pkg>VR</pkg>).
-  </li>
-  <li>
     The package <pkg>ca</pkg> comprises two parts, one for simple
     correspondence analysis and one for multiple and joint correspondence
     analysis.  Within each part, functions for computation, summaries and
@@ -116,9 +112,16 @@ should be mentioned here.
     in terms of transformation plots, Benzecri plots, and regression plots.
   </li>
   <li>
+  A GUI (Windows only) that allows the user to construct interactive Biplots is offered by the package <pkg>BiplotGUI</pkg>.
+  </li>
+  <li>
     Homogeneity analysis aka multiple CA and various Gifi extensions can be computed 
     by means of the <pkg>homals</pkg> package. Hull plots, span plots, Voronoi plots, star plots,
     projection plots and many others can be produced.
+  </li>
+  <li>
+    Simple and multiple correspondence analysis can be performed using <code>corresp()</code> and <code>mca()</code> in package
+    MASS (and in the corresponding bundle <pkg>VR</pkg>).
   </li>
   <li>
     The package <pkg>ade4</pkg> contains an extensive set of
@@ -128,13 +131,6 @@ should be mentioned here.
     href="http://www.bioconductor.org/" target="_top">Bioconductor </a> in
     the package <code>made4</code>  (see also
     <a href="http://bioinf.ucd.ie/people/aedin/R/" target="_top">here</a>).
-  </li>
-  <li>
-    The <pkg>PTAk</pkg> package provides a multiway method to decompose a
-    tensor (array) of any order, as a generalisation of SVD also supporting
-    non-identity metrics and penalisations. 2-way SVD with these extensions
-    is also available. Additionally, the package includes some other
-    multiway methods: PCAn (Tucker-n) and PARAFAC/CANDECOMP with extensions.
   </li>
   <li>
     The package <pkg>cocorresp</pkg> fits predictive and symmetric
@@ -225,6 +221,13 @@ should be mentioned here.
     implemented in a metric and nonmetric manner including primary, secondary, and tertiary approaches 
     for tie handling.
   </li>
+   <li>
+    The <pkg>PTAk</pkg> package provides a multiway method to decompose a
+    tensor (array) of any order, as a generalisation of SVD also supporting
+    non-identity metrics and penalisations. 2-way SVD with these extensions
+    is also available. Additionally, the package includes some other
+    multiway methods: PCAn (Tucker-n) and PARAFAC/CANDECOMP with extensions.
+  </li>
   <li>
     MASS (and the corresponding bundle <pkg>VR</pkg>) and stats provide
     functionalities for computing classical MDS using the <code>cmdscale()</code> function. Sammon mapping <code>sammon()</code>
@@ -251,6 +254,11 @@ should be mentioned here.
 <p>
 <strong>Classical Test Theory (CTT):</strong>
 <ul>
+  <li>
+    The <pkg>CTT</pkg> package can be used to perform a variety of tasks and analyses 
+    associated with classical test theory: score multiple-choice responses, perform reliability analyses, 
+    conduct item analyses, and transform scores onto different scales.
+  </li>
   <li>
     The package <pkg>psychometric</pkg> contains functions useful for correlation
     theory, meta-analysis (validity-generalization), reliability, item analysis,
@@ -307,11 +315,13 @@ should be mentioned here.
 <packagelist>
     <pkg priority="core">ade4</pkg>
     <pkg priority="core">anacor</pkg>
-    <pkg priority="core">BradleyTerry</pkg>
+    <pkg>BiplotGUI</pkg>
+    <pkg>BradleyTerry</pkg>
     <pkg priority="core">ca</pkg>
     <pkg>cfa</pkg>
     <pkg>cocorresp</pkg>
     <pkg>concord</pkg>
+    <pkg priority="core">CTT</pkg>
     <pkg>e1071</pkg>
     <pkg>eba</pkg>
     <pkg>ecodist</pkg>
@@ -365,8 +375,6 @@ should be mentioned here.
     <a href="http://www.jstatsoft.org/v20/" target="_top">Journal of Statistical Software Special Volume: Psychometrics in R</a>
     <a href="http://r-forge.r-project.org/projects/psychor/" target="_top">PsychoR project platform</a>
     <a href="http://gifi.stat.ucla.edu/psychoR/" target="_top">PsychoR snippets</a>
-    <a href="http://www.math.mcmaster.ca/peter/mix/mix.html" target="_top">MIX software for mixture distributions</a>
-    <a href="http://www.stat.ucla.edu/gifi/" target="_top">Albert Gifi: Nonlinear Multivariate Analysis</a>
 </links>
 
 </CRANTaskView>
