@@ -1,0 +1,394 @@
+<html>
+<head>
+  <title>CRAN Task View: High Performance and Parallel Computing</title>
+  <link rel=stylesheet type="text/css" href="../../R.css">
+</head>
+
+<body>
+  <h2>CRAN Task View: High Performance and Parallel Computing</h2>
+  <table>
+    <tr><td valign="top"><b>Maintainer:</b></td><td>Dirk Eddelbuettel</td></tr>
+    <tr><td valign="top"><b>Contact:</b></td><td>&#x44;&#x69;&#x72;&#x6b;&#x2e;&#x45;&#x64;&#x64;&#x65;&#x6c;&#x62;&#x75;&#x65;&#x74;&#x74;&#x65;&#x6c;&#x20;&#x61;&#x74;&#x20;&#x52;&#x2d;&#x70;&#x72;&#x6f;&#x6a;&#x65;&#x63;&#x74;&#x2e;&#x6f;&#x72;&#x67;</td></tr>
+    <tr><td valign="top"><b>Version:</b></td><td>2009-01-20</td></tr>
+  </table>
+
+    <p>
+      <p>
+        This CRAN task view contains a list of packages, grouped by topic, that
+      are useful for high-performance computing (HPC) with R.  In this context, we
+      are defining 'high-performance computing' rather loosely as just about anything
+      related to pushing R a littler further: using compiled code,
+      parallel computing (in both explicit and implicit modes), working with
+      large objects as well as profiling.
+      </p>
+      <p>
+        Unless otherwise mentioned, all packages presented with hyperlinks 
+      are available from CRAN, the
+      Comprehensive R Archive Network.
+      </p>
+      <p>
+        Several of the areas discussed in this Task View are undergoing rapid
+      change. Please send suggestions for additions and extensions for this task
+      view to the
+        <a href="mailto:Dirk.Eddelbuettel@R-project.org">
+          task view maintainer
+        </a>.
+      </p>
+      <p>
+        <strong>
+          Parallel computing: Explicit parallelism
+        </strong>
+        <ul>
+          <li>
+            Several packages provide the communications layer required for parallel
+        computing. The first packages in this area was
+<a href="../packages/rpvm/index.html">rpvm</a>
+            by Li and Rossini which uses the PVM (Parallel
+        Virtual Machine) standard and libraries.
+<a href="../packages/rpvm/index.html">rpvm</a>
+            is no
+        longer actively maintained.
+          </li>
+          <li>
+            In recent years, the
+        alternative MPI (Message Passing Interface) standard has become the
+        de facto standard in parallel computing. It is supported in R via
+  	the
+<a href="../packages/Rmpi/index.html">Rmpi</a>
+            by Yu.
+<a href="../packages/Rmpi/index.html">Rmpi</a>
+            is mature yet actively
+	maintained and offers access to numerous functions from the MPI
+	API, as well as a number of R-specific extensions.
+<a href="../packages/Rmpi/index.html">Rmpi</a>
+            can be used with the LAM, MPICH / MPICH2, Open MPI, and Deino MPI 
+        implementations.
+          </li>
+          <li>
+            An alternative is provided by the
+<a href="../packages/nws/index.html">nws</a>
+            (NetWorkSpaces)
+        packages from REvolution Computing.  It is the successor to the
+	earlier LindaSpaces approach to parallel computing, and is
+	implemented on top of the Twisted networking toolkit for Python.
+          </li>
+          <li>
+            The
+<a href="../packages/snow/index.html">snow</a>
+            (Simple Network of Workstations) package by
+        Tierney et al can use PVM, MPI, NWS as well as direct networking
+        sockets. It provides an abstraction layer by hiding the
+	communications details. The
+<a href="../packages/snowFT/index.html">snowFT</a>
+            package provides 
+        fault-tolerance extensions to
+<a href="../packages/snow/index.html">snow</a>, but is no longer
+        actively maintained.
+          </li>
+          <li>
+            The
+<a href="../packages/snowfall/index.html">snowfall</a>
+            package by Knaus provides a more recent
+	alternative to
+<a href="../packages/snow/index.html">snow</a>. It is however not yet at the same level of
+	maturity, and supports only the LAM implementation of the MPI
+        standard.
+          </li>
+          <li>
+            The
+<a href="../packages/papply/index.html">papply</a>
+            package by Currie provided a subset of the
+<a href="../packages/Rmpi/index.html">Rmpi</a>
+            functionality, but is no longer actively maintained either.
+          </li>
+          <li>
+            The
+<a href="../packages/biopara/index.html">biopara</a>
+            package by Lazar and Schoenfeld offers socket-based parallel
+        execution with some support for load-balancing and fault-tolerance.
+          </li>
+          <li>
+            The
+<a href="../packages/taskPR/index.html">taskPR</a>
+            package by Samatova et al builds on top of LAM MPI and offers 
+        parallel execution of tasks.
+          </li>
+        </ul>
+      </p>
+      <p>
+        <strong>
+          Parallel computing: Implicit parallelism
+        </strong>
+        <ul>
+          <li>
+            The pnmath package by Tierney uses the Open MP parallel
+        processing directives of recent compilers (such gcc 4.2 or later) for implicit
+        parallelism by replacing a number of internal R functions with
+        replacements that can make use of multiple cores --- without
+        any explicit requests from the user.  The alternate
+        pnmath0 package offers the same functionality using
+        Pthreads for environments in which the newer compilers are not
+        available.  Similar functionality is expected to become integrated
+    	into R 'eventually'.
+          </li>
+          <li>
+            The romp package was presented at the useR! 2008 conference and
+        offers another interface to Open MP using Fortran; this code is
+        still pre-alpha.
+          </li>
+          <li>
+            The
+<a href="../packages/fork/index.html">fork</a>
+            package provides R-equivalents to low-level Unix system functions
+        like fork, signal, wait, kill and exit in order to spawn
+        sub-processes for parallel execution.
+          </li>
+          <li>
+            The
+<a href="../packages/multicore/index.html">multicore</a>
+            package provides a way of running parallel
+        computations in R on machines with multiple cores or CPUs.
+          </li>
+          <li>
+            The R/parallel package offers a C++-based master-slave dispatch
+        mechanism for parallel execution.
+          </li>
+          <li>
+            The
+<a href="../packages/RScaLAPACK/index.html">RScaLAPACK</a>
+            provides an interface to the ScaLAPACK
+        libraries which can replace the standard BLAS libraries
+        and offer parallel execution of the same BLAS functions.
+            <comment>
+            </comment>
+          </li>
+        </ul>
+      </p>
+      <p>
+        <strong>
+          Parallel computing: Grid computing
+        </strong>
+        <ul>
+          <li>
+            The
+<a href="../packages/gridR/index.html">gridR</a>
+            package by Wegener et al can be used in a grid computing
+        environment via a web service, via ssh or via Condor or Globus.
+          </li>
+          <li>
+            The multiR package was presented at useR! 2008 but has not been
+        released. It may offer a snow-style framework on a grid computing platform.
+          </li>
+          <li>
+            The Biocep-R project offers a Java-based framework for local, Grid,
+        or Cloud computing. It is under active development.
+          </li>
+        </ul>
+      </p>
+      <p>
+        <strong>
+          Parallel computing: Random numbers
+        </strong>
+        <ul>
+          <li>
+            Random-number generators for parallel computing are available via
+        the
+<a href="../packages/sprng/index.html">sprng</a>
+            and
+<a href="../packages/lecuyer/index.html">lecuyer</a>
+            packages.
+          </li>
+        </ul>
+      </p>
+      <p>
+        <strong>
+          Parallel computing: Resource managers and batch schedulers
+        </strong>
+        <ul>
+          <li>
+            Job-scheduling toolkits permit management of
+	parallel computing resources and tasks.  The slurm (Simple Linux
+        Utility for Resource Management) set of programs (written by a
+        consortium led by Lawrence Livermore Labs) works well with
+        MPI.
+          </li>
+          <li>
+            The Condor toolkit from the University of Wisconsin-Madison
+        has been used with R.
+          </li>
+          <li>
+            The
+<a href="../packages/sfCluster/index.html">sfCluster</a>
+            package can be used
+        with
+<a href="../packages/snowfall/index.html">snowfall</a>.
+          </li>
+          <li>
+            The
+<a href="../packages/Rsge/index.html">Rsge</a>
+            package offers an interface to the Sun Grid
+        Engine batch-queuing system.
+          </li>
+          <comment>
+          </comment>
+        </ul>
+      </p>
+      <p>
+        <strong>
+          Large memory and out-of-memory data
+        </strong>
+        <ul>
+          <li>
+            The
+<a href="../packages/biglm/index.html">biglm</a>
+            package uses incremental computations to
+        offers
+<tt>lm()</tt>
+            and
+<tt>glm()</tt>
+            functionality to 
+        data sets stored outside of R's main memory.
+          </li>
+          <li>
+            The
+<a href="../packages/ff/index.html">ff</a>
+            package offers file-based access to data sets
+        that are too large to be loaded into memory, along with a number of
+        higher-level functions.
+          </li>
+          <li>
+            The
+<a href="../packages/bigmemory/index.html">bigmemory</a>
+            packages permits storing large objects such
+        as matrices in memory and uses external pointer objects to refer to
+        them.  This permits transparent access from R without bumping
+        against R's internal memory limits.  Several R processes on the
+        same computer can also shared big memory objects.
+          </li>
+          <li>
+            A large number of database packages, and database-alike packages
+        (such as
+<a href="../packages/sqldf/index.html">sqldf</a>) are also of potential interest but not (yet?)
+        reviewed here.
+          </li>
+        </ul>
+      </p>
+      <p>
+        <strong>
+          Easier interfaces for Compiled code
+        </strong>
+        <ul>
+          <li>
+            The
+<a href="../packages/inline/index.html">inline</a>
+            eases adding code in C, C++ or Fortran to R. It
+	takes care of the compilation, linking and loading of embeded code
+	segments that are stored as R strings.
+          </li>
+          <li>
+            The
+<a href="../packages/Rcpp/index.html">Rcpp</a>
+            package offers a number of C++ clases that makes
+	transferring R objects to C++ functions (and back) easier.
+          </li>
+          <li>
+            The
+<a href="../packages/rJava/index.html">rJava</a>
+            package provides a low-level interface to Java
+	similar to the
+<tt>.Call()</tt>
+            interface for C and C++.
+          </li>
+          <comment>
+          </comment>
+          <comment>
+          </comment>
+          <comment>
+          </comment>
+          <comment>
+          </comment>
+        </ul>
+      </p>
+      <p>
+        <strong>
+          Profiling tools
+        </strong>
+        <ul>
+          <li>
+            The
+<a href="../packages/profr/index.html">profr</a>
+            package can visualize output from
+	the
+<tt>Rprof</tt>
+            interface for profiling.
+          </li>
+          <li>
+            The
+<a href="../packages/proftools/index.html">proftools</a>
+            package can be used to analyse profiling output.
+          </li>
+        </ul>
+      </p>
+    </p>
+
+  <h3>CRAN packages:</h3>
+  <ul>
+    <li><a href="../packages/biglm/index.html">biglm</a></li>
+    <li><a href="../packages/bigmemory/index.html">bigmemory</a></li>
+    <li><a href="../packages/biopara/index.html">biopara</a></li>
+    <li><a href="../packages/ff/index.html">ff</a></li>
+    <li><a href="../packages/fork/index.html">fork</a></li>
+    <li><a href="../packages/gridR/index.html">gridR</a></li>
+    <li><a href="../packages/inline/index.html">inline</a></li>
+    <li><a href="../packages/multicore/index.html">multicore</a></li>
+    <li><a href="../packages/nws/index.html">nws</a></li>
+    <li><a href="../packages/papply/index.html">papply</a></li>
+    <li><a href="../packages/profr/index.html">profr</a></li>
+    <li><a href="../packages/proftools/index.html">proftools</a></li>
+    <li><a href="../packages/Rcpp/index.html">Rcpp</a></li>
+    <li><a href="../packages/Rmpi/index.html">Rmpi</a> (core)</li>
+    <li><a href="../packages/rpvm/index.html">rpvm</a></li>
+    <li><a href="../packages/rsprng/index.html">rsprng</a></li>
+    <li><a href="../packages/sfCluster/index.html">sfCluster</a></li>
+    <li><a href="../packages/snow/index.html">snow</a> (core)</li>
+    <li><a href="../packages/snowfall/index.html">snowfall</a></li>
+    <li><a href="../packages/snowFT/index.html">snowFT</a></li>
+    <li><a href="../packages/taskPR/index.html">taskPR</a></li>
+  </ul>
+
+  <h3>Related links:</h3>
+  <ul>
+    <li><a href="http://www.stat.uiowa.edu/~luke/classes/295-hpc/">
+  HPC computing notes by Luke Tierney for HPC class at University of Iowa
+</a></li>
+    <li><a href="https://stat.ethz.ch/pipermail/R-SIG-HPC/">
+  Mailing List: R Special Interest Group High Performance Computing
+</a></li>
+    <li><a href="http://www.stat.uiowa.edu/~luke/R/experimental/">
+  Luke Tierney's code directory for pnmath and pnmath0
+</a></li>
+    <li><a href="http://code.google.com/p/romp/">
+  Google Code: romp (OpenMP Binding for R)
+</a></li>
+    <li><a href="http://biocep-distrib.r-forge.r-project.org/">
+  R-Forge: Biocep-R (Statistical Tools for the Cloud Computing Age)
+</a></li>
+    <li><a href="https://computing.llnl.gov/linux/slurm/">
+  Slurm project at Lawrence Livermore National Laboratory
+</a></li>
+    <li><a href="http://www.cs.wisc.edu/condor/">
+  Condor project at University of Wisconsin-Madison
+</a></li>
+    <li><a href="http://en.wikipedia.org/wiki/Message_Passing_Interface">
+  Wikipedia: Message Passing Interface (MPI)
+</a></li>
+    <li><a href="http://en.wikipedia.org/wiki/Parallel_Virtual_Machine">
+  Wikipedia: Parallel Virtual Machine (PVM)
+</a></li>
+    <li><a href="http://dirk.eddelbuettel.com/papers/bocDec2008introHPCwithR.pdf">
+  Slides from Introduction to High-Performance Computing with R tutorial / workshop presentation
+</a></li>
+  </ul>
+
+</body>
+</html>
