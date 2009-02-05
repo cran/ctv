@@ -3,7 +3,7 @@
   <name>MachineLearning</name>
   <topic>Machine Learning &amp; Statistical Learning</topic>
   <maintainer email="Torsten.Hothorn@R-project.org">Torsten Hothorn</maintainer>
-  <version>2008-12-22</version>
+  <version>2009-01-24</version>
   
   <info>
     Several add-on packages implement ideas and methods developed at the
@@ -122,11 +122,10 @@
              Functions for ROC analysis and other visualisation techniques 
              for comparing candidate classifiers are available from package 
              <pkg>ROCR</pkg>.
-             Package <pkg>caret</pkg> provides miscellaneous functions for 
-             building predictive models, including parameter tuning and 
-             variable importance measures. The <pkg>caretLSF</pkg> and 
-             <pkg>caretNWS</pkg> packages provide parallel processing
-             implementations of <pkg>caret</pkg>.</li>
+             Package <pkg>caret</pkg> provides miscellaneous functions 
+             for building predictive models, including parameter tuning 
+             and  variable importance measures. The package can be used 
+             with various parallel implementations (e.g. MPI, NWS etc).</li>
       <li><i>Elements of Statistical Learning</i>: Data sets, functions and
              examples from the book 
              <A HREF="http://www-stat.stanford.edu/~tibs/ElemStatLearn/">The Elements of Statistical Learning: Data Mining,
@@ -142,8 +141,6 @@
     <pkg>boost</pkg>
     <pkg>BPHO</pkg>
     <pkg>caret</pkg>
-    <pkg>caretLSF</pkg>
-    <pkg>caretNWS</pkg>
     <pkg>CoxBoost</pkg>
     <pkg priority="core">e1071</pkg>
     <pkg>ElemStatLearn</pkg>
