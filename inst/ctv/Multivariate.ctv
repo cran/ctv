@@ -3,7 +3,7 @@
   <name>Multivariate</name>
   <topic>Multivariate Statistics</topic>
   <maintainer email="Paul.Hewson@plymouth.ac.uk">Paul Hewson</maintainer>
-  <version>2008-05-09</version>
+  <version>2009-05-19</version>
   
   <info>
     <p>Base R contains most of the functionality for classical multivariate analysis,
@@ -56,8 +56,6 @@
           assist with descriptive functions; from the same package <code>varclus()</code> offers variable 
           clustering while <code>dataRep()</code> and <code>find.matches()</code> assist in exploring a given 
           dataset in terms of representativeness and finding matches.  
-          <pkg>knnFinder</pkg> provides <code>nn()</code> which uses a kd-tree to (quickly) find a 
-          given number of similar variables using using k-nearest neighbours,
          <pkg>dprep</pkg> provides preprocessing and visualization functions specifically for 
          classification such as checking for variable redundancy, performing a range of 
          normalisations.   Whilst <code>dist()</code> in base and <code>daisy()</code> in <pkg>cluster</pkg> provide a wide range of distance measures, <pkg>proxy</pkg> provides a framework for more distance measures, including measures between matrices. <pkg>simba</pkg> provides functions for dealing with presence / absence data including similarity matrices and reshaping.</li></ul>
@@ -152,8 +150,8 @@
           
          <li><i>Independent Components:</i> <pkg>fastICA</pkg> provides fastICA 
          algorithms to perform independent
-	  component analysis (ICA) and Projection Pursuit, <pkg>mlica</pkg> provides
-	  maximum likelihood fitting for ICA, and <pkg>PearsonICA</pkg> uses score functions.   <pkg>ICS</pkg> provides either an invariant co-ordinate system or independent components.   <pkg>JADE</pkg> adds an interface to the JADE algorithm, as well as providing some diagnostics for ICA.</li>
+	  component analysis (ICA) and Projection Pursuit, and <pkg>PearsonICA</pkg>
+	  uses score functions.   <pkg>ICS</pkg> provides either an invariant co-ordinate system or independent components.   <pkg>JADE</pkg> adds an interface to the JADE algorithm, as well as providing some diagnostics for ICA.</li>
 
          <li><i>Procrustes analysis:</i>  <code>procrustes()</code> in
 	  <pkg>vegan</pkg> provides procrustes analysis, this package also provides functions
@@ -203,8 +201,7 @@
 	  dimension reduction with the classification. <pkg>klaR</pkg> includes variable
 	  selection and robustness against multicollinearity as well as a number of
 	  visualisation routines. <pkg>superpc</pkg> provides principal components for
-	  supervised classification, whereas <pkg>classPP</pkg> provides projection pursuit
-	  for supervised classification and <pkg>gpls</pkg> provides classification using
+	  supervised classification, whereas <pkg>gpls</pkg> provides classification using
 	  generalised partial least squares.  <pkg>hddplot</pkg> provides cross-validated linear discriminant calculations to determine the optimum number of features.   <pkg>supclust</pkg> relates to supervised
 	  clustering of genes.  <pkg>ROCR</pkg> provides a range of methods for assessing classifier performance.   <pkg>predbayescor</pkg> provides naive Bayes classification.
         Further information on supervised classification can be found in 
@@ -232,7 +229,7 @@
 	  categorical and continuous data. <pkg>pan</pkg> provides multiple imputation for
 	  missing panel data.  <pkg>VIM</pkg> provides methods for the visualisation as well as imputation of missing data.    <code>aregImpute()</code> and <code>transcan()</code> from
           <pkg>Hmisc</pkg> provide further imputation methods.   
-          <pkg>EMV</pkg> provides knn methods for missing data. <pkg>monomvn</pkg> deals with estimation models where the missing data pattern is monotone. </li></ul>
+	  <pkg>monomvn</pkg> deals with estimation models where the missing data pattern is monotone. </li></ul>
      
           <p><strong>Latent variable approaches</strong></p>
           <ul><li><code>factanal()</code> in stats provides factor analysis by maximum
@@ -282,7 +279,6 @@
     <pkg>cat</pkg> 
     <pkg>chplot</pkg>
     <pkg>cwhmisc</pkg>
-    <pkg>classPP</pkg> 
     <pkg>clue</pkg> 
     <pkg priority="core">cluster</pkg> 
     <pkg>clusterGeneration</pkg>
@@ -307,7 +303,6 @@
     <pkg>e1071</pkg>
     <pkg>earth</pkg>  
     <pkg>ellipse</pkg> 
-    <pkg>EMV</pkg>
     <pkg>energy</pkg>
     <pkg>eRm</pkg> 
     <pkg>FactoMineR</pkg>   
@@ -340,7 +335,6 @@
     <pkg>kknn</pkg>
     <pkg>klaR</pkg>
     <pkg>knncat</pkg>
-    <pkg>knnFinder</pkg> 
     <pkg>kohonen</pkg>  
     <pkg>ks</pkg>
     <pkg>lattice</pkg>
@@ -358,7 +352,6 @@
     <pkg>mitools</pkg>
     <pkg>mix</pkg>
     <pkg>mlCopulaSelection</pkg>  
-    <pkg>mlica</pkg>
     <pkg>monomvn</pkg> 
     <pkg>mnormt</pkg>  
     <pkg>MNP</pkg>

@@ -89,6 +89,8 @@ read.ctv <- function(file)
     return(rval)
   }
   newlineSub <- function(x) {
+  ## FIXME: This returns latin1 in a latin1 locale even if
+  ## the input was UTF-8
     for(i in c(":", ",", ";", ")", ".", "?", "!"))
       x <- gsub(paste("\n[ ]*\\", i, sep = ""), i, x)
     x <- gsub("(\n<a", "(<a", x, extended = FALSE)
@@ -275,13 +277,13 @@ repos_update_views <- function(repos = ".",
 	       x[1], ".html\">", x[1], "</a></td>\n    <td>", gsub("&", "&amp;", x[2]), "</td>\n  </tr>", sep = "")),
 	     "</table>",
 	     "",
-             "<p>To automatically install these views, the ctv package needs to be installed, e.g., via<br>",
-	     "   <tt>install.packages(\"ctv\")</tt><br>",
-	     "   <tt>library(\"ctv\")</tt><br>",
+             "<p>To automatically install these views, the ctv package needs to be installed, e.g., via<br />",
+	     "   <tt>install.packages(\"ctv\")</tt><br />",
+	     "   <tt>library(\"ctv\")</tt><br />",
 	     "   and then the views can be installed via <tt>install.views</tt> or <tt>update.views</tt>",	     
-	     "   (which first assesses which of the packages are already installed and up-to-date), e.g.,<br>",
-	     "   <tt>install.views(\"Econometrics\")</tt><br>",
-	     "   or<br>",
+	     "   (which first assesses which of the packages are already installed and up-to-date), e.g.,<br />",
+	     "   <tt>install.views(\"Econometrics\")</tt><br />",
+	     "   or<br />",
 	     "   <tt>update.views(\"Econometrics\")</tt></p>",
 	     "",
 	     "</body>",

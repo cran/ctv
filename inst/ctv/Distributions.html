@@ -1,0 +1,963 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <title>CRAN Task View: Probability Distributions</title>
+  <link rel=stylesheet type="text/css" href="../CRAN_web.css" />
+</head>
+
+<body>
+  <h2>CRAN Task View: Probability Distributions</h2>
+  <table summary="Distributions task view information">
+    <tr><td valign="top"><b>Maintainer:</b></td><td>Christophe Dutang</td></tr>
+    <tr><td valign="top"><b>Contact:</b></td><td>&#x43;&#x68;&#x72;&#x69;&#x73;&#x74;&#x6f;&#x70;&#x68;&#x65;&#x2e;&#x44;&#x75;&#x74;&#x61;&#x6e;&#x67;&#x20;&#x61;&#x74;&#x20;&#x65;&#x6e;&#x73;&#x69;&#x6d;&#x61;&#x67;&#x2e;&#x66;&#x72;</td></tr>
+    <tr><td valign="top"><b>Version:</b></td><td>2009-03-31</td></tr>
+  </table>
+
+    <div>
+      For most of the classical distributions, base R provides
+probability distribution functions (p), density functions (d), quantile functions
+(q), and random number generation (r).
+Beyond this basic functionality, many CRAN packages provide
+additional useful distributions. In particular, multivariate distributions as well as copulas
+are available in contributed packages. 
+
+Ultimate bibles on probability distributions are
+      <UL>
+        <LI>
+          Continuous univariate distributions by N. L. Johnson, S. Kotz and N. Balakrishnan,
+        </LI>
+        <LI>
+          Thesaurus of univariate discrete probability distributions by G. Wimmer and G. Altmann.
+        </LI>
+      </UL>
+      The maintainer greatfully acknowledged Achim Zeileis, David Lüthi, Tobias Verbeke, Robin
+Hankin, Mathias Kohl, G. Jay Kerns for their useful comments/suggestions.
+
+If you think information is not accurate
+or not complete, please let me know.
+      <p>
+        <strong>
+          Base functionality:
+        </strong>
+      </p>
+      <ul>
+        <li>
+          Base R provides probability distribution functions
+<tt>p</tt>
+          <i>
+            foo
+          </i>
+<tt>()</tt>
+          density functions
+<tt>d</tt>
+          <i>
+            foo
+          </i>
+<tt>()</tt>, quantile functions
+<tt>q</tt>
+          <i>
+            foo
+          </i>
+<tt>()</tt>, and random number generation
+<tt>r</tt>
+          <i>
+            foo
+          </i>
+<tt>()</tt>
+          where
+          <i>
+            foo
+          </i>
+          indicates the type
+     of distribution:
+     beta  (
+          <i>
+            foo
+          </i>
+          =
+<tt>beta</tt>),
+     binomial
+<tt>binom</tt>,
+     Cauchy
+<tt>cauchy</tt>,
+     chi-squared
+<tt>chisq</tt>,
+     exponential
+<tt>exp</tt>,
+     Fisher F
+<tt>f</tt>,
+     gamma
+<tt>gamma</tt>,
+     geometric
+<tt>geom</tt>,
+     hypergeometric
+<tt>hyper</tt>,
+     logistic
+<tt>logis</tt>,
+     lognormal
+<tt>lnorm</tt>,
+     negative binomial
+<tt>nbinom</tt>,
+     normal
+<tt>norm</tt>,
+     Poisson
+<tt>pois</tt>,
+     Student t
+<tt>t</tt>,
+     uniform
+<tt>unif</tt>,
+     Weibull
+<tt>weibull</tt>. 
+     Following the same naming scheme, but somewhat less standard are the following distributions
+     in base R: probabilities of coincidences (also known as "birthday paradox")
+<tt>birthday</tt>
+          (only p and q), studentized range distribution
+<tt>tukey</tt>
+          (only p and q), Wilcoxon signed rank distribution
+<tt>signrank</tt>, Wilcoxon
+     rank sum distribution
+<tt>wilcox</tt>.
+        </li>
+        <li>
+          On base R distributions,
+<a href="../packages/prob/index.html">prob</a>
+          provides the characteristic function, while
+<a href="../packages/actuar/index.html">actuar</a>
+          implements moments, limited expected values and moment generating 
+    function.
+        </li>
+      </ul>
+      <p>
+        <strong>
+          Discrete distributions:
+        </strong>
+      </p>
+      <UL>
+        <LI>
+          <I>
+            Basic distributions
+          </I>: The binomial distribution (in particular 
+	    Bernoulli distribution) is already implemented in base R.
+	    The discrete uniform
+	    distribution can be easily obtained with the basic functions.
+	    Dirac distribution is provided by
+<a href="../packages/distr/index.html">distr</a>. Truncated versions of
+	    the binomial and Poisson distributions as well as zero-inflated
+	    versions of the binomial, Poisson and negative binomial distributions 
+	    are implemented in
+<a href="../packages/VGAM/index.html">VGAM</a>.
+        </LI>
+        <LI>
+          <I>
+            Conway-Maxwell-Poisson distribution
+          </I>: This can be found in
+<a href="../packages/compoisson/index.html">compoisson</a>.
+        </LI>
+        <LI>
+          <I>
+            Hypergeometric distributions
+          </I>: Extented hypergeometric distribution
+	    can be found in
+<a href="../packages/BiasedUrn/index.html">BiasedUrn</a>
+          package, which provides
+	    not only p, d, q, r functions but also mean, variance, mode functions.
+        </LI>
+        <LI>
+          <I>
+            Triangle distribution
+          </I>: The discrete triangle distribution can be found in
+<a href="../packages/TRIANG/index.html">TRIANG</a>.
+        </LI>
+        <LI>
+          <I>
+            Zipf law
+          </I>: Package
+<a href="../packages/zipfR/index.html">zipfR</a>
+          provides tools for the Zipf and
+	    the Zipf-Mandelbrot distributions.
+<a href="../packages/VGAM/index.html">VGAM</a>
+          also implements the Zipf distribution.
+        </LI>
+        <LI>
+          <I>
+            Further distributions
+          </I>: The
+<a href="../packages/VGAM/index.html">VGAM</a>
+          package provides several
+	    additional distributions, namely: Logarithmic,
+	    Skellam, Yule-Simon, Zeta and Haight's Zeta, Borel-Tanner and
+	    Felix distribution.
+        </LI>
+      </UL>
+      <p>
+        <strong>
+          Continuous distributions:
+        </strong>
+      </p>
+      <UL>
+        <LI>
+          <I>
+            Arcsine distribution
+          </I>: implemented in package
+<a href="../packages/distr/index.html">distr</a>.
+        </LI>
+        <LI>
+          <I>
+            Beta distribution and its extensions
+          </I>: Base R provides
+     the d, p, q, r functions for this distribution (see above).
+<a href="../packages/actuar/index.html">actuar</a>
+          provides moments and limited expected values.
+     It also provide the d, p, q, r functions for the generalized beta and
+     the inverse tranformed beta distribution. The
+     beta of the second kind and the generalized beta distribution 
+     can be found in
+<a href="../packages/VGAM/index.html">VGAM</a>. Several special cases of
+     the generalized beta distribution are also implemented in
+<a href="../packages/VGAM/index.html">VGAM</a>:
+     Lomax, inverse Lomax, Dagum, Fisk (aka log logistic), (inverse or not) 
+     paralogistic and Singh-Maddala distribution.
+        </LI>
+        <LI>
+          <I>
+            Benini distribution
+          </I>: Provided in
+<a href="../packages/VGAM/index.html">VGAM</a>.
+        </LI>
+        <LI>
+          <I>
+            Birnbaum-Saunders distribution
+          </I>: Provided in packages
+<a href="../packages/bs/index.html">bs</a>
+          and
+<a href="../packages/VGAM/index.html">VGAM</a>. The generalized Birnbaum-Saunders distribution is implemented in
+<a href="../packages/gbs/index.html">gbs</a>.
+        </LI>
+        <LI>
+          <I>
+            Cardioid distribution
+          </I>: Provided in
+<a href="../packages/VGAM/index.html">VGAM</a>.
+        </LI>
+        <LI>
+          <I>
+            Cauchy distribution
+          </I>: Base R provides
+     the d, p, q, r functions for this distribution (see above). Another
+     implementation is available in
+<a href="../packages/lmomco/index.html">lmomco</a>.
+        </LI>
+        <LI>
+          <I>
+            Chi(-squared or not) distributions
+          </I>: Base R provides
+     the d, p, q, r functions for this distribution (see above). Moments, limited
+     expected values and the moment generating function are provided by
+<a href="../packages/actuar/index.html">actuar</a>.
+     Only d,r functions are available for the inverse chi-squared distribution
+     by package
+<a href="../packages/geoR/index.html">geoR</a>. The Chi
+     distribution and the non-central Chi distribution are not yet implemented.
+        </LI>
+        <LI>
+          <I>
+            Davies distribution
+          </I>: The Davies distribution is provided
+     in
+<a href="../packages/Davies/index.html">Davies</a>
+          package.
+        </LI>
+        <LI>
+          <I>
+            Dirichlet distribution
+          </I>: functions d, r
+	    are provided in
+<a href="../packages/MCMCpack/index.html">MCMCpack</a>
+          and
+<a href="../packages/bayesm/index.html">bayesm</a>.
+        </LI>
+        <LI>
+          <I>
+            Exponential distribution and its extensions
+          </I>: Base R provides the d, p, q, r functions
+     for this distribution (see above).
+<a href="../packages/actuar/index.html">actuar</a>
+          provides additional functions
+     such as the moment generating function, moments and limited expected values. It also has
+     the d, p, q, r for the inverse exponential distribution. The shifted exponential distribution
+     is implemented in
+<a href="../packages/lmomco/index.html">lmomco</a>
+          package with d, p, q, r functions.
+        </LI>
+        <LI>
+          <I>
+            Frechet distribution
+          </I>: Provided in
+<a href="../packages/VGAM/index.html">VGAM</a>
+          and
+<a href="../packages/evd/index.html">evd</a>.
+        </LI>
+        <LI>
+          <I>
+            Gamma distribution and its extensions
+          </I>: Base R provides
+     the d, p, q, r functions for this distribution (see above).
+<a href="../packages/actuar/index.html">actuar</a>
+          provides d, p, q, r functions for the inverse, the inverse
+     transformed and the log gamma distributions
+     while
+<a href="../packages/ghyp/index.html">ghyp</a>
+          provides those functions for the variance gamma distribution.
+<a href="../packages/VGAM/index.html">VGAM</a>
+          provides d, p, q, r functions of the log
+     gamma and the generalized gamma distribution.
+        </LI>
+        <LI>
+          <I>
+            Gaussian (or normal) distribution and its extensions
+          </I>: Base R provides
+     the d, p, q, r functions for this distribution (see above).
+<a href="../packages/actuar/index.html">actuar</a>
+          provides the moment generating function and moments.
+<a href="../packages/ghyp/index.html">ghyp</a>
+          package
+     provides d, p, q, r functions for the raw and the generalized inverse gaussian distribution, in the
+     context of the generalized hyperbolic distribution.
+<a href="../packages/SuppDists/index.html">SuppDists</a>
+          provides functions for the inverse Gaussian distribution as well and furthermore includes functions
+     for computing moments, skewness, kurtosis.
+<a href="../packages/VGAM/index.html">VGAM</a>
+          also implements
+     the folded and the skewed normal distribution, the inverse gaussian distribution.
+<a href="../packages/lmomco/index.html">lmomco</a>
+          implements 
+     the generalized normal distribution. The log normal distribution is implemented
+     in Base R (see above). 
+     Finally, the multivariate Gaussian distribution
+     is provided by the packages
+<a href="../packages/mvtnorm/index.html">mvtnorm</a>
+          and
+<a href="../packages/mnormt/index.html">mnormt</a>, while
+<a href="../packages/mvtnormpcs/index.html">mvtnormpcs</a>
+          implements multivariate student/normal integrals, 
+     given a correlation matrix structure.
+        </LI>
+        <LI>
+          <I>
+            General Error Distribution (also known as exponential power distribution)
+          </I>:
+     provided in
+<a href="../packages/normalp/index.html">normalp</a>.
+        </LI>
+        <LI>
+          <I>
+            Generalized Extreme Value distribution
+          </I>: Provided in
+<a href="../packages/lmomco/index.html">lmomco</a>
+          (d, p, q) ,
+<a href="../packages/VGAM/index.html">VGAM</a>
+          and
+<a href="../packages/evd/index.html">evd</a>
+          (d, p, q, r). Both bivariate and
+     multivariate Extreme Value distributions as well as order/maxima/minima distributions 
+     are implemented in
+<a href="../packages/evd/index.html">evd</a>
+          (d, p, r).
+        </LI>
+        <LI>
+          <I>
+            Gumbel distribution
+          </I>: Provided in packages
+<a href="../packages/lmomco/index.html">lmomco</a>,
+<a href="../packages/VGAM/index.html">VGAM</a>
+          and
+<a href="../packages/evd/index.html">evd</a>. The reverse Gumbel distribution is implemented
+     in
+<a href="../packages/lmomco/index.html">lmomco</a>.
+        </LI>
+        <LI>
+          <I>
+            Kappa distribution
+          </I>: Provided in
+<a href="../packages/lmomco/index.html">lmomco</a>.
+        </LI>
+        <LI>
+          <I>
+            Kumaraswamy distribution
+          </I>: Provided in package
+<a href="../packages/VGAM/index.html">VGAM</a>.
+        </LI>
+        <LI>
+          <I>
+            Lambda distribution
+          </I>: The Tukey lambda (also known as the generalized
+     lambda) distribution is implemented in packages
+<a href="../packages/gld/index.html">gld</a>
+          and
+<a href="../packages/Davies/index.html">Davies</a>.
+        </LI>
+        <LI>
+          <I>
+            Laplace and asymetric Laplace distribution
+          </I>: Provided in
+<a href="../packages/VGAM/index.html">VGAM</a>.
+     Laplace distribution (also called double exponential distribution) is implemented in
+<a href="../packages/distr/index.html">distr</a>.
+        </LI>
+        <LI>
+          <I>
+            Logistic distributions and its extensions
+          </I>: Base R provides
+     the d, p, q, r functions for this distribution (see above).
+<a href="../packages/actuar/index.html">actuar</a>
+          provides d, p, q, r  functions for
+     the log logistic (also called Fisk), the paralogistic and the inverse paralogistic distributions.
+<a href="../packages/VGAM/index.html">VGAM</a>
+          package also implements these distributions plus
+     the bivariate logistic distribution.
+<a href="../packages/lmomco/index.html">lmomco</a>
+          implements the generalized logistic distribution.
+        </LI>
+        <LI>
+          <I>
+            Maxwell distribution
+          </I>: Provided in
+<a href="../packages/VGAM/index.html">VGAM</a>.
+        </LI>
+        <LI>
+          <I>
+            Nakagami distribution
+          </I>: Provided in
+<a href="../packages/VGAM/index.html">VGAM</a>.
+        </LI>
+        <LI>
+          <I>
+            Pareto distribution
+          </I>: d, p, q, r functions are implemented in
+<a href="../packages/VGAM/index.html">VGAM</a>
+          for the Pareto distribution type IV (which includes Burr's distribution,
+     Pareto type III, Pareto type II (also called the Generalized Pareto Distribution - GPD) and
+     Pareto type I) and the (upper/lower) truncated Pareto distribution. In an actuarial
+     context,
+<a href="../packages/actuar/index.html">actuar</a>
+          provides d, p, q, r functions as well as moments and 
+     limited expected values for the Pareto, the inverse Pareto, the 'generalized pareto'
+     distributions, the Burr and the inverse Burr distributions.
+     Finally
+<a href="../packages/lmomco/index.html">lmomco</a>,
+<a href="../packages/POT/index.html">POT</a>
+          and
+<a href="../packages/evd/index.html">evd</a>
+          packages
+     implement the GPD.
+        </LI>
+        <LI>
+          <I>
+            Pearson type III distribution
+          </I>: Available in
+<a href="../packages/lmomco/index.html">lmomco</a>.
+        </LI>
+        <LI>
+          <i>
+            Phase-type distributions
+          </i>: Provided in
+<a href="../packages/actuar/index.html">actuar</a>.
+        </LI>
+        <LI>
+          <I>
+            Rayleigh distribution
+          </I>: Provided in packages
+<a href="../packages/VGAM/index.html">VGAM</a>
+          and
+<a href="../packages/lmomco/index.html">lmomco</a>.
+        </LI>
+        <LI>
+          <I>
+            Rice distribution
+          </I>: Provided in
+<a href="../packages/VGAM/index.html">VGAM</a>.
+        </LI>
+        <LI>
+          <I>
+            Slash distribution
+          </I>: Provided in
+<a href="../packages/VGAM/index.html">VGAM</a>.
+        </LI>
+        <LI>
+          <I>
+            stable distributions
+          </I>: d, p, q, r functions are available in
+<a href="../packages/fBasics/index.html">fBasics</a>, 
+      the functions use the approach of J.P. Nolan for general stable distributions.
+        </LI>
+        <LI>
+          <I>
+            Student distribution and its extensions
+          </I>: Base R provides
+     the d, p, q, r functions for Student and non central Student distribution (see above).
+     The skewed Student distribution is provided by
+<a href="../packages/skewt/index.html">skewt</a>
+          and
+<a href="../packages/sn/index.html">sn</a>
+          packages. Package
+<a href="../packages/tdist/index.html">tdist</a>
+          provides d, p, q functions
+     for the distribution of a linear combination of independent Student distributions.
+     The multivariate Student distribution
+     is provided by the packages
+<a href="../packages/mvtnorm/index.html">mvtnorm</a>
+          and
+<a href="../packages/mnormt/index.html">mnormt</a>.
+        </LI>
+        <LI>
+          <I>
+            Triangle distribution
+          </I>: Provided in packages
+<a href="../packages/triangle/index.html">triangle</a>
+          and
+<a href="../packages/VGAM/index.html">VGAM</a>.
+        </LI>
+        <LI>
+          <I>
+            Tweedie distribution
+          </I>: the Tweedie distribution is implemented
+     in package
+<a href="../packages/tweedie/index.html">tweedie</a>. Let us note that the Tweedie distribution
+     is not necessarily continuous, a special case of it is the Poisson distribution.
+        </LI>
+        <LI>
+          <I>
+            Uniform distribution
+          </I>: d, p, q, r functions are of course provided
+	   in R. See section RNG for random number generation topics.
+        </LI>
+        <LI>
+          <I>
+            Wakeby distribution
+          </I>: Provided in
+<a href="../packages/lmomco/index.html">lmomco</a>.
+        </LI>
+        <LI>
+          <I>
+            Weibull distribution and its extensions
+          </I>: Base R provides
+     the d, p, q, r functions for this distribution (see above).
+     The inverse Weibull is provided by
+<a href="../packages/actuar/index.html">actuar</a>
+          package and also the moments
+     and the limited expevted value for both the raw and the inverse Weibull distribution.
+     Finally,
+<a href="../packages/lmomco/index.html">lmomco</a>
+          implements the Weibull distribution while
+<a href="../packages/evd/index.html">evd</a>
+          implements the reverse Weibull distribution.
+        </LI>
+        <LI>
+          <I>
+            Wishart and inverse Wishart distributions
+          </I>: functions d, r
+     are provided in
+<a href="../packages/MCMCpack/index.html">MCMCpack</a>
+          and
+<a href="../packages/bayesm/index.html">bayesm</a>.
+        </LI>
+      </UL>
+      <p>
+        <strong>
+          Mixture of probability laws:
+        </strong>
+      </p>
+      <UL>
+        <LI>
+          <I>
+            Gaussian mixture
+          </I>: Functions d, r are provided by
+<a href="../packages/mixtools/index.html">mixtools</a>
+          package when dealing with finite mixture models.
+        </LI>
+        <LI>
+          <I>
+            Gamma mixture
+          </I>: Gamma shape mixtures are implemented (d, p, r)
+      in the
+<a href="../packages/GSM/index.html">GSM</a>
+          package.
+        </LI>
+        <LI>
+          <I>
+            Generic mixtures
+          </I>: there is an implementation via S4-class 
+      UnivarMixingDistribution in package
+<a href="../packages/distr/index.html">distr</a>.
+        </LI>
+        <LI>
+          <I>
+            Student mixture
+          </I>: The
+<a href="../packages/AdMit/index.html">AdMit</a>
+          package provides d, r functions
+      for Student mixtures in the context of Adaptive Mixture of Student-t distributions.
+        </LI>
+      </UL>
+      <p>
+        <strong>
+          Copulas:
+        </strong>
+      </p>
+      <UL>
+        <LI>
+          <I>
+            Unified approaches
+          </I>:
+      The packages
+<a href="../packages/fCopulae/index.html">fCopulae</a>,
+<a href="../packages/copula/index.html">copula</a>
+          provide a lot of general functionality for copulas.
+        </LI>
+        <LI>
+          <I>
+            Archimedean copulas
+          </I>: The Frank bivariate distribution 
+      is available in
+<a href="../packages/VGAM/index.html">VGAM</a>.
+<a href="../packages/fCopulae/index.html">fCopulae</a>
+          implements the 22 Archimedean 
+      copulas of Nelsen (1998,
+          <i>
+            Introduction to Copulas
+          </i>, Springer-Verlag) including
+      Gumbel, Frank, Clayton, and Ali-Mikhail-Haq.
+<a href="../packages/gumbel/index.html">gumbel</a>
+          is a 
+      standalone package for the Gumbel copula and
+<a href="../packages/VGAM/index.html">VGAM</a>
+          provides the Ali-Mikhail-Haq bivariate distribution. Generalized Archimedean copulas
+      are implemented in the
+<a href="../packages/fgac/index.html">fgac</a>
+          package.
+        </LI>
+        <LI>
+          <I>
+            Cubic copula
+          </I>: Not yet implemented
+        </LI>
+        <LI>
+          <I>
+            Dirichlet copula
+          </I>: Not yet implemented
+        </LI>
+        <LI>
+          <I>
+            Elliptical copulas
+          </I>: Gaussian, Student and Cauchy copulas are implemented in
+<a href="../packages/fCopulae/index.html">fCopulae</a>
+          for the bivariate cases.
+<a href="../packages/copula/index.html">copula</a>
+          provides the Gaussian 
+      and the Student copula.
+        </LI>
+        <LI>
+          <I>
+            Extreme value copulas
+          </I>:
+<a href="../packages/fCopulae/index.html">fCopulae</a>
+          provides the following copulas
+      Gumbel, Galambos, Husler-Reiss, Tawn, or BB5.
+<a href="../packages/copula/index.html">copula</a>
+          also implements
+      Gumbel, Galambos and Husler-Reiss.
+<a href="../packages/BLCOP/index.html">BLCOP</a>
+          presents an application of
+      the copula-opinion pooling framework.
+        </LI>
+        <LI>
+          <I>
+            Eyraud-Farlie-Gumbel-Morgenstern
+          </I>: Provided in
+<a href="../packages/VGAM/index.html">VGAM</a>
+          and
+<a href="../packages/copula/index.html">copula</a>.
+        </LI>
+        <LI>
+          <I>
+            Mardia copula
+          </I>: Not yet implemented
+        </LI>
+        <LI>
+          <I>
+            Plackett
+          </I>: Provided in
+<a href="../packages/VGAM/index.html">VGAM</a>
+          and
+<a href="../packages/copula/index.html">copula</a>.
+        </LI>
+      </UL>
+      <p>
+        <strong>
+          Random Number Generators:
+        </strong>
+      </p>
+      <UL>
+        <LI>
+          Basic functionality: R provides several random number generators (RNGs).
+     The random seed can be provided via
+<tt>set.seed</tt>
+          and the kind of RNG can be specified
+     using
+<tt>RNGkind</tt>. The default RNG is the Mersenne-Twister algorithm.
+     Other generators include Wichmann-Hill, Marsaglia-Multicarry, Super-Duper,
+     Knuth-TAOCP, Knuth-TAOCP-2002, as well as user-supplied RNGs. For normal
+     random numbers, the following algorithms are available: Kinderman-Ramage,
+     Ahrens-Dieter, Box-Muller, Inversion (default).
+        </LI>
+        <LI>
+          <I>
+            Setting the RNG:
+          </I>
+          In addition to the tools above,
+<a href="../packages/setRNG/index.html">setRNG</a>
+          provides an easy way to set, 
+     retain information about the setting, and reset the RNG.
+        </LI>
+        <LI>
+          <I>
+            Pseudo-randomness
+          </I>:
+<a href="../packages/RDieHarder/index.html">RDieHarder</a>
+          offers  several dozen new RNGs 
+     from the GNU GSL and
+<a href="../packages/randtoolbox/index.html">randtoolbox</a>
+          provides
+     more recent RNGs such as WELL and SF Mersenne-Twister.
+<a href="../packages/rsprng/index.html">rsprng</a>
+          implements Scalable Parallel RNGs library, whereas
+<a href="../packages/randaes/index.html">randaes</a>
+          provides the deterministic part of the Fortuna cryptographic 
+     pseudorandom number generator (AES). Furthermore,
+<a href="../packages/rstream/index.html">rstream</a>
+          focuses on multiple 
+     independent streams of random numbers from different sources (in a object oriented
+     approach). For non-uniform generation, the
+<a href="../packages/Runuran/index.html">Runuran</a>
+          package
+     interfaces to the UNU.RAN library for universal non-uniform RNGs, while the
+<a href="../packages/rv/index.html">rv</a>
+          package provides a class to easily manipulate and summarize
+     simulations in R.
+        </LI>
+        <LI>
+          <I>
+            Quasi-randomness
+          </I>: The
+<a href="../packages/randtoolbox/index.html">randtoolbox</a>
+          provides
+     the following quasi random sequences: the Sobol sequence, the Halton
+     (hence Van Der Corput) sequence and the Torus sequence (also known as Kronecker
+     sequence).
+<a href="../packages/lhs/index.html">lhs</a>
+          package implements the latin hypercube sampling,
+     an hybrid quasi/pseudo random method.
+        </LI>
+        <LI>
+          <I>
+            True randomness
+          </I>: The
+<a href="../packages/random/index.html">random</a>
+          package provides several functions that access the 
+     true random number service at
+          <A HREF="http://random.org">
+            random.org
+          </A>.
+        </LI>
+        <LI>
+          <I>
+            RNG tests
+          </I>:
+<a href="../packages/RDieHarder/index.html">RDieHarder</a>
+          offers
+      numerous tests of RNGs based on a
+      reimplementation and extension of Marsaglia's DieHarder battery.
+<a href="../packages/randtoolbox/index.html">randtoolbox</a>
+          provides basic RNG tests.
+        </LI>
+        <LI>
+          <I>
+            Parallel computing
+          </I>: For parallel computing with random numbers, see the
+<a href="HighPerformanceComputing.html">HighPerformanceComputing</a>
+          task view.
+        </LI>
+      </UL>
+      <p>
+        <strong>
+          Miscellaneous:
+        </strong>
+      </p>
+      <UL>
+        <LI>
+          <I>
+            Hierarchical models
+          </I>: Distributions whose some parameters
+       are no longer constant but random according to a particular distribution.
+<a href="../packages/VGAM/index.html">VGAM</a>
+          provides a lot of hierarchical models: beta/binomial,
+       beta/geometric and beta/normal distributions.
+<a href="../packages/bayesm/index.html">bayesm</a>
+          implements: binary logit, linear, multivariate logit and negative binomial
+       models. Furthermore
+<a href="../packages/LearnBayes/index.html">LearnBayes</a>
+          and
+<a href="../packages/MCMCpack/index.html">MCMCpack</a>
+          provides poisson/gamma, beta/binomial,
+       normal/normal and multinomial/Dirichlet models.
+        </LI>
+        <LI>
+          <i>
+            Transformation
+          </i>: Lebesgue decomposition are implemented
+     in
+<a href="../packages/distr/index.html">distr</a>, as well as Convolution, Truncation and Huberization of distributions. 
+     Furthermore,
+<a href="../packages/distr/index.html">distr</a>
+          provides distribution of the maximum or minimum
+     of two distributions. See Object-orientation below.
+        </LI>
+        <LI>
+          <I>
+            Object-orientation
+          </I>: 
+     General discrete and continuous distributions are implemented in package
+<a href="../packages/distr/index.html">distr</a>
+          respectively via S4-class DiscreteDistribution and 
+     AbscontDistribution providing the classic d, p, q and r functions.
+<a href="../packages/distrEx/index.html">distrEx</a>
+          extends available distributions to multivariate and conditional distributions as well
+     as methods to compute useful statistics (expectation, variance,...) and distances
+     between distributions (Hellinger, Kolmogorov,... distance). Finally
+     package
+<a href="../packages/distrMod/index.html">distrMod</a>
+          provides functions for the computation of minimum
+     criterion estimators (maximum likelihood and minimum distance estimators). See other
+     packages of the distr-family (<a href="../packages/distrSim/index.html">distrSim</a>,
+<a href="../packages/distrTEst/index.html">distrTEst</a>,
+<a href="../packages/distrTeach/index.html">distrTeach</a>,
+<a href="../packages/distrDoc/index.html">distrDoc</a>).
+        </LI>
+        <LI>
+          <I>
+            TI 83 scientific calculator
+          </I>:
+<a href="../packages/distributions/index.html">distributions</a>
+          provides
+     the base R probability distributions (binomial, poisson, geometric, 
+     normal, chi square, Fisher, Student) 
+     based on TI-83 Plus graphic scientific calculator.
+        </LI>
+        <LI>
+          <I>
+            Transversal functions
+          </I>: Package
+<a href="../packages/modeest/index.html">modeest</a>
+          provides mode
+     estimation for various distributions, while
+<a href="../packages/lmomco/index.html">lmomco</a>
+          focuses on
+     moments estimation.
+<a href="../packages/VGAM/index.html">VGAM</a>
+          provides a lot of parameter
+     estimation for usual and "exotic" distributions. Package
+     MASS (in the
+<a href="../packages/VR/index.html">VR</a>
+          bundle) implements the flexible
+<tt>fitdistr</tt>
+          function for parameter estimations.
+     Bivariate copulas can be fitted with
+<a href="../packages/mlCopulaSelection/index.html">mlCopulaSelection</a>.
+        </LI>
+      </UL>
+    </div>
+
+  <h3>CRAN packages:</h3>
+  <ul>
+    <li><a href="../packages/actuar/index.html">actuar</a> (core)</li>
+    <li><a href="../packages/AdMit/index.html">AdMit</a></li>
+    <li><a href="../packages/bayesm/index.html">bayesm</a></li>
+    <li><a href="../packages/BiasedUrn/index.html">BiasedUrn</a></li>
+    <li><a href="../packages/BLCOP/index.html">BLCOP</a></li>
+    <li><a href="../packages/bs/index.html">bs</a></li>
+    <li><a href="../packages/compoisson/index.html">compoisson</a></li>
+    <li><a href="../packages/copula/index.html">copula</a> (core)</li>
+    <li><a href="../packages/Davies/index.html">Davies</a></li>
+    <li><a href="../packages/distr/index.html">distr</a> (core)</li>
+    <li><a href="../packages/distrDoc/index.html">distrDoc</a></li>
+    <li><a href="../packages/distrEx/index.html">distrEx</a></li>
+    <li><a href="../packages/distributions/index.html">distributions</a></li>
+    <li><a href="../packages/distrMod/index.html">distrMod</a></li>
+    <li><a href="../packages/distrSim/index.html">distrSim</a></li>
+    <li><a href="../packages/distrTeach/index.html">distrTeach</a></li>
+    <li><a href="../packages/distrTEst/index.html">distrTEst</a></li>
+    <li><a href="../packages/evd/index.html">evd</a></li>
+    <li><a href="../packages/fBasics/index.html">fBasics</a></li>
+    <li><a href="../packages/fCopulae/index.html">fCopulae</a> (core)</li>
+    <li><a href="../packages/fgac/index.html">fgac</a></li>
+    <li><a href="../packages/gbs/index.html">gbs</a></li>
+    <li><a href="../packages/geoR/index.html">geoR</a></li>
+    <li><a href="../packages/ghyp/index.html">ghyp</a></li>
+    <li><a href="../packages/gld/index.html">gld</a></li>
+    <li><a href="../packages/GLDEX/index.html">GLDEX</a></li>
+    <li><a href="../packages/GSM/index.html">GSM</a></li>
+    <li><a href="../packages/gumbel/index.html">gumbel</a></li>
+    <li><a href="../packages/HyperbolicDist/index.html">HyperbolicDist</a></li>
+    <li><a href="../packages/LearnBayes/index.html">LearnBayes</a></li>
+    <li><a href="../packages/lhs/index.html">lhs</a></li>
+    <li><a href="../packages/lmomco/index.html">lmomco</a> (core)</li>
+    <li><a href="../packages/MCMCpack/index.html">MCMCpack</a></li>
+    <li><a href="../packages/mixtools/index.html">mixtools</a></li>
+    <li><a href="../packages/mlCopulaSelection/index.html">mlCopulaSelection</a></li>
+    <li><a href="../packages/mnormt/index.html">mnormt</a> (core)</li>
+    <li><a href="../packages/mvtnorm/index.html">mvtnorm</a> (core)</li>
+    <li><a href="../packages/mvtnormpcs/index.html">mvtnormpcs</a></li>
+    <li><a href="../packages/normalp/index.html">normalp</a></li>
+    <li><a href="../packages/POT/index.html">POT</a></li>
+    <li><a href="../packages/prob/index.html">prob</a></li>
+    <li><a href="../packages/randaes/index.html">randaes</a></li>
+    <li><a href="../packages/random/index.html">random</a></li>
+    <li><a href="../packages/randtoolbox/index.html">randtoolbox</a></li>
+    <li><a href="../packages/RDieHarder/index.html">RDieHarder</a></li>
+    <li><a href="../packages/rsprng/index.html">rsprng</a></li>
+    <li><a href="../packages/rstream/index.html">rstream</a></li>
+    <li><a href="../packages/Runuran/index.html">Runuran</a></li>
+    <li><a href="../packages/rv/index.html">rv</a></li>
+    <li><a href="../packages/setRNG/index.html">setRNG</a></li>
+    <li><a href="../packages/skewt/index.html">skewt</a></li>
+    <li><a href="../packages/sn/index.html">sn</a></li>
+    <li><a href="../packages/SuppDists/index.html">SuppDists</a> (core)</li>
+    <li><a href="../packages/tdist/index.html">tdist</a></li>
+    <li><a href="../packages/TRIANG/index.html">TRIANG</a></li>
+    <li><a href="../packages/triangle/index.html">triangle</a></li>
+    <li><a href="../packages/tweedie/index.html">tweedie</a></li>
+    <li><a href="../packages/VGAM/index.html">VGAM</a> (core)</li>
+    <li><a href="../packages/zipfR/index.html">zipfR</a></li>
+  </ul>
+
+  <h3>Related links:</h3>
+  <ul>
+    <li><A HREF="http://www.actuar-project.org/">
+  actuar: an R package for actuarial science
+</A></li>
+    <li><A HREF="http://www.rmetrics.org/">
+  fCopulae and fBasics packages, part of the Rmetrics project
+</A></li>
+    <li><A HREF="http://www.jstatsoft.org/v16/c02/">
+  Journal of Statistical Software: R Programs for Truncated Distributions
+</A></li>
+    <li><A HREF="http://distr.r-forge.r-project.org/">
+  The "distrXXX"-Family of R-Packages
+</A></li>
+    <li><A HREF="http://wiki.r-project.org/rwiki/doku.php?id=tips:stats-distri">
+  the R wiki on distributions
+</A></li>
+  </ul>
+
+</body>
+</html>

@@ -1,9 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
 <CRANTaskView> 
 
 <name>Distributions</name> 
 <topic>Probability Distributions</topic> 
 <maintainer email="Christophe.Dutang@ensimag.fr">Christophe Dutang</maintainer> 
-<version>2009-02-08</version> 
+<version>2009-03-31</version> 
 
 <info> 
 For most of the classical distributions, base R provides
@@ -19,15 +20,18 @@ Ultimate bibles on probability distributions are
  <LI> Thesaurus of univariate discrete probability distributions by G. Wimmer and G. Altmann.</LI>
 </UL>
 
+The maintainer greatfully acknowledged Achim Zeileis, David Lüthi, Tobias Verbeke, Robin
+Hankin, Mathias Kohl, G. Jay Kerns for their useful comments/suggestions.
+
 If you think information is not accurate
 or not complete, please let me know.
 
 <p><strong>Base functionality:</strong></p>
    <ul><li>
-     Base R provides probability distribution functions <code>p<i>foo</i>()</code>
-     density functions <code>d<i>foo</i>()</code>, quantile functions
-     <code>q<i>foo</i>()</code>, and random number generation
-     <code>r<i>foo</i>()</code> where <i>foo</i> indicates the type
+     Base R provides probability distribution functions <code>p</code><i>foo</i><code>()</code>
+     density functions <code>d</code><i>foo</i><code>()</code>, quantile functions
+     <code>q</code><i>foo</i><code>()</code>, and random number generation
+     <code>r</code><i>foo</i><code>()</code> where <i>foo</i> indicates the type
      of distribution:
      beta  (<i>foo</i> = <code>beta</code>),
      binomial <code>binom</code>,
@@ -77,6 +81,9 @@ or not complete, please let me know.
 	    <LI><I>Hypergeometric distributions</I>: Extented hypergeometric distribution
 	    can be found in <pkg>BiasedUrn</pkg> package, which provides
 	    not only p, d, q, r functions but also mean, variance, mode functions.</LI>
+	    
+	    <LI><I>Triangle distribution</I>: The discrete triangle distribution can be found in
+	    <pkg>TRIANG</pkg>.</LI>	  
 	    
 	    <LI><I>Zipf law</I>: Package <pkg>zipfR</pkg> provides tools for the Zipf and
 	    the Zipf-Mandelbrot distributions. <pkg>VGAM</pkg> also implements the Zipf distribution.</LI>
@@ -299,7 +306,8 @@ or not complete, please let me know.
       
       <LI><I>Extreme value copulas</I>: <pkg>fCopulae</pkg> provides the following copulas
       Gumbel, Galambos, Husler-Reiss, Tawn, or BB5. <pkg>copula</pkg> also implements
-      Gumbel, Galambos and Husler-Reiss.</LI>
+      Gumbel, Galambos and Husler-Reiss. <pkg>BLCOP</pkg> presents an application of
+      the copula-opinion pooling framework.</LI>
       
       <LI><I>Eyraud-Farlie-Gumbel-Morgenstern</I>: Provided in <pkg>VGAM</pkg> 
       and <pkg>copula</pkg>.</LI>
@@ -307,7 +315,7 @@ or not complete, please let me know.
       <LI><I>Mardia copula</I>: Not yet implemented</LI>   
       
       <LI><I>Plackett</I>: Provided in <pkg>VGAM</pkg> and <pkg>copula</pkg>.</LI>
-             
+                   
       </UL>
 
 <p><strong>Random Number Generators:</strong></p>
@@ -322,8 +330,9 @@ or not complete, please let me know.
      random numbers, the following algorithms are available: Kinderman-Ramage,
      Ahrens-Dieter, Box-Muller, Inversion (default).</LI>
      
-     <LI><I>Setting the RNG:</I> In addition to the tools above, <pkg>setRNG</pkg>
-     provides an easy way to set RNG.</LI>
+     <LI><I>Setting the RNG:</I>In addition to the tools above, <pkg>setRNG</pkg> 
+     provides an easy way to set, 
+     retain information about the setting, and reset the RNG.</LI>
      
      <LI><I>Pseudo-randomness</I>: 
      <pkg>RDieHarder</pkg> offers  several dozen new RNGs 
@@ -356,6 +365,9 @@ or not complete, please let me know.
       reimplementation and extension of Marsaglia's DieHarder battery.
       <pkg>randtoolbox</pkg> provides basic RNG tests.
      </LI>
+     
+     <LI><I>Parallel computing</I>: For parallel computing with random numbers, see the 
+     <view>HighPerformanceComputing</view> task view.</LI>
    </UL>     
 
 <p><strong>Miscellaneous:</strong></p>
@@ -413,6 +425,7 @@ or not complete, please let me know.
   <pkg>AdMit</pkg>
   <pkg>bayesm</pkg>
   <pkg>BiasedUrn</pkg>
+  <pkg>BLCOP</pkg>
   <pkg>bs</pkg>
   <pkg>compoisson</pkg>
   <pkg priority="core">copula</pkg>
@@ -462,6 +475,7 @@ or not complete, please let me know.
   <pkg>sn</pkg>
   <pkg priority="core">SuppDists</pkg>
   <pkg>tdist</pkg>
+  <pkg>TRIANG</pkg>
   <pkg>triangle</pkg>
   <pkg>tweedie</pkg>
   <pkg priority="core">VGAM</pkg>
