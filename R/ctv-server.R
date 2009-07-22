@@ -59,7 +59,7 @@ read.ctv <- function(file)
       return(paste("<tt>", xmlValue(x), "</tt>", sep = ""))
     if(name == "rforge")
       return(paste(rforgeprefix, "<a href=\"http://R-Forge.R-project.org/projects/",
-        xmlValue(x), "/\"", target, "><span class=\"Rforge\">", xmlValue(x), "</span></a>", sep = ""))
+        tolower(xmlValue(x)), "/\"", target, "><span class=\"Rforge\">", xmlValue(x), "</span></a>", sep = ""))
     if(name == "gcode")
       return(paste(gcodeprefix, "<a href=\"http://code.google.com/p/",
         xmlValue(x), "/\"", target, "><span class=\"Gcode\">", xmlValue(x), "</span></a>", sep = ""))

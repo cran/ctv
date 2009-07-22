@@ -3,7 +3,7 @@
 <name>Psychometrics</name>
 <topic>Psychometric Models and Methods</topic>
 <maintainer email="Patrick.Mair@wu-wien.ac.at">Patrick Mair and Reinhold Hatzinger</maintainer>
-<version>2009-05-19</version>
+<version>2009-07-14</version>
 
 <info> Psychometrics is concerned with the design and analysis of research and
 the measurement of human characteristics. Psychometricians have also
@@ -68,6 +68,12 @@ should be mentioned here.
      multivariate binary probit model, and <pkg>irtoys</pkg> providing a
      simple interface to the estimation and plotting of IRT models. Simple Rasch computations
      such a simulating data and joint maximum likelihood are included in the <pkg>MiscPsycho</pkg> package.
+  </li>
+  <li>
+    The <pkg>irtProb</pkg> is designed to estimate multidimensional subject parameters (MLE and MAP) such as personnal pseudo-guessing, 
+    personal fluctuation, personal inattention. These supplemental parameters can be used to assess person fit, to identify misfit
+    type, to generate misfitting response patterns, or to make correction while estimating the proficiency level considering 
+    potential misfit at the same time. 
   </li>
   <li>
     Gaussian ordination, related to logistic IRT and also approximated as
@@ -339,6 +345,7 @@ should be mentioned here.
     <pkg>ifa</pkg>
     <pkg>irr</pkg>
     <pkg>irtoys</pkg>
+    <pkg>irtProb</pkg>
     <pkg>labdsv</pkg>
     <pkg priority="core">lme4</pkg>
     <pkg priority="core">ltm</pkg>

@@ -2,8 +2,8 @@
 
 <name>ChemPhys</name>
 <topic>Chemometrics and Computational Physics</topic>
-<maintainer email="kmullen@nist.gov">Katharine Mullen and Ron Wehrens</maintainer>
-<version>2009-05-19</version>
+<maintainer email="katharine.mullen@nist.gov">Katharine Mullen and Ron Wehrens</maintainer>
+<version>2009-07-22</version>
 
 <info>
 
@@ -23,15 +23,14 @@ was published in January 2007. These are good places to start reading about rece
 and computational physics based in R.  
 </p>
 
-<p>
-A forthcoming book by Kurt Varmuza and Peter Filzmoser, 
+<p> The book by Kurt Varmuza and Peter Filzmoser, 
 <i>Introduction to Multivariate Statistical Analysis in Chemometrics</i>, 
 ISBN 978-1-420-05947-2, CRC Press, 2009, is associated with the 
 package <pkg>chemometrics</pkg>. 
 </p>
 
 <p>
-<a href="mailto:kate@nat.vu.nl">Please let us know</a>
+<a href="mailto:katharine.mullen@nist.gov">Please let us know</a>
 if we have omitted something of importance, or if a new package or function
 should be mentioned here.
 </p>
@@ -93,6 +92,17 @@ should be mentioned here.
     least squares-partial least squares (LS-PLS) method.</li>
     <li>Penalized Partial Least Squares is implemented in the 
     <pkg>ppls</pkg> package.</li>
+    <li>Sparse PLS is implemented in the package
+    <pkg>spls</pkg> package.</li>
+    <li>The <pkg>gpls</pkg> package implements 
+    generalized partial least squares, based on the Iteratively
+    ReWeighted Least Squares (IRWLS) method of Brian Marx.</li>
+    <li> Weighted-average PLS, often used in paleolimnology, 
+    can be found in package
+    <pkg>paltran</pkg>.</li>
+    <li> Package <pkg>plspm</pkg> contains, in addition to the 
+    usual functions for PLS regression, also functions for 
+    path modeling.</li>
 </ul>
 
 <p>
@@ -197,6 +207,9 @@ should be mentioned here.
      <li>The <pkg>chemCal</pkg> package provides functions for plotting
      linear calibration functions and estimating standard errors for
      measurements. </li>
+     <li>The <pkg>quantchem</pkg> package provides functions for 
+     statistical evaluation of calibration curves by different regression 
+     techniques </li>
      <li>
       The <pkg>drm</pkg> package and the  
       nlreg package included in the 
@@ -213,6 +226,15 @@ modeling.    One-dimensional cellular automata are also possible to model with
 the package <pkg>CellularAutomaton</pkg>.  </li>
 </ul>
 
+<p>
+<strong>Thermodynamics</strong>
+</p>
+<ul>
+  <li>The <pkg>CHNOSZ</pkg> package provides functions 
+  for calculating the standard Gibbs energies and 
+  other thermodynamic properties, and chemical affinities of reactions 
+between species contained in a thermodynamic database. </li>
+</ul>
 
 <p>
 <strong>Interfaces to External Libraries</strong>
@@ -246,14 +268,15 @@ database for structural structural similarity searching and clustering.
   manipulation, ported from the ROOT/TSpectrum class.</li>
   <li>Software for the book by Donald B. Percival and Andrew T. Walden,
   <i>Spectral Analysis for Physical Applications</i>, ISBN 978-0-521-43541-3, 
-  Cambridge University Press, 1993, is found in the package <pkg>sapa</pkg>.</li>
-  <li>The package <pkg>spectrino</pkg> 
-  provides functionality to organize and visualize spectra
-  (currently only available for Windows).</li>
+  Cambridge University Press, 1993, is found in the package 
+  <pkg>sapa</pkg>.</li>
   <li>The package <pkg>TIMP</pkg> 
   provides a problem solving environment for fitting
   separable nonlinear models in physics and chemistry applications, and has been
   extensively applied to time-resolved spectroscopy data.</li>
+  <li>The package <pkg>NMRS</pkg> 
+  is designed to load and preprocess nuclear magnetic resonance spectra measured
+  with Bruker instruments. </li>
   <li>Also note that the <rforge>photonics</rforge> project on 
   <a href="http://R-Forge.R-project.org/" target="_top">R-Forge</a> 
   collects various packages related to spectroscopy and optics; however, 
@@ -273,15 +296,22 @@ database for structural structural similarity searching and clustering.
  The 
   <pkg>msProcess</pkg> package provides functions 
   for protein mass spectra processing.
-Data sets associated with <pkg>msProcess</pkg> can be found
+  Data sets associated with <pkg>msProcess</pkg> can be found
   in three separate packages: <pkg>msBreast</pkg>,
   <pkg>msDilution</pkg> and <pkg>msProstate</pkg>. </li>
   <li>The <pkg>titan</pkg>
   provides a GUI to analyze mass spectrometric data
   on the relative abundance of two substances from a titration series.</li>
-  <li>Also note that the Bioconductor packages 
+  <li>The Bioconductor packages 
   <bioc>MassSpecWavelet</bioc>, <bioc>PROcess</bioc>, and <bioc>xcms</bioc>
   are designed for the analysis of mass spectrometry data.</li>
+  <li>Also note that the <rforge>OrgMassSpecR</rforge> package on 
+  <a href="http://R-Forge.R-project.org/" target="_top">R-Forge</a> 
+  is for organic/biological mass spectrometry, with a focus on 
+  graphical display, quantification
+  using stable isotope dilution, and protein hydrogen/deuterium
+  exchange experiments; however, this package is not yet available on
+  CRAN.</li>
 </ul>
 
 <p>
@@ -340,11 +370,17 @@ Data sets associated with <pkg>msProcess</pkg> can be found
 </ul>
 
 <p>
-<strong>Soil Physics</strong>
+<strong>Water and Soil Chemistry</strong>
 </p>
 <ul>
   <li>The <pkg>SoPhy</pkg> package 
   provides tools for soil physics via an interface to SWMS_2D.</li>
+ <li>The <pkg>AquaEnv</pkg> package is a toolbox for aquatic 
+ chemical modelling focused on (ocean) acidification and CO2 air-water 
+ exchange.
+  </li>
+   <li>See the <view>Environmetrics</view> task view for further related 
+   packages related to water and soil chemistry.</li>
 </ul>
 
 </info>
@@ -352,10 +388,12 @@ Data sets associated with <pkg>msProcess</pkg> can be found
 <packagelist>
   <pkg priority="core">ALS</pkg>
   <pkg>AnalyzeFMRI</pkg>
+  <pkg>AquaEnv</pkg>
   <pkg>Bchron</pkg>    
   <pkg>bvls</pkg>  
-  <pkg>CellularAutomaton</pkg>
   <pkg>caMassClass</pkg>
+  <pkg>CellularAutomaton</pkg>  
+  <pkg>CHNOSZ</pkg>
   <pkg priority="core">chemCal</pkg>
   <pkg>chemometrics</pkg>
   <pkg>clustvarsel</pkg>
@@ -368,6 +406,7 @@ Data sets associated with <pkg>msProcess</pkg> can be found
   <pkg>fmri</pkg>
   <pkg>fpca</pkg>
   <pkg>FTICRMS</pkg>
+  <pkg>gpls</pkg>	
   <pkg>hoa</pkg>
   <pkg>homals</pkg>
   <pkg priority="core">Iso</pkg>
@@ -381,16 +420,20 @@ Data sets associated with <pkg>msProcess</pkg> can be found
   <pkg>msDilution</pkg>
   <pkg>msProstate</pkg>
   <pkg>nlme</pkg>  
+  <pkg>NMRS</pkg>  
   <pkg priority="core">nnls</pkg>
   <pkg priority="core">odesolve</pkg>
+  <pkg>paltran</pkg>    
   <pkg>pcaPP</pkg>    
   <pkg>Peaks</pkg>    
   <pkg>PET</pkg>
   <pkg>pga</pkg>
   <pkg priority="core">pls</pkg>
+  <pkg>plspm</pkg>
   <pkg>ppls</pkg>
   <pkg>psy</pkg>
   <pkg priority="core">PTAk</pkg>
+  <pkg>quantchem</pkg>	
   <pkg>rcdk</pkg> 
   <pkg>rcdklibs</pkg> 
   <pkg>rpubchem</pkg>
@@ -399,7 +442,7 @@ Data sets associated with <pkg>msProcess</pkg> can be found
   <pkg>simecol</pkg>
   <pkg>som</pkg>
   <pkg>SoPhy</pkg>
-  <pkg>spectrino</pkg>
+  <pkg>spls</pkg>
   <pkg>subselect</pkg>
   <pkg>TIMP</pkg>
   <pkg>titan</pkg>
@@ -412,9 +455,11 @@ Data sets associated with <pkg>msProcess</pkg> can be found
     <view>Psychometrics</view>
     <view>Cluster</view>
     <view>Multivariate</view>
+    <view>Environmetrics</view>
     <a href="http://CRAN.R-project.org/doc/Rnews/Rnews_2006-3.pdf" target="_top">R News: R in Chemistry</a> 
     <a href="http://www.jstatsoft.org/v18" target="_top">Journal of Statistical Software: Spectroscopy and Chemometrics in R</a>
     <rforge>photonics</rforge>
+    <rforge>OrgMassSpecR</rforge>
     <bioc>MassSpecWavelet</bioc>
     <bioc>PROcess</bioc>
     <bioc>xcms</bioc>
