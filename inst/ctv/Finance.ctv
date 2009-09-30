@@ -4,7 +4,7 @@
   <name>Finance</name>
   <topic>Empirical Finance</topic>
   <maintainer email="Dirk.Eddelbuettel@R-project.org">Dirk Eddelbuettel</maintainer>
-  <version>2009-06-22</version>
+  <version>2009-09-07</version>
   
   <info>
     <p>
@@ -122,7 +122,7 @@
           systems therory. 
       </li>
       <li>
-	  The <pkg>forecasting</pkg> bundle adds functions and datasets for
+	  The <pkg>forecast</pkg> package adds functions for
           forecasting problems.
       </li> 
       <li>
@@ -167,7 +167,8 @@
           of functions for portfolio performance calculations and risk management.
       </li>
       <li>The <pkg>TTR</pkg> contains functions to construct technical
-          trading rules in R.
+          trading rules in R. The <pkg>ttrTests</pkg> package contains several
+          test statistics for assessing the efficacy of such rules.
       </li>
       <li>The <pkg>financial</pkg> package can compute present values, cash
 	  flows and other simple finance calculations.
@@ -175,10 +176,11 @@
       <li>The <pkg>sde</pkg> package provides simulation and inference functionality
           for stochastic differential equations.
       </li>
-      <li>The <pkg>termstrc</pkg> package contains methods for the estimation
+      <li>The <pkg>termstrc</pkg> and <pkg>YieldCurve</pkg> packages contain methods for the estimation
           of zero-coupon yield curves and spread curves based the parametric 
-          Nelson and Siegel (1987) method with the Svensson (1994) extension, 
-         and the McCulloch (1975) cubic splines approach.
+          Nelson and Siegel (1987) method with the Svensson (1994)
+          extension. The former package adds the McCulloch (1975) cubic
+          splines approach, the latter package adds the Diebold and Li approach.
       </li>
       <li>The <pkg>vrtest</pkg> package contains a number of variance ratio
           tests for the weak-form of the efficient markets hypothesis.
@@ -337,7 +339,7 @@
     <pkg priority="core">fTrading</pkg>
     <pkg priority="core">fUnitRoots</pkg>
     <pkg priority="core">fUtilities</pkg>
-    <pkg>forecasting</pkg>
+    <pkg>forecast</pkg>
     <pkg>fracdiff</pkg>
     <pkg>FracSim</pkg>
     <pkg>fractal</pkg>
@@ -375,6 +377,7 @@
     <pkg>tseriesChaos</pkg>
     <pkg>tsfa</pkg>
     <pkg>TTR</pkg>
+    <pkg>ttrTests</pkg>
     <pkg priority="core">urca</pkg>
     <pkg>VaR</pkg>
     <pkg>vars</pkg>
@@ -387,6 +390,7 @@
     <pkg>wavelets</pkg>
     <pkg>waveslim</pkg>
     <pkg>wavethresh</pkg> 
+    <pkg>YieldCurve</pkg>
     <pkg>xts</pkg> 
     <pkg>Zelig</pkg>
     <pkg priority="core">zoo</pkg>    

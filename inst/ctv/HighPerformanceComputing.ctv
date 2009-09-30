@@ -2,9 +2,9 @@
 <CRANTaskView>
 
    <name>HighPerformanceComputing</name>
-   <topic>High Performance and Parallel Computing</topic>
+   <topic>High-Performance and Parallel Computing with R</topic>
    <maintainer email="Dirk.Eddelbuettel@R-project.org">Dirk Eddelbuettel</maintainer>
-   <version>2009-06-12</version>
+   <version>2009-08-31</version>
 
   <info>
     <p>
@@ -28,7 +28,7 @@
     <p>
       Suggestions and corrections by Achim Zeileis, Markus Schmidberger,
       Martin Morgan, Max Kuhn, Tomas Radivoyevitch, Jochen Knaus, Tobias
-      Verbeke, Hao Yu, and David Roseberg are gratefully acknowledged.
+      Verbeke, Hao Yu, and David Rosenberg are gratefully acknowledged.
     </p>
 
     <p>
@@ -82,6 +82,13 @@
 	parallelised functions to R for easy exploitation of HPC
 	systems. Currently only a parallised correlation calculation is
 	provided.
+      </li>
+      <li>The <pkg>foreach</pkg> package allows general iteration over elements in a 
+	collection without the use of an explicit loop counter. Using foreach 
+	without side effects also facilitates executing the loop in parallel 
+	which is possible via the <pkg>doMC</pkg> (using <pkg>multicore</pkg>,
+	on single workstations) and <pkg>doSNOW</pkg> (using <pkg>snow</pkg>,
+	see above) packages.
       </li>
     </ul>
 
@@ -253,7 +260,7 @@
 	the <pkg>latentnet</pkg> package by Krivitsky and Handcock for latent
 	position and cluster models,
 	the <pkg>lga</pkg> package by Harrington for linear grouping analysis,
-	the <pkg>peperr</pkg> package by Porelius and Binder for parallised
+	the <pkg>peperr</pkg> package by Porzelius and Binder for parallised
 	estimation of prediction error,
 	the <pkg>orloca</pkg> package by Fernandez-Palacin and Munoz-Marquez
 	for operations research locational analysis,
@@ -372,8 +379,11 @@
     <pkg>bnlearn</pkg>
     <pkg>caret</pkg>
     <pkg>ccems</pkg>
+    <pkg>doMC</pkg>
+    <pkg>doSNOW</pkg>
     <pkg>data.table</pkg>
     <pkg>ff</pkg>
+    <pkg>foreach</pkg>
     <pkg>fork</pkg>
     <pkg>GAMBoost</pkg>
     <pkg>Geneland</pkg>
@@ -421,7 +431,7 @@
   <links>
     <a href="http://www.stat.uiowa.edu/~luke/classes/295-hpc/">HPC computing notes by Luke Tierney for HPC class at University of Iowa</a> 
     <a href="https://stat.ethz.ch/mailman/listinfo/r-sig-hpc/">Mailing List: R Special Interest Group High Performance Computing</a>
-    <a href="http://epub.ub.uni-muenchen.de/8991/">Schmidberger, Morgan, Eddelbuettel, Yu, Tierney and Mansmann (2009) paper on 'State-of-the-Art in Parallel Computing with R</a>
+    <a href="http://www.jstatsoft.org/v31/i01/">Schmidberger, Morgan, Eddelbuettel, Yu, Tierney and Mansmann (2009) paper on 'State of the Art in Parallel Computing with R'</a>
     <a href="http://www.stat.uiowa.edu/~luke/R/experimental/">Luke Tierney's code directory for pnmath and pnmath0</a>
     <rforge>biocep-distrib</rforge>
     <rforge>RInside</rforge>
@@ -434,7 +444,7 @@
     <a href="http://www.imbi.uni-freiburg.de/parallel/">Parallel Computing in R with sfCluster/snowfall</a>
     <a href="http://en.wikipedia.org/wiki/Message_Passing_Interface">Wikipedia: Message Passing Interface (MPI)</a>
     <a href="http://en.wikipedia.org/wiki/Parallel_Virtual_Machine">Wikipedia: Parallel Virtual Machine (PVM)</a>
-    <a href="http://dirk.eddelbuettel.com/papers/bocDec2008introHPCwithR.pdf">Slides from Introduction to High-Performance Computing with R tutorial / workshop presentation</a> 
+    <a href="http://dirk.eddelbuettel.com/papers/useR2009hpcTutorial.pdf">Slides from Introduction to High-Performance Computing with R tutorial at UseR 2009 in Rennes</a> 
   </links>
 
 </CRANTaskView>
