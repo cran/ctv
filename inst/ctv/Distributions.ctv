@@ -4,7 +4,7 @@
 <name>Distributions</name> 
 <topic>Probability Distributions</topic> 
 <maintainer email="Christophe.Dutang@ensimag.fr">Christophe Dutang</maintainer> 
-<version>2009-07-17</version> 
+<version>2009-10-28</version> 
 
 <info> 
 For most of the classical distributions, base R provides
@@ -85,7 +85,8 @@ or not complete, please let me know.
 	    
 	    <LI><I>Hypergeometric distributions</I>: Extented hypergeometric distribution
 	    can be found in <pkg>BiasedUrn</pkg> package, which provides
-	    not only p, d, q, r functions but also mean, variance, mode functions.</LI>
+	    not only p, d, q, r functions but also mean, variance, mode functions.
+		Generalized hypergeometric distribution is implemented in <pkg>SuppDists</pkg>.</LI>
 
 		   <LI><I>Sichel distribution</I>: This can be found in
 	    <pkg>gamlss.dist</pkg>.</LI>	    
@@ -162,6 +163,8 @@ or not complete, please let me know.
      
      <LI><I>Frechet distribution</I>: Provided in <pkg>VGAM</pkg>
      and <pkg>evd</pkg>.</LI>
+	 
+	 <LI><I>Friedman's Chi distribution</I>: Provided in <pkg>SuppDists</pkg>.</LI>     
 
      <LI><I>Gamma distribution and its extensions</I>: Base R provides
      the d, p, q, r functions for this distribution (see above).
@@ -190,7 +193,8 @@ or not complete, please let me know.
      Finally, the multivariate Gaussian distribution
      is provided by the packages <pkg>mvtnorm</pkg> and <pkg>mnormt</pkg>, while
      <pkg>mvtnormpcs</pkg>implements multivariate student/normal integrals, 
-     given a correlation matrix structure.</LI> 
+     given a correlation matrix structure. <pkg>tmvtnorm</pkg> implements the truncated
+	 multivariate normal distribution.</LI> 
      
      <LI><I>General Error Distribution (also known as exponential power distribution)</I>:
      provided in <pkg>normalp</pkg> and <pkg>fExtremes</pkg>.</LI>
@@ -209,9 +213,15 @@ or not complete, please let me know.
      
      <LI><I>Hyperbolic distribuion</I>: <pkg>ghyp</pkg> and <pkg>fBasics</pkg> package
      provide d, p, q, r functions for the generalized hyperbolic distributions.</LI>
+	 
+	 <LI><I>Johnson distribution</I>: Provided in <pkg>SuppDists</pkg>.</LI>     
+	 
+     <LI><I>Kendall's tau distribution</I>: Provided in <pkg>SuppDists</pkg>.</LI>	 
 
-     <LI><I>Kappa distribution</I>: Provided in <pkg>lmomco</pkg>.</LI>     
+     <LI><I>Kruskal Wallis distribution</I>: Provided in <pkg>SuppDists</pkg>.</LI>     
      
+	 <LI><I>Kappa distribution</I>: Provided in <pkg>lmomco</pkg>.</LI>  
+	 
      <LI><I>Kumaraswamy distribution</I>: Provided in package <pkg>VGAM</pkg>.</LI>
      
      <LI><I>Lambda distribution</I>: The Tukey lambda (also known as the generalized
@@ -245,8 +255,10 @@ or not complete, please let me know.
      implement the GPD.</LI>
      
      <LI><I>Pearson type III distribution</I>: Available in <pkg>lmomco</pkg>.</LI>
+	 
+	 <LI><I>Pearson's Rho distribution</I>: Provided in <pkg>SuppDists</pkg>.</LI>     
      
-      <LI><i>Phase-type distributions</i>: Provided in <pkg>actuar</pkg>.</LI>
+     <LI><i>Phase-type distributions</i>: Provided in <pkg>actuar</pkg>.</LI>
 
      <LI><I>Rayleigh distribution</I>: Provided in packages <pkg>VGAM</pkg> 
      and <pkg>lmomco</pkg>.</LI>
@@ -258,6 +270,8 @@ or not complete, please let me know.
  
       <LI><I>Slash distribution</I>: Provided in <pkg>VGAM</pkg>.</LI>
       
+	  <LI><I>Spearman's Rho distribution</I>: Provided in <pkg>SuppDists</pkg>.</LI>     
+	  
       <LI><I>stable distributions</I>: d, p, q, r functions are available in <pkg>fBasics</pkg>, 
       the functions use the approach of J.P. Nolan for general stable distributions.</LI>
  
@@ -381,7 +395,8 @@ or not complete, please let me know.
      <LI><I>Pseudo-randomness</I>: 
      <pkg>RDieHarder</pkg> offers several dozen new RNGs 
      from the GNU GSL and <pkg>randtoolbox</pkg> provides
-     more recent RNGs such as WELL and SF Mersenne-Twister.      
+     more recent RNGs such as WELL and SF Mersenne-Twister. <pkg>SuppDists</pkg>
+	 implements two RNGs of G. Marsaglia.    
      <pkg>rsprng</pkg> implements Scalable Parallel RNGs library, whereas
      <pkg>randaes</pkg> provides the deterministic part of the Fortuna cryptographic 
      pseudorandom number generator (AES). Furthermore, <pkg>rstream</pkg> focuses on multiple 
@@ -456,7 +471,7 @@ or not complete, please let me know.
      estimation for various distributions, while <pkg>lmomco</pkg> and <pkg>Lmoments</pkg> focuse on
      (L-)moments estimation. <pkg>VGAM</pkg> provides a lot of parameter
      estimation for usual and "exotic" distributions. Package
-     MASS (in the <pkg>VR</pkg> bundle) implements the flexible <code>fitdistr</code>
+     <pkg>MASS</pkg> implements the flexible <code>fitdistr</code>
      function for parameter estimations. <pkg>fitdistrplus</pkg> greatly enlarges and enhances
      the tools to fit probability distributions.
      Bivariate copulas can be fitted with <pkg>mlCopulaSelection</pkg>.</LI>	       
@@ -507,6 +522,7 @@ or not complete, please let me know.
   <pkg>lhs</pkg>
   <pkg priority="core">lmomco</pkg>
   <pkg>Lmoments</pkg>
+  <pkg>MASS</pkg>
   <pkg>MCMCpack</pkg>
   <pkg>mixtools</pkg>
   <pkg>mlCopulaSelection</pkg>
@@ -529,6 +545,7 @@ or not complete, please let me know.
   <pkg>sn</pkg>
   <pkg priority="core">SuppDists</pkg>
   <pkg>tdist</pkg>
+  <pkg>tmvtnorm</pkg>
   <pkg>TRIANG</pkg>
   <pkg>triangle</pkg>
   <pkg>tweedie</pkg>

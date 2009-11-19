@@ -4,7 +4,7 @@
    <name>HighPerformanceComputing</name>
    <topic>High-Performance and Parallel Computing with R</topic>
    <maintainer email="Dirk.Eddelbuettel@R-project.org">Dirk Eddelbuettel</maintainer>
-   <version>2009-08-31</version>
+   <version>2009-11-17</version>
 
   <info>
     <p>
@@ -28,7 +28,7 @@
     <p>
       Suggestions and corrections by Achim Zeileis, Markus Schmidberger,
       Martin Morgan, Max Kuhn, Tomas Radivoyevitch, Jochen Knaus, Tobias
-      Verbeke, Hao Yu, and David Rosenberg are gratefully acknowledged.
+      Verbeke, Hao Yu, David Rosenberg amd Marco Enea are gratefully acknowledged.
     </p>
 
     <p>
@@ -122,10 +122,6 @@
       </li>
       <li>The R/parallel package by Vera, Jansen and Suppi offers a C++-based master-slave dispatch
         mechanism for parallel execution (<a href="http://www.rparallel.org/">link</a>)
-      </li>
-      <li>The <pkg>RScaLAPACK</pkg> package by Samatova et al. provides an interface to the ScaLAPACK
-        libraries which can replace the standard BLAS libraries and offer parallel execution of the same BLAS functions. 
-	<!-- This may however require a recompilation of the R engine itself. -->
       </li>
       <li>
 	The SPRINT package by Hill adds another parallel framework to R 
@@ -241,12 +237,6 @@
 	package by Kane and Emerson can use <pkg>nws</pkg> for parallelized operations.
       </li>
       <li>
-	The <pkg>networksis</pkg>
-	package by Admiraal and Handcock can use <pkg>rpvm</pkg>
-	and <pkg>snow</pkg> for parallelized simulation of bipartite graphs
-	via sequential importance smapling.
-      </li>
-      <li>
 	The <pkg>BARD</pkg> package by Altman for better automated redistring,
 	the <pkg>GAMBoost</pkg> package by Binder for <code>glm</code>
 	and <code>gam</code> model fitting via boosting using b-splines,
@@ -298,6 +288,12 @@
         an nVidia GPU these functions may be substantially more efficient
         than native R routines. 
       </li>
+      <li>
+        The <pkg>cudaBayesreg</pkg> package by da Silva implements
+        the <code>rhierLinearModel</code> from the <pkg>bayesm</pkg> package 
+	using nVidia's CUDA langauge and tools to provide high-performance
+        statistical analysis of fMRI voxels.
+      </li>
     </ul>
 
     <p>
@@ -326,6 +322,13 @@
 	writing map/reduce scripts for use in Hadoop Streaming; it also
 	facilitates operating on data in a streaming fashion which does not
 	require Hadoop.
+      </li>
+      <li>The <pkg>speedglm</pkg> package permits to fit (generalised) linear
+	models to large data.  For in-memory data sets, speedlm() or
+	speedglm() can be used along with update.speedlm() which can update
+	fitted models with new data. For out-of-memory data sets, shglm() is
+	available; it works in the presence of factors and can check for
+	singular matrices.
       </li>
 
     </ul>
@@ -379,6 +382,7 @@
     <pkg>bnlearn</pkg>
     <pkg>caret</pkg>
     <pkg>ccems</pkg>
+    <pkg>cudaBayesreg</pkg>
     <pkg>doMC</pkg>
     <pkg>doSNOW</pkg>
     <pkg>data.table</pkg>
@@ -398,7 +402,6 @@
     <pkg>Matching</pkg>
     <pkg>multicore</pkg>
     <pkg>multtest</pkg>
-    <pkg>networksis</pkg>
     <pkg>nws</pkg>
     <pkg>orloca</pkg>
     <pkg>papply</pkg>
@@ -414,13 +417,13 @@
     <pkg>Rlsf</pkg>
     <pkg priority="core">Rmpi</pkg>
     <pkg>rpvm</pkg>
-    <pkg>RScaLAPACK</pkg>
     <pkg>Rsge</pkg>
     <pkg>rsprng</pkg>
     <pkg>scaleboot</pkg>
     <pkg priority="core">snow</pkg>
     <pkg>snowfall</pkg>
     <pkg>snowFT</pkg>
+    <pkg>speedglm</pkg>
     <pkg>sqldf</pkg>
     <pkg>STAR</pkg>
     <pkg>taskPR</pkg>

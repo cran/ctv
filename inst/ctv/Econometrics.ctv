@@ -3,7 +3,7 @@
   <name>Econometrics</name>
   <topic>Computational Econometrics</topic>
   <maintainer email="Achim.Zeileis@R-project.org">Achim Zeileis</maintainer>
-  <version>2009-09-07</version>
+  <version>2009-10-28</version>
   
   <info>
     <p>Base R ships with a lot of functionality useful for computational
@@ -50,18 +50,18 @@
           family of generalized linear models (GLM) and can be fitted by <code>glm()</code>
 	  from package stats. This includes in particular logit and probit models
 	  for modeling choice data and poisson models for count data.</li>
-      <li>Negative binomial GLMs are available via <code>glm.nb()</code> in package MASS from
-	  the <pkg>VR</pkg> bundle. Another implementation of negative binomial models
+      <li>Negative binomial GLMs are available via <code>glm.nb()</code> in package <pkg>MASS</pkg>.
+	  Another implementation of negative binomial models
 	  is provided by <pkg>aod</pkg>, which also contains other models for overdispersed
 	  data.</li>
       <li>Zero-inflated and hurdle count models are provided in package <pkg>pscl</pkg>.</li>
       <li>Multinomial responses: Multinomial models
 	  with individual-specific covariates only are available in <code>multinom()</code>
-	  from package nnet in the <pkg>VR</pkg> bundle. In implementation with both individual- and
+	  from package <pkg>nnet</pkg>. In implementation with both individual- and
 	  choice-specific variables is <pkg>mlogit</pkg>. A Bayesian approach to
 	  multinomial probit models is provided by <pkg>MNP</pkg>. Furthermore,
 	  proportional-odds logistic regression for ordered responses is implemented in
-	  <code>polr()</code> from package MASS (in <pkg>VR</pkg>).</li>
+	  <code>polr()</code> from package <pkg>MASS</pkg>.</li>
       <li>Basic censored regression models (e.g., tobit models)
 	  can be fitted by <code>survreg()</code> in <pkg>survival</pkg>, a convenience
 	  interface <code>tobit()</code> is in package <pkg>AER</pkg>.
@@ -79,8 +79,8 @@
     <ul>
       <li>Nonlinear least squares modeling is availble in <code>nls()</code>
 	  in package stats.</li>
-      <li>Quantile regression: <pkg>quantreg</pkg> (now including also censored
-          quantile regression, previously only available in <pkg>crq</pkg>).</li>
+      <li>Quantile regression: <pkg>quantreg</pkg> (including linear, nonlinear, censored,
+          locally polynomial and additive quantile regressions).</li>
       <li>Linear models for panel data: <pkg>plm</pkg>.</li>
       <li>Generalized method of moments (GMM) and generalized empirical likelihood (GEL):
           <pkg>gmm</pkg>.</li>
@@ -145,8 +145,8 @@
       <li>Various nonlinear autoregressive time series models are provided by <pkg>tsDyn</pkg>.</li>
       <li>Gaussian linear state space models can be fitted using <pkg>dlm</pkg> (via maximum likelihood,
 	  Kalman filtering/smoothing and Bayesian methods).</li>
-      <li>Unit root and cointegration techniques are available in <pkg>urca</pkg> and
-	  <pkg>tseries</pkg>.</li>
+      <li>Unit root and cointegration techniques are available in <pkg>urca</pkg>,
+	  <pkg>tseries</pkg>, and <pkg>CADFtest</pkg>.</li>
       <li>Time series factor analysis is available in <pkg>tsfa</pkg>.</li>
       <li>Package <pkg>sde</pkg> provides simulation and inference for stochastic
 	  differential equations.</li>
@@ -213,8 +213,8 @@
     <pkg>betareg</pkg>
     <pkg>boot</pkg>
     <pkg>bootstrap</pkg>
+    <pkg>CADFtest</pkg>
     <pkg priority="core">car</pkg>
-    <pkg>crq</pkg>
     <pkg>CDNmoney</pkg>
     <pkg>Design</pkg>
     <pkg>dlm</pkg>
@@ -233,6 +233,7 @@
     <pkg>its</pkg>
     <pkg>lme4</pkg>
     <pkg priority="core">lmtest</pkg>
+    <pkg>MASS</pkg>
     <pkg>Matrix</pkg>
     <pkg>Mcomp</pkg>
     <pkg>meboot</pkg>
@@ -242,6 +243,7 @@
     <pkg>MNP</pkg>
     <pkg>MSBVAR</pkg>
     <pkg>nlme</pkg>
+    <pkg>nnet</pkg>
     <pkg>np</pkg>
     <pkg priority="core">plm</pkg>
     <pkg>pscl</pkg>
@@ -263,7 +265,6 @@
     <pkg>tsfa</pkg>
     <pkg priority="core">urca</pkg>
     <pkg>vars</pkg>
-    <pkg>VR</pkg>
     <pkg>Zelig</pkg>
     <pkg priority="core">zoo</pkg>    
   </packagelist>

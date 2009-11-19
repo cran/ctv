@@ -3,7 +3,7 @@
 <name>TimeSeries</name>
 <topic>Time Series Analysis</topic>
 <maintainer email="Rob.Hyndman@buseco.monash.edu.au">Rob J. Hyndman and Achim Zeileis</maintainer>
-<version>2009-09-09</version>
+<version>2009-11-19</version>
 
 <info>
 <p>
@@ -65,7 +65,7 @@
       all computations in GMT only. Calendar functionality, e.g., including
       information about weekends and holidays for various stock exchanges,
       is also included.</li>
-  <li>The <pkg>fame</pkg> package provides the <code>"ti"</code> class for
+  <li>The <pkg>tis</pkg> package provides the <code>"ti"</code> class for
       time/date information.</li>
 </ul>
 
@@ -87,7 +87,7 @@
       <pkg>tseries</pkg>, and <code>"fts"</code> from <pkg>fts</pkg>.</li>
   <li>The class <code>"timeSeries"</code> in <pkg>timeSeries</pkg> (previously: fSeries)
       implements time series with <code>"timeDate"</code> time stamps.</li>
-  <li>The class <code>"tis"</code> in <pkg>fame</pkg> implements
+  <li>The class <code>"tis"</code> in <pkg>tis</pkg> implements
       time series with <code>"ti"</code> time stamps.</li>
   <li>The package <pkg>tframe</pkg> contains infrastructure for setting
       time frames in different formats.</li>
@@ -180,7 +180,9 @@
       implementations of the ADF and KPSS tests are in the
       <pkg>urca</pkg> package, which also includes further methods
       such as Elliott-Rothenberg-Stock, Schmidt-Phillips and Zivot-Andrews
-      tests. The <pkg>fUnitRoots</pkg> package also provides the MacKinnon test.</li> 
+      tests. The <pkg>fUnitRoots</pkg> package also provides the MacKinnon test.
+      <pkg>CADFtest</pkg> provides implementations of both the standard ADF
+      and a covariate-augmented ADF (CADF) test.</li> 
   <li><i>Cointegration</i>: The Engle-Granger two-step method with the Phillips-Ouliaris
       cointegration test is implemented in <pkg>tseries</pkg> and <pkg>urca</pkg>.
       The latter additionally contains functionality for the Johansen trace
@@ -191,9 +193,7 @@
 <ul>
   <li><i>Nonlinear autoregression</i>: Various forms of nonlinear
       autoregression are available in <pkg>tsDyn</pkg> including
-      additive AR, neural nets, SETAR and LSTAR models. Nonparametric
-      autoregression is also provided by  <pkg>nlts</pkg> (including
-      order estimation through cross-validation).   <pkg>bentcableAR</pkg>
+      additive AR, neural nets, SETAR and LSTAR models. <pkg>bentcableAR</pkg>
       implements Bent-Cable autoregression. <pkg>BAYSTAR</pkg> provides Bayesian analysis of threshold
       autoregressive models.</li>
   <li>The <i><a
@@ -230,10 +230,12 @@
       are fitted in the <pkg>mAr</pkg> package, which also allows
       VAR models in principal component space. More elaborate models
       are provided in package <pkg>vars</pkg>, <code>estVARXls()</code> 
-	  in <pkg>dse</pkg> and a Bayesian approach is available in <pkg>MSBVAR</pkg>.</li>
+	  in <pkg>dse</pkg> and a Bayesian approach is available in <pkg>MSBVAR</pkg>.
+	  </li>
   <li><i>Markov-switching VAR</i> models are available in <pkg>MSVAR</pkg>.</li>
   <li><i>VARIMA models</i> and <i>state space models</i> are provided
-      in the <pkg>dse</pkg> package.</li>
+      in the <pkg>dse</pkg> package. <pkg>EvalEst</pkg> facilitates Monte Carlo experiments to 
+	  evaluate the associated estimation methods.</li>
   <li><i>Vector error correction models</i> are available via the
       <pkg>urca</pkg> and <pkg>vars</pkg> packages, including versions with structural
       constraints. </li>
@@ -278,6 +280,7 @@
   <li><pkg>hydrosanity</pkg>: Graphical user interface for exploring hydrological time series.</li>
   <li><pkg>paleoTS</pkg>: Modeling evolution in paleontological time series.</li>
   <li><pkg>pastecs</pkg>: Regulation, decomposition and analysis of space-time series.</li>
+  <li><pkg>ptw</pkg>: Parametric time warping.</li>
   <li><pkg>RSEIS</pkg>: Seismic time series analysis tools.</li>
   <li><pkg>sde</pkg>: Simulation and inference for stochastic differential equations.</li>
   <li><pkg>tiger</pkg>: Temporally resolved groups of typical differences (errors) between two time series are determined and visualized.</li>
@@ -296,6 +299,7 @@
   <pkg>BootPR</pkg>
   <pkg>brainwaver</pkg>
   <pkg>bspec</pkg>
+  <pkg>CADFtest</pkg>
   <pkg>chron</pkg>
   <pkg>cts</pkg>
   <pkg>dlm</pkg>
@@ -306,6 +310,7 @@
   <pkg>dynlm</pkg>
   <pkg>Ecdat</pkg>
   <pkg>ensembleBMA</pkg>
+  <pkg>EvalEst</pkg>
   <pkg>expsmooth</pkg>
   <pkg>fame</pkg>
   <pkg>far</pkg>
@@ -339,10 +344,10 @@
   <pkg>mFilter</pkg>
   <pkg>MSBVAR</pkg>
   <pkg>MSVAR</pkg>
-  <pkg>nlts</pkg>
   <pkg>paleoTS</pkg>
   <pkg>pastecs</pkg>
   <pkg>pear</pkg>
+  <pkg>ptw</pkg>
   <pkg>robfilter</pkg>
   <pkg>RSEIS</pkg>
   <pkg>RTisean</pkg>
@@ -353,6 +358,7 @@
   <pkg>timsac</pkg>
   <pkg>timeDate</pkg>
   <pkg>timeSeries</pkg>
+  <pkg>tis</pkg>
   <pkg>tpr</pkg>
   <pkg>TSA</pkg>
   <pkg>TSdbi</pkg>

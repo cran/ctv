@@ -2,7 +2,7 @@
   <name>Spatial</name>
   <topic>Analysis of Spatial Data</topic>
   <maintainer email="Roger.Bivand@nhh.no">Roger Bivand</maintainer>
-  <version>2009-06-24</version>
+  <version>2009-10-28</version>
 
   <info>
     <p>Base R includes many functions that can be used for reading,
@@ -125,9 +125,8 @@
       for Python access to the ArcGIS GeoProcessor, and <pkg>RSAGA</pkg>
       is a similar shell-based wrapper for SAGA commands</p></li>
 
-      <li><p><b>Point pattern analysis</b>: The spatial
-      package is available as part of the <pkg>VR</pkg> bundle
-      (a recommended package shipped with base R), and contains several 
+      <li><p><b>Point pattern analysis</b>: The <pkg>spatial</pkg>
+      package is a recommended package shipped with base R, and contains several 
       core functions, including an implementation of Khat by its 
       author, Prof. Ripley. In
       addition, <pkg>spatstat</pkg> allows freedom in defining the
@@ -161,9 +160,8 @@
       geostatistics. Automated interpolation using <pkg>gstat</pkg>
       is available in <pkg>automap</pkg>. A similar wide range of
       functions is to be
-      found in the <pkg>fields</pkg> package. The spatial
-      package is available as part of the <pkg>VR</pkg> bundle
-      (shipped with base R), and contains several core functions. The 
+      found in the <pkg>fields</pkg> package. The <pkg>spatial</pkg>
+      package is shipped with base R, and contains several core functions. The 
       <pkg>spBayes</pkg> package fits Gaussian univariate and multivariate
       models with MCMC. <pkg>ramps</pkg> is a different Bayesian
       geostatistical modelling package.</p>
@@ -203,8 +201,14 @@
       models to WinBUGS, extended by <pkg>diseasemapping</pkg>.</p></li>
 
       <li><p><b>Spatial regression</b>:
-      The <pkg>spdep</pkg> package can also be viewed from spatial 
-      econometrics, and, as noted above, provides basic functions for
+      The choice of function for spatial regression will depend on the 
+      support available. If the data are characterised by point support
+      and the spatial process is continuous, geostatistical methods may be 
+      used, or functions in the <pkg>nlme</pkg> package. If the support
+      is areal, and the spatial process is not being treated as continuous,
+      functions provided in the <pkg>spdep</pkg> package may be used.
+      This package can also be seen as providing spatial econometrics
+      functions, and, as noted above, provides basic functions for
       building neighbour lists and spatial weights, tests for spatial
       autocorrelation for areal data like Moran's I, and functions for
       fitting spatial regression models. It provides the full range of
@@ -277,6 +281,7 @@
     <pkg>MBA</pkg>
     <pkg>ncdf</pkg>
     <pkg>ncf</pkg>
+    <pkg>nlme</pkg>
     <pkg priority="core">maptools</pkg>
     <pkg>ModelMap</pkg>
     <pkg>pastecs</pkg>
@@ -295,6 +300,7 @@
     <pkg>sgeostat</pkg>
     <pkg>shapefiles</pkg>
     <pkg priority="core">sp</pkg>
+    <pkg priority="core">spatial</pkg>
     <pkg>spatialCovariance</pkg>
     <pkg>SpatialExtremes</pkg>
     <pkg>spatialkernel</pkg>
@@ -314,7 +320,6 @@
     <pkg>tripEstimation</pkg>
     <pkg priority="core">tripack</pkg>
     <pkg>vegan</pkg>
-    <pkg priority="core">VR</pkg>
   </packagelist>
 
     
