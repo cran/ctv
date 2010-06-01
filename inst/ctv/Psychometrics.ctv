@@ -2,8 +2,8 @@
 
 <name>Psychometrics</name>
 <topic>Psychometric Models and Methods</topic>
-<maintainer email="Patrick.Mair@wu-wien.ac.at">Patrick Mair and Reinhold Hatzinger</maintainer>
-<version>2009-11-04</version>
+<maintainer email="Patrick.Mair@wu.ac.at">Patrick Mair and Reinhold Hatzinger</maintainer>
+<version>2010-05-20</version>
 
 <info> Psychometrics is concerned with the design and analysis of research and
 the measurement of human characteristics. Psychometricians have also
@@ -19,7 +19,7 @@ published a special volume on
 in which some new R packages were published which are not yet on CRAN.
 
 <p>
-<a href="mailto:patrick.mair@wu-wien.ac.at">Please let us know</a>
+<a href="mailto:Patrick.Mair@wu.ac.at">Please let us know</a>
 if we have omitted something of importance, or if a new package or function
 should be mentioned here.
 </p>
@@ -50,6 +50,9 @@ should be mentioned here.
   </li>
   <li>
      The <pkg>difR</pkg> package contains several traditional methods to detect DIF in dichotomously scored items. Both uniform and non-uniform DIF effects can be detected, with methods relying upon item response models or not. Some methods deal with more than one focal group.
+  </li>
+  <li>
+     The package <pkg>lordif</pkg> provides a logistic regression framework for detecting various types of differential item functioning (DIF). 
   </li>
   <li>
      The package <pkg>plRasch</pkg> computes maximum likelihood estimates and
@@ -91,7 +94,7 @@ should be mentioned here.
   </li>
   <li> 
     Bayesian approaches for estimating item and person parameters by means of Gibbs-Sampling 
-    are included in <pkg>MCMCpack</pkg>.
+    are included in <pkg>MCMCpack</pkg>. In addition, the <pkg>pscl</pkg> package allows for Bayesian IRT and roll call analysis. 
   </li>
   <li>
      The <pkg>latdiag</pkg> package produces commands to drive the dot program from graphviz to produce a 
@@ -112,7 +115,7 @@ should be mentioned here.
     different scaling options for biplots and three-dimensional maps using
     the <pkg>rgl</pkg> package. Graphical options include shading and
     sizing plot symbols for the points according to their contributions to
-    the map and masses respectively. 
+    the map and masses respectively. A corresponding GUI is provided by the package <pkg>caGUI</pkg>. 
   </li>
   <li>
     Simple and canonical CA are provided by the package <pkg>anacor</pkg>. It 
@@ -191,6 +194,9 @@ should be mentioned here.
     task view for other related packages.
   </li>
   <li>
+    The package <pkg>lavaan</pkg> can be used to estimate a large variety of multivariate statistical models, including path analysis, confirmatory factor analysis, structural equation modeling and growth curve models. It includes the lavaan model syntax which allows users to express their models in a compact way and allows for ML, GLS, WLS, robust ML using Satorra-Bentler corrections, and FIML for data with missing values. It fully supports for meanstructures and multiple groups and reports standardized solutions, fit measures, modification indices and more as output.
+  </li>
+  <li>
     <pkg>SEMModComp</pkg> conducts tests of difference in fit for mean and covariance structure models as in structural equation modeling (SEM)
   </li>
   <li>
@@ -267,6 +273,9 @@ should be mentioned here.
     conduct item analyses, and transform scores onto different scales.
   </li>
   <li>
+    The <pkg>CMC</pkg> package calculates and plots the step-by-step Cronbach-Mesbach curve, that is a method, based on the Cronbach alpha coefficient of reliability, for checking the unidimensionality of a measurement scale. 
+  </li>
+  <li>
     The package <pkg>psychometric</pkg> contains functions useful for correlation
     theory, meta-analysis (validity-generalization), reliability, item analysis,
     inter-rater reliability, and classical utility. Cronbach alpha, kappa coefficients, and
@@ -309,7 +318,7 @@ should be mentioned here.
     for paired comparisons, rankings, and ratings. Some treatment of missing values (MCAR and MNAR).
   </li>
   <li>
-     Bradley-Terry models for paired comparisons are implemented in the package <pkg>BradleyTerry</pkg> 
+     Bradley-Terry models for paired comparisons are implemented in the package <pkg>BradleyTerry2</pkg> 
      and in <pkg>eba</pkg>. The latter allowes for the computation of elimination-by-aspects models.
   </li>
   <li>
@@ -335,11 +344,13 @@ should be mentioned here.
     <pkg priority="core">ade4</pkg>
     <pkg priority="core">anacor</pkg>
     <pkg>BiplotGUI</pkg>
-    <pkg>BradleyTerry</pkg>
+    <pkg>BradleyTerry2</pkg>
     <pkg priority="core">ca</pkg>
+    <pkg>caGUI</pkg>
     <pkg>cfa</pkg>
+    <pkg>CMC</pkg>
     <pkg>cocorresp</pkg>
-    <pkg>concord</pkg>
+    <pkg>concord</pkg><pkg>CMC</pkg>
     <pkg priority="core">CTT</pkg>
     <pkg>DAKS</pkg>
     <pkg>difR</pkg>
@@ -358,7 +369,9 @@ should be mentioned here.
     <pkg>irtProb</pkg>
     <pkg>labdsv</pkg>
     <pkg>latdiag</pkg>
+    <pkg priority="core">lavaan</pkg>
     <pkg priority="core">lme4</pkg>
+    <pkg>lordif</pkg>
     <pkg priority="core">ltm</pkg>
     <pkg>MASS</pkg>
     <pkg>MBESS</pkg>
@@ -377,6 +390,7 @@ should be mentioned here.
     <pkg>poLCA</pkg>
     <pkg>polycor</pkg>
     <pkg priority="core">prefmod</pkg>
+    <pkg>pscl</pkg>
     <pkg priority="core">psy</pkg>
     <pkg priority="core">psych</pkg>
     <pkg priority="core">psychometric</pkg>
@@ -393,7 +407,7 @@ should be mentioned here.
     <pkg priority="core">vegan</pkg>
     <pkg>VGAM</pkg>
     <pkg>xgobi</pkg>
-</packagelist>
+</packagelist><pkg>CMC</pkg>
 
 <links>
     <view>SocialSciences</view>

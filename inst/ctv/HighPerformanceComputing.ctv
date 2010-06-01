@@ -4,7 +4,7 @@
    <name>HighPerformanceComputing</name>
    <topic>High-Performance and Parallel Computing with R</topic>
    <maintainer email="Dirk.Eddelbuettel@R-project.org">Dirk Eddelbuettel</maintainer>
-   <version>2009-11-17</version>
+   <version>2010-05-29</version>
 
   <info>
     <p>
@@ -28,7 +28,8 @@
     <p>
       Suggestions and corrections by Achim Zeileis, Markus Schmidberger,
       Martin Morgan, Max Kuhn, Tomas Radivoyevitch, Jochen Knaus, Tobias
-      Verbeke, Hao Yu, David Rosenberg amd Marco Enea are gratefully acknowledged.
+      Verbeke, Hao Yu, David Rosenberg, Marco Enea, Ivo Welch and Jay Emerson
+      are gratefully acknowledged.
     </p>
 
     <p>
@@ -87,8 +88,14 @@
 	collection without the use of an explicit loop counter. Using foreach 
 	without side effects also facilitates executing the loop in parallel 
 	which is possible via the <pkg>doMC</pkg> (using <pkg>multicore</pkg>,
-	on single workstations) and <pkg>doSNOW</pkg> (using <pkg>snow</pkg>,
-	see above) packages.
+	on single workstations), <pkg>doSNOW</pkg> (using <pkg>snow</pkg>,
+	see above), <pkg>doMPI</pkg> (using <pkg>Rmpi</pkg>) packages and
+	<pkg>doRedis</pkg> (using <pkg>rredis</pkg>) packages.
+      </li>
+      <li>The <pkg>Rdsm</pkg> package provides a threads-like parallel
+	computing environment, both on multicore machine and across the network
+	by providing facilities inspired from distributed shared memory
+	programming.
       </li>
     </ul>
 
@@ -194,6 +201,10 @@
         The <pkg>Rlsf</pkg> package by Smith et al. offers an interface to the
         LSF cluster/grid system.
       </li>
+      <li>
+        The <pkg>batch</pkg> package by Hoffmann can launch parallel computing
+        requests onto a cluster and gather results.
+      </li>
     </ul>
 
     <p>
@@ -233,8 +244,7 @@
       </li>
       <li>
 	The <pkg>bcp</pkg> package by Erdman and Emerson for the bayesian
-	analysis of change points, and the <pkg>bigmemory</pkg>
-	package by Kane and Emerson can use <pkg>nws</pkg> for parallelized operations.
+	analysis of change points can use <pkg>nws</pkg> for parallelized operations.
       </li>
       <li>
 	The <pkg>BARD</pkg> package by Altman for better automated redistring,
@@ -294,6 +304,10 @@
 	using nVidia's CUDA langauge and tools to provide high-performance
         statistical analysis of fMRI voxels.
       </li>
+      <li>
+        The rgpu package (see below for link) aims to speed up bioinformatics
+        analysis by using the GPU.
+      </li>
     </ul>
 
     <p>
@@ -309,10 +323,10 @@
         higher-level functions.
       </li>
       <li>The <pkg>bigmemory</pkg> package by Kane and Emerson permits storing large objects such
-        as matrices in memory and uses external pointer objects to refer to
-        them.  This permits transparent access from R without bumping
-        against R's internal memory limits.  Several R processes on the
-        same computer can also shared big memory objects.
+        as matrices in memory (as well as via files) and uses external
+        pointer objects to refer to them.  This permits transparent access
+        from R without bumping against R's internal memory limits.  Several R
+        processes on the same computer can also shared big memory objects.
       </li>
       <li>A large number of database packages, and database-alike packages
         (such as <pkg>sqldf</pkg> by Grothendieck and <pkg>data.table</pkg>
@@ -330,7 +344,11 @@
 	available; it works in the presence of factors and can check for
 	singular matrices.
       </li>
-
+      <li>
+	The <pkg>biglars</pkg> package by Seligman et al can use the <pkg>ff</pkg>
+	to support large-than-memory datasets for least-angle regression,
+	lasso and stepwise regression.
+      </li>
     </ul>
 
     <p>
@@ -338,20 +356,21 @@
     </p>
     <ul>
       <li>
-	The <pkg>inline</pkg> package by Sklyar, Murdoch and Smith eases adding code in C, C++ or Fortran to R. It
-	takes care of the compilation, linking and loading of embeded code
-	segments that are stored as R strings.
+	The <pkg>inline</pkg> package by Sklyar et al eases adding code in C,
+	C++ or Fortran to R. It takes care of the compilation, linking and
+	loading of embeded code segments that are stored as R strings.
       </li>
       <li>
-	The <pkg>Rcpp</pkg> package by Eddelbuettel offers a number of C++ clases that makes
-	transferring R objects to C++ functions (and back) easier, and
-	the <rforge>RInside</rforge> package by Eddelbuettel allows easy
-	embedding of R itself into C++ applications for faster and more
-	direct data transfer..  
+	The <pkg>Rcpp</pkg> package by Eddelbuettel and Francois offers a
+        number of C++ clases that makes transferring R objects to C++
+        functions (and back) easier, and the <rforge>RInside</rforge> package
+        by the same authors allows easy embedding of R itself into C++
+        applications for faster and more direct data transfer.
       </li>
       <li>
-	The <pkg>rJava</pkg> package by Urbanek provides a low-level interface to Java
-	similar to the <code>.Call()</code> interface for C and C++.
+	The <pkg>rJava</pkg> package by Urbanek provides a low-level
+	interface to Java similar to the <code>.Call()</code> interface for C
+	and C++.
       </li>
       <!-- <li>Fortran interfaces -->
       <!-- </li> -->
@@ -375,7 +394,9 @@
   <packagelist>
     <pkg>ADaCGH</pkg>
     <pkg>BARD</pkg>
+    <pkg>batch</pkg>
     <pkg>bcp</pkg>
+    <pkg>biglars</pkg>
     <pkg>biglm</pkg>
     <pkg>bigmemory</pkg>
     <pkg>biopara</pkg>
@@ -384,6 +405,8 @@
     <pkg>ccems</pkg>
     <pkg>cudaBayesreg</pkg>
     <pkg>doMC</pkg>
+    <pkg>doMPI</pkg>
+    <pkg>doRedis</pkg>
     <pkg>doSNOW</pkg>
     <pkg>data.table</pkg>
     <pkg>ff</pkg>
@@ -411,6 +434,7 @@
     <pkg>proftools</pkg>
     <pkg>pvclust</pkg>
     <pkg>Rcpp</pkg>
+    <pkg>Rdsm</pkg>
     <pkg>rgenoud</pkg>
     <pkg>rJava</pkg>
     <pkg>rlecuyer</pkg>
@@ -447,7 +471,8 @@
     <a href="http://www.imbi.uni-freiburg.de/parallel/">Parallel Computing in R with sfCluster/snowfall</a>
     <a href="http://en.wikipedia.org/wiki/Message_Passing_Interface">Wikipedia: Message Passing Interface (MPI)</a>
     <a href="http://en.wikipedia.org/wiki/Parallel_Virtual_Machine">Wikipedia: Parallel Virtual Machine (PVM)</a>
-    <a href="http://dirk.eddelbuettel.com/papers/useR2009hpcTutorial.pdf">Slides from Introduction to High-Performance Computing with R tutorial at UseR 2009 in Rennes</a> 
+    <a href="http://dirk.eddelbuettel.com/papers/ismNov2009introHPCwithR.pdf">Slides from Introduction to High-Performance Computing with R tutorial help in Nov 2009 at the Institute for Statistical Mathematics, Tokyo, Japan</a> 
+    <a href="https://gforge.nbic.nl/projects/rgpu/">rgpu project at nbic.nl</a>
   </links>
 
 </CRANTaskView>

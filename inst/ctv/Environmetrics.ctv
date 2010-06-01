@@ -1,9 +1,9 @@
-<!-- Hey Emacs, make this -*- mode: XML -*- -->
+<!-- Hey Emacs make this -*- mode: XML -*- -->
 <CRANTaskView>
   <name>Environmetrics</name>
   <topic>Analysis of Ecological and Environmental Data</topic>
   <maintainer email="gavin.simpson@ucl.ac.uk">Gavin Simpson</maintainer>
-  <version>2009-10-28</version>
+  <version>2010-05-08</version>
 
   <info>
     <h4>Introduction</h4>
@@ -15,8 +15,8 @@
       analysis of environmental and ecological data, a <a href="http://www.jstatsoft.org/v22/" >special volume</a> of 
       the <em>Journal of Statistical Software</em> was produced in 2007.</p>
     <p>Those useRs interested in environmetrics should consult the <view>Spatial</view> view. 
-      Complementary information is also available in the <view>Multivariate</view> and <view>Cluster</view> task
-      views.</p>
+      Complementary information is also available in the <view>Multivariate</view>, <view>Phylogenetics</view> and 
+      <view>Cluster</view> task views.</p>
     <p>If you have any comments or suggestions for additions or improvements, then please contact the
       <a href="mailto:gavin_DOT_simpson_AT_ucl_DOT_ac_DOT_uk?subject=Environmetrics%20Task%20View">maintainer</a>.</p>
     <p>A list of available packages and functions is presented below, grouped by analysis type.</p>
@@ -155,7 +155,8 @@
       though the other functions listed above are faster. <code>distance()</code> can also be used to generate
       matrices based on Gower's coefficient for mixed data (mixtures of binary, ordinal/nominal and continuous variables).
       Function <code>daisy()</code> in package <pkg>cluster</pkg> provides a faster implementation of Gower's coefficient for
-      mixed-mode data than <code>distance()</code> if a standard dissimilarity matrix is required.</p>
+      mixed-mode data than <code>distance()</code> if a standard dissimilarity matrix is required. Function <code>gowdis()</code>
+      in package <pkg>FD</pkg> also computes Gower's coefficient and impliments extensions to ordinal variables.</p>
     
     <h4>Cluster analysis</h4>
     <p>Cluster analysis aims to identify groups of samples within multivariate data sets. A large range of 
@@ -219,6 +220,7 @@
 	  245-253</a>). Anderson et al (2006; 
 	<a href="http://www.blackwell-synergy.com/doi/abs/10.1111/j.1461-0248.2006.00926.x">Ecology Letters 9(6), 683-693</a>) 
 	demonstrate the use of this approach for measuring beta diversity.</li>
+      <li>The <pkg>FD</pkg> package computes several measures of functional diversity indices from multiple traits.</li>
     </ul>
 
     <h4>Population dynamics</h4>
@@ -287,6 +289,8 @@
       <li><pkg>ouch</pkg></li>
       <li><pkg>PHYLOGR</pkg></li>
     </ul>
+    <p>The <view>Phylogenetics</view> task view provides more detailed coverage of the subject area and related functions
+      within R.</p>
     <p>UseRs may also be interested in Paradis (2006) <em>Analysis of Phylogenetics and Evolution with R</em>, Springer, 
       New York, a book in the new UseR series from Springer.</p>
     
@@ -313,7 +317,6 @@
       	diagnostic plots.</li>
       <li>Package <pkg>clim.pact</pkg> contains R functions for retrieving data, making climate analysis and downscaling of monthly 
         mean and daily mean global climate scenarios.</li>
-      <li>Package <pkg>SoPhy</pkg> provides soil physics tools in R including water flow by SWMS_2D.</li>
       <li>Package <pkg>pgirmess</pkg> provides a suite of miscellaneous functions for data analysis in ecology.</li>
       <li><pkg>mefa</pkg> provides functions for handling and reporting on multivariate count data in ecology and 
 	biogeography.</li>
@@ -348,6 +351,7 @@
     <pkg>evdbayes</pkg>
     <pkg>evir</pkg>
     <pkg>extRemes</pkg>
+    <pkg>FD</pkg>
     <pkg>fso</pkg>
     <pkg>gam</pkg>
     <pkg>gamair</pkg>
@@ -382,7 +386,6 @@
     <pkg>seacarb</pkg>
     <pkg>segmented</pkg>
     <pkg>simecol</pkg>
-    <pkg>SoPhy</pkg>
     <pkg>SpatialExtremes</pkg>
     <pkg>StreamMetabolism</pkg>
     <pkg>strucchange</pkg>
@@ -397,6 +400,7 @@
     <view>Spatial</view>
     <view>Multivariate</view>
     <view>Cluster</view>
+    <view>Phylogenetics</view>
     <a href="http://vegan.r-forge.r-project.org/">The vegan development site on R-Forge</a>
     <a href="http://ecology.msu.montana.edu/labdsv/R/labs/">Dave Roberts' LabDSV pages</a>
     <a href="http://www.stat.auckland.ac.nz/~yee/VGAM/">Thomas Yee's VGAM package for R.</a>

@@ -3,7 +3,7 @@
   <name>Genetics</name>
   <topic>Statistical Genetics</topic>
   <maintainer email="g.montana@imperial.ac.uk">Giovanni Montana</maintainer>
-  <version>2009-11-02</version>
+  <version>2010-03-04</version>
   <info>
       <p>
         Great advances have been made in the field of genetic analysis over the last years. The availability of millions
@@ -34,11 +34,7 @@
 <pkg>hapsim</pkg>
           simulates haplotype data with pre-specified allele frequencies and LD patterns. A few 
           population genetics functions are also implemeted in
-<pkg>gap</pkg>
-          and
-<pkg>popgen</pkg>.
-<pkg>popgen</pkg>
-          has functions for clustering SNP genotype data and SNP simulation from a Multinomial-Dirichlet model.
+<pkg>gap</pkg>.
 <pkg>hierfstat</pkg>
           allows the estimation of hierarchical F-statistics from haploid or diploid genetic data.
 <pkg>LDheatmap</pkg>
@@ -65,10 +61,10 @@
           <i>
             Phylogenetics
           </i>:
+	  The <view>Phylogenetics</view> view has more detailed information,
+	  the most important packages are also mentioned here.	  
           Phylogenetic and evolution analyses can be performed via
-<pkg>ape</pkg>
-          and
-<pkg>apTreeshape</pkg>. Package
+<pkg>ape</pkg>. Package
 <pkg>ouch</pkg>
           provides Ornstein-Uhlenbeck models for phylogenetic comparative hypotheses.
 <pkg>PHYLOGR</pkg>
@@ -237,7 +233,6 @@
   <packagelist>
     <pkg>adegenet</pkg>
     <pkg>ape</pkg>
-    <pkg>apTreeshape</pkg>
     <pkg>Biodem</pkg>
     <pkg>bqtl</pkg>
     <pkg>catmap</pkg>
@@ -266,7 +261,6 @@
     <pkg>pbatR</pkg>
     <pkg>phangorn</pkg>
     <pkg>PHYLOGR</pkg>
-    <pkg>popgen</pkg>
     <pkg>powerpkg</pkg>
     <pkg>qtl</pkg>
     <pkg>qtlDesign</pkg>
@@ -283,11 +277,12 @@
   </packagelist>
 
   <links>
+    <view>Phylogenetics</view>
     <a href="http://rgenetics.org/">
       The Rgenetics Project
     </a>
     <a href="http://www.bioconductor.org/">
-      BioConductor
+      Bioconductor
     </a> 
     <a href="http://mayoresearch.mayo.edu/mayo/research/biostat/splusfunctions.cfm">
      R packages from Divison of Biostatistics, Mayo Clinic

@@ -4,7 +4,7 @@
   <name>Finance</name>
   <topic>Empirical Finance</topic>
   <maintainer email="Dirk.Eddelbuettel@R-project.org">Dirk Eddelbuettel</maintainer>
-  <version>2009-11-12</version>
+  <version>2010-05-03</version>
   
   <info>
     <p>
@@ -202,6 +202,10 @@
 	  matrix theory as well as shrinkage methods to remove sampling noise
 	  when estimating sample covariance matrices.
       </li>
+      <li> The <pkg>SV</pkg> package uses indirect inference to estimate
+	  non-Gaussian stochastic volatility models.
+      </li>
+
     </ul>
 
     <p>
@@ -287,8 +291,7 @@
       </li>
       <li>
 	  The <pkg>IBrokers</pkg> package provides access to the Interactive Brokers
-	  API for data access, and the <pkg>opentick</pkg> package provides access to the OpenTick
-	  data (but either one requires an account to access the service).
+	  API for data access (but requires an account to access the service).
       </li>
       <li>
 	  The <pkg>data.table</pkg> package provides very efficient and fast
@@ -359,7 +362,6 @@
     <pkg>MSBVAR</pkg>
     <pkg>MSVAR</pkg>
     <pkg>mvtnorm</pkg>
-    <pkg>opentick</pkg>
     <pkg priority="core">PerformanceAnalytics</pkg>
     <pkg>portfolio</pkg>
     <pkg>portfolioSim</pkg>
@@ -374,6 +376,7 @@
     <pkg>sde</pkg>
     <pkg>stockPortfolio</pkg>    
     <pkg>strucchange</pkg>
+    <pkg>SV</pkg>
     <pkg>timsac</pkg>
     <pkg priority="core">tseries</pkg>
     <pkg>termstrc</pkg>

@@ -4,7 +4,7 @@
 <name>Distributions</name> 
 <topic>Probability Distributions</topic> 
 <maintainer email="Christophe.Dutang@ensimag.fr">Christophe Dutang</maintainer> 
-<version>2009-10-28</version> 
+<version>2010-05-28</version> 
 
 <info> 
 For most of the classical distributions, base R provides
@@ -87,21 +87,33 @@ or not complete, please let me know.
 	    can be found in <pkg>BiasedUrn</pkg> package, which provides
 	    not only p, d, q, r functions but also mean, variance, mode functions.
 		Generalized hypergeometric distribution is implemented in <pkg>SuppDists</pkg>.</LI>
-
-		   <LI><I>Sichel distribution</I>: This can be found in
+		
+		<LI><I>Logarithmic distribution</I>: This can be found in
+	    <pkg>VGAM</pkg>	and <pkg>gamlss.dist</pkg>. A fast random generator is 
+		available for the logarithmic distribution 
+		is implemented in <pkg>Runuran</pkg> as well as the 'density' function.
+		</LI>	
+		
+			 
+		<LI><I>Sichel distribution</I>: This can be found in
 	    <pkg>gamlss.dist</pkg>.</LI>	    
 	    
 	    <LI><I>Triangle distribution</I>: The discrete triangle distribution can be found in
 	    <pkg>TRIANG</pkg>.</LI>	  
 	    
+		<LI><I>Zero inflated/modified (ZI/ZM) distributions</I>: 
+		ZM (or Hurdle) Poisson, ZM logarithmic, 
+		ZI/ZM negative binomial, ZI Poisson inverse Gaussian,
+		ZI/ZM binomial, ZI/ZM beta binomial distributions are 
+		implemented in <pkg>gamlss.dist</pkg>. </LI>
+		
 	    <LI><I>Zipf law</I>: Package <pkg>zipfR</pkg> provides tools for the Zipf and
 	    the Zipf-Mandelbrot distributions. <pkg>VGAM</pkg> also implements the Zipf distribution.</LI>
 
 	    
 	    <LI><I>Further distributions</I>: The <pkg>VGAM</pkg> package provides several
-	    additional distributions, namely: Logarithmic,
-	    Skellam, Yule-Simon, Zeta and Haight's Zeta, Borel-Tanner and
-	    Felix distribution.</LI>
+	    additional distributions, namely: Skellam, Yule-Simon, Zeta and Haight's Zeta, 
+		Borel-Tanner and Felix distribution.</LI>
 	  </UL>
 	 
 <p><strong>Continuous distributions:</strong></p>
@@ -143,8 +155,9 @@ or not complete, please let me know.
      the d, p, q, r functions for this distribution (see above). Moments, limited
      expected values and the moment generating function are provided by <pkg>actuar</pkg>.
      Only d,r functions are available for the inverse chi-squared distribution
-     by package <pkg>geoR</pkg>. The Chi
-     distribution and the non-central Chi distribution are not yet implemented.</LI>
+     by package <pkg>geoR</pkg>. A fast random generator is available for the Chi distribution 
+	 is implemented in <pkg>Runuran</pkg> as well as the density function. 
+	 The non-central Chi distribution is not yet implemented.</LI>
 
      <LI><I>Davies distribution</I>: The Davies distribution is provided
      in <pkg>Davies</pkg> package.</LI>	   
@@ -157,12 +170,15 @@ or not complete, please let me know.
      such as the moment generating function, moments and limited expected values. It also has
      the d, p, q, r for the inverse exponential distribution. The shifted exponential distribution
      is implemented in <pkg>lmomco</pkg> package with d, p, q, r functions.
-	 d, p, q, r functions for the Skew Power exponential type 1-4 distributions are implemented
+	 d, p, q, r functions for the power and the skew power exponential type 1-4 distributions are implemented
 	 in <pkg>gamlss.dist</pkg>.
+	 A fast random generator is available for the power Exponential distribution 
+	 is implemented in <pkg>Runuran</pkg> as well as the density function.
 	 </LI>
      
      <LI><I>Frechet distribution</I>: Provided in <pkg>VGAM</pkg>
-     and <pkg>evd</pkg>.</LI>
+     and <pkg>evd</pkg>. A fast random generator is available for the Frechet distribution 
+	 is implemented in <pkg>Runuran</pkg> as well as the density function. </LI>
 	 
 	 <LI><I>Friedman's Chi distribution</I>: Provided in <pkg>SuppDists</pkg>.</LI>     
 
@@ -181,6 +197,8 @@ or not complete, please let me know.
      the d, p, q, r functions for this distribution (see above). <pkg>actuar</pkg>
      provides the moment generating function and moments. d, p, q, r functions for the generalized 
 	 inverse gaussian distribution can be found in <pkg>gamlss.dist</pkg>.
+	 A fast random generator is available for the (generalized) Inverse Gaussian distribution 
+	 is implemented in <pkg>Runuran</pkg> as well as the density function. 
 	  <pkg>ig</pkg> provides d, p, q, r
 	 functions for the (raw) inversion gaussian distribution. <pkg>SuppDists</pkg>
      provides functions for the inverse Gaussian distribution as well and furthermore includes functions
@@ -197,7 +215,7 @@ or not complete, please let me know.
 	 multivariate normal distribution.</LI> 
      
      <LI><I>General Error Distribution (also known as exponential power distribution)</I>:
-     provided in <pkg>normalp</pkg> and <pkg>fExtremes</pkg>.</LI>
+     provided in <pkg>normalp</pkg> and <pkg>fExtremes</pkg>, see <I>exponential</I> item.</LI>
      
      <LI><I>Generalized Extreme Value distribution</I>: Provided in <pkg>lmomco</pkg>
      (d, p, q) , <pkg>VGAM</pkg>, <pkg>evd</pkg>, <pkg>evir</pkg> 
@@ -208,11 +226,15 @@ or not complete, please let me know.
      
      <LI><I>Gumbel distribution</I>: Provided in packages <pkg>lmomco</pkg>, 
      <pkg>VGAM</pkg>, <pkg>gamlss.dist</pkg> and <pkg>evd</pkg>. 
+	 A fast random generator is available for the Gumbel distribution 
+	 is implemented in <pkg>Runuran</pkg> as well as the density function. 
      The reverse Gumbel distribution is implemented in <pkg>lmomco</pkg>
      and  <pkg>gamlss.dist</pkg>.</LI>   
      
      <LI><I>Hyperbolic distribuion</I>: <pkg>ghyp</pkg> and <pkg>fBasics</pkg> package
-     provide d, p, q, r functions for the generalized hyperbolic distributions.</LI>
+     provide d, p, q, r functions for the generalized hyperbolic distributions. 
+	 A fast random generator is available for the hyperbolic distribution 
+	 is implemented in <pkg>Runuran</pkg> as well as the density function. </LI>
 	 
 	 <LI><I>Johnson distribution</I>: Provided in <pkg>SuppDists</pkg>.</LI>     
 	 
@@ -224,11 +246,19 @@ or not complete, please let me know.
 	 
      <LI><I>Kumaraswamy distribution</I>: Provided in package <pkg>VGAM</pkg>.</LI>
      
-     <LI><I>Lambda distribution</I>: The Tukey lambda (also known as the generalized
-     lambda) distribution is implemented in packages <pkg>gld</pkg> and <pkg>Davies</pkg>.</LI>
+     <LI><I>(Tukey) Lambda distribution and its extentions</I>: The generalized Lambda 
+	 distribution (GLD) is well known for its wide range of shapes. There exists 3 kinds
+	 of GLD in the literature: RS, FMKL and FM5. The following packages implement such distributions
+	 (with d, p, q, r functions): <pkg>gld</pkg> for the 3 kinds of GLD
+	 (RS, FMKL and FM5), <pkg>GLDEX</pkg> for 2 kinds (RS, FMKL)
+	  and <pkg>Davies</pkg> for 1 type (RS). The original Tukey Lambda distribution can 
+	  be obtained as a special case of the generalized Lambda distribution.	
+	  </LI>
 
      <LI><I>Laplace and asymetric Laplace distribution</I>: Provided in <pkg>VGAM</pkg>.
-     Laplace distribution (also called double exponential distribution) is implemented in <pkg>distr</pkg>.</LI>
+     Laplace distribution (also called double exponential distribution) is implemented in <pkg>distr</pkg>.
+	 A fast random generator is available for the Laplace distribution 
+	 is implemented in <pkg>Runuran</pkg> as well as the density function. </LI>
 
      <LI><I>Logistic distributions and its extensions</I>: Base R provides
      the d, p, q, r functions for this distribution (see above).
@@ -246,17 +276,23 @@ or not complete, please let me know.
 
      <LI><I>Pareto distribution</I>: d, p, q, r functions are implemented in 
      <pkg>VGAM</pkg> for the Pareto distribution type IV (which includes Burr's distribution,
-     Pareto type III, Pareto type II (also called the Generalized Pareto Distribution - GPD) and
+     Pareto type III, Pareto type II (also called the lomax distribution) and
      Pareto type I) and the (upper/lower) truncated Pareto distribution. In an actuarial
      context, <pkg>actuar</pkg> provides d, p, q, r functions as well as moments and 
-     limited expected values for the Pareto, the inverse Pareto, the 'generalized pareto'
-     distributions, the Burr and the inverse Burr distributions.
+     limited expected values for the Pareto I and II, the inverse Pareto, the 'generalized pareto'
+     distributions, the Burr and the inverse Burr distributions. A fast random generator for the
+	 Burr and the Pareto II distribution is implemented in <pkg>Runuran</pkg> as well as the density.
      Finally <pkg>lmomco</pkg>, <pkg>POT</pkg>, <pkg>evd</pkg>, <pkg>fExtremes</pkg> and <pkg>evir</pkg> packages
-     implement the GPD.</LI>
+     implement the Generalized Pareto Distribution (from Extreme Value Theory), which is 
+	 depending the shape parameter's value 
+	 a Pareto II distribution, a shifted exponential distribution or a 
+	 generalized beta I distribution.</LI>
      
      <LI><I>Pearson type III distribution</I>: Available in <pkg>lmomco</pkg>.</LI>
 	 
-	 <LI><I>Pearson's Rho distribution</I>: Provided in <pkg>SuppDists</pkg>.</LI>     
+	 <LI><I>Pearson's Rho distribution</I>: Provided in <pkg>SuppDists</pkg>.</LI> 
+	 
+	 <LI><I>Planck's distribution</I>: a random generator is available in <pkg>Runuran</pkg>.</LI> 		     
      
      <LI><i>Phase-type distributions</i>: Provided in <pkg>actuar</pkg>.</LI>
 
@@ -279,8 +315,6 @@ or not complete, please let me know.
      the d, p, q, r functions for Student and non central Student distribution (see above).
      The skewed Student distribution is provided by <pkg>skewt</pkg>,
      <pkg>sn</pkg> and <pkg>gamlss.dist</pkg> packages. 
-	 Package <pkg>tdist</pkg> provides d, p, q functions
-     for the distribution of a linear combination of independent Student distributions. 
 	 d, p, q, r functions for the generalized t-distribution
 	 can be found in <pkg>gamlss.dist</pkg>. <pkg>fBasics</pkg> provides d, p, q, r functions
 	 for the skew and the generalized hyperbolic t-distribution.
@@ -289,7 +323,9 @@ or not complete, please let me know.
      is provided by the packages <pkg>mvtnorm</pkg> and <pkg>mnormt</pkg>.</LI>
      
      <LI><I>Triangle distribution</I>: Provided in packages <pkg>triangle</pkg> and
-     <pkg>VGAM</pkg>.</LI>    
+     <pkg>VGAM</pkg>. 
+	 A fast random generator is available for the triangle distribution 
+	 is implemented in <pkg>Runuran</pkg> as well as the density function.</LI>    
      
      <LI><I>Tweedie distribution</I>: the Tweedie distribution is implemented
      in package <pkg>tweedie</pkg>. Let us note that the Tweedie distribution
@@ -325,7 +361,8 @@ or not complete, please let me know.
    
    
       <LI><I>Gaussian mixture</I>: Functions d, r are provided by <pkg>mixtools</pkg>
-      package when dealing with finite mixture models.</LI>
+      package when dealing with finite mixture models. <pkg>nor1mix</pkg> provides
+	  d, p, r functions for Gaussian mixture.</LI>
 
       <LI><I>Gamma mixture</I>: Gamma shape mixtures are implemented (d, p, r)
       in the <pkg>GSM</pkg> package.</LI>
@@ -377,36 +414,51 @@ or not complete, please let me know.
       </UL>
 
 <p><strong>Random Number Generators:</strong></p>
-     
+    	   
      
    <UL>
-     <LI>Basic functionality: R provides several random number generators (RNGs).
+     <LI><I>Basic functionality</I>: R provides several random number generators (RNGs).
      The random seed can be provided via <code>set.seed</code> and the kind of RNG can be specified
      using <code>RNGkind</code>. The default RNG is the Mersenne-Twister algorithm.
      Other generators include Wichmann-Hill, Marsaglia-Multicarry, Super-Duper,
      Knuth-TAOCP, Knuth-TAOCP-2002, as well as user-supplied RNGs. For normal
      random numbers, the following algorithms are available: Kinderman-Ramage,
-     Ahrens-Dieter, Box-Muller, Inversion (default).</LI>
-     
-     <LI><I>Setting the RNG:</I>In addition to the tools above, <pkg>setRNG</pkg> 
-     provides an easy way to set, 
-     retain information about the setting, and reset the RNG.</LI>
+     Ahrens-Dieter, Box-Muller, Inversion (default). In addition to the tools above, <pkg>setRNG</pkg> 
+     provides an easy way to set, retain information about the setting, and reset the RNG.
+	</LI>
      
      <LI><I>Pseudo-randomness</I>: 
      <pkg>RDieHarder</pkg> offers several dozen new RNGs 
-     from the GNU GSL and <pkg>randtoolbox</pkg> provides
-     more recent RNGs such as WELL and SF Mersenne-Twister. <pkg>SuppDists</pkg>
+     from the GNU GSL. <pkg>randtoolbox</pkg> provides
+     more recent RNGs such as SF Mersenne-Twister and WELL,
+	 which are generators of Mersenne Twister type, but with
+	 improved quality parameters. 
+	 <pkg>rngwell19937</pkg> provides one of the WELL generators with 53 bit
+	 resolution of the output and allows seeding by a vector
+	 of integers of arbitrary length.
+	 <pkg>randaes</pkg> provides the deterministic part of the Fortuna cryptographic 
+     pseudorandom number generator (AES).
+	 <pkg>SuppDists</pkg>
 	 implements two RNGs of G. Marsaglia.    
-     <pkg>rsprng</pkg> implements Scalable Parallel RNGs library, whereas
-     <pkg>randaes</pkg> provides the deterministic part of the Fortuna cryptographic 
-     pseudorandom number generator (AES). Furthermore, <pkg>rstream</pkg> focuses on multiple 
-     independent streams of random numbers from different sources (in a object oriented
-     approach). For non-uniform generation, the <pkg>Runuran</pkg> package
-     interfaces to the UNU.RAN library for universal non-uniform RNGs, while the
-     <pkg>rv</pkg> package provides a class to easily manipulate and summarize
-     simulations in R.
-     </LI>
-     
+	 
+		<UL>
+		<LI> Support for several independent streams: 
+		<pkg>rsprng</pkg> implements Scalable Parallel RNGs library.
+		<pkg>rstream</pkg> focuses on multiple independent streams of random numbers
+		from different sources (in an object oriented approach).
+		</LI>
+
+		<LI> For non-uniform generation, the <pkg>Runuran</pkg>  
+		package interfaces to the UNU.RAN library for universal non-uniform generation.
+		</LI>
+
+		<LI> Misc.:
+		<pkg>rv</pkg> package provides a class to easily manipulate and summarize
+		simulations in R. 
+		</LI>
+		</UL>  
+	  
+	 </LI>  
      
      <LI><I>Quasi-randomness</I>: The <pkg>randtoolbox</pkg> provides
      the following quasi random sequences: the Sobol sequence, the Halton
@@ -431,21 +483,28 @@ or not complete, please let me know.
 
 <p><strong>Miscellaneous:</strong></p>
 
-      <UL>
-       <LI><I>Hierarchical models</I>: Distributions whose some parameters
-       are no longer constant but random according to a particular distribution. 
-       <pkg>VGAM</pkg> provides a lot of hierarchical models: beta/binomial,
-       beta/geometric and beta/normal distributions. <pkg>bayesm</pkg>
-       implements: binary logit, linear, multivariate logit and negative binomial
-       models. Furthermore <pkg>LearnBayes</pkg> and <pkg>MCMCpack</pkg> 
-       provides poisson/gamma, beta/binomial,
-       normal/normal and multinomial/Dirichlet models.</LI>
-
-     <LI><i>Transformation</i>: Lebesgue decomposition are implemented
-     in <pkg>distr</pkg>, as well as Convolution, Truncation and Huberization of distributions. 
-     Furthermore, <pkg>distr</pkg> provides distribution of the maximum or minimum
-     of two distributions. See Object-orientation below.</LI>
-     
+	<UL>
+	  
+	<LI><I>Benchmark</I>: A set of 28 densities suitable for comparing 
+	nonparametric density estimators in simulation studies can be found 
+	in the <pkg>benchden</pkg> package. The densities vary greatly in degree of 
+	smoothness, number of modes and other properties. The package 
+	provides d,p,q and r functions.</LI>   
+	  
+	  <LI><I>Empirical distribution</I>: Base R provides functions for univariate analysis:
+	(1) the empirical density (see density), (2) the empirical cumulative
+	distribution function (see ecdf), (3) the empirical quantile (see quantile)
+	and (4) random sampling (see sample). For multivariate analysis, the package
+	<pkg>mecdf</pkg> provides the multivariate empirical distribution function.</LI>
+	  
+     <LI><I>Hierarchical models</I>: Distributions whose some parameters
+     are no longer constant but random according to a particular distribution. 
+     <pkg>VGAM</pkg> provides a lot of hierarchical models: beta/binomial,
+     beta/geometric and beta/normal distributions. <pkg>bayesm</pkg>
+     implements: binary logit, linear, multivariate logit and negative binomial
+     models. Furthermore <pkg>LearnBayes</pkg> and <pkg>MCMCpack</pkg> 
+     provides poisson/gamma, beta/binomial,
+     normal/normal and multinomial/Dirichlet models.</LI>    
 
 
      <LI><I>Object-orientation</I>: 
@@ -467,7 +526,12 @@ or not complete, please let me know.
      based on TI-83 Plus graphic scientific calculator.
      </LI>
      
-       <LI><I>Transversal functions</I>: Package <pkg>modeest</pkg> provides mode
+	 <LI><i>Transformation</i>: Lebesgue decomposition are implemented
+     in <pkg>distr</pkg>, as well as Convolution, Truncation and Huberization of distributions. 
+     Furthermore, <pkg>distr</pkg> provides distribution of the maximum or minimum
+     of two distributions. See Object-orientation below.</LI>
+	 
+     <LI><I>Transversal functions</I>: Package <pkg>modeest</pkg> provides mode
      estimation for various distributions, while <pkg>lmomco</pkg> and <pkg>Lmoments</pkg> focuse on
      (L-)moments estimation. <pkg>VGAM</pkg> provides a lot of parameter
      estimation for usual and "exotic" distributions. Package
@@ -484,6 +548,7 @@ or not complete, please let me know.
   <pkg priority="core">actuar</pkg> 
   <pkg>AdMit</pkg>
   <pkg>bayesm</pkg>
+  <pkg>benchden</pkg>
   <pkg>BiasedUrn</pkg>
   <pkg>BLCOP</pkg>
   <pkg>bs</pkg>
@@ -523,12 +588,14 @@ or not complete, please let me know.
   <pkg priority="core">lmomco</pkg>
   <pkg>Lmoments</pkg>
   <pkg>MASS</pkg>
+  <pkg>mecdf</pkg>
   <pkg>MCMCpack</pkg>
   <pkg>mixtools</pkg>
   <pkg>mlCopulaSelection</pkg>
   <pkg priority="core">mnormt</pkg>
   <pkg priority="core">mvtnorm</pkg>
   <pkg>mvtnormpcs</pkg>
+  <pkg>nor1mix</pkg>  
   <pkg>normalp</pkg>
   <pkg>POT</pkg>
   <pkg>prob</pkg>
@@ -536,6 +603,7 @@ or not complete, please let me know.
   <pkg>random</pkg>
   <pkg>randtoolbox</pkg>
   <pkg>RDieHarder</pkg>
+  <pkg>rngwell19937</pkg>
   <pkg>rsprng</pkg>
   <pkg>rstream</pkg>
   <pkg>Runuran</pkg>
@@ -544,7 +612,6 @@ or not complete, please let me know.
   <pkg>skewt</pkg>     
   <pkg>sn</pkg>
   <pkg priority="core">SuppDists</pkg>
-  <pkg>tdist</pkg>
   <pkg>tmvtnorm</pkg>
   <pkg>TRIANG</pkg>
   <pkg>triangle</pkg>

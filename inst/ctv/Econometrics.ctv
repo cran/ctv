@@ -3,7 +3,7 @@
   <name>Econometrics</name>
   <topic>Computational Econometrics</topic>
   <maintainer email="Achim.Zeileis@R-project.org">Achim Zeileis</maintainer>
-  <version>2009-10-28</version>
+  <version>2010-04-24</version>
   
   <info>
     <p>Base R ships with a lot of functionality useful for computational
@@ -49,7 +49,8 @@
       <li>Many standard microeconometric models belong to the
           family of generalized linear models (GLM) and can be fitted by <code>glm()</code>
 	  from package stats. This includes in particular logit and probit models
-	  for modeling choice data and poisson models for count data.</li>
+	  for modeling choice data and poisson models for count data. Effects for typical
+	  values of regressors in these models can be obtained and visualized using <pkg>effects</pkg>.</li>
       <li>Negative binomial GLMs are available via <code>glm.nb()</code> in package <pkg>MASS</pkg>.
 	  Another implementation of negative binomial models
 	  is provided by <pkg>aod</pkg>, which also contains other models for overdispersed
@@ -68,7 +69,12 @@
 	  More advanced models for sample selection are available in
 	  <pkg>sampleSelection</pkg>.</li>
       <li>Miscellaneous: Further more refined tools for microecnometrics are provided in
-	  <pkg>micEcon</pkg>. Stochastic frontier analysis is in <pkg>frontier</pkg>.
+	  the <pkg>micEcon</pkg> family of packages: Analysis with
+	  Cobb-Douglas, translog, and quadratic functions is in <pkg>micEcon</pkg>;
+	  the constant elasticity of scale (CES) function is in <pkg>micEconCES</pkg>;
+	  the symmetric normalized quadratic profit (SNQP) function is in <pkg>micEconSNQP</pkg>.
+          The almost ideal demand system (AIDS) is in <pkg>micEconAids</pkg>.	  
+	  Stochastic frontier analysis is in <pkg>frontier</pkg>.
 	  The package <pkg>bayesm</pkg> implements a Bayesian
 	  approach to microeconometrics and marketing. Inference for relative
 	  distributions is contained in package <pkg>reldist</pkg>.</li>
@@ -82,14 +88,18 @@
       <li>Quantile regression: <pkg>quantreg</pkg> (including linear, nonlinear, censored,
           locally polynomial and additive quantile regressions).</li>
       <li>Linear models for panel data: <pkg>plm</pkg>.</li>
+      <li>Bayesian methods for panel data: <pkg>BayesPanel</pkg>.</li>
       <li>Generalized method of moments (GMM) and generalized empirical likelihood (GEL):
           <pkg>gmm</pkg>.</li>
       <li>Linear structural equation models: <pkg>sem</pkg> (including two-stage least squares).</li>
       <li>Simultaneous equation estimation: <pkg>systemfit</pkg>.</li>
       <li>Nonparametric kernel methods: <pkg>np</pkg>.</li>
-      <li>Beta regression: <pkg>betareg</pkg> and <pkg>lme4</pkg>.</li>
+      <li>Beta regression: <pkg>betareg</pkg> and <pkg>gamlss</pkg>.</li>
+      <li>Truncated (Gaussian) regression: <pkg>truncreg</pkg>.</li>
       <li>Nonlinear mixed-effect models: <pkg>nlme</pkg> and <pkg>lme4</pkg>.</li>
-      <li>The packages <pkg>Design</pkg> and <pkg>Hmisc</pkg> provide several tools for extended
+      <li>Generalized additive models (GAMs): <pkg>mgcv</pkg>, <pkg>gam</pkg>, <pkg>gamlss</pkg>
+          and <pkg>VGAM</pkg>.</li> 
+      <li>Miscellaneous: The packages <pkg>VGAM</pkg>, <pkg>Design</pkg> and <pkg>Hmisc</pkg> provide several tools for extended
 	  handling of (generalized) linear regression models. <pkg>Zelig</pkg> is a unified
 	  easy-to-use interface to a wide range of regression models.</li>
     </ul>
@@ -202,6 +212,10 @@
       <li><i>Structural change</i>: R is particularly strong when dealing with
           structural changes and changepoints in parametric models, see
           <pkg>strucchange</pkg> and <pkg>segmented</pkg>.</li>
+
+      <li><i>Exchange rate regimes</i>: Methods for inference about exchange
+          rate regimes, in particular in a structural change setting, are provided
+	  by <pkg>fxregime</pkg>.</li>
     </ul>
 
   </info>
@@ -210,6 +224,7 @@
     <pkg>AER</pkg>
     <pkg>aod</pkg>
     <pkg>bayesm</pkg>
+    <pkg>BayesPanel</pkg>
     <pkg>betareg</pkg>
     <pkg>boot</pkg>
     <pkg>bootstrap</pkg>
@@ -222,11 +237,15 @@
     <pkg>dyn</pkg>
     <pkg>dynlm</pkg>
     <pkg>Ecdat</pkg>
+    <pkg>effects</pkg>
     <pkg>expsmooth</pkg>
     <pkg>FinTS</pkg>
     <pkg>fma</pkg>
     <pkg>forecast</pkg>
     <pkg>frontier</pkg>
+    <pkg>fxregime</pkg>
+    <pkg>gam</pkg>
+    <pkg>gamlss</pkg>
     <pkg>gmm</pkg>
     <pkg>Hmisc</pkg>
     <pkg>ineq</pkg>
@@ -238,7 +257,11 @@
     <pkg>Mcomp</pkg>
     <pkg>meboot</pkg>
     <pkg>mFilter</pkg>
+    <pkg>mgcv</pkg>
     <pkg>micEcon</pkg>
+    <pkg>micEconAids</pkg>
+    <pkg>micEconCES</pkg>
+    <pkg>micEconSNQP</pkg>
     <pkg>mlogit</pkg>
     <pkg>MNP</pkg>
     <pkg>MSBVAR</pkg>
@@ -260,11 +283,13 @@
     <pkg>strucchange</pkg>
     <pkg>systemfit</pkg>
     <pkg>timeSeries</pkg>
+    <pkg>truncreg</pkg>
     <pkg>tsDyn</pkg>
     <pkg priority="core">tseries</pkg>    
     <pkg>tsfa</pkg>
     <pkg priority="core">urca</pkg>
     <pkg>vars</pkg>
+    <pkg>VGAM</pkg>
     <pkg>Zelig</pkg>
     <pkg priority="core">zoo</pkg>    
   </packagelist>

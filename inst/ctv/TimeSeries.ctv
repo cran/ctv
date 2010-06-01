@@ -3,7 +3,7 @@
 <name>TimeSeries</name>
 <topic>Time Series Analysis</topic>
 <maintainer email="Rob.Hyndman@buseco.monash.edu.au">Rob J. Hyndman and Achim Zeileis</maintainer>
-<version>2009-11-19</version>
+<version>2010-05-30</version>
 
 <info>
 <p>
@@ -67,6 +67,8 @@
       is also included.</li>
   <li>The <pkg>tis</pkg> package provides the <code>"ti"</code> class for
       time/date information.</li>
+  <li>The <pkg>rtv</pkg> package allows for the representation, manipulation and 
+      visualisation of random time variables.</li>
 </ul>
 
 <p><strong>Time Series Classes</strong></p>
@@ -188,7 +190,6 @@
       The latter additionally contains functionality for the Johansen trace
       and lambda-max tests.</li>
 </ul>
-
 <p><strong>Nonlinear Time Series Analysis</strong></p>
 <ul>
   <li><i>Nonlinear autoregression</i>: Various forms of nonlinear
@@ -244,8 +245,9 @@
       This provides relatively flexible state space models via the <code>fkf()</code> comment: state-space 
 	  parameters are allowed to be time-varying and intercepts are included in both equations. 
       An alternative implementation is provided by the <pkg>KFAS</pkg> package which provides a 
-	  fast multivariate Kalman filter, smoother, simulation smoother and forecasting. 
-	  Both packages assume uncorrelated error terms.</li>
+	  fast multivariate Kalman filter, smoother, simulation smoother and forecasting. Yet another implementation
+	  is given in the <pkg>dlm</pkg> package which also contains tools for converting other multivariate models
+	  into state space form. All three packages assume uncorrelated error terms.</li>
 </ul>
 
 <p><strong>Time Series Data</strong></p>
@@ -273,7 +275,6 @@
   <li><pkg>cts</pkg>: Continuous time autoregressive models.</li>
   <li><pkg>dtw</pkg>: Dynamic time warping algorithms for computing and plotting pairwise alignments between time series.</li>
   <li><pkg>ensembleBMA</pkg>: Bayesian Model Averaging to create probabilistic forecasts from ensemble forecasts and weather observations.</li>
-  <li><pkg>far</pkg>: Modeling Functional AutoRegressive processes.</li>
   <li><pkg>fractal</pkg>: Fractal time series modeling and analysis.</li>
   <li><pkg>fractalrock</pkg>: Generate fractal time series with non-normal returns distribution.</li>
   <li><pkg>GeneCycle</pkg> and <pkg>GeneNet</pkg>: Microarray time series and network analysis.</li>
@@ -285,6 +286,8 @@
   <li><pkg>sde</pkg>: Simulation and inference for stochastic differential equations.</li>
   <li><pkg>tiger</pkg>: Temporally resolved groups of typical differences (errors) between two time series are determined and visualized.</li>
   <li><pkg>tsModel</pkg>: Time series modeling for air pollution and health.</li>
+  <li><pkg>wavethresh</pkg>: Locally stationary wavelet models for nonstationary time series
+      (including estimation, plotting, and simulation functionality for time-varying spectrums).</li>
 </ul>
 
 </info>
@@ -313,7 +316,6 @@
   <pkg>EvalEst</pkg>
   <pkg>expsmooth</pkg>
   <pkg>fame</pkg>
-  <pkg>far</pkg>
   <pkg>fArma</pkg>
   <pkg>fEcofin</pkg>
   <pkg>fGarch</pkg>
@@ -351,6 +353,7 @@
   <pkg>robfilter</pkg>
   <pkg>RSEIS</pkg>
   <pkg>RTisean</pkg>
+  <pkg>rtv</pkg>
   <pkg>rwt</pkg>
   <pkg>sde</pkg>
   <pkg>signalextraction</pkg>

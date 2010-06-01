@@ -3,7 +3,7 @@
 <name>Cluster</name>
 <topic>Cluster Analysis &amp; Finite Mixture Models</topic>
 <maintainer email="Bettina.Gruen@wu.ac.at">Friedrich Leisch and Bettina Gruen</maintainer>
-<version>2009-11-17</version>
+<version>2010-05-08</version>
   
 <info> This CRAN Task View contains a list of packages that can be
 used for finding groups in data and modelling unobserved
@@ -49,6 +49,13 @@ listed only once.
   wrapper to <code>pam()</code> for larger data sets. Silhouette plots
   and spanning ellipses can be used for visualization.
   </li>
+  <li>Package <pkg>apcluster</pkg> implements Frey's and Dueck's
+  Affinity Propagation clustering. The algorithms in the package are analogous
+  to the Matlab code published by Frey and Dueck.</li>
+  <li>Package <pkg>bayesclust</pkg> allows to test and search for
+  clusters in a hierarchical Bayes model.</li>
+  <li> Package <pkg>clues</pkg> provides a clustering method based on
+  local shrinking.</li>
   <li>Package <pkg>clusterSim</pkg> allows to search for the optimal
   clustering procedure for a given dataset.</li>
   <li>Package <pkg>flexclust</pkg> provides k-centroid cluster
@@ -57,18 +64,13 @@ listed only once.
   image plots of partitions are available for visualization. Some of
   this functionality is also provided by package <pkg>cclust</pkg>.
   </li>
-  <li>Package <pkg>trimcluster</pkg> provides trimmed k-means
-  clustering.</li>
-  <li>Package <pkg>bayesclust</pkg> allows to test and search for
-  clusters in a hierarchical Bayes model.</li>
-  <li> Package <pkg>clues</pkg> provides a clustering method based on
-  local shrinking.</li>
   <li>Package <pkg>skmeans</pkg> allows spherical k-Means Clustering,
    i.e. k-means clustering with cosine similarity. It features several
    methods, including a genetic and a simple fixed-point algorithm and
    an interface to the CLUTO vcluster program for clustering
    high-dimensional datasets.</li>
-
+  <li>Package <pkg>trimcluster</pkg> provides trimmed k-means
+  clustering.</li>
 </ul>
 <p><strong>Model-based Clustering:</strong></p>
 <ul><li>ML estimation:
@@ -106,9 +108,7 @@ listed only once.
   marginal densities.</li>
   <li>Package
   <pkg>bayesmix</pkg> provides Bayesian estimation using
-  JAGS. Bayesian estimation using a variational approach for
-  multivariate Gaussian distributions with a diagonal covariance matrix
-  is provided by package <pkg>vabayelMix</pkg>.</li>
+  JAGS.</li>
   <li>Package <pkg>Bmix</pkg> provides Bayesian Sampling for
   stick-breaking mixtures.</li>
   <li>Package <pkg>bclust</pkg> allows Bayesian clustering using a
@@ -192,9 +192,8 @@ listed only once.
   <li>Several packages provide cluster algorithms which have been
   developped for bioinformatics applications. These packages include
   <pkg>FunCluster</pkg> for profiling microarray expression data,
-  <pkg>MMG</pkg> for mixture models on graphcs, <pkg>ORIClust</pkg>
-  for order-restricted information-based clustering and
-  <pkg>varmixt</pkg> for mixture models on the variance.</li>
+  <pkg>MMG</pkg> for mixture models on graphcs, and <pkg>ORIClust</pkg>
+  for order-restricted information-based clustering.</li>
 </ul>
 
 <p><strong>Additional Functionality:</strong></p>
@@ -268,6 +267,7 @@ listed only once.
 <packagelist>
 <pkg>AdMit</pkg>
 <pkg>amap</pkg>
+<pkg>apcluster</pkg>
 <pkg>bayesclust</pkg>
 <pkg>bayesm</pkg>
 <pkg>bayesmix</pkg>
@@ -336,8 +336,6 @@ listed only once.
 <pkg>skmeans</pkg>
 <pkg>som</pkg>
 <pkg>trimcluster</pkg>
-<pkg>vabayelMix</pkg>
-<pkg>varmixt</pkg>
 <pkg>wle</pkg>
 </packagelist>
 
