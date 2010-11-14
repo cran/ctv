@@ -3,7 +3,7 @@
 <name>ChemPhys</name>
 <topic>Chemometrics and Computational Physics</topic>
 <maintainer email="katharine.mullen@nist.gov">Katharine Mullen and Ron Wehrens</maintainer>
-<version>2010-05-08</version>
+<version>2010-11-02</version>
 
 <info>
 
@@ -185,11 +185,10 @@ should be mentioned here.
 <strong>Differential Equations</strong>
 </p>
 <ul>
-  <li>The package <pkg>odesolve</pkg> provides a general
-  solver for ordinary differential equations (ODE) via an
-  interface for the ODE solver lsoda.
-  The package <pkg>deSolve</pkg> provides general 
-  solvers for ODEs and for differential algebraic equations (DAE).</li>
+  <li>The package <pkg>deSolve</pkg>  provides general solvers for initial value problems
+of ordinary differential equations (ODE), partial differential equations
+(PDE), differential algebraic equations (DAE), and delay differential
+equations (DDE).</li>
   <li>The package <pkg>ddesolve</pkg> provides a 
   solver for Delay Differential Equations.</li>
   <li>The package <pkg>sde</pkg> is the companion 
@@ -287,6 +286,11 @@ database for structural structural similarity searching and clustering.
 <strong>Mass Spectrometry</strong>
 </p>
 <ul>
+   <li>The <pkg>OrgMassSpecR</pkg> package 
+  is for organic/biological mass spectrometry, with a focus on 
+  graphical display, quantification
+  using stable isotope dilution, and protein hydrogen/deuterium
+  exchange experiments.</li>
   <li>The <pkg>FTICRMS</pkg> package provides functions 
   for Analyzing Fourier Transform-Ion Cyclotron 
   Resonance Mass Spectrometry Data. </li>
@@ -305,13 +309,6 @@ database for structural structural similarity searching and clustering.
   <li>The Bioconductor packages 
   <bioc>MassSpecWavelet</bioc>, <bioc>PROcess</bioc>, and <bioc>xcms</bioc>
   are designed for the analysis of mass spectrometry data.</li>
-  <li>Also note that the <rforge>OrgMassSpecR</rforge> package on 
-  <a href="http://R-Forge.R-project.org/" target="_top">R-Forge</a> 
-  is for organic/biological mass spectrometry, with a focus on 
-  graphical display, quantification
-  using stable isotope dilution, and protein hydrogen/deuterium
-  exchange experiments; however, this package is not yet available on
-  CRAN.</li>
 </ul>
 
 <p>
@@ -358,9 +355,20 @@ database for structural structural similarity searching and clustering.
 <ul>
   <li>The <pkg>moonsun</pkg> package provides 
   functions for basic astronomical calculations.</li>
+ <li>The <pkg>solaR</pkg> package provides functions to determine the movement of the sun from
+the earth and to determine incident solar radiation.  </li>
 </ul>
 
 <p>
+<strong>Energy Modeling</strong>
+</p>
+<ul>
+  <li>The <pkg>solaR</pkg> package provides functions to simulate and model systems involved in 
+the capture and use of solar energy, including 
+photovoltaics. </li>
+</ul>
+<p>
+
 <strong>Positron Emission Tomography</strong>
 </p>
 <ul>
@@ -396,7 +404,7 @@ database for structural structural similarity searching and clustering.
   <pkg>chemometrics</pkg>
   <pkg>clustvarsel</pkg>
   <pkg>ddesolve</pkg>
-  <pkg>deSolve</pkg>
+  <pkg priority="core">deSolve</pkg>
   <pkg>diffractometry</pkg>
   <pkg>drc</pkg>
   <pkg>drm</pkg>
@@ -420,8 +428,8 @@ database for structural structural similarity searching and clustering.
   <pkg>nlme</pkg>
   <pkg>nlreg</pkg>
   <pkg>NMRS</pkg>  
+  <pkg>OrgMassSpecR</pkg>
   <pkg priority="core">nnls</pkg>
-  <pkg priority="core">odesolve</pkg>
   <pkg>paltran</pkg>    
   <pkg>pcaPP</pkg>    
   <pkg>Peaks</pkg>    
@@ -439,6 +447,7 @@ database for structural structural similarity searching and clustering.
   <pkg>sapa</pkg>
   <pkg>sde</pkg>
   <pkg>simecol</pkg>
+  <pkg>solaR</pkg>		
   <pkg>som</pkg>
   <pkg>spls</pkg>
   <pkg>subselect</pkg>
@@ -457,7 +466,6 @@ database for structural structural similarity searching and clustering.
     <a href="http://CRAN.R-project.org/doc/Rnews/Rnews_2006-3.pdf" target="_top">R News: R in Chemistry</a> 
     <a href="http://www.jstatsoft.org/v18" target="_top">Journal of Statistical Software: Spectroscopy and Chemometrics in R</a>
     <rforge>photonics</rforge>
-    <rforge>OrgMassSpecR</rforge>
     <bioc>MassSpecWavelet</bioc>
     <bioc>PROcess</bioc>
     <bioc>xcms</bioc>

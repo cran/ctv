@@ -3,7 +3,7 @@
   <name>Environmetrics</name>
   <topic>Analysis of Ecological and Environmental Data</topic>
   <maintainer email="gavin.simpson@ucl.ac.uk">Gavin Simpson</maintainer>
-  <version>2010-05-08</version>
+  <version>2010-08-05</version>
 
   <info>
     <h4>Introduction</h4>
@@ -83,7 +83,7 @@
       <li>Package <pkg>ipred</pkg> provides functions for improved predictive models for classification, regression and 
 	survival problems.</li>
     </ul>
-    <p>Graphical tools for the visualization of trees are available in packages <pkg>maptree</pkg> and <pkg>pinktoe</pkg>.</p>
+    <p>Graphical tools for the visualization of trees are available in package <pkg>maptree</pkg>.</p>
     <p>Packages <pkg>mda</pkg> and <pkg>earth</pkg> implement Multivariate Adaptive Regression Splines (MARS), a technique
       which provides a more flexible, tree-based approach to regression than the piecewise constant functions used in 
       regression trees.</p>
@@ -227,15 +227,14 @@
     <p>Estimating vital rates (i.e., growth, survival, and reproduction), especially in monitoring studies of tagged individuals
       over time:</p>
     <ul>
-      <li>age-specific survival and reproduction using life tables in <pkg>demogR</pkg>,</li>
       <li>stage-specific vital rates using transition frequency tables in <pkg>popbio</pkg>,</li>
       <li>mark and recapture methods in <pkg>mra</pkg> and <pkg>Rcapture</pkg> when tagged individuals cannot be consistently 
 	detected identified.</li>
     </ul>
     <p>Modeling population growth rates:</p>
     <ul>
-      <li>Packages <pkg>demogR</pkg> and <pkg>popbio</pkg> can be used to construct and analyse age- or stage-specific matrix 
-	population models</li>
+      <li>Package <pkg>popbio</pkg> can be used to construct and analyse age- or stage-specific matrix 
+	population models.</li>
     </ul>
     
     <h4>Environmental time series</h4>
@@ -287,7 +286,6 @@
     <ul>
       <li><pkg>ape</pkg></li>
       <li><pkg>ouch</pkg></li>
-      <li><pkg>PHYLOGR</pkg></li>
     </ul>
     <p>The <view>Phylogenetics</view> task view provides more detailed coverage of the subject area and related functions
       within R.</p>
@@ -339,7 +337,6 @@
     <pkg>clim.pact</pkg>
     <pkg priority="core">cluster</pkg>
     <pkg>cocorresp</pkg>
-    <pkg>demogR</pkg>
     <pkg>dse</pkg>
     <pkg>dyn</pkg>
     <pkg>dynlm</pkg>
@@ -373,8 +370,6 @@
     <pkg>pastecs</pkg>
     <pkg>pcurve</pkg>
     <pkg>pgirmess</pkg>
-    <pkg>PHYLOGR</pkg>
-    <pkg>pinktoe</pkg>
     <pkg>popbio</pkg>
     <pkg>POT</pkg>
     <pkg>pscl</pkg>

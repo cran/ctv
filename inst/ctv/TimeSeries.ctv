@@ -3,7 +3,7 @@
 <name>TimeSeries</name>
 <topic>Time Series Analysis</topic>
 <maintainer email="Rob.Hyndman@buseco.monash.edu.au">Rob J. Hyndman and Achim Zeileis</maintainer>
-<version>2010-05-30</version>
+<version>2010-09-17</version>
 
 <info>
 <p>
@@ -67,8 +67,11 @@
       is also included.</li>
   <li>The <pkg>tis</pkg> package provides the <code>"ti"</code> class for
       time/date information.</li>
+  <li>The <code>"mondate"</code> class from the <pkg>mondate</pkg> package
+      facilitates computing with dates in terms of months.</li>
   <li>The <pkg>rtv</pkg> package allows for the representation, manipulation and 
       visualisation of random time variables.</li>
+  <li><pkg>TSAgg</pkg> provides functions for aggregation of incomplete time series data.</li>
 </ul>
 
 <p><strong>Time Series Classes</strong></p>
@@ -123,7 +126,10 @@
       SARIMA time series simulation. The <pkg>mar1s</pkg> package handles multiplicative AR(1) with seasonal processes/</li> 
   <li><i>GARCH models</i>: <code>garch()</code> from <pkg>tseries</pkg> fits basic GARCH models, <code>garchFit()</code> 
       from <pkg>fGarch</pkg> implements ARIMA models with a wide class of GARCH innovations. <pkg>bayesGARCH</pkg> estimates a Bayesian
-      GARCH(1,1) model with t innovations. <pkg>gogarch</pkg> implements Generalized Orthogonal GARCH (GO-GARCH) models.</li>
+      GARCH(1,1) model with t innovations. <pkg>gogarch</pkg> implements Generalized Orthogonal GARCH (GO-GARCH) models.
+      The R-Forge package <rforge>rgarch</rforge>
+      aims to provide a flexible and rich GARCH modelling and testing environment. Its
+      <a href="http://rgarch.R-Forge.R-project.org/">webpage</a> has extensive information and examples.</li>
   <li><i>Miscellaneous</i>: <pkg>ltsa</pkg> contains methods for
       linear time series analysis, <pkg>dlm</pkg> for Bayesian
       analysis of dynamic linear models, <pkg>timsac</pkg> for time
@@ -161,7 +167,7 @@
       multiresolution analyses. Wavelet methods for time series
       analysis based on Percival and Walden (2000) are given in
       <pkg>wmtsa</pkg>. Further wavelet methods can be found in
-      the packages <pkg>brainwaver</pkg>, <pkg>rwt</pkg>,
+      the packages <pkg>rwt</pkg>,
       <pkg>waveslim</pkg>, and <pkg>wavethresh</pkg>.</li>
   <li><i>Miscellaneous</i>:
       <pkg>ArDec</pkg> implements autoregressive-based decomposition
@@ -232,8 +238,9 @@
       VAR models in principal component space. More elaborate models
       are provided in package <pkg>vars</pkg>, <code>estVARXls()</code> 
 	  in <pkg>dse</pkg> and a Bayesian approach is available in <pkg>MSBVAR</pkg>.
+	  <pkg>MARSS</pkg> fits constrained and unconstrained linear multivariate 
+	  autoregressive state-space (MARSS) models. 
 	  </li>
-  <li><i>Markov-switching VAR</i> models are available in <pkg>MSVAR</pkg>.</li>
   <li><i>VARIMA models</i> and <i>state space models</i> are provided
       in the <pkg>dse</pkg> package. <pkg>EvalEst</pkg> facilitates Monte Carlo experiments to 
 	  evaluate the associated estimation methods.</li>
@@ -248,6 +255,8 @@
 	  fast multivariate Kalman filter, smoother, simulation smoother and forecasting. Yet another implementation
 	  is given in the <pkg>dlm</pkg> package which also contains tools for converting other multivariate models
 	  into state space form. All three packages assume uncorrelated error terms.</li>
+  <li><i>Partially-observed Markov processes</i> are a generalization of the usual linear multivariate state 
+  space models, allowing non-Gaussian and non-linear models. These are implemented in the <pkg>pomp</pkg> package.</li>
 </ul>
 
 <p><strong>Time Series Data</strong></p>
@@ -261,7 +270,6 @@
   <li>Data from Tsay (2005) <i>Analysis of financial
        time series</i> are in the <pkg>FinTS</pkg> package, along with some functions and
        script files required to work some of the examples.</li>
-  <li>Data from Cryer and Chan (2008) <i>Time series analysis with applications in R</i> are in the  <pkg>TSA</pkg> package.</li>
   <li><pkg>TSdbi</pkg> provides a common interface to time series databases.</li>
   <li><pkg>fame</pkg> provides an interface for FAME time series databases</li>
   <li><pkg>VhayuR</pkg> provides an interface to he Vhayu Velocity time series database</li>
@@ -272,7 +280,6 @@
 
 <p><strong>Miscellaneous</strong></p>
 <ul>
-  <li><pkg>cts</pkg>: Continuous time autoregressive models.</li>
   <li><pkg>dtw</pkg>: Dynamic time warping algorithms for computing and plotting pairwise alignments between time series.</li>
   <li><pkg>ensembleBMA</pkg>: Bayesian Model Averaging to create probabilistic forecasts from ensemble forecasts and weather observations.</li>
   <li><pkg>fractal</pkg>: Fractal time series modeling and analysis.</li>
@@ -300,11 +307,9 @@
   <pkg>bentcableAR</pkg>
   <pkg>boot</pkg>
   <pkg>BootPR</pkg>
-  <pkg>brainwaver</pkg>
   <pkg>bspec</pkg>
   <pkg>CADFtest</pkg>
   <pkg>chron</pkg>
-  <pkg>cts</pkg>
   <pkg>dlm</pkg>
   <pkg>dlnm</pkg>
   <pkg>dse</pkg>
@@ -341,14 +346,16 @@
   <pkg>kza</pkg>
   <pkg>mAr</pkg>
   <pkg>mar1s</pkg>
+  <pkg>MARSS</pkg>
   <pkg>Mcomp</pkg>
   <pkg>meboot</pkg>
   <pkg>mFilter</pkg>
+  <pkg>mondate</pkg>
   <pkg>MSBVAR</pkg>
-  <pkg>MSVAR</pkg>
   <pkg>paleoTS</pkg>
   <pkg>pastecs</pkg>
   <pkg>pear</pkg>
+  <pkg>pomp</pkg>
   <pkg>ptw</pkg>
   <pkg>robfilter</pkg>
   <pkg>RSEIS</pkg>
@@ -363,7 +370,7 @@
   <pkg>timeSeries</pkg>
   <pkg>tis</pkg>
   <pkg>tpr</pkg>
-  <pkg>TSA</pkg>
+  <pkg>TSAgg</pkg>
   <pkg>TSdbi</pkg>
   <pkg>tsDyn</pkg>
   <pkg>tslars</pkg>
@@ -385,6 +392,7 @@
 <links>
     <view>Finance</view>
     <view>Econometrics</view>
+    <rforge>rgarch</rforge>
     <a href="http://www.robjhyndman.com/TSDL/" target="_top">Time Series Data Library</a>
     <a href="http://www.mpipks-dresden.mpg.de/~tisean/">TISEAN Project</a>
 </links>

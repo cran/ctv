@@ -4,7 +4,7 @@
   <name>Finance</name>
   <topic>Empirical Finance</topic>
   <maintainer email="Dirk.Eddelbuettel@R-project.org">Dirk Eddelbuettel</maintainer>
-  <version>2010-05-03</version>
+  <version>2010-11-10</version>
   
   <info>
     <p>
@@ -70,7 +70,7 @@
           series. The <pkg>fractal</pkg> provide fractal time series modeling
 	  functionality. 
       </li>
-      <li>For volatily modeling, the standard GARCH(1,1) model can be estimated with the 
+      <li>For volatility modeling, the standard GARCH(1,1) model can be estimated with the 
 	  <code>garch()</code> function in the <pkg>tseries</pkg> package.
           Rmetrics (see below) contains the <pkg>fGarch</pkg> package which
           has additional models.  The <pkg>bayesGARCH</pkg> can perform
@@ -79,11 +79,6 @@
           package can estimate (multivariate) Conditional Correlation GARCH
           models whereas the <pkg>gogarch</pkg> package provides functions for
           generalized orthogonal GARCH models.
-      </li>
-      <li>The <pkg>realized</pkg> package contains functions to model and
-          visualize 'realized' variance (from high-frequency sampling, as
-          opposed to historical volatility and variance from lower-frequency returns, or
-          implied volatility from option prices).
       </li>
       <li>Unit root and cointegration tests are provided by <pkg>tseries</pkg>,
 	  and <pkg>urca</pkg>.
@@ -95,9 +90,7 @@
       <li>
 	  The <pkg>ArDec</pkg> implements autoregressive time series
 	  decomposition in a Bayesian framework; <pkg>MSBVAR</pkg> provides
-	  Bayesian estimation of vector autoregressive models and
-	  the <pkg>MSVAR</pkg> provides classic estimation of vector
-	  autoregressive models. The  <pkg>dlm</pkg> package  provides
+	  Bayesian estimation of vector autoregressive models. The  <pkg>dlm</pkg> package  provides
 	  Bayesian and likelihood analysis of dynamic linear models (ie
 	  linear Gaussian state space models). 
       </li>
@@ -205,15 +198,26 @@
       <li> The <pkg>SV</pkg> package uses indirect inference to estimate
 	  non-Gaussian stochastic volatility models.
       </li>
-
+      <li> The <pkg>orderbook</pkg> package can be used to analyses market
+	  microstructure effects and changes in the (limit-) order books.
+      </li>
+      <li> The <pkg>schwartz97</pkg> package can be used to model the
+	  Schwartz (1997) two-factor model for commodities markets.
+      </li>
+      <li> The <pkg>rrv</pkg> package provides functions for 
+	modelling portfolio returns as random variables, partly
+	based on the work of Markowitz (1952, 1959), with an emphasis on:
+	modelling portfolios as functions of weight; modelling returns with
+	empirical cumulative distribution functions; and considering quantile
+	returns.
+      </li>
     </ul>
 
     <p>
     <strong>Risk management</strong>
     </p>
     <ul>
-      <li>The <pkg>VaR</pkg> package estimates
-          Value-at-Risk, and several packages provide functionality for 
+      <li>Several packages provide functionality for 
           Extreme Value Theory models: <pkg>evd</pkg>, <pkg>evdbayes</pkg>, 
           <pkg>evir</pkg>, <pkg>extRremes</pkg>, <pkg>ismev</pkg>, 
           <pkg>POT</pkg>.
@@ -360,8 +364,8 @@
     <pkg>lmtest</pkg>
     <pkg>longmemo</pkg>
     <pkg>MSBVAR</pkg>
-    <pkg>MSVAR</pkg>
     <pkg>mvtnorm</pkg>
+    <pkg>orderbook</pkg>
     <pkg priority="core">PerformanceAnalytics</pkg>
     <pkg>portfolio</pkg>
     <pkg>portfolioSim</pkg>
@@ -370,9 +374,11 @@
     <pkg>quantmod</pkg>
     <pkg>RBloomberg</pkg>
     <pkg>Rcmdr</pkg>
-    <pkg>realized</pkg>
     <pkg>RQuantLib</pkg>
+    <pkg>rwt</pkg> 
+    <pkg>rrv</pkg> 
     <pkg>sandwich</pkg>
+    <pkg>schwartz97</pkg>
     <pkg>sde</pkg>
     <pkg>stockPortfolio</pkg>    
     <pkg>strucchange</pkg>
@@ -387,14 +393,12 @@
     <pkg>tsfa</pkg>
     <pkg>TTR</pkg>
     <pkg>ttrTests</pkg>
-    <pkg priority="core">urca</pkg>
-    <pkg>VaR</pkg>
-    <pkg>vars</pkg>
-    <pkg>rwt</pkg> 
     <pkg>tawny</pkg>
     <pkg priority="core">timeDate</pkg>
     <pkg priority="core">timeSeries</pkg>
     <pkg>tis</pkg> 
+    <pkg priority="core">urca</pkg>
+    <pkg>vars</pkg>
     <pkg>vrtest</pkg>
     <pkg>wavelets</pkg>
     <pkg>waveslim</pkg>

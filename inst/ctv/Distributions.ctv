@@ -4,7 +4,7 @@
 <name>Distributions</name> 
 <topic>Probability Distributions</topic> 
 <maintainer email="Christophe.Dutang@ensimag.fr">Christophe Dutang</maintainer> 
-<version>2010-05-28</version> 
+<version>2010-10-07</version> 
 
 <info> 
 For most of the classical distributions, base R provides
@@ -94,7 +94,10 @@ or not complete, please let me know.
 		is implemented in <pkg>Runuran</pkg> as well as the 'density' function.
 		</LI>	
 		
-			 
+		<LI><I>Multinomial distribution</I>: This can be found in
+	    <pkg>mc2d</pkg>, <pkg>LearnBayes</pkg> and <pkg>MCMCpack</pkg>.</LI>	
+		
+					 
 		<LI><I>Sichel distribution</I>: This can be found in
 	    <pkg>gamlss.dist</pkg>.</LI>	    
 	    
@@ -129,10 +132,10 @@ or not complete, please let me know.
 	 can be found in <pkg>gamlss.dist</pkg> as well as generalized beta of the first
 	 and second kind. The
      beta of the second kind and the generalized beta distribution 
-     can also be found in <pkg>VGAM</pkg>. Several special cases of
+     can also be found in <pkg>VGAM</pkg> and <pkg>mc2d</pkg>. Several special cases of
      the generalized beta distribution are also implemented in <pkg>VGAM</pkg>:
      Lomax, inverse Lomax, Dagum, Fisk (aka log logistic), (inverse or not) 
-     paralogistic and Singh-Maddala distribution.</LI>	  
+     paralogistic and Singh-Maddala distribution and in <pkg>mc2d</pkg>: Pert.</LI>	  
      
      <LI><I>Benini distribution</I>: Provided in <pkg>VGAM</pkg>.
      </LI>
@@ -163,7 +166,7 @@ or not complete, please let me know.
      in <pkg>Davies</pkg> package.</LI>	   
      
      <LI><I>Dirichlet distribution</I>: functions d, r
-	    are provided in <pkg>MCMCpack</pkg> and <pkg>bayesm</pkg>.</LI>   
+	    are provided in <pkg>MCMCpack</pkg>, <pkg>mc2d</pkg> and <pkg>bayesm</pkg>.</LI>   
 
      <LI><I>Exponential distribution and its extensions</I>: Base R provides the d, p, q, r functions
      for this distribution (see above). <pkg>actuar</pkg> provides additional functions
@@ -194,13 +197,15 @@ or not complete, please let me know.
 	 can also be found in <pkg>gamlss.dist</pkg>.</LI>
      
      <LI><I>Gaussian (or normal) distribution and its extensions</I>: Base R provides
-     the d, p, q, r functions for this distribution (see above). <pkg>actuar</pkg>
+     the d, p, q, r functions for this distribution (see above). 
+	 The <pkg>truncnorm</pkg> package provides d, p, q, r functions for the truncated 
+	 univariate gaussian distribution as well as functions for the first two moments.
+	 <pkg>actuar</pkg>
      provides the moment generating function and moments. d, p, q, r functions for the generalized 
-	 inverse gaussian distribution can be found in <pkg>gamlss.dist</pkg>.
+	 inverse gaussian distribution can be found in <pkg>gamlss.dist</pkg> and <pkg>HyperbolicDist</pkg>.
 	 A fast random generator is available for the (generalized) Inverse Gaussian distribution 
 	 is implemented in <pkg>Runuran</pkg> as well as the density function. 
-	  <pkg>ig</pkg> provides d, p, q, r
-	 functions for the (raw) inversion gaussian distribution. <pkg>SuppDists</pkg>
+     <pkg>SuppDists</pkg>
      provides functions for the inverse Gaussian distribution as well and furthermore includes functions
      for computing moments, skewness, kurtosis. <pkg>VGAM</pkg> and <pkg>fBasics</pkg> 
      also implement
@@ -231,7 +236,7 @@ or not complete, please let me know.
      The reverse Gumbel distribution is implemented in <pkg>lmomco</pkg>
      and  <pkg>gamlss.dist</pkg>.</LI>   
      
-     <LI><I>Hyperbolic distribuion</I>: <pkg>ghyp</pkg> and <pkg>fBasics</pkg> package
+     <LI><I>Hyperbolic distribuion</I>: <pkg>fBasics</pkg>, <pkg>ghyp</pkg> and <pkg>HyperbolicDist</pkg> packages
      provide d, p, q, r functions for the generalized hyperbolic distributions. 
 	 A fast random generator is available for the hyperbolic distribution 
 	 is implemented in <pkg>Runuran</pkg> as well as the density function. </LI>
@@ -255,7 +260,8 @@ or not complete, please let me know.
 	  be obtained as a special case of the generalized Lambda distribution.	
 	  </LI>
 
-     <LI><I>Laplace and asymetric Laplace distribution</I>: Provided in <pkg>VGAM</pkg>.
+     <LI><I>Laplace and asymetric Laplace distribution</I>: Provided in <pkg>VGAM</pkg> 
+	 and <pkg>HyperbolicDist</pkg> packages.
      Laplace distribution (also called double exponential distribution) is implemented in <pkg>distr</pkg>.
 	 A fast random generator is available for the Laplace distribution 
 	 is implemented in <pkg>Runuran</pkg> as well as the density function. </LI>
@@ -322,7 +328,7 @@ or not complete, please let me know.
      The multivariate Student distribution
      is provided by the packages <pkg>mvtnorm</pkg> and <pkg>mnormt</pkg>.</LI>
      
-     <LI><I>Triangle distribution</I>: Provided in packages <pkg>triangle</pkg> and
+     <LI><I>Triangle distribution</I>: Provided in packages <pkg>triangle</pkg>, <pkg>mc2d</pkg> and
      <pkg>VGAM</pkg>. 
 	 A fast random generator is available for the triangle distribution 
 	 is implemented in <pkg>Runuran</pkg> as well as the density function.</LI>    
@@ -388,8 +394,12 @@ or not complete, please let me know.
       copulas of Nelsen (1998, <i>Introduction to Copulas</i>, Springer-Verlag) including
       Gumbel, Frank, Clayton, and Ali-Mikhail-Haq. <pkg>gumbel</pkg> is a 
       standalone package for the Gumbel copula and <pkg>VGAM</pkg> 
-      provides the Ali-Mikhail-Haq bivariate distribution. Generalized Archimedean copulas
+      provides the Ali-Mikhail-Haq bivariate distribution. <pkg>nacopula</pkg> provides
+	   Ali-Mikhail-Haq, Clayton, Frank, Gumbel and Joe copulas.
+	  Generalized Archimedean copulas
       are implemented in the <pkg>fgac</pkg> package.</LI>
+	  
+	  
       
       <LI><I>Cubic copula</I>: Not yet implemented</LI>
       
@@ -408,6 +418,9 @@ or not complete, please let me know.
       and <pkg>copula</pkg>.</LI>
      
       <LI><I>Mardia copula</I>: Not yet implemented</LI>   
+	  
+	  <LI><I>Nested copulas</I>: arbitrary nested versions of copulas can
+	  be implemented in <pkg>nacopula</pkg>. </LI>
       
       <LI><I>Plackett</I>: Provided in <pkg>VGAM</pkg> and <pkg>copula</pkg>.</LI>
                    
@@ -452,10 +465,6 @@ or not complete, please let me know.
 		package interfaces to the UNU.RAN library for universal non-uniform generation.
 		</LI>
 
-		<LI> Misc.:
-		<pkg>rv</pkg> package provides a class to easily manipulate and summarize
-		simulations in R. 
-		</LI>
 		</UL>  
 	  
 	 </LI>  
@@ -463,7 +472,7 @@ or not complete, please let me know.
      <LI><I>Quasi-randomness</I>: The <pkg>randtoolbox</pkg> provides
      the following quasi random sequences: the Sobol sequence, the Halton
      (hence Van Der Corput) sequence and the Torus sequence (also known as Kronecker
-     sequence). <pkg>lhs</pkg> package implements the latin hypercube sampling,
+     sequence). <pkg>lhs</pkg> and <pkg>mc2d</pkg> packages implement the latin hypercube sampling,
      an hybrid quasi/pseudo random method.</LI>
      
      <LI><I>True randomness</I>: The <pkg>random</pkg>
@@ -502,7 +511,7 @@ or not complete, please let me know.
      <pkg>VGAM</pkg> provides a lot of hierarchical models: beta/binomial,
      beta/geometric and beta/normal distributions. <pkg>bayesm</pkg>
      implements: binary logit, linear, multivariate logit and negative binomial
-     models. Furthermore <pkg>LearnBayes</pkg> and <pkg>MCMCpack</pkg> 
+     models. Furthermore <pkg>LearnBayes</pkg> and <pkg>MCMCpack</pkg>
      provides poisson/gamma, beta/binomial,
      normal/normal and multinomial/Dirichlet models.</LI>    
 
@@ -537,8 +546,7 @@ or not complete, please let me know.
      estimation for usual and "exotic" distributions. Package
      <pkg>MASS</pkg> implements the flexible <code>fitdistr</code>
      function for parameter estimations. <pkg>fitdistrplus</pkg> greatly enlarges and enhances
-     the tools to fit probability distributions.
-     Bivariate copulas can be fitted with <pkg>mlCopulaSelection</pkg>.</LI>	       
+     the tools to fit probability distributions.</LI>	       
       </UL>
 </info> 
 
@@ -582,19 +590,19 @@ or not complete, please let me know.
   <pkg>GSM</pkg>
   <pkg>gumbel</pkg>
   <pkg>HyperbolicDist</pkg>
-  <pkg>ig</pkg>
   <pkg>LearnBayes</pkg>
   <pkg>lhs</pkg>
   <pkg priority="core">lmomco</pkg>
   <pkg>Lmoments</pkg>
   <pkg>MASS</pkg>
   <pkg>mecdf</pkg>
+  <pkg>mc2d</pkg>
   <pkg>MCMCpack</pkg>
   <pkg>mixtools</pkg>
-  <pkg>mlCopulaSelection</pkg>
   <pkg priority="core">mnormt</pkg>
   <pkg priority="core">mvtnorm</pkg>
   <pkg>mvtnormpcs</pkg>
+  <pkg>nacopula</pkg>
   <pkg>nor1mix</pkg>  
   <pkg>normalp</pkg>
   <pkg>POT</pkg>
@@ -607,12 +615,12 @@ or not complete, please let me know.
   <pkg>rsprng</pkg>
   <pkg>rstream</pkg>
   <pkg>Runuran</pkg>
-  <pkg>rv</pkg>
   <pkg>setRNG</pkg>
   <pkg>skewt</pkg>     
   <pkg>sn</pkg>
   <pkg priority="core">SuppDists</pkg>
   <pkg>tmvtnorm</pkg>
+  <pkg>truncnorm</pkg>
   <pkg>TRIANG</pkg>
   <pkg>triangle</pkg>
   <pkg>tweedie</pkg>

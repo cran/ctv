@@ -2,7 +2,7 @@
  <name>Bayesian</name>  
  <topic>Bayesian Inference</topic>
  <maintainer email="jhp@uchicago.edu">Jong Hee Park</maintainer>
- <version>2010-05-08</version>
+ <version>2010-10-20</version>
 
  <info>
    <p>Applied researchers interested in Bayesian statistics are increasingly 
@@ -94,8 +94,7 @@
     	<li><pkg>bqtl</pkg> can be used to fit quantitative trait loci (QTL) models. 
 	This package allows Bayesian estimation of multi-gene models
     	via Laplace approximations and provides tools for interval mapping of genetic loci. 
-	<pkg>bim</pkg> provides a function for Bayesian interval
-    	mapping using MCMC methods. Both of these packages contain graphical tools for QTL analysis.</li>
+	The package also contains graphical tools for QTL analysis.</li>
     
     	<li><pkg>bspec</pkg> performs Bayesian inference on the (discrete) power spectrum of time series.</li>
 
@@ -163,16 +162,24 @@
 	item-response theory models using MCMC methods 
 	and to compute highest density regions for the Beta distribution and the inverse gamma distribution.</li>
 
+	<li>The <pkg>Ratings</pkg> package contains functions to implement the methods to improve the presentation and interpretation of online ratings data.</li>
+
     	<li>The <pkg>RJaCGH</pkg> package implements Bayesian analysis of 
 	CGH microarrays using hidden Markov chain models.
     	The selection of the number of states is made via their posterior 
 	probability computed by reversible jump Markov chain Monte Carlo Methods.</li>
+
+	<li><pkg>RxCEcolInf</pkg> fits the R x C inference model described in Greiner and Quinn (2009).</li>
+
+	<li><pkg>SimpleTable</pkg> provides a series of methods to conduct Bayesian inference and sensitivity analysis for causal effects from 2 x 2 and 2 x 2 x K tables.</li>
 
     	<li><pkg>sna</pkg>, an R package for social network analysis, contains functions to generate posterior samples from Butt's 
     	Bayesian network accuracy model using Gibbs sampling.</li>
 
     	<li><pkg>spBayes</pkg> provides R functions that fit Gaussian spatial process models 
 	for univariate as well as multivariate point-referenced data using MCMC methods.</li>
+
+	<li><pkg>spikeslab</pkg> provides functions for prediction and variable selection using spike and slab regression.</li>
 
     	<li>The <pkg>tgp</pkg> package implements Bayesian treed Gaussian process models: 
 	a spaptial modeling and regression package providing fully Bayesian MCMC posterior inference for
@@ -202,8 +209,6 @@
     	matrices.  <pkg>coda</pkg> contains the Gelman and Rubin, Geweke, Heidelberger and Welch, and Raftery and Lewis diagnostics.</li>
 
     	<li><pkg>ramps</pkg> implements Bayesian geostatistical analysis of Gaussian processes using a reparameterized and marginalized posterior sampling algorithm. </li>
-
-    	<li><pkg>rv</pkg> provides a simulation-based random variable class in R, in which posterior simulation objects can be conveniently handled as random variables. </li>
 	
 	<li><pkg>scapeMCMC</pkg> is a Bayesian companion package of scape which deals with age and time structured population models. It provides multipanel 
 	MCMC diagnostic plots with aestically pleasing defaults and graphical parameters that are easy to change.</li>
@@ -256,7 +261,7 @@
 
     
     <p> The Bayesian Inference Task View is written by Jong Hee Park (University of Chicago, IL, USA), Andrew D. Martin (Washington University, St. Louis, MO, USA), and
-    Kevin M. Quinn (Harvard University, Cambridge, MA, USA).  Please email the <a href="mailto:jhp@uchicago.edu?subject=Bayesian%20Task%20View">task view maintainer</a>
+    Kevin M. Quinn (UC Berkeley, Berkeley, CA, USA).  Please email the <a href="mailto:jhp@uchicago.edu?subject=Bayesian%20Task%20View">task view maintainer</a>
     with suggestions.</p>
 
     </info>
@@ -278,7 +283,6 @@
     <pkg priority="core">bayesSurv</pkg>    
     <pkg>BCE</pkg>
     <pkg>bcp</pkg>
-    <pkg>bim</pkg>
     <pkg>BMA</pkg>
     <pkg priority="core">boa</pkg>
     <pkg>Bolstad</pkg>
@@ -315,15 +319,18 @@
     <pkg>pscl</pkg>
     <pkg>R2jags</pkg>
     <pkg>R2WinBUGS</pkg>
+    <pkg>Ratings</pkg>
+    <pkg>RxCEcolInf</pkg>
     <pkg>ramps</pkg>
     <pkg>rbugs</pkg>
     <pkg>RJaCGH</pkg>
     <pkg>rjags</pkg>
     <pkg>runjags</pkg>
-    <pkg>rv</pkg>
+    <pkg>SimpleTable</pkg>
     <pkg>sna</pkg>
     <pkg>scapeMCMC</pkg>
     <pkg>spBayes</pkg>
+    <pkg>spikeslab</pkg>
     <pkg>tgp</pkg>
     <pkg>zic</pkg>
     </packagelist>
