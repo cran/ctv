@@ -2,8 +2,8 @@
 
 <name>ChemPhys</name>
 <topic>Chemometrics and Computational Physics</topic>
-<maintainer email="katharine.mullen@nist.gov">Katharine Mullen and Ron Wehrens</maintainer>
-<version>2010-11-02</version>
+<maintainer email="katharine.mullen@nist.gov">Katharine Mullen</maintainer>
+<version>2011-03-31</version>
 
 <info>
 
@@ -14,13 +14,13 @@ simulation of physico-chemico systems.  Many of the functions in base
 R are useful for these ends.  
 </p>
 
-<p>
-A special issue of R News with a focus on 
-<a href="http://CRAN.R-project.org/doc/Rnews/Rnews_2006-3.pdf" target="_top">R in Chemistry</a> 
-was published in August 2006. A special volume of Journal of Statistical Software (JSS) dedicated to 
-<a href="http://www.jstatsoft.org/v18" target="_top">Spectroscopy and Chemometrics in R</a>
-was published in January 2007. These are good places to start reading about recent work in chemometrics
-and computational physics based in R.  
+
+<p> The book  
+<i>Chemometrics with R</i>, by Ron Wehrens, 
+ISBN: 978-3-642-17840-5, Springer, 2011, provides an introduction to 
+ multivariate statistics in the life sciences, as well as coverage of several 
+specific topics from the area of chemometrics; the examples in the book are possible to 
+reproduce using the packages <pkg>ChemometricsWithR</pkg> and <pkg>ChemometricsWithRData</pkg>.
 </p>
 
 <p> The book by Kurt Varmuza and Peter Filzmoser, 
@@ -28,6 +28,15 @@ and computational physics based in R.
 ISBN 978-1-420-05947-2, CRC Press, 2009, is associated with the 
 package <pkg>chemometrics</pkg>. 
 </p>
+
+<p>
+A special issue of R News with a focus on 
+<a href="http://CRAN.R-project.org/doc/Rnews/Rnews_2006-3.pdf" target="_top">R in Chemistry</a> 
+was published in August 2006. A special volume of Journal of Statistical Software (JSS) dedicated to 
+<a href="http://www.jstatsoft.org/v18" target="_top">Spectroscopy and Chemometrics in R</a>
+was published in January 2007.   
+</p>
+
 
 <p>
 <a href="mailto:katharine.mullen@nist.gov">Please let us know</a>
@@ -84,10 +93,12 @@ should be mentioned here.
 <p>
 <strong>Partial Least Squares</strong>
 </p>
-<ul>
+<ul> 
     <li>The package <pkg>pls</pkg> implements 
     Partial Least Squares Regression (PLSR) and Principal 
     Component Regression (PCR).</li>
+ <li>The package <pkg>plsRglm</pkg> implements partial least squares regression for generalized linear models and k-fold cross-validation of such models, 
+with options for Bootstrap confidence intervals and significance testing.</li>
     <li>The package 
     <pkg>lspls</pkg>  implements the 
     least squares-partial least squares (LS-PLS) method.</li>
@@ -159,7 +170,7 @@ should be mentioned here.
   selection, by default using Mallow's Cp. <pkg>stepPlr</pkg> provides
   stepwise variable selection for penalized logistic regression.</li>
   <li>Variable selection based on evolutionary
-  algorithms is available in packages <pkg>pga</pkg> and
+  algorithms is available in package and
   <pkg>subselect</pkg>. The latter also provides simulated annealing and
   leaps-and-bounds algorithms, as well as local refinements.</li>
   <li>Package
@@ -263,6 +274,10 @@ database for structural structural similarity searching and clustering.
 <strong>Spectroscopy</strong>
 </p>
 <ul>
+   <li>The <pkg>ChemoSpec</pkg> package collects user-friendly 
+   	   functions for plotting spectra (NMR, IR, etc) and 
+	   carrying top-down exploratory data analysis, such as HCA, PCA 
+           and model-based clustering. </li>
   <li>The <pkg>Peaks</pkg> package implements functions for spectrum
   manipulation, ported from the ROOT/TSpectrum class.</li>
   <li>Software for the book by Donald B. Percival and Andrew T. Walden,
@@ -402,6 +417,9 @@ photovoltaics. </li>
   <pkg>CHNOSZ</pkg>
   <pkg priority="core">chemCal</pkg>
   <pkg>chemometrics</pkg>
+  <pkg>ChemometricsWithR</pkg>
+  <pkg>ChemometricsWithRData</pkg>
+  <pkg>ChemoSpec</pkg>
   <pkg>clustvarsel</pkg>
   <pkg>ddesolve</pkg>
   <pkg priority="core">deSolve</pkg>
@@ -434,8 +452,8 @@ photovoltaics. </li>
   <pkg>pcaPP</pkg>    
   <pkg>Peaks</pkg>    
   <pkg>PET</pkg>
-  <pkg>pga</pkg>
   <pkg priority="core">pls</pkg>
+  <pkg priority="core">plsRglm</pkg> 
   <pkg>plspm</pkg>
   <pkg>ppls</pkg>
   <pkg>psy</pkg>

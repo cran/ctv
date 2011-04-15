@@ -3,12 +3,12 @@
 <name>Optimization</name>
 <topic>Optimization and Mathematical Programming</topic>
 <maintainer email="Stefan.Theussl@wu.ac.at">Stefan Theussl</maintainer>
-<version>2010-10-18</version>
+<version>2011-04-12</version>
 
 <info> 
   <p>This CRAN task view contains a list of packages which offer
   facilities for solving optimization problems. 
-  Although every regression model in statistcs solves an optimization
+  Although every regression model in statistics solves an optimization
   problem they are not part of this view. If you are looking for regression
   methods, the following views will contain useful starting points:
   <view>Multivariate</view>, <view>SocialSciences</view>, <view>Robust</view> among others.
@@ -69,9 +69,24 @@
   <h3>Packages extending the basic solver spectrum</h3>
   <ul>
 -->
+    <li>Implementations of the augmented lagrange multiplier method
+    for general nonlinear optimization can be found in
+    packages <pkg>alabama</pkg> and <pkg>Rsolnp</pkg>.
+    <!--The latest development
+    snapshot of this package can be found in
+    project <rforge>rino</rforge>
+    at <a href="http://R-Forge.R-project.org/">R-Forge</a>.
+    -->
+    </li>
+
     <li><pkg>clue</pkg> contains the function <code>sumt()</code> for
     solving constrained optimization problems via the sequential
     unconstrained minimization technique (SUMT).
+    </li>
+
+    <li>Package <pkg>cmaes</pkg> implements a global optimization
+    procedure using a covariance matrix adapting evolutionary
+    strategy (CMA-ES).
     </li>
 
     <li>Package <pkg>gsl</pkg> provides BFGS, conjugate gradient,
@@ -84,6 +99,21 @@
     Newton-Raphson optimizer <code>maxNR()</code> as well as wrapper
     to methods, implemented in <code>optim()</code>. It supports fitting a
     submodel by specifying constant parameters.
+    </li>
+
+    <li>An R port of the Scilab neldermead module is packaged
+    in <pkg>neldermead</pkg> offering several direct search
+    optimization algorithms based on the simplex method.
+    </li>
+
+    <li>
+    Project <rforge>nloptr</rforge> hosts an R interface to NLopt, an
+    LGPL licensed library for nonlinear optimization providing a
+    common interface for a number of different free optimization
+    routines. NLopt is callable from C, C++, Fortran, and other
+    languages. It supports algorithms for unconstrained
+    optimization, bound-constrained optimization, and general
+    nonlinear inequality/equality constraints.
     </li>
 
     <li>Several derivative-free optimization algorithms are provided
@@ -107,11 +137,13 @@
       variable metric nonlinear function minimization algorithms,
       respectively.</li>
 
-    <li><pkg>Rsolnp</pkg> offers general nonlinear optimization using
-    the augmented lagrange multiplier method. The latest development
-    snapshot of this package can be found in
-    project <rforge>rino</rforge>
-    at <a href="http://R-Forge.R-project.org/">R-Forge</a>.</li>
+    <li>A particle swarm optimizer (PSO) is implemented in package
+    <pkg>pso</pkg>. The algorithm follows the standard PSO 2007 by
+    Maurice Clerc et al. Additionally, a number of ancillary routines
+    are provided for easy testing and graphics. Another (parallelized)
+    implementation of the PSO algorithm can be found in package ppso
+    available from <a href="http://www.rforge.net/ppso/">rforge.net</a>.
+    </li>
 
     <li><pkg>subplex</pkg> provides unconstrained function
     optimization based on a subspace searching simplex method.
@@ -145,12 +177,20 @@
     evolutionary algorithms with  
     a derivative-based (quasi-Newtonian) approach.</li>
 
+    <li>An R implementation of the Self-Organising Migrating Algorithm
+    (SOMA) is available in package <pkg>soma</pkg>. The approach of
+    this stochastic optimization algorithm is similar to that of
+    genetic algorithms and can be applied to any cost-minimization
+    problem with a bounded parameter space, and is robust to local
+    minima.
+    </li>
+
     <li>Package <pkg>DEoptim</pkg> provides a global optimizer based
-    on the differential evolution algorithm.
+    on the differential evolution algorithm. <pkg>RcppDE</pkg>
+    provides a C++ implementation of the <code>DEoptim()</code> function.
     <!--
-	see the <a href="http://www.icsi.berkeley.edu/~storn/code.html">
-	Differential Evolution home page</a>.
-    -->
+    see the <a href="http://www.icsi.berkeley.edu/~storn/code.html">
+    Differential Evolution home page</a>.  --> 
     </li>
     
   </ul>
@@ -213,6 +253,12 @@
     purposes, otherwise it requires licensing. [GO, NLP]
     </li>
     
+    <li> The <a href="http://www.neos-server.org/neos/">NEOS Server
+    for Optimization</a> provides online access to state-of-the-art
+    optimization problem solvers. Package <pkg>rneos</pkg> enables the
+    user to pass optimization problems to NEOS and retrieve results
+    within R.
+    </li>
     <!--
     <li>Package <rforge>stoprog</rforge> is a package for scenario
     generation procedures used in 
@@ -222,13 +268,12 @@
     </li>
     -->
     
-    <li> An interface to Ipopt from
-    the <a href="http://www.coin-or.org/">COIN-OR</a> initiative
-    called ipoptr can be downloaded
-    from <a href="http://www.ucl.ac.uk/~uctpjyy/ipoptr.html">here</a>. Ipopt
-    is an open source solver for large-scale nonlinear continuous
-    optimization. [NLP]
-    </li>
+    <li> An interface to Ipopt from the <a
+    href="http://www.coin-or.org/">COIN-OR</a> initiative called
+    <rforge>ipoptr</rforge> is available from <a
+    href="http://R-Forge.R-project.org/">R-Forge</a>. Ipopt is an open
+    source solver for large-scale nonlinear continuous
+    optimization. [NLP] </li>
     
 
   </ul>
@@ -330,20 +375,23 @@
     the Hungarian algorithm. [SPLP]
     </li>
 
+    <li> The data cloning algorithm is a global optimization approach
+    and a variant of simulated annealing which has been implemented
+    in package <pkg>dclone</pkg>. The package provides low level
+    functions for implementing maximum likelihood estimating
+    procedures for complex models using data cloning and Bayesian
+    Markov chain Monte Carlo methods.</li>
+
     <li>Package <pkg>goalprog</pkg> provides some functions for
     lexicographic linear goal  
     programming and optimization. Goal programming is a branch of
     multi-objective, multi-criteria decision analysis. [MOP]</li>
 
-    <li>Multi-criteria optimization problems can be solved using
-    package <pkg>mco</pkg> which implements genetic
-    algorithms. [MOP]</li>
-
     <li><pkg>igraph</pkg>, a package for graph and network analysis,
     uses the very fast igraph C library. It can be used to calculate
     shortest paths, maximal network flows, minimum 
     spanning trees, etc. [GRAPH]</li>
-    
+
     <li><pkg>maxLik</pkg> adds a likelihood-specific layer on top of
     a number of maximization routines like Brendt-Hall-Hall-Hausman
     (BHHH) and Newton-Raphson  
@@ -352,18 +400,21 @@
     swapping of maximization algorithms.
     </li>
     
-    <li>Package <pkg>quantreg</pkg> contains variations of simplex and
-    of interior point routines (<code>nlrq()</code>,
-    <code>crq()</code>). It provides an interface to L1 regression 
-    in the R code of function <code>rq()</code>. [SPLP, LP, IPM]</li>
+    <li>Multi-criteria optimization problems can be solved using
+    package <pkg>mco</pkg> which implements genetic
+    algorithms. [MOP]</li>
 
-      
     <li> Package <pkg>optmatch</pkg> provides routines for solving
     matching problems by translating 
     them into minimum-cost flow problems, which are in turn solved
     optimally by the RELAX-IV codes  
     of Bertsekas and Tseng (free for research). [SPLP]
     </li>
+    
+    <li>Package <pkg>quantreg</pkg> contains variations of simplex and
+    of interior point routines (<code>nlrq()</code>,
+    <code>crq()</code>). It provides an interface to L1 regression 
+    in the R code of function <code>rq()</code>. [SPLP, LP, IPM]</li>
     
     <!--
 	The <pkg>desirability</pkg> package contains S3 classes for
@@ -506,9 +557,12 @@ steady-state and equilibrium analysis of ordinary differential equations.</li>
 </info>
 
 <packagelist>
+  <pkg>alabama</pkg>
   <pkg>BB</pkg>
   <pkg>boot</pkg>
   <pkg>clue</pkg>
+  <pkg>cmaes</pkg>
+  <pkg>dclone</pkg>
   <pkg>DEoptim</pkg>
   <pkg>desirability</pkg>
   <pkg>gafit</pkg>
@@ -526,21 +580,26 @@ steady-state and equilibrium analysis of ordinary differential equations.</li>
   <pkg>maxLik</pkg>
   <pkg>mco</pkg>
   <pkg priority="core">minqa</pkg>
+  <pkg>neldermead</pkg>
   <pkg>nleqslv</pkg>
   <pkg>optmatch</pkg>
   <pkg priority="core">optimx</pkg>
+  <pkg>pso</pkg>
   <pkg priority="core">quadprog</pkg>
   <pkg>quantreg</pkg>
   <pkg>rcdd</pkg>
   <pkg>Rcgmin</pkg>
   <pkg>Rcplex</pkg>
+  <pkg>RcppDE</pkg>
   <pkg>Rcsdp</pkg>
-  <pkg priority="core">Rsolnp</pkg>  
   <pkg>rgenoud</pkg>
   <pkg priority="core">Rglpk</pkg>
+  <pkg>rneos</pkg>
+  <pkg priority="core">Rsolnp</pkg>  
   <pkg priority="core">Rsymphony</pkg>
   <pkg>Rvmmin</pkg>
   <pkg>sna</pkg>
+  <pkg>soma</pkg>
   <pkg>subplex</pkg>
   <pkg>trust</pkg>
   <pkg priority="core">TSP</pkg>

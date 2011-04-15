@@ -4,7 +4,7 @@
 <name>Distributions</name> 
 <topic>Probability Distributions</topic> 
 <maintainer email="Christophe.Dutang@ensimag.fr">Christophe Dutang</maintainer> 
-<version>2010-10-07</version> 
+<version>2011-04-13</version> 
 
 <info> 
 For most of the classical distributions, base R provides
@@ -171,8 +171,9 @@ or not complete, please let me know.
      <LI><I>Exponential distribution and its extensions</I>: Base R provides the d, p, q, r functions
      for this distribution (see above). <pkg>actuar</pkg> provides additional functions
      such as the moment generating function, moments and limited expected values. It also has
-     the d, p, q, r for the inverse exponential distribution. The shifted exponential distribution
-     is implemented in <pkg>lmomco</pkg> package with d, p, q, r functions.
+     the d, p, q, r for the inverse exponential distribution. The shifted and the 
+	 truncated exponential distributions are implemented in <pkg>lmomco</pkg> 
+	 package with d, p, q, r functions.
 	 d, p, q, r functions for the power and the skew power exponential type 1-4 distributions are implemented
 	 in <pkg>gamlss.dist</pkg>.
 	 A fast random generator is available for the power Exponential distribution 
@@ -211,8 +212,9 @@ or not complete, please let me know.
      also implement
      the folded and the skewed normal distribution, the inverse gaussian distribution. 
 	 <pkg>lmomco</pkg> implements the generalized normal distribution. 	   
-	   The log normal distribution is implemented
-     in Base R (see above). Ex-Gaussian distribution is implemented in <pkg>gamlss.dist</pkg>.
+	 The log normal distribution is implemented in Base R (see above), but the 3-parameter lognormal
+	 distribution is available in <pkg>lmomco</pkg>.
+	 Ex-Gaussian distribution is implemented in <pkg>gamlss.dist</pkg>.
      Finally, the multivariate Gaussian distribution
      is provided by the packages <pkg>mvtnorm</pkg> and <pkg>mnormt</pkg>, while
      <pkg>mvtnormpcs</pkg>implements multivariate student/normal integrals, 
@@ -249,15 +251,15 @@ or not complete, please let me know.
      
 	 <LI><I>Kappa distribution</I>: Provided in <pkg>lmomco</pkg>.</LI>  
 	 
-     <LI><I>Kumaraswamy distribution</I>: Provided in package <pkg>VGAM</pkg>.</LI>
+     <LI><I>Kumaraswamy distribution</I>: Provided in packages <pkg>VGAM</pkg> and <pkg>lmomco</pkg>.</LI>
      
      <LI><I>(Tukey) Lambda distribution and its extentions</I>: The generalized Lambda 
 	 distribution (GLD) is well known for its wide range of shapes. There exists 3 kinds
 	 of GLD in the literature: RS, FMKL and FM5. The following packages implement such distributions
-	 (with d, p, q, r functions): <pkg>gld</pkg> for the 3 kinds of GLD
-	 (RS, FMKL and FM5), <pkg>GLDEX</pkg> for 2 kinds (RS, FMKL)
-	  and <pkg>Davies</pkg> for 1 type (RS). The original Tukey Lambda distribution can 
-	  be obtained as a special case of the generalized Lambda distribution.	
+	 (with d, p, q, r functions): <pkg>gld</pkg> and <pkg>GLDEX</pkg> provides the 3 kinds of GLD, 
+	 <pkg>Davies</pkg> provides the RS type and <pkg>lmomco</pkg> provides the FMKL. 
+	 The original Tukey Lambda distribution can be obtained as a special 
+	 case of the generalized Lambda distribution.	
 	  </LI>
 
      <LI><I>Laplace and asymetric Laplace distribution</I>: Provided in <pkg>VGAM</pkg> 
@@ -305,7 +307,7 @@ or not complete, please let me know.
      <LI><I>Rayleigh distribution</I>: Provided in packages <pkg>VGAM</pkg> 
      and <pkg>lmomco</pkg>.</LI>
 
-     <LI><I>Rice distribution</I>: Provided in <pkg>VGAM</pkg>.
+     <LI><I>Rice distribution</I>: Provided in <pkg>VGAM</pkg> and <pkg>lmomco</pkg>.
      </LI>     
 
      <LI><I>Sinh-Arcsinh distribution</I>: Provided in <pkg>gamlss.dist</pkg>.</LI>
@@ -328,8 +330,9 @@ or not complete, please let me know.
      The multivariate Student distribution
      is provided by the packages <pkg>mvtnorm</pkg> and <pkg>mnormt</pkg>.</LI>
      
-     <LI><I>Triangle distribution</I>: Provided in packages <pkg>triangle</pkg>, <pkg>mc2d</pkg> and
-     <pkg>VGAM</pkg>. 
+     <LI><I>Triangle/trapezoidal distribution</I>: packages <pkg>triangle</pkg>, <pkg>mc2d</pkg> and
+     <pkg>VGAM</pkg> provide d, p, q, r functions for the triangle distribution, while the package
+	 <pkg>trapezoid</pkg> provides d, p, q, r functions for the Generalized Trapezoidal Distribution.
 	 A fast random generator is available for the triangle distribution 
 	 is implemented in <pkg>Runuran</pkg> as well as the density function.</LI>    
      
@@ -411,8 +414,7 @@ or not complete, please let me know.
       
       <LI><I>Extreme value copulas</I>: <pkg>fCopulae</pkg> provides the following copulas
       Gumbel, Galambos, Husler-Reiss, Tawn, or BB5. <pkg>copula</pkg> also implements
-      Gumbel, Galambos and Husler-Reiss. <pkg>BLCOP</pkg> presents an application of
-      the copula-opinion pooling framework.</LI>
+      Gumbel, Galambos and Husler-Reiss.</LI>
       
       <LI><I>Eyraud-Farlie-Gumbel-Morgenstern</I>: Provided in <pkg>VGAM</pkg> 
       and <pkg>copula</pkg>.</LI>
@@ -529,20 +531,14 @@ or not complete, please let me know.
      <pkg>distrTeach</pkg>, <pkg>distrDoc</pkg>).
      </LI>
      
-     <LI><I>TI 83 scientific calculator</I>: <pkg>distributions</pkg> provides
-     the base R probability distributions (binomial, poisson, geometric, 
-     normal, chi square, Fisher, Student) 
-     based on TI-83 Plus graphic scientific calculator.
-     </LI>
-     
 	 <LI><i>Transformation</i>: Lebesgue decomposition are implemented
      in <pkg>distr</pkg>, as well as Convolution, Truncation and Huberization of distributions. 
      Furthermore, <pkg>distr</pkg> provides distribution of the maximum or minimum
      of two distributions. See Object-orientation below.</LI>
 	 
      <LI><I>Transversal functions</I>: Package <pkg>modeest</pkg> provides mode
-     estimation for various distributions, while <pkg>lmomco</pkg> and <pkg>Lmoments</pkg> focuse on
-     (L-)moments estimation. <pkg>VGAM</pkg> provides a lot of parameter
+     estimation for various distributions, while <pkg>lmomco</pkg> and <pkg>Lmoments</pkg> focus on
+     univariate/multivariate (L-)moments estimation. <pkg>VGAM</pkg> provides a lot of parameter
      estimation for usual and "exotic" distributions. Package
      <pkg>MASS</pkg> implements the flexible <code>fitdistr</code>
      function for parameter estimations. <pkg>fitdistrplus</pkg> greatly enlarges and enhances
@@ -558,7 +554,6 @@ or not complete, please let me know.
   <pkg>bayesm</pkg>
   <pkg>benchden</pkg>
   <pkg>BiasedUrn</pkg>
-  <pkg>BLCOP</pkg>
   <pkg>bs</pkg>
   <pkg>compoisson</pkg>
   <pkg priority="core">copula</pkg>
@@ -567,7 +562,6 @@ or not complete, please let me know.
   <pkg priority="core">distr</pkg>
   <pkg>distrDoc</pkg>
   <pkg>distrEx</pkg> 
-  <pkg>distributions</pkg>
   <pkg>distrMod</pkg>   
   <pkg>distrSim</pkg>
   <pkg>distrTeach</pkg>
@@ -620,9 +614,10 @@ or not complete, please let me know.
   <pkg>sn</pkg>
   <pkg priority="core">SuppDists</pkg>
   <pkg>tmvtnorm</pkg>
-  <pkg>truncnorm</pkg>
+  <pkg>trapezoid</pkg>
   <pkg>TRIANG</pkg>
   <pkg>triangle</pkg>
+  <pkg>truncnorm</pkg>
   <pkg>tweedie</pkg>
   <pkg>VarianceGamma</pkg>
   <pkg priority="core">VGAM</pkg>
@@ -630,8 +625,9 @@ or not complete, please let me know.
 </packagelist> 
 
 <links> 
-  <A HREF="http://www.rmetrics.org/Meielisalp2009/Presentations/Scott.pdf">Advices to implement (new) distributions in R</A>
   <A HREF="http://www.actuar-project.org/">actuar: An R package for actuarial science</A>
+  <A HREF="http://www.rmetrics.org/Meielisalp2009/Presentations/Scott.pdf">Advices to implement (new) distributions in R</A>
+  <A HREF="http://www.johndcook.com/distribution_chart.html">Clickable diagram of distribution relationships</A>
   <A HREF="http://www.rmetrics.org/">fCopulae, fBasics, randtoolbox packages, part of the Rmetrics project</A>
   <A HREF="http://www.jstatsoft.org/v16/c02/">Journal of Statistical Software: R programs for truncated distributions</A> 
   <A HREF="http://distr.r-forge.r-project.org/">The "distrXXX"-family of R-packages</A>

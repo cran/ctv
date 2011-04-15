@@ -3,7 +3,7 @@
   <name>Environmetrics</name>
   <topic>Analysis of Ecological and Environmental Data</topic>
   <maintainer email="gavin.simpson@ucl.ac.uk">Gavin Simpson</maintainer>
-  <version>2010-08-05</version>
+  <version>2011-01-28</version>
 
   <info>
     <h4>Introduction</h4>
@@ -55,7 +55,7 @@
       </li>
       <li id="changepoints">Detecting change points and structural changes in parametric models is well catered for in the 
 	<pkg>segmented</pkg> package and the <pkg>strucchange</pkg> package respectively. <pkg>segmented</pkg> has recently been 
-	the subject of an R News article (<a href="http://cran.r-project.org/doc/Rnews/Rnews_2008-1.pdf" 
+	the subject of an R News article (<a href="http://CRAN.R-project.org/doc/Rnews/Rnews_2008-1.pdf" 
 					     title="Link to segment article in R News">R News, volume 8 issue 1</a>).</li>
     </ul>
     
@@ -224,44 +224,68 @@
     </ul>
 
     <h4>Population dynamics</h4>
-    <p>Estimating vital rates (i.e., growth, survival, and reproduction), especially in monitoring studies of tagged individuals
-      over time:</p>
+    <h5>Estimating animal abundance and related parameters</h5>
+    <p>This section concerns estimation of population parameters (population size, density, survival probability, site occupancy
+    etc.) by methods that allow for incomplete detection. Many of these methods use data on marked animals, variously called 
+    'capture-recapture', 'mark-recapture' or 'capture-mark-recapture' data.</p>
     <ul>
-      <li>stage-specific vital rates using transition frequency tables in <pkg>popbio</pkg>,</li>
-      <li>mark and recapture methods in <pkg>mra</pkg> and <pkg>Rcapture</pkg> when tagged individuals cannot be consistently 
-	detected identified.</li>
+      <li><pkg>Rcapture</pkg> fits loglinear models to estimate population size and survival rate from capture-recapture data as 
+      described by <a href="http://www.jstatsoft.org/v19/i05">Baillargeon and Rivest (2007)</a>.</li>
+      <li><pkg>mra</pkg> estimates survival by fitting the Cormack-Jolly-Seber open population model, using a flexible formula-based
+      approach for covariates (see also RMark). <pkg>mra</pkg> also fits Huggin's closed population model and computes Horvitz-Thompson
+      estimates of open-population size from CJS models.</li>
+      <li><pkg>secr</pkg> estimates population density given spatially explicit capture-recapture data from traps, passive DNA 
+      sampling, automatic cameras, sound recorders etc. Models are fitted by maximum likelihood. The detection function may be
+      halfnormal, exponential, cumulative gamma etc. Density surfaces may be fitted. Covariates of density and detection parameters are 
+      specified via formulae, as in <pkg>mra</pkg>.</li>
+      <li><pkg>SPACECAP</pkg> provides a graphical interface for fitting a spatially explicit capture-recapture model to photographic
+      'capture' data by the Bayesian method described in Royle et al. (<a href="http://www.esajournals.org/doi/abs/10.1890/08-1481.1">2009,
+      Ecology 90: 3233-3244</a>).</li>
+      <li><pkg>DSpat</pkg> provides analyses of line-transect distance sampling data in which the density surface and the detection function 
+      are estimated simultaneously (<a href="http://onlinelibrary.wiley.com.libproxy.ucl.ac.uk/doi/10.1111/j.1541-0420.2009.01265.x/abstract">Johnson
+      et al. 2009</a>).</li>
+      <li><pkg>unmarked</pkg> fits hierarchical models of occurrence and abundance to data collected on species subject to imperfect detection.
+      Examples include single- and multi-season occupancy models, binomial mixture models, and hierarchical distance sampling models. The data
+      can arise from survey methods such temporally replicated counts, removal sampling, double-observer sampling, and distance sampling.
+      Parameters governing the state and observation processes can be modeled as functions of covariates.</li>
+      <li>Package RMark (not on CRAN) provides a formula-based R interface for the MARK package which fits a wide variety of capture-recapture
+      models (see <a href="http://www.phidot.org/software/mark/rmark/">RMark website</a>). RMark also includes native R functions for estimating
+      survival and population size with Cormack-Jolly-Seber and Jolly-Seber open-population models.</li>
     </ul>
-    <p>Modeling population growth rates:</p>
+    <p>Packages <pkg>mra</pkg>, <pkg>secr</pkg> and <pkg>DSpat</pkg> can also be used to simulate data from their respective models.</p>
+    <h5>Modeling population growth rates:</h5>
     <ul>
-      <li>Package <pkg>popbio</pkg> can be used to construct and analyse age- or stage-specific matrix 
-	population models.</li>
+      <li>Package <pkg>popbio</pkg> can be used to construct and analyse age- or stage-specific matrix population models.</li>
     </ul>
-    
+
     <h4>Environmental time series</h4>
     <ul>
       <li>Time series objects in R are created using the <code>ts()</code> function, though see <pkg>tseries</pkg>,
-	<pkg>zoo</pkg> and <pkg>its</pkg> below for alternatives.</li>
+	   <pkg>zoo</pkg> and <pkg>its</pkg> below for alternatives.</li>
       <li>Classical time series functionality is provided by the <code>ar()</code>, and <code>arima()</code> functions in 
-	standard package stats for autoregressive (AR), moving average (MA), autoregressive moving  average (ARMA) and 
-	integrated ARMA (ARIMA) models.</li>
+	   standard package stats for autoregressive (AR), moving average (MA), autoregressive moving  average (ARMA) and 
+	   integrated ARMA (ARIMA) models.</li>
       <li>The <pkg>dse</pkg> package provide a variety of more advanced estimation methods 
-	and multivariate time series analysis.</li>
+	   and multivariate time series analysis.</li>
       <li>Packages <pkg>tseries</pkg> and <pkg>zoo</pkg> provide general handling and analysis of time series data.</li>
       <li>Irregular time series can be handled using packages <pkg>zoo</pkg> and <pkg>its</pkg>, as well as by
-	<code>irts()</code> in package <pkg>tseries</pkg>.</li>
+	   <code>irts()</code> in package <pkg>tseries</pkg>.</li>
       <li><pkg>pastecs</pkg> provides functions specifically tailored for the analysis of space-time ecological series.</li>
       <li><pkg>strucchange</pkg> allows for testing, dating and monitoring of structural change in linear regression 
-	relationships.</li>
+	   relationships.</li>
       <li>Detecting change points in time series data --- see <pkg>segmented</pkg> <a href="#changepoints">above</a>.</li>
       <li>The <pkg>surveillance</pkg> package implements statistical methods for the modeling of and change-point detection
-	in time series of counts, proportions and categorical data. Focus is on outbreak detection in count data time series.</li>
+	   in time series of counts, proportions and categorical data. Focus is on outbreak detection in count data time series.</li>
       <li>Package <pkg>dynlm</pkg> provides a convenient interface to fitting time series regressions via ordinary least 
-	squares</li>
+	   squares</li>
       <li>Package <pkg>dyn</pkg> provides a different approach to that of <pkg>dynlm</pkg>, which allows time series data to 
-	be used with any regression function written in the style of lm such as <code>lm()</code>, <code>glm()</code>, 
-	<code>loess()</code>, <code>rlm()</code> and <code>lqs()</code> from <pkg>MASS</pkg>, 
-	<code>randomForest()</code> (package <pkg>randomForest</pkg>), <code>rq()</code> (package <pkg>quantreg</pkg>) amongst 
-	others, whilst preserving the time series information.</li>
+	   be used with any regression function written in the style of lm such as <code>lm()</code>, <code>glm()</code>, 
+	   <code>loess()</code>, <code>rlm()</code> and <code>lqs()</code> from <pkg>MASS</pkg>, 
+	   <code>randomForest()</code> (package <pkg>randomForest</pkg>), <code>rq()</code> (package <pkg>quantreg</pkg>) amongst 
+	   others, whilst preserving the time series information.</li>
+	   <li>Package <pkg>wq</pkg> provides functions to assist in the processing and exploration of data from monitoring programs
+	   for aquatic ecosystems, with a focus on time series data for physical and chemical properties of water, and for the 
+	   plankton.</li>
     </ul>
     
     <h4>Spatial data analysis</h4>
@@ -302,15 +326,13 @@
       	contains functions to perform two one-sided t-tests (TOST) and paired t-tests of equivalence.</li>
       <li>Thomas Petzoldt's <pkg>simecol</pkg> package provides an object oriented framework and tools to simulate 
       	ecological (and other) dynamic systems within R. See the <a href="http://www.simecol.de/">simecol website</a> and a
-      	<a href="http://cran.r-project.org/doc/Rnews">R News</a> 
-      	<a href="http://cran.r-project.org/doc/Rnews/Rnews_2003-3.pdf">article</a> on the package for further information.</li>
+      	<a href="http://CRAN.R-project.org/doc/Rnews">R News</a> 
+      	<a href="http://CRAN.R-project.org/doc/Rnews/Rnews_2003-3.pdf">article</a> on the package for further information.</li>
       <li>Functions for circular statistics are found in <pkg>CircStats</pkg> and <pkg>circular</pkg>.</li>
       <li>Package <pkg>eco</pkg> fits Bayesian models of ecological inference to 2 x 2 contingency tables.</li>
       <li>Package <pkg>e1071</pkg> provides functions for latent class analysis, short time Fourier transform, fuzzy clustering, 
       	support vector machines, shortest path computation, bagged clustering, naive Bayes classifier, and more...</li>
       <li>Package <pkg>seacarb</pkg> provides functions for calculating parameters of the seawater carbonate system.</li>
-      <li>Package <pkg>NADA</pkg> contains methods described by Dennis R. Helsel in his book <em>Nondetects And Data 
-      	  Analysis: Statistics for Censored Environmental Data</em>.</li>
       <li>Package <pkg>pcurve</pkg> fits a principal curve to a numeric multivariate dataset in arbitrary dimensions. Produces 
       	diagnostic plots.</li>
       <li>Package <pkg>clim.pact</pkg> contains R functions for retrieving data, making climate analysis and downscaling of monthly 
@@ -322,6 +344,8 @@
 	(aka bioindication), for prediction of environmental data from species data</li>
       <li>Stephen Sefick's <pkg>StreamMetabolism</pkg> package contains function for calculating stream metabolism 
 	characteristics, such as GPP, NDM, and R, from single station diurnal Oxygen curves.</li>
+      <li><pkg>diveMove</pkg> provides tools to represent, visualize, filter, analyse, and summarize time-depth recorder (TDR) data
+        for research on animal diving and movement behaviour.</li>
     </ul>
   </info>
   <packagelist>
@@ -337,7 +361,9 @@
     <pkg>clim.pact</pkg>
     <pkg priority="core">cluster</pkg>
     <pkg>cocorresp</pkg>
+    <pkg>diveMove</pkg>
     <pkg>dse</pkg>
+    <pkg>DSpat</pkg>
     <pkg>dyn</pkg>
     <pkg>dynlm</pkg>
     <pkg>e1071</pkg>
@@ -363,7 +389,6 @@
     <pkg priority="core">mgcv</pkg>
     <pkg>mra</pkg>
     <pkg priority="core">mvpart</pkg>
-    <pkg>NADA</pkg>
     <pkg>nlme</pkg>
     <pkg>ouch</pkg>
     <pkg>party</pkg>
@@ -379,8 +404,10 @@
     <pkg>Rcapture</pkg>
     <pkg>rpart</pkg>
     <pkg>seacarb</pkg>
+    <pkg>secr</pkg>
     <pkg>segmented</pkg>
     <pkg>simecol</pkg>
+    <pkg>SPACECAP</pkg>
     <pkg>SpatialExtremes</pkg>
     <pkg>StreamMetabolism</pkg>
     <pkg>strucchange</pkg>
@@ -389,6 +416,7 @@
     <pkg priority="core">vegan</pkg>
     <pkg>vegetarian</pkg>
     <pkg>VGAM</pkg>
+    <pkg>wq</pkg>
     <pkg>zoo</pkg>
   </packagelist>
   <links>

@@ -3,7 +3,7 @@
 <name>OfficialStatistics</name>
 <topic>Official Statistics &amp; Survey Methodology</topic>
 <maintainer email="templ@tuwien.ac.at">Matthias Templ</maintainer>
-<version>2010-10-12</version>
+<version>2011-03-09</version>
   
 <info> This CRAN task view contains a list of packages that includes
 methods typically used in official statistics and survey methodology.
@@ -11,16 +11,13 @@ Many packages provide functionality for more than one of the topics listed
 below.  Therefore this list is not a strict categorization and packages can be 
 listed more than once.  Please note that not all topics that are of interest in 
 official statistics are listed below, because functionality in R might be 
-missing until now (e.g. for editing).
+missing until now.
  
 
 <p><strong>Complex Survey Design: General Comments</strong></p>
 <ul>
   <li> Package <pkg>sampling</pkg> includes many different algorithms for 
-  drawing survey samples and calibrating the design weights.  Since the package 
-  is designed for teaching purposes and is based on interpreted R code only, 
-  some functionality such as calibration or certain sampling methods may be too 
-  slow for large data sets. 
+  drawing survey samples and calibrating the design weights.  
   </li>
   <li> Package <pkg>survey</pkg> can also handle moderate data sets and is the 
   standard package for dealing with already drawn survey samples in R.  Once 
@@ -121,7 +118,7 @@ missing until now (e.g. for editing).
   </li>
   <li>
   The <code>calibWeights()</code> function in package <pkg>laeken</pkg> is a 
-  faster implementation of parts of <code>calib()</code> from package 
+  possible faster (depending on the example) implementation of parts of <code>calib()</code> from package 
   <pkg>sampling</pkg>. 
   </li>
   <li>
@@ -132,8 +129,34 @@ missing until now (e.g. for editing).
   </li>
 </ul>
 
-
-
+<p><strong>Editing and Visual Inspection of Microdata</strong></p>
+<p>Editing tools:</p>
+<ul>
+  <li> 
+    Package <pkg>editrules</pkg> convert readable linear (in)equalities into matrix form.
+  </li>
+  <li> 
+Package <pkg>deducorrect</pkg> depends on package <pkg>editrules</pkg> and applies deductive correction of simple rounding, typing and
+                    sign errors based on balanced edits. Values are changed so that the given balanced edits are fulfilled. To determine which values are changed the Levenstein-metric is applied.
+  </li>
+</ul>  
+<p>Visual tools:</p>
+<ul>
+  <li> 
+    Package <pkg>VIM</pkg> is designed to visualize missing values 
+  using suitable plot methods. It can be used to analyse the structure of missing values in microdata using univariate, bivariate, multiple and multivariate plots where the  
+  information of missing values 
+  from specified variables are highlighted in selected variables. 
+  It also comes with a graphical user interface.  
+   </li>
+     <li> 
+   Package <pkg>tabplot</pkg>  provides the tableplot visualization method, which is used to profile or explore large statistical datasets. 
+   Up to a dozen of variables are shown column-wise as bar charts (numeric variables) or stacked bar charts (factors). 
+   Key aspects of the analysis with tableplots are the smoothness of a data distribution, 
+   the selective occurrence of missing values, and the distribution of correlated variables.   
+      </li>
+</ul>
+   
 <p><strong>Imputation</strong></p>
 A distinction between iterative model-based methods, k-nearest neighbor methods 
 and miscellaneous methods is made.  However, often the criteria for using a 
@@ -365,11 +388,6 @@ For general time series methodology we refer to the
   graphics and simulation.
   </li>
   <li>
-  Package <pkg>surveyNG</pkg> is an experimental revision of the survey package 
-  that provides database interface facilities and efficient calculations with 
-  sparse matrices.
-  </li>
-  <li>
   Package <pkg>odfWeave.survey</pkg> provides support for <pkg>odfWeave</pkg> 
   for the <pkg>survey</pkg> package.
   </li>
@@ -427,7 +445,6 @@ For general time series methodology we refer to the
   <pkg>StatMatch</pkg>
   <pkg>stratification</pkg>
   <pkg priority="core">survey</pkg>
-  <pkg>surveyNG</pkg>
   <pkg>TeachingSampling</pkg>
   <pkg>urn</pkg>
   <pkg>VIM</pkg>

@@ -2,7 +2,7 @@
  <name>Bayesian</name>  
  <topic>Bayesian Inference</topic>
  <maintainer email="jhp@uchicago.edu">Jong Hee Park</maintainer>
- <version>2010-10-20</version>
+ <version>2011-04-13</version>
 
  <info>
    <p>Applied researchers interested in Bayesian statistics are increasingly 
@@ -89,6 +89,10 @@
 	the <pkg>BMA</pkg> package to create probabilistic forecasts of ensembles using a mixture of 
 	normal distributions.</li>
 
+     	<li><pkg>BMS</pkg> implements Bayesian Model Averaging for univariate linear models under Zellner’s g prior. 
+	Options include fixed and flexible g priors, 5 kinds of model prior concepts, and model sampling via model enumeration or MCMC samplers. 
+	Post-processing allows for inference according to different concepts and for plotting </li>
+
     	<li><pkg>BPHO</pkg> is a package for Bayesian prediction of higher-order interactions using slice sampling method.</li>
 
     	<li><pkg>bqtl</pkg> can be used to fit quantitative trait loci (QTL) models. 
@@ -100,6 +104,9 @@
 
     	<li><pkg>cslogistic</pkg> has a function that performs a Bayesian analaysis of 
 	a conditionally specified logistic regression model.</li> 
+	
+	<li><pkg>dclone</pkg> provides low level functions for implementing maximum likelihood estimating procedures 
+	for complex models using data cloning and MCMC methods.</li> 
 
     	<li><pkg>deal</pkg> provides R functions for Bayesian network analysis; 
 	the current version of covers discrete and continuous variables
@@ -124,14 +131,10 @@
     	<li>The <pkg>HI</pkg> package has functions to implement a geometric approach 
 	to transdimensional MCMC methods and random direction multivariate
     	Adaptive Rejection Metropolis Sampling.</li>
-
-    	<li><pkg>G1DBN</pkg> performs dynamic Bayesian network inference.</li>
  
     	<li>The <tt>gbayes()</tt> function in <pkg>Hmisc</pkg> derives the posterior 
 	(and optionally) the predictive distribution when both the
     	prior and the likelihood are Gaussian, and when the statistic of interest comes from a two-sample problem.</li>
-
-	<li>The <pkg>GLMMarp</pkg> package contains functions to estimate the GLMM-AR(p) model for analyzing discrete time-series cross-sectional data.</li>
 
     	<li>The function <tt>krige.bayes()</tt> in the <pkg>geoR</pkg> package performs 
 	Bayesian analysis of geostatistical data allowing
@@ -149,7 +152,6 @@
 
     	<li>The <tt>mcmcsamp()</tt> function in <pkg>lme4</pkg> allows MCMC sampling for 
 	the linear mixed model and generalized linear mixed model.</li>   
-
 
     	<li>The <pkg>MNP</pkg> package fits multinomial probit models using MCMC methods.</li>  
 
@@ -170,6 +172,16 @@
 	probability computed by reversible jump Markov chain Monte Carlo Methods.</li>
 
 	<li><pkg>RxCEcolInf</pkg> fits the R x C inference model described in Greiner and Quinn (2009).</li>
+
+	<li><pkg>SampleSizeMeans</pkg> contains a set of R functions for calculating sample size requirements using
+	three different Bayesian criteria in the context of designing an
+	experiment to estimate a normal mean or the difference between two
+	normal means. </li>
+ 
+	<li><pkg>SampleSizeProportions</pkg> contains a set of R functions for calculating sample size requirements using
+	three different Bayesian criteria in the context of designing an
+	experiment to estimate the difference between two binomial
+	proportions. </li>
 
 	<li><pkg>SimpleTable</pkg> provides a series of methods to conduct Bayesian inference and sensitivity analysis for causal effects from 2 x 2 and 2 x 2 x K tables.</li>
 
@@ -209,7 +221,7 @@
     	matrices.  <pkg>coda</pkg> contains the Gelman and Rubin, Geweke, Heidelberger and Welch, and Raftery and Lewis diagnostics.</li>
 
     	<li><pkg>ramps</pkg> implements Bayesian geostatistical analysis of Gaussian processes using a reparameterized and marginalized posterior sampling algorithm. </li>
-	
+
 	<li><pkg>scapeMCMC</pkg> is a Bayesian companion package of scape which deals with age and time structured population models. It provides multipanel 
 	MCMC diagnostic plots with aestically pleasing defaults and graphical parameters that are easy to change.</li>
 
@@ -219,6 +231,9 @@
     <ul>	
 	<li>The <pkg>BaM</pkg> package is an R package associated with Jeff Gill's book, 
 	"Bayesian Methods: A Social and Behavioral Sciences Approach, Second Edition" (CRC Press, 2007).</li>
+
+	<li><pkg>BayesDA</pkg> provides R functions and datasets for "Bayesian Data Analysis, Second Edition" (CRC Press, 2003)
+	by Andrew Gelman, John B. Carlin, Hal S. Stern, and Donald B. Rubin.</li>
 
 	<li>The <pkg>Bolstad</pkg> package contains a set of R functions and data sets for the book 
 	Introduction to Bayesian Statistics, by Bolstad, W.M. (2007). </li>
@@ -278,12 +293,14 @@
     <pkg>bayesmix</pkg>
     <pkg>BayHaz</pkg>
     <pkg>BAYSTAR</pkg>
+    <pkg>BayesDA</pkg>
     <pkg>BayesTree</pkg>
     <pkg>BayesValidate</pkg>
     <pkg priority="core">bayesSurv</pkg>    
     <pkg>BCE</pkg>
     <pkg>bcp</pkg>
     <pkg>BMA</pkg>
+    <pkg>BMS</pkg>
     <pkg priority="core">boa</pkg>
     <pkg>Bolstad</pkg>
     <pkg>BPHO</pkg> 
@@ -291,6 +308,7 @@
     <pkg>bspec</pkg>	
     <pkg priority="core">coda</pkg>
     <pkg>cslogistic</pkg>
+    <pkg>dclone</pkg>
     <pkg>deal</pkg>
     <pkg>dlm</pkg>      
     <pkg priority="core">DPpackage</pkg>
@@ -298,10 +316,8 @@
     <pkg>ensembleBMA</pkg>
     <pkg>evdbayes</pkg>
     <pkg>exactLoglinTest</pkg>
-    <pkg>G1DBN</pkg>
     <pkg>geoR</pkg>
     <pkg>geoRglm</pkg>
-    <pkg>GLMMarp</pkg>
     <pkg>glmmBUGS</pkg>
     <pkg>HI</pkg>    
     <pkg>Hmisc</pkg>
@@ -319,13 +335,15 @@
     <pkg>pscl</pkg>
     <pkg>R2jags</pkg>
     <pkg>R2WinBUGS</pkg>
+    <pkg>ramps</pkg>
     <pkg>Ratings</pkg>
     <pkg>RxCEcolInf</pkg>
-    <pkg>ramps</pkg>
     <pkg>rbugs</pkg>
     <pkg>RJaCGH</pkg>
     <pkg>rjags</pkg>
     <pkg>runjags</pkg>
+    <pkg>SampleSizeMeans</pkg>
+    <pkg>SampleSizeProportions</pkg>
     <pkg>SimpleTable</pkg>
     <pkg>sna</pkg>
     <pkg>scapeMCMC</pkg>
