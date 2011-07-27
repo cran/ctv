@@ -2,7 +2,7 @@
   <name>Spatial</name>
   <topic>Analysis of Spatial Data</topic>
   <maintainer email="Roger.Bivand@nhh.no">Roger Bivand</maintainer>
-  <version>2011-04-13</version>
+  <version>2011-07-26</version>
 
   <info>
     <p>Base R includes many functions that can be used for reading,
@@ -214,8 +214,7 @@
       for the estimation of the parameters of a spatio-temporal
       model using the EM algorithm, and the estimation of the
       parameter standard errors using a spatio-temporal parametric
-      bootstrap. <pkg>CircSpatial</pkg> provides functions for circular
-      spatial data, and <pkg>FieldSim</pkg> is another random fields
+      bootstrap. <pkg>FieldSim</pkg> is another random fields
       simulations package.  </p></li>
 
       <li><p><b>Disease mapping and areal data analysis</b>:
@@ -260,7 +259,7 @@
       <li><p><b>Ecological analysis</b>: There are many packages
       for analysing ecological and environmental data. They include
       <pkg>ade4</pkg> for exploratory and Euclidean methods in the
-      environmental sciences,  the <bi>adehabitat</bi> family of packages 
+      environmental sciences,  the <pkg>adehabitat</pkg> family of packages 
       for the analysis of habitat selection by animals
       (<pkg>adehabitatHR</pkg>, <pkg>adehabitatHS</pkg>,
       <pkg>adehabitatLT</pkg>, and <pkg>adehabitatMA</pkg>),
@@ -289,6 +288,7 @@
 
   <packagelist>
     <pkg>ade4</pkg>
+    <pkg>adehabitat</pkg>
     <pkg>adehabitatHR</pkg>
     <pkg>adehabitatHS</pkg>
     <pkg>adehabitatLT</pkg>
@@ -298,7 +298,6 @@
     <pkg>aspace</pkg>
     <pkg>ash</pkg>
     <pkg>automap</pkg>
-    <pkg>CircSpatial</pkg>
     <pkg priority="core">classInt</pkg>
     <pkg>CompRandFld</pkg>
     <pkg>constrainedKriging</pkg>

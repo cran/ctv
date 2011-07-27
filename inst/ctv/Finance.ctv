@@ -4,7 +4,7 @@
   <name>Finance</name>
   <topic>Empirical Finance</topic>
   <maintainer email="Dirk.Eddelbuettel@R-project.org">Dirk Eddelbuettel</maintainer>
-  <version>2011-04-13</version>
+  <version>2011-07-26</version>
   
   <info>
     <p>
@@ -192,9 +192,6 @@
       <li> The <pkg>SV</pkg> package uses indirect inference to estimate
 	  non-Gaussian stochastic volatility models.
       </li>
-      <li> The <pkg>orderbook</pkg> package can be used to analyses market
-	  microstructure effects and changes in the (limit-) order books.
-      </li>
       <li> The <pkg>schwartz97</pkg> package can be used to model the
 	  Schwartz (1997) two-factor model for commodities markets.
       </li>
@@ -204,6 +201,10 @@
 	modelling portfolios as functions of weight; modelling returns with
 	empirical cumulative distribution functions; and considering quantile
 	returns.
+      </li>
+      <li> The <pkg>opefimor</pkg> package by contains material to
+      accompany the Iacus (2011) book entitled "Option Pricing and
+      Estimation of Financial Models in R".
       </li>
     </ul>
 
@@ -295,6 +296,13 @@
 	  The <pkg>data.table</pkg> package provides very efficient and fast
 	  access to in-memory data sets such as asset prices.
       </li>
+      <li>
+	  The <pkg>RTAQ</pkg> package can be used to analyse trades and
+	  quotes data supplied in the TAQ format of the New York Stock
+	  Exchange in order to implement intraday trading strategies, measure
+	  liquidity and volatility, and investigate market microstructure
+	  aspects. 
+      </li>
 
     </ul>
 
@@ -358,7 +366,7 @@
     <pkg>longmemo</pkg>
     <pkg>MSBVAR</pkg>
     <pkg>mvtnorm</pkg>
-    <pkg>orderbook</pkg>
+    <pkg>opefimor</pkg>
     <pkg priority="core">PerformanceAnalytics</pkg>
     <pkg>portfolio</pkg>
     <pkg>portfolioSim</pkg>
@@ -368,8 +376,9 @@
     <pkg>RBloomberg</pkg>
     <pkg>Rcmdr</pkg>
     <pkg>RQuantLib</pkg>
-    <pkg>rwt</pkg> 
     <pkg>rrv</pkg> 
+    <pkg>RTAQ</pkg> 
+    <pkg>rwt</pkg> 
     <pkg>sandwich</pkg>
     <pkg>schwartz97</pkg>
     <pkg>sde</pkg>

@@ -3,7 +3,7 @@
   <name>MachineLearning</name>
   <topic>Machine Learning &amp; Statistical Learning</topic>
   <maintainer email="Torsten.Hothorn@R-project.org">Torsten Hothorn</maintainer>
-  <version>2010-12-10</version>
+  <version>2011-05-20</version>
   
   <info>
     Several add-on packages implement ideas and methods developed at the
@@ -26,6 +26,9 @@
              <A HREF="http://www.cs.waikato.ac.nz/~ml/weka/">Weka</A>, 
              package <pkg>RWeka</pkg> provides an interface to this
              implementation, including the J4.8-variant of C4.5 and M5.
+             The <pkg>Cubist</pkg> package fits rule-based models (similar
+             to trees) with linear regression models in the terminal leaves,
+             instance-based corrections and boosting.
              <br/>
              Two recursive partitioning algorithms with unbiased variable
              selection and statistical stopping criterion are implemented in 
@@ -77,6 +80,8 @@
              The <pkg>penalized</pkg> package provides
              an alternative implementation of lasso (L1) and ridge (L2) 
              penalized regression models (both GLM and Cox models).
+             Semiparametric additive hazards models under lasso penalties are offered
+             by package <pkg>ahaz</pkg>.
              A generalisation of the Lasso shrinkage technique for linear regression
              is called relaxed lasso and is available in package <pkg>relaxo</pkg>.
              The shrunken
@@ -89,7 +94,10 @@
              penalized discriminant analysis are implemented in 
              packages <pkg>hda</pkg>, <pkg>rda</pkg>, <pkg>sda</pkg>, and
              <pkg>SDDA</pkg>. Package <pkg>LiblineaR</pkg> offers an interface to 
-             the LIBLINEAR library.</li> 
+             the LIBLINEAR library.
+             The <pkg>ncvreg</pkg> package fits linear and logistic
+             regression models under the the SCAD and MCP 
+             regression penalties using a coordinate descent algorithm.</li> 
       <li><i>Boosting</i>: Various forms of gradient boosting are
              implemented in package <pkg>gbm</pkg> (tree-based functional gradient
              descent boosting). Package <pkg>GAMBoost</pkg> can be used to fit generalized additive models
@@ -147,15 +155,23 @@
              Jerome Friedman have been packaged and are available as
              <pkg>ElemStatLearn</pkg>.</li>
     </ul>
+  <pkg>CORElearn</pkg> implements a rather broad class of machine learning
+  algorithms, such as nearest neighbors, trees, random forests, and 
+  several feature selection methods. Similar, package <pkg>rminer</pkg> interfaces
+  several learning algorithms implemented in other packages and computes
+  several performance measures.
   </info>
 
   <packagelist>
+    <pkg>ahaz</pkg>
     <pkg>arules</pkg>
     <pkg>BayesTree</pkg>
     <pkg>Boruta</pkg>
     <pkg>BPHO</pkg>
     <pkg>caret</pkg>
+    <pkg>CORElearn</pkg>
     <pkg>CoxBoost</pkg>
+    <pkg>Cubist</pkg>
     <pkg priority="core">e1071</pkg>
     <pkg>ElemStatLearn</pkg>
     <pkg>earth</pkg>
@@ -177,6 +193,7 @@
     <pkg>LogicReg</pkg>
     <pkg priority = "core">mboost</pkg>
     <pkg>mvpart</pkg>
+    <pkg>ncvreg</pkg>
     <pkg priority="core">nnet</pkg>
     <pkg>pamr</pkg>
     <pkg>party</pkg>
@@ -192,6 +209,7 @@
     <pkg>REEMtree</pkg>
     <pkg>rgenoud</pkg>
     <pkg>rgp</pkg>
+    <pkg>rminer</pkg>
     <pkg>ROCR</pkg>
     <pkg priority="core">rpart</pkg>
     <pkg>RSNNS</pkg>
