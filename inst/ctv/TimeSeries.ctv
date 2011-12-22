@@ -3,7 +3,7 @@
 <name>TimeSeries</name>
 <topic>Time Series Analysis</topic>
 <maintainer email="Rob.Hyndman@monash.edu">Rob J. Hyndman and Achim Zeileis</maintainer>
-<version>2011-05-16</version>
+<version>2011-12-01</version>
 
 <info>
 <p>
@@ -121,11 +121,11 @@
       order selection. <code>arma()</code> in the <pkg>tseries</pkg> 
       package provides different algorithms for ARMA and subset ARMA 
       models. <pkg>FitARMA</pkg> implements a fast MLE algorithm for ARMA models.
-      Extensive facilities for fractional differenced ARFIMA
-      models are provided in the <pkg>fracdiff</pkg> package.  
-      <code>armaFit()</code> from the <pkg>fArma</pkg> package is an 
-      interface for ARIMA and ARFIMA models. Package 
-      <pkg>gsarima</pkg> contains functionality for generalized 
+      Some facilities for fractional differenced ARFIMA
+      models are provided in the <pkg>fracdiff</pkg> package.
+      <pkg>afmtools</pkg> handles estimation, diagnostics and forecasting for ARFIMA models.
+<!--  <code>armaFit()</code> from the <pkg>fArma</pkg> package is an interface for ARIMA and ARFIMA models. -->
+      Package <pkg>gsarima</pkg> contains functionality for generalized 
       SARIMA time series simulation. The <pkg>mar1s</pkg> package handles multiplicative AR(1) with seasonal processes/</li> 
   <li><i>GARCH models</i>: <code>garch()</code> from <pkg>tseries</pkg> fits basic GARCH models, <code>garchFit()</code> 
       from <pkg>fGarch</pkg> implements ARIMA models with a wide class of GARCH innovations. 
@@ -175,8 +175,6 @@
       the packages <pkg>rwt</pkg>,
       <pkg>waveslim</pkg>, and <pkg>wavethresh</pkg>.</li>
   <li><i>Miscellaneous</i>:
-      <pkg>ArDec</pkg> implements autoregressive-based decomposition
-        of a time series.
       <pkg>signalextraction</pkg> for real-time signal extraction
         (direct filter approach).
       <pkg>bspec</pkg> for Bayesian inference on the discrete power
@@ -245,10 +243,7 @@
       are provided in package <pkg>vars</pkg>, <code>estVARXls()</code> 
 	  in <pkg>dse</pkg> and a Bayesian approach is available in <pkg>MSBVAR</pkg>.
       <pkg>fastVAR</pkg> uses fast implementations to estimate VAR models (possibly with 
-      exogenous inputs and sparse coefficient matrices).
-	  <pkg>MARSS</pkg> fits constrained and unconstrained linear multivariate 
-	  autoregressive state-space (MARSS) models. 
-	  </li>
+      exogenous inputs and sparse coefficient matrices).	  </li>
   <li><i>VARIMA models</i> and <i>state space models</i> are provided
       in the <pkg>dse</pkg> package. <pkg>EvalEst</pkg> facilitates Monte Carlo experiments to 
 	  evaluate the associated estimation methods.</li>
@@ -262,9 +257,15 @@
       An alternative implementation is provided by the <pkg>KFAS</pkg> package which provides a 
 	  fast multivariate Kalman filter, smoother, simulation smoother and forecasting. Yet another implementation
 	  is given in the <pkg>dlm</pkg> package which also contains tools for converting other multivariate models
-	  into state space form. All three packages assume uncorrelated error terms.</li>
+	  into state space form. MARSS fits constrained and unconstrained multivariate autoregressive state-space models using an EM algorithm. All four packages assume the observational and state error terms are uncorrelated.</li>
   <li><i>Partially-observed Markov processes</i> are a generalization of the usual linear multivariate state 
   space models, allowing non-Gaussian and non-linear models. These are implemented in the <pkg>pomp</pkg> package.</li>
+</ul>
+
+<p><strong>Continuous time models</strong></p>
+<ul>
+	<li><i>Continuous time autoregressive modelling</i> is provided in <pkg>cts</pkg>.</li>
+	<li><i>Continuous time ARMA model</i> estimation and simulation is available in <pkg>ctarma</pkg>.</li>
 </ul>
 
 <p><strong>Time Series Data</strong></p>
@@ -292,6 +293,7 @@
   <li><pkg>ensembleBMA</pkg>: Bayesian Model Averaging to create probabilistic forecasts from ensemble forecasts and weather observations.</li>
   <li><pkg>fractal</pkg>: Fractal time series modeling and analysis.</li>
   <li><pkg>fractalrock</pkg>: Generate fractal time series with non-normal returns distribution.</li>
+  <li><pkg>hydroTSM</pkg> and <pkg>hydroGOF</pkg> provide functions for analysing and modelling time series in hydrology and related environmental sciences.</li>
   <li><pkg>GeneCycle</pkg> and <pkg>GeneNet</pkg>: Microarray time series and network analysis.</li>
   <li><pkg>paleoTS</pkg>: Modeling evolution in paleontological time series.</li>
   <li><pkg>pastecs</pkg>: Regulation, decomposition and analysis of space-time series.</li>
@@ -303,13 +305,14 @@
   <li><pkg>tsModel</pkg>: Time series modeling for air pollution and health.</li>
   <li><pkg>wavethresh</pkg>: Locally stationary wavelet models for nonstationary time series
       (including estimation, plotting, and simulation functionality for time-varying spectrums).</li>
+  <li><pkg>wq</pkg>: Exploring water quality time series.</li>
 </ul>
 
 </info>
 
 <packagelist>
   <pkg>AER</pkg>
-  <pkg>ArDec</pkg>
+  <pkg>afmtools</pkg>
   <pkg>bayesGARCH</pkg>
   <pkg>BAYSTAR</pkg>
   <pkg>bentcableAR</pkg>
@@ -318,6 +321,8 @@
   <pkg>bspec</pkg>
   <pkg>CADFtest</pkg>
   <pkg>chron</pkg>
+  <pkg>cts</pkg>
+  <pkg>ctarma</pkg>
   <pkg>dlm</pkg>
   <pkg>dlnm</pkg>
   <pkg>dse</pkg>
@@ -330,7 +335,6 @@
   <pkg>EvalEst</pkg>
   <pkg>expsmooth</pkg>
   <pkg>fame</pkg>
-  <pkg>fArma</pkg>
   <pkg>fastVAR</pkg>
   <pkg>fEcofin</pkg>
   <pkg>fGarch</pkg>
@@ -350,6 +354,8 @@
   <pkg>GeneNet</pkg>
   <pkg>gogarch</pkg>
   <pkg>gsarima</pkg>
+  <pkg>hydroGOF</pkg>
+  <pkg>hydroTSM</pkg>
   <pkg>its</pkg>
   <pkg>ltsa</pkg>
   <pkg>KFAS</pkg>
@@ -398,6 +404,7 @@
   <pkg>waveslim</pkg>
   <pkg>wavethresh</pkg>	  
   <pkg>wmtsa</pkg>
+  <pkg>wq</pkg>
   <pkg>xts</pkg>
   <pkg priority="core">zoo</pkg>
 </packagelist>

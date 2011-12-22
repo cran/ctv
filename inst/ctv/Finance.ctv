@@ -4,7 +4,7 @@
   <name>Finance</name>
   <topic>Empirical Finance</topic>
   <maintainer email="Dirk.Eddelbuettel@R-project.org">Dirk Eddelbuettel</maintainer>
-  <version>2011-07-26</version>
+  <version>2011-11-18</version>
   
   <info>
     <p>
@@ -70,26 +70,32 @@
           series. The <pkg>fractal</pkg> provide fractal time series modeling
 	  functionality. 
       </li>
-      <li>For volatility modeling, the standard GARCH(1,1) model can be estimated with the 
-	  <code>garch()</code> function in the <pkg>tseries</pkg> package.
-          Rmetrics (see below) contains the <pkg>fGarch</pkg> package which
-          has additional models.  The <pkg>bayesGARCH</pkg> can perform
+      <li>For volatility modeling, the standard GARCH(1,1) model can
+          be estimated with the <code>garch()</code> function in the
+          <pkg>tseries</pkg> package.  Rmetrics (see below) contains the
+          <pkg>fGarch</pkg> package which has additional models.  The
+          <pkg>rugarch</pkg> package can be used to model a variety of
+          univariate GARCH models with extensions such as ARFIMA, in-mean,
+          external regressors and various other specifications; with
+          methods for fit, forecast, simulation, inference and plotting
+          are provided too. The <pkg>betategarch</pkg> package can estimate 
+          and simulate the Beta-t-EGARCH model by Harvey. 
+          The <pkg>bayesGARCH</pkg> package can perform
           Bayesian estimation of a GARCH(1,1) model with Student's t
           innovations.  For multivariate models, the <pkg>ccgarch</pkg>
-          package can estimate (multivariate) Conditional Correlation GARCH
-          models whereas the <pkg>gogarch</pkg> package provides functions for
-          generalized orthogonal GARCH models.
+          package can estimate (multivariate) Conditional Correlation
+          GARCH models whereas the <pkg>gogarch</pkg> package provides
+          functions for generalized orthogonal GARCH models.
       </li>
       <li>Unit root and cointegration tests are provided by <pkg>tseries</pkg>,
-	  and <pkg>urca</pkg>.
-	  The Rmetrics packages <pkg>timeSeries</pkg> and
+    	  and <pkg>urca</pkg>.
+    	  The Rmetrics packages <pkg>timeSeries</pkg> and
           <pkg>fMultivar</pkg> contain a number of estimation functions for 
           ARMA, GARCH, long memory models, unit roots and more. 
 	  The <pkg>CADFtest</pkg> package implements the Hansen unit root test.
       </li>
       <li>
-	  The <pkg>ArDec</pkg> implements autoregressive time series
-	  decomposition in a Bayesian framework; <pkg>MSBVAR</pkg> provides
+	  <pkg>MSBVAR</pkg> provides
 	  Bayesian estimation of vector autoregressive models. The  <pkg>dlm</pkg> package  provides
 	  Bayesian and likelihood analysis of dynamic linear models (ie
 	  linear Gaussian state space models). 
@@ -128,17 +134,17 @@
     </p>
     <ul>
       <li>The Rmetrics suite of packages comprises
-          <pkg>fArma</pkg>, <pkg>fAsianOptions</pkg>, <pkg>fAssets</pkg>, 
+     <!-- <pkg>fArma</pkg>, -->
+	  <pkg>fAsianOptions</pkg>, <pkg>fAssets</pkg>, 
 	  <pkg>fBasics</pkg>, <pkg>fBonds</pkg>, <pkg>timeDate</pkg> (formerly: fCalendar), 
 	  <pkg>fCopulae</pkg>, <pkg>fEcofin</pkg>, <pkg>fExoticOptions</pkg>, 
 	  <pkg>fExtremes</pkg>, <pkg>fGarch</pkg>, <pkg>fImport</pkg>, 
 	  <pkg>fMultivar</pkg>, <pkg>fNonlinear</pkg>, <pkg>fOptions</pkg>, 
 	  <pkg>fPortfolio</pkg>, <pkg>fRegression</pkg>, <pkg>timeSeries</pkg> (formerly: fSeries), 
-	  <pkg>fTrading</pkg>, <pkg>fUnitRoots</pkg> and
-          <pkg>fUtilities</pkg> packages contain a very large number of 
-	  relevant functions for different aspect of empirical and
-          computational 
-          finance.
+	  <pkg>fTrading</pkg>, <pkg>fUnitRoots</pkg>
+     <!-- <pkg>fUtilities</pkg> -->
+	  and contains a very large number of relevant functions for different aspect of empirical
+	  and computational finance.
       </li>
       <li>The <pkg>RQuantLib</pkg> package provides several option-pricing
           functions as well as some fixed-income functionality from the
@@ -162,8 +168,7 @@
       <li>The <pkg>TTR</pkg> contains functions to construct technical
           trading rules in R. The <pkg>ttrTests</pkg> package contains
           several test statistics for assessing the efficacy 
-          of such rules, and the <pkg>atmi</pkg> package contains
-          functions to analyse and use such trading rules.
+          of such rules.
       </li>
       <li>The <pkg>financial</pkg> package can compute present values, cash
 	  flows and other simple finance calculations.
@@ -196,16 +201,25 @@
 	  Schwartz (1997) two-factor model for commodities markets.
       </li>
       <li> The <pkg>rrv</pkg> package provides functions for 
-	modelling portfolio returns as random variables, partly
-	based on the work of Markowitz (1952, 1959), with an emphasis on:
-	modelling portfolios as functions of weight; modelling returns with
-	empirical cumulative distribution functions; and considering quantile
-	returns.
+	  modelling portfolio returns as random variables, partly
+	  based on the work of Markowitz (1952, 1959), with an emphasis on:
+	  modelling portfolios as functions of weight; modelling returns with
+	  empirical cumulative distribution functions; and considering quantile
+	  returns.
       </li>
       <li> The <pkg>opefimor</pkg> package by contains material to
-      accompany the Iacus (2011) book entitled "Option Pricing and
-      Estimation of Financial Models in R".
+          accompany the Iacus (2011) book entitled "Option Pricing and
+          Estimation of Financial Models in R".
       </li>
+      <li> The <pkg>maRketSim</pkg> package provides a market simulator, 
+          initially designed around the bond market.
+      </li>
+      <li> The <pkg>PairTrading</pkg> package an implementation of the
+          classical "Pair(s) trading" trading strategy using
+          cointegration.
+      </li>
+
+
     </ul>
 
     <p>
@@ -219,8 +233,6 @@
       </li>
       <li>The <pkg>CreditMetrics</pkg> package provides 
 	  functions for Credit Risk modeling.
-      </li>
-      <li>The <pkg>QRMlib</pkg> covers quantitative risk modelling.
       </li>
       <li>
           The <pkg>mvtnorm</pkg> 
@@ -245,7 +257,8 @@
       </li>
       <li>
           The <pkg>ChainLadder</pkg> package provides functions for modeling
-          insurance claim reserves.
+          insurance claim reserves; and the <pkg>lifecontingencies</pkg> package 
+          provides functions for financial and actuarial evaluations of life contingencies. 
       </li>
     </ul>
 
@@ -254,9 +267,14 @@
     </p>
     <ul>
       <li>The <pkg>FinTS</pkg> package provides an R companion to Tsay (2005),
-      <em>Analysis of Financial Time Series</em>, 2nd ed. Wiley,  
-      and includes data sets, functions and script files to work some 
-      of the examples.  
+         <em>Analysis of Financial Time Series</em>, 2nd ed. Wiley,  
+         and includes data sets, functions and script files to work some 
+         of the examples.  
+      </li>
+      <li>The <pkg>NMOF</pkg> package provides functions, examples and data 
+         from <em>Numerical Methods in Finance</em> by Manfred Gilli, Dietmar Maringer and 
+	 Enrico Schumann (2011), including the different optimization heuristics such as 
+	 Differential Evolution, Genetic Algorithms, Particle Swarms, and Threshold Accepting.
       </li>
     </ul>
 
@@ -273,9 +291,6 @@
       <li><pkg>timeDate</pkg> also addresses
           calendar issues such as recurring holidays for a large number of
           financial centers, and provides code for high-frequency data sets.
-      </li>
-      <li>The <pkg>RBloomberg</pkg> package can access Bloomberg data (but
-	  requires a Bloomberg installations on a Windows PC). 
       </li>
       <li>
 	  The <pkg>fame</pkg> package can access Fame time series databases (but 
@@ -303,17 +318,15 @@
 	  liquidity and volatility, and investigate market microstructure
 	  aspects. 
       </li>
-
     </ul>
 
   </info>
 
   <packagelist>
     <pkg>actuar</pkg>
-    <pkg>ArDec</pkg>
-    <pkg>atmi</pkg>
     <pkg>backtest</pkg>
     <pkg>bayesGARCH</pkg>
+    <pkg>betategarch</pkg>
     <pkg>CADFtest</pkg>
     <pkg>car</pkg>
     <pkg>ccgarch</pkg>
@@ -333,7 +346,6 @@
     <pkg>fame</pkg>
     <pkg>fgac</pkg>
     <pkg>financial</pkg>
-    <pkg priority="core">fArma</pkg>
     <pkg priority="core">fAsianOptions</pkg>
     <pkg priority="core">fAssets</pkg>
     <pkg priority="core">fBasics</pkg>
@@ -351,7 +363,6 @@
     <pkg priority="core">fRegression</pkg>
     <pkg priority="core">fTrading</pkg>
     <pkg priority="core">fUnitRoots</pkg>
-    <pkg priority="core">fUtilities</pkg>
     <pkg>forecast</pkg>
     <pkg>fracdiff</pkg>
     <pkg>FracSim</pkg>
@@ -361,23 +372,26 @@
     <pkg>gogarch</pkg>
     <pkg>IBrokers</pkg>
     <pkg>ismev</pkg>
-    <pkg priority="core">its</pkg>    
+    <pkg>its</pkg>    
+    <pkg>lifecontingencies</pkg>
     <pkg>lmtest</pkg>
     <pkg>longmemo</pkg>
+    <pkg>maRketSim</pkg>
     <pkg>MSBVAR</pkg>
     <pkg>mvtnorm</pkg>
+    <pkg>NMOF</pkg>
     <pkg>opefimor</pkg>
+    <pkg>PairTrading</pkg>
     <pkg priority="core">PerformanceAnalytics</pkg>
     <pkg>portfolio</pkg>
     <pkg>portfolioSim</pkg>
     <pkg>POT</pkg>
-    <pkg>QRMlib</pkg>
     <pkg>quantmod</pkg>
-    <pkg>RBloomberg</pkg>
     <pkg>Rcmdr</pkg>
     <pkg>RQuantLib</pkg>
     <pkg>rrv</pkg> 
     <pkg>RTAQ</pkg> 
+    <pkg>rugarch</pkg> 
     <pkg>rwt</pkg> 
     <pkg>sandwich</pkg>
     <pkg>schwartz97</pkg>
@@ -405,7 +419,7 @@
     <pkg>waveslim</pkg>
     <pkg>wavethresh</pkg> 
     <pkg>YieldCurve</pkg>
-    <pkg>xts</pkg> 
+    <pkg priority="core">xts</pkg> 
     <pkg>Zelig</pkg>
     <pkg priority="core">zoo</pkg>    
   </packagelist>
@@ -419,6 +433,7 @@
     <view>TimeSeries</view>
     <a href="http://www.rmetrics.org">Rmetrics contains a wealth of R code for Finance</a>
     <a href="http://www.quantlib.org">Quantlib is a C++ library for quantitative finance</a>
+    <a href="http://findata.org/rbloomberg/">Access data from a Bloomberg installation in R</a>
     <a href="https://www.stat.math.ethz.ch/mailman/listinfo/R-SIG-Finance/">Mailing list: R Special Interest Group Finance</a>
     <!-- <a href="http://www.russell.com/US/Indexes/US/index_values.asp">Russell indexes data</a> -->
     <a href="http://www.msci.com/us/indexperf/index.html">MSCI indexes data</a>

@@ -3,7 +3,7 @@
   <name>ReproducibleResearch</name>
   <topic>Reproducible Research</topic>
   <maintainer email="max.kuhn@pfizer.com">Max Kuhn</maintainer>
-  <version>2011-04-13</version>
+  <version>2011-11-14</version>
   
   <info>
     <p>
@@ -22,15 +22,18 @@
     </p>
     <ul>
       <li><i>LaTeX Markup</i>: 
-       The <pkg>Hmisc</pkg> and <pkg>xtable</pkg> packages contain functions to write
-       R objects into LaTeX representations. <pkg>Hmisc</pkg> also includes methods for 
-       translating strings to proper LaTeX markup (e.g., ">=" to "$\geq$"). Animations
-       can be inserted into LaTeX documents being converted to PDF via the  
-       <pkg>animation</pkg> package. The <pkg>tikzDevice</pkg> and <pkg>pgfSweave</pkg> 
-       packages can convert R graphics to native LaTeX code while 
-       the <code>pictex</code> function in the base grDevices package is a PicTeX graphics 
-       driver. The <pkg>makesweave</pkg> package for Linux streamlines the generation of 
-       Sweave files using <tt>make</tt>.
+       The <pkg>Hmisc</pkg>, <pkg>xtable</pkg> and <pkg>tables</pkg>
+       packages contain functions to write R objects into LaTeX
+       representations. <pkg>Hmisc</pkg> also includes methods for
+       translating strings to proper LaTeX markup (e.g., ">=" to
+       "$\geq$"). Animations can be inserted into LaTeX documents
+       being converted to PDF via the <pkg>animation</pkg>
+       package. The <pkg>tikzDevice</pkg> and <pkg>pgfSweave</pkg>
+       packages can convert R graphics to native LaTeX code while the
+       <code>pictex</code> function in the base grDevices package is a
+       PicTeX graphics driver. The <pkg>makesweave</pkg> package for
+       Linux streamlines the generation of Sweave files using
+       <tt>make</tt>.
       </li>
       <li><i>HTML Markup</i>: 
        The <pkg>R2HTML</pkg> package
@@ -101,7 +104,7 @@
 	<pkg>memisc</pkg> packages.
       </li>
       <li>
-        The <pkg>xtable</pkg>, <pkg>Design</pkg> and <pkg>rms</pkg> packages provide LaTeX 
+        The <pkg>xtable</pkg> and <pkg>rms</pkg> packages provide LaTeX 
         representations of some common models (e.g., Cox proportional hazards model, etc.). 
         For example, processing an <code>aov</code> object with the <code>xtable</code>
         function will generate LaTeX markup of the ANOVA table. Similalry, methods exist
@@ -124,7 +127,6 @@
     <pkg>apsrtable</pkg>
     <pkg>brew</pkg>
     <pkg>cacheSweave</pkg>
-    <pkg priority="core">Design</pkg>
     <pkg>exams</pkg>
     <pkg>highlight</pkg>
     <pkg>hwriter</pkg>
@@ -145,6 +147,7 @@
     <pkg>SRPM</pkg>
     <pkg>svSweave</pkg>
     <pkg>SweaveListingUtils</pkg>
+    <pkg>tables</pkg>
     <pkg>TeachingSampling</pkg>
     <pkg>tikzDevice</pkg>
     <pkg priority="core">xtable</pkg>

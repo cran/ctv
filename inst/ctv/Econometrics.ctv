@@ -3,7 +3,7 @@
   <name>Econometrics</name>
   <topic>Computational Econometrics</topic>
   <maintainer email="Achim.Zeileis@R-project.org">Achim Zeileis</maintainer>
-  <version>2011-05-29</version>
+  <version>2011-12-19</version>
   
   <info>
     <p>Base R ships with a lot of functionality useful for computational
@@ -73,7 +73,10 @@
 	  can be fitted by <code>survreg()</code> in <pkg>survival</pkg>, a convenience
 	  interface <code>tobit()</code> is in package <pkg>AER</pkg>. Further censored
 	  regression models, including models for panel data, are provided in <pkg>censReg</pkg>.
-	  Models for sample selection are available in <pkg>sampleSelection</pkg>.</li>
+	  Furthermore, hurdle models for left-censored data at zero can be estimated with
+	  <pkg>mhurdle</pkg>. Models for sample selection are available in <pkg>sampleSelection</pkg>.</li>
+      <li>Multivariate probit models: Estimation and marginal effect computations can be
+          carried out with <pkg>mvProbit</pkg>.</li>
       <li>Miscellaneous: Further more refined tools for microecnometrics are provided in
 	  the <pkg>micEcon</pkg> family of packages: Analysis with
 	  Cobb-Douglas, translog, and quadratic functions is in <pkg>micEcon</pkg>;
@@ -93,10 +96,18 @@
 	  in package stats.</li>
       <li>Quantile regression: <pkg>quantreg</pkg> (including linear, nonlinear, censored,
           locally polynomial and additive quantile regressions).</li>
-      <li>Linear models for panel data: <pkg>plm</pkg>. A package for spatial panel
-          models, <rforge>splm</rforge>, is under development on R-Forge.</li>
+      <li>Linear models for panel data: <pkg>plm</pkg>, providing a wide range of within,
+          between, and random-effect methods (among others) along with corrected standard
+	  errors, tests, etc. For panel-corrected standard errors in OLS and GEE models,
+	  see <pkg>geepack</pkg> and <pkg>pcse</pkg>. Estimation of linear models with
+	  multiple group fixed effects is contained in <pkg>lfe</pkg>.</li>
       <li>Generalized method of moments (GMM) and generalized empirical likelihood (GEL):
           <pkg>gmm</pkg>.</li>
+      <li>Spatial econometric models: The <view>Spatial</view> view gives details about
+          handling spatial data, along with information about (regression) modeling. In particular,
+	  spatial regression models can be fitted using <pkg>spdep</pkg> and <pkg>sphet</pkg> (the
+	  latter using a GMM approach). A package for spatial panel
+          models, <rforge>splm</rforge>, is under development on R-Forge.</li>
       <li>Linear structural equation models: <pkg>sem</pkg> (including two-stage least squares).</li>
       <li>Simultaneous equation estimation: <pkg>systemfit</pkg>.</li>
       <li>Nonparametric kernel methods: <pkg>np</pkg>.</li>
@@ -105,7 +116,7 @@
       <li>Nonlinear mixed-effect models: <pkg>nlme</pkg> and <pkg>lme4</pkg>.</li>
       <li>Generalized additive models (GAMs): <pkg>mgcv</pkg>, <pkg>gam</pkg>, <pkg>gamlss</pkg>
           and <pkg>VGAM</pkg>.</li> 
-      <li>Miscellaneous: The packages <pkg>VGAM</pkg>, <pkg>Design</pkg> and <pkg>Hmisc</pkg> provide several tools for extended
+      <li>Miscellaneous: The packages <pkg>VGAM</pkg>, <pkg>rms</pkg> and <pkg>Hmisc</pkg> provide several tools for extended
 	  handling of (generalized) linear regression models. <pkg>Zelig</pkg> is a unified
 	  easy-to-use interface to a wide range of regression models.</li>
     </ul>
@@ -241,7 +252,6 @@
     <pkg priority="core">car</pkg>
     <pkg>CDNmoney</pkg>
     <pkg>censReg</pkg>
-    <pkg>Design</pkg>
     <pkg>dlm</pkg>
     <pkg>dse</pkg>
     <pkg>dyn</pkg>
@@ -257,10 +267,12 @@
     <pkg>fxregime</pkg>
     <pkg>gam</pkg>
     <pkg>gamlss</pkg>
+    <pkg>geepack</pkg>
     <pkg>gmm</pkg>
     <pkg>Hmisc</pkg>
     <pkg>ineq</pkg>
     <pkg>its</pkg>
+    <pkg>lfe</pkg>
     <pkg>lme4</pkg>
     <pkg priority="core">lmtest</pkg>
     <pkg>MASS</pkg>
@@ -269,6 +281,7 @@
     <pkg>meboot</pkg>
     <pkg>mFilter</pkg>
     <pkg>mgcv</pkg>
+    <pkg>mhurdle</pkg>
     <pkg>micEcon</pkg>
     <pkg>micEconAids</pkg>
     <pkg>micEconCES</pkg>
@@ -276,15 +289,18 @@
     <pkg>mlogit</pkg>
     <pkg>MNP</pkg>
     <pkg>MSBVAR</pkg>
+    <pkg>mvProbit</pkg>
     <pkg>nlme</pkg>
     <pkg>nnet</pkg>
     <pkg>np</pkg>
     <pkg>ordinal</pkg>
+    <pkg>pcse</pkg>
     <pkg priority="core">plm</pkg>
     <pkg>pscl</pkg>
     <pkg>pwt</pkg>
     <pkg>quantreg</pkg>
     <pkg>reldist</pkg>
+    <pkg>rms</pkg>
     <pkg>sampleSelection</pkg>
     <pkg priority="core">sandwich</pkg>
     <pkg>sde</pkg>
@@ -292,6 +308,8 @@
     <pkg>sem</pkg>
     <pkg>simpleboot</pkg>
     <pkg>SparseM</pkg>
+    <pkg>spdep</pkg>
+    <pkg>sphet</pkg>
     <pkg>strucchange</pkg>
     <pkg>systemfit</pkg>
     <pkg>timeSeries</pkg>
@@ -310,11 +328,14 @@
     <view>Finance</view>
     <view>Optimization</view>
     <view>SocialSciences</view>
+    <view>Spatial</view>
     <view>TimeSeries</view>
     <a href="https://www.stat.math.ethz.ch/mailman/listinfo/R-SIG-Finance/">Mailing List: R Special Interest Group Finance</a>
     <a href="http://www.jstatsoft.org/v27/">Journal of Statistical Software: Special Volume on 'Econometrics in R'</a>
     <a href="http://people.su.se/~ma/R_intro/">A Brief Guide to R for Beginners in Econometrics</a>
     <a href="http://www.mayin.org/ajayshah/KB/R/R_for_economists.html">R for Economists</a>
+    <a href="http://www.springer.com/978-0-387-77316-2">Book: Applied Econometrics with R (Kleiber and Zeileis)</a>
+    <a href="http://www.worldscibooks.com/economics/6895.html">Book: Hands-On Intermediate Econometrics Using R (Vinod)</a>
     <a href="http://www2.cirano.qc.ca/~bacc/">BACC Software for Bayesian Econometrics (Bayesian Analysis, Computation and Communication)</a>
     <rforge>splm</rforge>
 </links>

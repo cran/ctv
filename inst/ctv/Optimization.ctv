@@ -3,7 +3,7 @@
 <name>Optimization</name>
 <topic>Optimization and Mathematical Programming</topic>
 <maintainer email="Stefan.Theussl@wu.ac.at">Stefan Theussl</maintainer>
-<version>2011-04-12</version>
+<version>2011-12-20</version>
 
 <info> 
   <p>This CRAN task view contains a list of packages which offer
@@ -13,6 +13,7 @@
   methods, the following views will contain useful starting points:
   <view>Multivariate</view>, <view>SocialSciences</view>, <view>Robust</view> among others.
   The focus of this task view is on <a
+  href="#SolverInfrastructure">Optimization Infrastructure Packages</a>, <a
   href="#GeneralPurposeSolvers">General Purpose Continuous 
   Solvers</a>, <a href="#MathematicalProgrammingSolvers">Mathematical 
   Programming Solvers</a> and <a href="#SpecificApplications">Specific
@@ -33,7 +34,36 @@
 
   <p>If you think that some package is missing from the list, please
   let me know.</p>
-  
+
+  <h2><a name="SolverInfrastructure">Optimization Infrastructure Packages</a></h2>
+<!--
+  <h3>Solvers provided by the base R distribution</h3>
+-->
+  <ul>
+    <li>Trying to unify optimization algorithms via a single wrapper
+    function, <pkg>optimx</pkg> helps to proper specify the
+    (nonlinear) optimization problem including objective function,
+    gradient function, and scaling. This package supports the
+    (local) optimization of smooth, nonlinear functions with at most
+    box constraints (bounds). <pkg>optimx</pkg> depends not only on
+    packages and/or functions mentioned in this section of this task
+    view but also on two packages implemented by the author(s),
+    namely <pkg>Rcgmin</pkg> and <pkg>Rvmmin</pkg>. Both are "pure
+    R" implementations of conjugate gradient minimization and
+    variable metric nonlinear function minimization algorithms,
+    respectively.</li>
+
+    <li>The R Optimization Infrastructure (<pkg>ROI</pkg>) package
+    provides a framework for handling optimization problems in R. It
+    uses an object oriented approach to define and solve various
+    optimization tasks in R which can be from different problem
+    classes (e.g., linear, quadratic, non-linear programming
+    problems). This makes optimization transparent for the R user as
+    the corresponding workflow is completely abstracted from the
+    underlying solver. Furthermore, this approach allows for easy
+    switching between solvers, given that corresponding solver plugins
+    are available, and thus enhances comparability.</li> </ul>
+
   <h2><a name="GeneralPurposeSolvers">General Purpose Continuous
   Solvers</a></h2>
 <!--
@@ -89,6 +119,11 @@
     strategy (CMA-ES).
     </li>
 
+    <li><pkg>GenSA</pkg> is a package providing a function for
+    generalized simulated annealing which can be used to search for a
+    global minimum of a very complex non-linear objective function
+    with a very large number of optima.</li>
+
     <li>Package <pkg>gsl</pkg> provides BFGS, conjugate gradient,
     steepest descent, and Nelder-Mead algorithms. It uses a "line
     search" approach via the function <code>multimin()</code>. It is
@@ -123,19 +158,6 @@
     variables by a trust region method that forms quadratic models by
     interpolation. <code>bobyqa()</code> additionally permits box
     constraints (bounds) on the parameters. [DF]</li>
-
-    <li>Trying to unify optimization algorithms via a single wrapper
-      function <pkg>optimx</pkg> helps to proper specify the
-      (nonlinear) optimization problem including objective function,
-      gradient function, and scaling. This package supports the
-      (local) optimization of smooth, nonlinear functions with at most
-      box constraints (bounds). <pkg>optimx</pkg> depends not only on
-      packages and/or functions mentioned in this section of this task
-      view but also on two packages implemented by the author(s),
-      namely <pkg>Rcgmin</pkg> and <pkg>Rvmmin</pkg>. Both are "pure
-      R" implementations of conjugate gradient minimization and
-      variable metric nonlinear function minimization algorithms,
-      respectively.</li>
 
     <li>A particle swarm optimizer (PSO) is implemented in package
     <pkg>pso</pkg>. The algorithm follows the standard PSO 2007 by
@@ -345,14 +367,27 @@
   corresponding libraries have to be installed separately.
   
   <ul>
-    <li>Package <pkg>Rcplex</pkg> provides an interface to the CPLEX solver 
-    package from <a href="http://www.ilog.com/">ILOG</a>. It provides dual/primal simplex optimizers as well as 
-    a barrier optimizer for solving large scale linear 
-    and quadratic programs. Furthermore, it offers a mixed integer optimizer
-    to solve difficult mixed integer programs. Note that CPLEX is
-    <b>not free</b> and you have to get a license from <a
-    href="http://www.ilog.com/">ILOG</a>. [LP, IP,
-    BP, QP, MILP, MIQP, IPM]</li>
+    <li>Package <pkg>Rcplex</pkg> provides an interface to the CPLEX
+    solver package from <a
+    href="http://www-01.ibm.com/software/integration/optimization/cplex-optimizer/">IBM</a>. It
+    provides dual/primal simplex optimizers as well as a barrier
+    optimizer for solving large scale linear and quadratic
+    programs. Furthermore, it offers a mixed integer optimizer to
+    solve difficult mixed integer programs. Note that CPLEX is <b>not
+    free</b> and you have to get a license from <a
+    href="http://www.ibm.com/">IBM</a>. Academics will receive a free licence upon request. [LP, IP, BP, QP, MILP, MIQP,
+    IPM]</li>
+    <li>Package <pkg>Rmosek</pkg> offers an interface to the
+    commercial optimizer from <a
+    href="http://www.mosek.com/">MOSEK</a>. It provides dual/primal
+    simplex optimizers as well as a barrier optimizer. In addition to
+    solving LP and QP problems this solver can handle second order
+    cone programming (SOCP) and quadratically constrained programming
+    (QPQC) tasks. Furthermore, it offers a mixed integer optimizer to
+    solve difficult mixed integer programs (MILP, MISOCP, etc.). Note
+    that you have to get a license from <a
+    href="http://www.mosek.com/">MOSEK</a>. Academic licenses are free
+    of charge.  [LP, IP, BP, QP, MILP, MIQP, IPM]</li>
   </ul>
   
   <!--
@@ -391,6 +426,10 @@
     uses the very fast igraph C library. It can be used to calculate
     shortest paths, maximal network flows, minimum 
     spanning trees, etc. [GRAPH]</li>
+
+    <li>Package <pkg>minpack.lm</pkg> provides an interface to the
+    Levenberg-Marquardt nonlinear least-squares algorithm found in
+    MINPACK.</li>
 
     <li><pkg>maxLik</pkg> adds a likelihood-specific layer on top of
     a number of maximization routines like Brendt-Hall-Hall-Hausman
@@ -567,6 +606,7 @@ steady-state and equilibrium analysis of ordinary differential equations.</li>
   <pkg>desirability</pkg>
   <pkg>gafit</pkg>
   <pkg>genalg</pkg>
+  <pkg>GenSA</pkg>
   <pkg>glpk</pkg>
   <pkg>goalprog</pkg>
   <pkg>gsl</pkg>
@@ -579,6 +619,7 @@ steady-state and equilibrium analysis of ordinary differential equations.</li>
   <pkg>lpSolveAPI</pkg>
   <pkg>maxLik</pkg>
   <pkg>mco</pkg>
+  <pkg>minpack.lm</pkg>
   <pkg priority="core">minqa</pkg>
   <pkg>neldermead</pkg>
   <pkg>nleqslv</pkg>
@@ -594,7 +635,9 @@ steady-state and equilibrium analysis of ordinary differential equations.</li>
   <pkg>Rcsdp</pkg>
   <pkg>rgenoud</pkg>
   <pkg priority="core">Rglpk</pkg>
+  <pkg>Rmosek</pkg>
   <pkg>rneos</pkg>
+  <pkg priority="core">ROI</pkg>
   <pkg priority="core">Rsolnp</pkg>  
   <pkg priority="core">Rsymphony</pkg>
   <pkg>Rvmmin</pkg>
