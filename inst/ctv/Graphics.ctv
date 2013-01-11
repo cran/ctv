@@ -3,7 +3,7 @@
   <name>Graphics</name>
   <topic>Graphic Displays &amp; Dynamic Graphics &amp; Graphic Devices &amp; Visualization </topic>
   <maintainer email="nikko@hailmail.net">Nicholas Lewin-Koh</maintainer>
-  <version>2009-10-28</version>
+  <version>2012-12-13</version>
   
   <info>
     <p>R is rich with facilities for creating and developing interesting graphics.
@@ -124,13 +124,7 @@
           and other formats. Devices on CRAN include <pkg>cairoDevice</pkg> which
           is a device based libcairo, which can actually render to many device
           types. The cairo device is desgned to work with <pkg>RGTK2</pkg>,
-          which is an interface to the Gimp Tool Kit, similar to pyGTK2. <pkg>GDD</pkg>
-          provides device drivers for several bitmap formats, including GIF and
-          BMP. <pkg>RSvgDevice</pkg> is an SVG device driver and interfaces well with
-          with vector drawing programs, or R web development packages, such as
-          <pkg>Rpad</pkg>. When SVG devices are for web display developers should be
-          aware that internet explorer does not support SVG, but has their own
-          standard. Trust Microsoft.
+          which is an interface to the Gimp Tool Kit, similar to pyGTK2.
           <pkg>rgl</pkg> provides a device driver
           based on OpenGL, and is good for 3D and interactive
           development. Lastly, the Augsburg group supplies a set of packages
@@ -184,7 +178,6 @@
     <pkg>colorspace</pkg>
     <pkg>dichromat</pkg>
     <pkg>gclus</pkg>
-    <pkg>GDD</pkg>
     <pkg priority="core">ggplot2</pkg>
     <pkg>gplots</pkg>
     <pkg>gridBase</pkg>
@@ -200,7 +193,6 @@
     <pkg priority="core">rgl</pkg>
     <pkg>rggobi</pkg>
     <pkg>RGraphics</pkg>
-    <pkg>RSvgDevice</pkg>
     <pkg>RSVGTipsDevice</pkg>
     <pkg>tkrplot</pkg>
     <pkg>scatterplot3d</pkg>

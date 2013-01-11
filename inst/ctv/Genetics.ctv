@@ -3,7 +3,7 @@
   <name>Genetics</name>
   <topic>Statistical Genetics</topic>
   <maintainer email="g.montana@imperial.ac.uk">Giovanni Montana</maintainer>
-  <version>2011-11-18</version>
+  <version>2012-11-01</version>
   <info>
       <p>
         Great advances have been made in the field of genetic analysis over the last years. The availability of millions
@@ -28,17 +28,12 @@
 <pkg>Geneland</pkg>
           has functions for detecting spatial structures from genetic data
           within a Bayesian framework via MCMC estimation.
-<pkg>rmetasim</pkg>
-          provides an interface to the metasim engine
-      for population genetics simulations.
 <pkg>hapsim</pkg>
           simulates haplotype data with pre-specified allele frequencies and LD patterns. A few 
           population genetics functions are also implemeted in
 <pkg>gap</pkg>.
 <pkg>LDheatmap</pkg>
           creates a heat map plot of measures of pairwise LD.
-<pkg>mapLD</pkg>
-          measures linkage disequilibrium and constructs haplotype blocks.
 <pkg>hwde</pkg>
           fits models for genotypic disequilibria.  Whilst
 <pkg>HardyWeinberg</pkg>
@@ -48,13 +43,12 @@
           <code>
             Fst()
           </code>
-          calculates the Fst from the conditional kinship matrix. Package
-<pkg>kinship</pkg>
-          offers some functions for analysis on pedigrees. The
-<pkg>adegenet</pkg> 
-          implements a number of different methods for analysing population structure using multivariate
+          calculates the Fst from the conditional kinship matrix. The
+<pkg>adegenet</pkg> package implements a number of different methods for analysing population structure using multivariate
           statistics, graphics and spatial statistics.
+The <pkg>hierfstat</pkg> package allows the estimation of hierarchical F-statistics from haploid or diploid genetic data with any numbers of levels in the hierarchy. 
         </li>
+
         <li>
           <i>
             Phylogenetics
@@ -85,9 +79,7 @@
           externally to test for genetic linkage with covariates by regression modelling. 
 <pkg>multic</pkg>
           also utilises IBD sharing statistics calculated externally for detecting quantitative trait loci
-          under polygenic and major gene models via variance components.
-<pkg>lodplot</pkg>
-          provides routines for plotting and visualising genome-wide linkage studies.  Whilst not 
+          under polygenic and major gene models via variance components. Whilst not 
           official R packages one software suite in particular is worthy of mention.
 <a href="http://pngu.mgh.harvard.edu/~purcell/plink/">
   PLINK
@@ -138,9 +130,7 @@
           </code>
           implements a Bayesian genomic control statistics for association studies. For family data,
 <pkg>tdthap</pkg>
-          offers an implementation of the Transmission/Disequilibrium Test (TDT) for extended marker haplotypes.  The
-<pkg>catmap</pkg>
-          can be used for the meta-analysis of case-contorl and TDT data.
+          offers an implementation of the Transmission/Disequilibrium Test (TDT) for extended marker haplotypes.
         </li>
         <li>
           <i>
@@ -164,8 +154,6 @@
           is a package for design of experiments for association studies for detection of linkage disequilibrium.
 <pkg>LDheatmap</pkg>
           creates a heat map plot of measures of pairwise LD.
-<pkg>mapLD</pkg>
-          measures linkage disequilibrium and constructs haplotype blocks.
         </li>
         <li>
           <i>
@@ -226,7 +214,6 @@
     <pkg>ape</pkg>
     <pkg>Biodem</pkg>
     <pkg>bqtl</pkg>
-    <pkg>catmap</pkg>
     <pkg>dlmap</pkg>
     <pkg priority="core">gap</pkg>
     <pkg>GenABEL</pkg>
@@ -239,18 +226,14 @@
     <pkg>hapsim</pkg>
     <pkg>hwde</pkg>
     <pkg>ibdreg</pkg>
-    <pkg>kinship</pkg>
     <pkg>ldDesign</pkg>
     <pkg>LDheatmap</pkg>
-    <pkg>lodplot</pkg>
     <pkg>luca</pkg>
-    <pkg>mapLD</pkg>
     <pkg>multic</pkg>
     <pkg>ouch</pkg>
     <pkg>pbatR</pkg>
     <pkg>phangorn</pkg>
     <pkg>qtl</pkg>
-    <pkg>rmetasim</pkg>
     <pkg>seqinr</pkg>
     <pkg>SNPmaxsel</pkg>
     <pkg>snp.plotter</pkg>

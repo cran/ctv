@@ -3,7 +3,7 @@
   <name>MachineLearning</name>
   <topic>Machine Learning &amp; Statistical Learning</topic>
   <maintainer email="Torsten.Hothorn@R-project.org">Torsten Hothorn</maintainer>
-  <version>2011-12-20</version>
+  <version>2012-12-22</version>
   
   <info>
     Several add-on packages implement ideas and methods developed at the
@@ -28,7 +28,8 @@
              implementation, including the J4.8-variant of C4.5 and M5.
              The <pkg>Cubist</pkg> package fits rule-based models (similar
              to trees) with linear regression models in the terminal leaves,
-             instance-based corrections and boosting.
+             instance-based corrections and boosting. The <pkg>C50</pkg> package can fit
+             C5.0 classification trees, rule-based models, and boosted versions of these.
              <br/>
              Two recursive partitioning algorithms with unbiased variable
              selection and statistical stopping criterion are implemented in 
@@ -51,16 +52,15 @@
              problem via extra splits is available in package <pkg>TWIX</pkg>.
              <br/> Trees for modelling longitudinal data by means of
              random effects are offered by packages <pkg>REEMtree</pkg>
-             and <pkg>longRPart</pkg>
-             and trees tailored for ordinal responses by package 
-             <pkg>rpartOrdinal</pkg>. Partitioning of mixed models
+             and <pkg>longRPart</pkg>. Partitioning of mixture models
              is performed by <pkg>RPMM</pkg>.
              <br/>
              Computational infrastructure for representing trees and
              unified methods for predition and visualization is implemented
              in <pkg>partykit</pkg>. This infrastructure is used by
              package <pkg>evtree</pkg> to implement evolutionary learning 
-             of globally optimal trees.</li>
+             of globally optimal trees.
+             Oblique trees are available in package <pkg>oblique.tree</pkg>.</li>
       <li><i>Random Forests</i>: The reference implementation of the random
              forest algorithm for regression and classification is available in 
              package <pkg>randomForest</pkg>. Package <pkg>ipred</pkg> has bagging
@@ -76,14 +76,14 @@
              <pkg>LogicForest</pkg> is a forest of logic regression trees (package
              <pkg>LogicReg</pkg>.
              The <pkg>varSelRF</pkg> and <pkg>Boruta</pkg> packages focus on variable selection by means
-             for random forest algorithms. 
-             Oblique trees (package <pkg>oblique.tree</pkg>) are used for growing forests
-             by package <pkg>obliqueRF</pkg>.</li>
+             for random forest algorithms. </li>
       <li><i>Regularized and Shrinkage Methods</i>: Regression models with some
              constraint on the parameter estimates can be fitted with the
-             <pkg>lasso2</pkg> and <pkg>lars</pkg> packages. Lasso with
-             simultaneous updates for groups of parameters (groupwise lasso) 
-             is available in package <pkg>grplasso</pkg>.
+             <pkg>lasso2</pkg> and <pkg>lars</pkg> packages.  Lasso with
+             simultaneous updates for groups of parameters (groupwise lasso)
+             is available in package <pkg>grplasso</pkg>; the
+             <pkg>grpreg</pkg> package implements a number of other group
+             penalization models, such as group MCP and group SCAD.
              The L1 regularization path for generalized linear models and
              Cox models can be obtained from functions available in package 
              <pkg>glmpath</pkg>, the entire lasso or elastic-net regularization path (also in <pkg>elasticnet</pkg>)
@@ -118,7 +118,7 @@
              generalized linear, additive and nonparametric models is available in
              package <pkg>mboost</pkg>. Likelihood-based boosting for Cox models
              is implemented in <pkg>CoxBoost</pkg> and for mixed models in
-             <pkg>GMMBoost</pkg>. Tree-based boosting with errors-in-variables is offered by <pkg>gbev</pkg>.
+             <pkg>GMMBoost</pkg>.
              GAMLSS models can be fitted using boosting by <pkg>gamboostLSS</pkg>.</li>
       <li><i>Support Vector Machines and Kernel Methods</i>: The function <code>svm()</code> from 
              <pkg>e1071</pkg> offers an interface to the LIBSVM library and
@@ -137,12 +137,9 @@
              Bayesian nonstationary, semiparametric nonlinear regression 
              and design by treed Gaussian processes including Bayesian CART and 
              treed linear models are made available by package <pkg>tgp</pkg>.
-             Bayesian logistic regression models that consider the high-order interactions
-             are available from package <pkg>BPHO</pkg> and Bayesian naive Bayes models 
-             for binary classification with bias corrected feature selection is implemented in
-             package <pkg>predbayescor</pkg>.</li>
-      <li><i>Optimization using Genetic Algorithms</i> Packages <pkg>gafit</pkg>,
-             <pkg>rgp</pkg>, and
+             </li>
+      <li><i>Optimization using Genetic Algorithms</i>:
+             Packages <pkg>rgp</pkg> and
              <pkg>rgenoud</pkg> offer optimization routines based on genetic algorithms. </li>
       <li><i>Association Rules</i>: Package
              <pkg>arules</pkg> provides both data structures for efficient
@@ -183,8 +180,8 @@
     <pkg>arules</pkg>
     <pkg>BayesTree</pkg>
     <pkg>Boruta</pkg>
-    <pkg>BPHO</pkg>
     <pkg>bst</pkg>
+    <pkg>C50</pkg>
     <pkg>caret</pkg>
     <pkg>CORElearn</pkg>
     <pkg>CoxBoost</pkg>
@@ -194,15 +191,14 @@
     <pkg>ElemStatLearn</pkg>
     <pkg>earth</pkg>
     <pkg>elasticnet</pkg>
-    <pkg>gafit</pkg>
     <pkg>GAMBoost</pkg>
     <pkg>gamboostLSS</pkg>
-    <pkg>gbev</pkg>
     <pkg priority="core">gbm</pkg>
     <pkg>glmnet</pkg>
     <pkg>glmpath</pkg>
     <pkg>GMMBoost</pkg>
     <pkg>grplasso</pkg>
+    <pkg>grpreg</pkg>
     <pkg>hda</pkg>
     <pkg>ipred</pkg>
     <pkg priority="core">kernlab</pkg>
@@ -218,13 +214,11 @@
     <pkg>ncvreg</pkg>
     <pkg priority="core">nnet</pkg>
     <pkg>oblique.tree</pkg>
-    <pkg>obliqueRF</pkg>
     <pkg>pamr</pkg>
     <pkg>party</pkg>
     <pkg>partykit</pkg>
     <pkg>penalized</pkg>
     <pkg>penalizedSVM</pkg>
-    <pkg>predbayescor</pkg>
     <pkg>quantregForest</pkg>
     <pkg priority="core">randomForest</pkg>
     <pkg>randomSurvivalForest</pkg>
@@ -238,7 +232,6 @@
     <pkg>rminer</pkg>
     <pkg>ROCR</pkg>
     <pkg priority="core">rpart</pkg>
-    <pkg>rpartOrdinal</pkg>
     <pkg>RPMM</pkg>
     <pkg>RSNNS</pkg>
     <pkg>RWeka</pkg>

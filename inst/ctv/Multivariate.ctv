@@ -3,7 +3,7 @@
   <name>Multivariate</name>
   <topic>Multivariate Statistics</topic>
   <maintainer email="Paul.Hewson@plymouth.ac.uk">Paul Hewson</maintainer>
-  <version>2011-11-18</version>
+  <version>2012-12-22</version>
   
   <info>
     <p>Base R contains most of the functionality for classical multivariate analysis,
@@ -21,7 +21,6 @@
           <pkg>lattice</pkg> functions (e.g. <code>xyplot()</code> and <code>splom()</code>) are useful for
 	  visualising pairwise arrays of 2-dimensional scatterplots, clouds and 3-dimensional densities.   
           <code>scatterplot.matrix</code> in the <pkg>car</pkg> provides usefully enhanced pairwise scatterplots.
-	  The <pkg>cwhmisc</pkg> package provides <code>plotSplomT()</code> which displays correlation values and adds histograms on the diagonal of scatterplot matrices.  	
           Beyond this, <pkg>scatterplot3d</pkg>
 	  provides 3 dimensional scatterplots, 
           <pkg>aplpack</pkg> provides bagplots and <code>spin3R()</code>,
@@ -32,7 +31,7 @@
 	  <code>parcoord()</code> from <pkg>MASS</pkg> provides parallel 
           coordinate plots; <code>stars()</code> in graphics provides a choice of star, radar 
           and cobweb plots respectively. <code>mstree()</code> in <pkg>ade4</pkg> and <code>spantree()</code> in <pkg>vegan</pkg> provide minimum spanning tree functionality.  <pkg>calibrate</pkg> supports biplot and scatterplot 
-          axis labelling,  <pkg>chplot</pkg> provides convex hull plots. <pkg>geometry</pkg>, 
+          axis labelling. <pkg>geometry</pkg>, 
           which provides an interface to the qhull library,
           gives indices to the relevant points via <code>convexhulln()</code>.
           <pkg>ellipse</pkg> draws ellipses for two parameters, and provides <code>plotcorr()</code>,
@@ -67,8 +66,7 @@
           will provide estimates of the covariance
           and correlation  matrices respectively. <pkg>ICSNP</pkg> offers several descriptive measures such as <code>spatial.median()</code> which provides an estimate of the spatial median and further functions which provide estimates of scatter.   Further robust methods are provided such as <code>cov.rob()</code> in MASS which
           provides robust estimates of the variance-covariance matrix by minimum volume 
-          ellipsoid, minimum covariance determinant or classical product-moment. <pkg>covRobust</pkg> 
-          provides robust covariance estimation via nearest neighbor variance estimation.    <pkg>robustbase</pkg> provides robust covariance estimation via fast minimum covariance determinant with <code>covMCD()</code> and the Orthogonalized pairwise estimate of Gnanadesikan-Kettenring via <code>covOGK()</code>.   Scalable robust methods are provided within <pkg>rrcov</pkg> also using fast minimum covariance determinant with <code>covMcd()</code> as well as M-estimators with <code>covMest()</code>. 
+          ellipsoid, minimum covariance determinant or classical product-moment. <pkg>robustbase</pkg> provides robust covariance estimation via fast minimum covariance determinant with <code>covMCD()</code> and the Orthogonalized pairwise estimate of Gnanadesikan-Kettenring via <code>covOGK()</code>.   Scalable robust methods are provided within <pkg>rrcov</pkg> also using fast minimum covariance determinant with <code>covMcd()</code> as well as M-estimators with <code>covMest()</code>. 
           <pkg>corpcor</pkg> provides shrinkage estimation of large scale covariance
 	  and (partial) correlation matrices.   </li>  
           <li><i>Densities (estimation and simulation):</i>          
@@ -121,8 +119,8 @@
 	  preferred) as well as <code>princomp()</code> (based on <code>eigen()</code> for  compatibility
 	  with S-PLUS) from stats.  <pkg>sca</pkg> provides simple components. <code>pc1()</code> in <pkg>Hmisc</pkg> 
           provides the first principal component and gives coefficients for unscaled 
-          data.  Additional support for an assessment of the scree plot can be found in <pkg>nFactors</pkg>, whereas <pkg>paran</pkg> provides routines for Horn's evaluation of the number of dimensions to retain.   <pkg>pcurve</pkg> provides Principal Curve 
-          analysis and visualisation as well as a further principal component method.   For wide matrices, <pkg>gmodels</pkg> provides <code>fast.prcomp()</code> and <code>fast.svd()</code>.
+          data.  Additional support for an assessment of the scree plot can be found in <pkg>nFactors</pkg>, whereas <pkg>paran</pkg> provides routines for Horn's evaluation of the number of dimensions to retain.
+	  For wide matrices, <pkg>gmodels</pkg> provides <code>fast.prcomp()</code> and <code>fast.svd()</code>.
           <pkg>kernlab</pkg> 
           uses kernel methods to provide a form of non-linear principal components with 
           <code>kpca()</code>.    <pkg>pcaPP</pkg> provides robust principal components by means
@@ -142,7 +140,7 @@
           <pkg>concor</pkg> provides a number of concordance methods.</li>
 
          <li><i>Redundancy Analysis:</i> <pkg>calibrate</pkg> provides <code>rda()</code> for 
-          redundancy analysis as well as further options for canonical correlation.   <pkg>fso</pkg> provides fuzzy set ordination, which extends ordination beyond methods available from linear algebra.</li>    
+          redundancy analysis as well as further options for canonical correlation. </li>    
           
          <li><i>Independent Components:</i> <pkg>fastICA</pkg> provides fastICA 
          algorithms to perform independent
@@ -168,22 +166,20 @@
           <code>hclust()</code> and k-means clustering by <code>kmeans()</code> in stats.
 	   A range of established
           clustering and visualisation techniques are also available in <pkg>cluster</pkg>, some cluster validation routines are available in <pkg>clv</pkg> and the Rand index can be computed from <code>classAgreement()</code> in <pkg>e1071</pkg>.  Trimmed cluster analysis is available from <pkg>trimcluster</pkg>, cluster ensembles are available from <pkg>clue</pkg>, methods to assist with choice of routines are available in <pkg>clusterSim</pkg> and hybrid methodology is provided by <pkg>hybridHclust</pkg>.  Distance 
-          measures  (<code>edist()</code>) and hierarchical clustering (<code>hclust.energy()</code>) based on            E-statistics are available in <pkg>energy</pkg>.   <pkg>LLAhclust</pkg> provides variable and object clustering based on a likelihood linkage method, which also provides indices for assessing the results. Mahalanobis distance based clustering (for fixed points as well as clusterwise regression) are available from <pkg>fpc</pkg>.  <pkg>clustvarsel</pkg> 
-          provides variable selection within model based clustering.   Fuzzy clustering is available within <pkg>cluster</pkg> as well as via the 
+          measures  (<code>edist()</code>) and hierarchical clustering (<code>hclust.energy()</code>) based on            E-statistics are available in <pkg>energy</pkg>.   Mahalanobis distance based clustering (for fixed points as well as clusterwise regression) are available from <pkg>fpc</pkg>.  
+	  Fuzzy clustering is available within <pkg>cluster</pkg> as well as via the 
 	  <bioc>hopach</bioc> (Hierarchical Ordered Partitioning and 
           Collapsing Hybrid) algorithm.    <pkg>kohonen</pkg> provides supervised and unsuperised SOMs 
           for high dimensional spectra or patterns.  <pkg>clusterGeneration</pkg> helps simulate clusters. The <view>Environmetrics</view> 
-          task view also gives a topic-related overview of some clustering techniques.   Model based clustering is available in <pkg>mclust</pkg> and model based clustering for functional data is available in <pkg>MFDA</pkg>.</li>
+          task view also gives a topic-related overview of some clustering techniques.   Model based clustering is available in <pkg>mclust</pkg>.</li>
 
           <li><i>Tree methods:</i>
           Full details on tree methods are given in the <view>MachineLearning</view> task view.   
 	  Suffice to say here that classification trees are sometimes considered within 
-          multivariate methods; <pkg>rpart</pkg> is most used for this purpose.   <pkg>TWIX</pkg> provides trees with extra splits.   <pkg>hier.part</pkg> partitions the variance in a multivariate data set. 
+          multivariate methods; <pkg>rpart</pkg> is most used for this purpose.   <pkg>TWIX</pkg> provides trees with extra splits.
           <pkg>mvpart</pkg> extend regression trees to cover multivariate 
-          regression trees, <pkg>party</pkg> provides recursive partitioning and <pkg>rrp</pkg> provides
-	  random recursive partitioning.   Classification and regression training is provided by
-	  <pkg>caret</pkg>. (Formerly, caretLSF provided additional parallel processing capacity
-	  which has now been incorporated into <pkg>caret</pkg>.)   <pkg>kknn</pkg> provides k-nearest neighbour methods which can be used for regression as well as classification.</li></ul>
+          regression trees, <pkg>party</pkg> provides recursive partitioning.   Classification and regression training is provided by
+	  <pkg>caret</pkg>.  <pkg>kknn</pkg> provides k-nearest neighbour methods which can be used for regression as well as classification.</li></ul>
 
           <p><strong>Supervised classification and discriminant analysis</strong></p>
           <ul><li><code>lda()</code> and <code>qda()</code> within MASS provide linear
@@ -193,13 +189,12 @@
 	  backfitting with the <code>bruto()</code> function.   Multivariate adaptive regression splines can also be found in <pkg>earth</pkg>.  <pkg>rda</pkg> provides classification 
           for high dimensional data by means of shrunken centroids regularized discriminant analysis.
           Package <pkg>class</pkg> provides k-nearest 
-          neighbours by <code>knn()</code>, <pkg>knncat</pkg> provides k-nearest neighbours for 
-          categorical variables.   <pkg>SensoMineR</pkg> provides <code>FDA()</code> for factorial discriminant analysis.   A number of packages provide for 
+          neighbours by <code>knn()</code>.   <pkg>SensoMineR</pkg> provides <code>FDA()</code> for factorial discriminant analysis.   A number of packages provide for 
 	  dimension reduction with the classification. <pkg>klaR</pkg> includes variable
 	  selection and robustness against multicollinearity as well as a number of
 	  visualisation routines. <pkg>superpc</pkg> provides principal components for
 	  supervised classification, whereas <bioc>gpls</bioc> provides classification using
-	  generalised partial least squares.  <pkg>hddplot</pkg> provides cross-validated linear discriminant calculations to determine the optimum number of features. <pkg>ROCR</pkg> provides a range of methods for assessing classifier performance.   <pkg>predbayescor</pkg> provides naive Bayes classification.
+	  generalised partial least squares.  <pkg>hddplot</pkg> provides cross-validated linear discriminant calculations to determine the optimum number of features. <pkg>ROCR</pkg> provides a range of methods for assessing classifier performance.
         Further information on supervised classification can be found in 
           the <view>MachineLearning</view> task view.</li></ul>
 
@@ -225,7 +220,7 @@
           <ul><li><code>factanal()</code> in stats provides factor analysis by maximum
 	  likelihood, Bayesian factor analysis
 	  is provided for Gaussian, ordinal and mixed variables in <pkg>MCMCpack</pkg>.
-	  <pkg>GPArotation</pkg> offers GPA (gradient projection algorithm) factor rotation.    <pkg>FAiR</pkg> provides factor analysis solved using genetic algorithms.
+	  <pkg>GPArotation</pkg> offers GPA (gradient projection algorithm) factor rotation. 
 	  <pkg>sem</pkg> fits linear structural equation models and <pkg>ltm</pkg> provides
 	  latent trait models under item response theory and range of extensions to Rasch models can be found in <pkg>eRm</pkg>.   <pkg>FactoMineR</pkg> provides a wide range of Factor Analysis methods, including <code>MFA()</code> and <code>HMFA()</code>for multiple and hierarchical multiple factor analysis as well as <code>ADFM()</code> for multiple factor analysis of quantitative and qualitative data.     <pkg>tsfa</pkg> provides factor analysis for time series.   <pkg>poLCA</pkg> provides latent class and latent class regression models for a variety of outcome variables.</li></ul>
 
@@ -245,10 +240,9 @@
 
       <p><strong>Miscellaneous utitlies</strong></p>
           <ul><li><pkg>abind</pkg> generalises <code>cbind()</code> and <code>rbind()</code> for arrays, <code>mApply()</code> in <pkg>Hmisc</pkg> generalises <code>apply()</code> for matrices and passes multiple functions.   In addition to functions listed earlier, <pkg>sn</pkg> provides operations such as marginalisation, affine transformations and graphics for the multivariate skew normal and skew t distribution.
-	  <pkg>panel</pkg> provides methods for modelling panel data.
 	  <pkg>mAr</pkg> provides for vector auto-regression, <pkg>MSBVAR</pkg> provides for
 	  Bayesian vector autoregression models, along with impulse responses and forecasting.   <code>rm.boot()</code> from <pkg>Hmisc</pkg> bootstraps repeated measures models.  <pkg>cramer</pkg> Multivariate nonparametric Cramer-Test for the two-sample-problem  <pkg>psy</pkg> also provides a range of statistics based on Cohen's kappa including weighted measures and agreement among more than 2 raters. 
-	  <pkg>cwhmisc</pkg> contains a number of interesting support functions which are of interest, such as <code>ellipse()</code>, <code>normalise()</code> and various rotation functions.   <pkg>desirability</pkg> provides functions for multivariate optimisation.   <pkg>geozoo</pkg> provides plotting of geometric objects in GGobi. </li></ul>
+	  <pkg>desirability</pkg> provides functions for multivariate optimisation.   <pkg>geozoo</pkg> provides plotting of geometric objects in GGobi. </li></ul>
        
   </info>
 
@@ -263,21 +257,17 @@
     <pkg>ca</pkg>   
     <pkg>car</pkg>   
     <pkg>caret</pkg> 
-    <pkg>chplot</pkg>
     <pkg>class</pkg>
     <pkg>clue</pkg> 
     <pkg priority="core">cluster</pkg> 
     <pkg>clusterGeneration</pkg>
     <pkg>clusterSim</pkg> 
-    <pkg>clustvarsel</pkg> 
     <pkg>clv</pkg> 
     <pkg>cocorresp</pkg> 
     <pkg>concor</pkg>
     <pkg>copula</pkg>     
     <pkg>corpcor</pkg>
-    <pkg>covRobust</pkg>
     <pkg>cramer</pkg> 
-    <pkg>cwhmisc</pkg> 
     <pkg>delt</pkg> 
     <pkg>denpro</pkg>
     <pkg>desirability</pkg>
@@ -288,12 +278,10 @@
     <pkg>energy</pkg>
     <pkg>eRm</pkg> 
     <pkg>FactoMineR</pkg>   
-    <pkg>FAiR</pkg>
     <pkg>fastICA</pkg>
     <pkg>feature</pkg> 
     <pkg>fgac</pkg>
     <pkg>fpc</pkg>   
-    <pkg>fso</pkg> 
     <pkg>gclus</pkg> 
     <pkg>GenKern</pkg>
     <pkg>geometry</pkg> 
@@ -301,7 +289,6 @@
     <pkg>gmodels</pkg> 
     <pkg>GPArotation</pkg> 
     <pkg>hddplot</pkg>  
-    <pkg>hier.part</pkg>
     <pkg>Hmisc</pkg>
     <pkg>homals</pkg>
     <pkg>hybridHclust</pkg> 
@@ -313,11 +300,9 @@
     <pkg>KernSmooth</pkg>
     <pkg>kknn</pkg>
     <pkg>klaR</pkg>
-    <pkg>knncat</pkg>
     <pkg>kohonen</pkg>  
     <pkg>ks</pkg>
     <pkg>lattice</pkg>
-    <pkg>LLAhclust</pkg> 
     <pkg>ltm</pkg> 
     <pkg>mAr</pkg> 
     <pkg priority="core">MASS</pkg>
@@ -326,7 +311,6 @@
     <pkg>MCMCpack</pkg>  
     <pkg>mclust</pkg> 
     <pkg>mda</pkg> 
-    <pkg>MFDA</pkg>
     <pkg>mice</pkg> 
     <pkg>misc3d</pkg>
     <pkg>mitools</pkg>
@@ -342,18 +326,15 @@
     <pkg>mvtnorm</pkg>
     <pkg>nFactors</pkg>   
     <pkg>pan</pkg>
-    <pkg>panel</pkg> 
     <pkg>paran</pkg>
     <pkg>party</pkg>  
     <pkg>pcaPP</pkg>
     <pkg>PearsonICA</pkg> 
     <pkg>poLCA</pkg> 
     <pkg>polycor</pkg> 
-    <pkg>pcurve</pkg>
     <pkg>plsgenomics</pkg>
     <pkg>pls</pkg>
     <pkg>ppls</pkg> 
-    <pkg>predbayescor</pkg>
     <pkg>prim</pkg>
     <pkg>proxy</pkg>  
     <pkg>psy</pkg>
@@ -366,7 +347,6 @@
     <pkg>ROCR</pkg>   
     <pkg>rpart</pkg>
     <pkg>rrcov</pkg>  
-    <pkg>rrp</pkg> 
     <pkg>sca</pkg> 
     <pkg>scatterplot3d</pkg>
     <pkg>sem</pkg>

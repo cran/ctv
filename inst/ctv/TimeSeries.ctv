@@ -2,8 +2,8 @@
 
 <name>TimeSeries</name>
 <topic>Time Series Analysis</topic>
-<maintainer email="Rob.Hyndman@monash.edu">Rob J. Hyndman and Achim Zeileis</maintainer>
-<version>2011-12-01</version>
+<maintainer email="Rob.Hyndman@monash.edu">Rob J. Hyndman</maintainer>
+<version>2013-01-09</version>
 
 <info>
 <p>
@@ -71,9 +71,9 @@
       time/date information.</li>
   <li>The <code>"mondate"</code> class from the <pkg>mondate</pkg> package
       facilitates computing with dates in terms of months.</li>
-  <li>The <pkg>rtv</pkg> package allows for the representation, manipulation and 
-      visualisation of random time variables.</li>
   <li><pkg>TSAgg</pkg> provides functions for aggregation of incomplete time series data.</li>
+  <li>The <pkg>tempdisagg</pkg> package includes methods for temporal disaggregation and interpolation of a low frequency time series to a higher frequency series.</li>
+  <li><pkg>TimeProjection</pkg> extracts useful time components of a date object, such as day of week, weekend, holiday, day of month, etc, and put it in a data frame.</li>
 </ul>
 
 <p><strong>Time Series Classes</strong></p>
@@ -113,34 +113,43 @@
       models and facilities with full optimization.</li>
   <li><i>Autoregressive models</i>: <code>ar()</code> in stats (with
       model selection), <pkg>FitAR</pkg> for subset AR models, and
-      <pkg>pear</pkg> for periodic autoregressive time series models.</li>
+      <pkg>pear</pkg> for periodic autoregressive time series models.
+    </li>
   <li><i>ARIMA models</i>: <code>arima()</code> in stats is the basic
-      function for ARIMA, SARIMA, ARIMAX, and subset ARIMA models. 
-      It is enhanced in the <pkg>forecast</pkg> package 
-      along with <code>auto.arima()</code> for automatic 
-      order selection. <code>arma()</code> in the <pkg>tseries</pkg> 
-      package provides different algorithms for ARMA and subset ARMA 
+      function for ARIMA, SARIMA, ARIMAX, and subset ARIMA models.
+      It is enhanced in the <pkg>forecast</pkg> package via the function <code>Arima()</code>
+      along with <code>auto.arima()</code> for automatic
+      order selection. <code>arma()</code> in the <pkg>tseries</pkg>
+      package provides different algorithms for ARMA and subset ARMA
       models. <pkg>FitARMA</pkg> implements a fast MLE algorithm for ARMA models.
-      Some facilities for fractional differenced ARFIMA
-      models are provided in the <pkg>fracdiff</pkg> package.
-      <pkg>afmtools</pkg> handles estimation, diagnostics and forecasting for ARFIMA models.
-<!--  <code>armaFit()</code> from the <pkg>fArma</pkg> package is an interface for ARIMA and ARFIMA models. -->
-      Package <pkg>gsarima</pkg> contains functionality for generalized 
-      SARIMA time series simulation. The <pkg>mar1s</pkg> package handles multiplicative AR(1) with seasonal processes/</li> 
-  <li><i>GARCH models</i>: <code>garch()</code> from <pkg>tseries</pkg> fits basic GARCH models, <code>garchFit()</code> 
-      from <pkg>fGarch</pkg> implements ARIMA models with a wide class of GARCH innovations. 
-      <pkg>bayesGARCH</pkg> estimates a Bayesian GARCH(1,1) model with t innovations. 
-      <pkg>egarch</pkg> provides functions for simulating and fitting EGARCH models, and 
+      Package <pkg>gsarima</pkg> contains functionality for Generalized SARIMA time series
+      simulation. The <pkg>mar1s</pkg> package handles multiplicative AR(1) with seasonal processes.
+      <pkg>TSTutorial</pkg> provides an interactive tutorial for Box-Jenkins modelling.
+    </li>
+  <li><i>ARFIMA models</i>: Some facilities for fractional differenced ARFIMA
+      models are provided in the <pkg>fracdiff</pkg> package. The <pkg>arfima</pkg> package
+      has more advanced and general facilities for ARFIMA and ARIMA models, including dynamic
+      regression (transfer function) models. <pkg>afmtools</pkg> handles estimation, diagnostics
+      and forecasting for ARFIMA models. <code>armaFit()</code> from the <pkg>fArma</pkg> package
+      is an interface for ARIMA and ARFIMA models. Fractional Gaussian noise and simple models for
+      hyperbolic decay time series are handled in the <pkg>FGN</pkg> package.
+      </li>
+  <li><i>Transfer function</i> models are provided by the <code>arimax</code> function in the
+      <pkg>TSA</pkg> package, and the <code>arfima</code> function in the <pkg>arfima</pkg> package.</li>
+  <li><i>GARCH models</i>: <code>garch()</code> from <pkg>tseries</pkg> fits basic GARCH models, <code>garchFit()</code>
+      from <pkg>fGarch</pkg> implements ARIMA models with a wide class of GARCH innovations.
+      <pkg>bayesGARCH</pkg> estimates a Bayesian GARCH(1,1) model with t innovations.
+<!--  <pkg>egarch</pkg> provides functions for simulating and fitting EGARCH models, and -->
       <pkg>gogarch</pkg> implements Generalized Orthogonal GARCH (GO-GARCH) models.
-      The R-Forge package <rforge>rgarch</rforge>
-      aims to provide a flexible and rich GARCH modelling and testing environment. Its
+      The R-Forge project <rforge>rgarch</rforge> aims to provide a flexible and rich GARCH modelling
+      and testing environment including univariate and multivariate GARCH packages. Its
       <a href="http://rgarch.R-Forge.R-project.org/">webpage</a> has extensive information and examples.</li>
   <li><i>Miscellaneous</i>: <pkg>ltsa</pkg> contains methods for
       linear time series analysis, <pkg>dlm</pkg> for Bayesian
       analysis of dynamic linear models, <pkg>timsac</pkg> for time
       series analysis and control, <pkg>BootPR</pkg> for
       bias-corrected forecasting and bootstrap prediction intervals
-      for autoregressive time series</li>
+      for autoregressive time series. </li>
 </ul>
 
 <p><strong>Resampling</strong></p>
@@ -171,18 +180,32 @@
       includes computing wavelet filters, wavelet transforms and
       multiresolution analyses. Wavelet methods for time series
       analysis based on Percival and Walden (2000) are given in
-      <pkg>wmtsa</pkg>. Further wavelet methods can be found in
-      the packages <pkg>rwt</pkg>,
-      <pkg>waveslim</pkg>, and <pkg>wavethresh</pkg>.</li>
+      <pkg>wmtsa</pkg>. <pkg>biwavelet</pkg> can be used to plot and
+      compute the wavelet spectra, cross-wavelet spectra, and wavelet
+      coherence of non-stationary time series. It also includes functions
+      to cluster time series based on the (dis)similarities in their spectrum.
+      Further wavelet methods can be found in the packages <pkg>brainwaver</pkg>,
+      <pkg>rwt</pkg>, <pkg>waveslim</pkg>, and <pkg>wavethresh</pkg>.</li>
   <li><i>Miscellaneous</i>:
       <pkg>signalextraction</pkg> for real-time signal extraction
         (direct filter approach).
-      <pkg>bspec</pkg> for Bayesian inference on the discrete power
-        spectrum of time series.
-      <pkg>kza</pkg> provides Kolmogorov-Zurbenko Adaptive Filters including break detection, spectral analysis, 
+      <pkg>kza</pkg> provides Kolmogorov-Zurbenko Adaptive Filters including break detection, spectral analysis,
         wavelets and KZ Fourier Transforms.
+      <pkg>quantspec</pkg> includes methods to compute and plot Laplace periodograms for univariate time series.
       <pkg>Rssa</pkg> provides a fast implementation of Singular Spectrum Analysis for decomposition of a time series.</li>
 </ul>
+
+<p><strong>Seasonality</strong></p>
+<ul>
+  <li><i>Seasonal decomposition</i>: the <pkg>stats</pkg> package provides classical
+      decomposition in <code>decompose()</code>, and STL decomposition in <code>stl()</code>.
+     <pkg>x12</pkg> provides a wrapper for the <a href="http://www.census.gov/srd/www/x12a/">X12 binaries</a> which have to be installed first. <pkg>x12GUI</pkg> provides a graphical user interface for <pkg>x12</pkg>.</li>
+  <li><i>Analysis of seasonality</i>: the <pkg>bfast</pkg> package provides methods for detecting and characterizing abrupt changes within the trend and seasonal components obtained from a decomposition. <pkg>Peak2Trough</pkg> estimates the peak-to-trough ratio of a seasonal component.</li>
+  <li><pkg>season</pkg>: Seasonal analysis of health data including regression models, time-stratified case-crossover, plotting functions and residual checks.</li>
+  <li><pkg>seas</pkg>: Seasonal analysis and graphics, especially for climatology.</li>
+  <li><pkg>deseasonalize</pkg>: Optimal deseasonalization for geophysical time series using AR fitting.</li>
+</ul>
+
 
 <p><strong>Stationarity, Unit Roots, and Cointegration</strong></p>
 <ul>
@@ -194,19 +217,22 @@
       such as Elliott-Rothenberg-Stock, Schmidt-Phillips and Zivot-Andrews
       tests. The <pkg>fUnitRoots</pkg> package also provides the MacKinnon test.
       <pkg>CADFtest</pkg> provides implementations of both the standard ADF
-      and a covariate-augmented ADF (CADF) test.</li> 
+      and a covariate-augmented ADF (CADF) test.</li>
   <li><i>Cointegration</i>: The Engle-Granger two-step method with the Phillips-Ouliaris
       cointegration test is implemented in <pkg>tseries</pkg> and <pkg>urca</pkg>.
       The latter additionally contains functionality for the Johansen trace
-      and lambda-max tests.</li>
+      and lambda-max tests. <pkg>CommonTrend</pkg> provides tools to extract and plot common trends from a cointegration system.</li>
 </ul>
+
 <p><strong>Nonlinear Time Series Analysis</strong></p>
 <ul>
   <li><i>Nonlinear autoregression</i>: Various forms of nonlinear
       autoregression are available in <pkg>tsDyn</pkg> including
       additive AR, neural nets, SETAR and LSTAR models. <pkg>bentcableAR</pkg>
       implements Bent-Cable autoregression. <pkg>BAYSTAR</pkg> provides Bayesian analysis of threshold
-      autoregressive models.</li>
+      autoregressive models.  <pkg>nlts</pkg> provides functions for estimating the order of
+      a nonlinear autoregression.
+    </li>
   <li>The <i><a
       href="http://www.mpipks-dresden.mpg.de/~tisean/">TISEAN</a>
       project</i> provided algorithms for time series analysis from
@@ -214,7 +240,7 @@
       an R interface to the algorithms and <pkg>tseriesChaos</pkg>
       provides an R implementation of the algorithms.</li>
   <li><i>Tests</i>: Various tests for nonlinearity are provided in
-      <pkg>fNonlinear</pkg>.</li>
+      <pkg>fNonlinear</pkg> and <pkg>nlts</pkg>.</li>
 </ul>
 
 <p><strong>Dynamic Regression Models</strong></p>
@@ -222,7 +248,7 @@
   <li><i>Dynamic linear models</i>: A convenient interface for fitting
       dynamic regression models via OLS is available in <pkg>dynlm</pkg>;
       an enhanced approach that also works with other regression functions
-      and more time series classes is implemented in <pkg>dyn</pkg>.
+      and more time series classes is implemented in <pkg>dyn</pkg>. <pkg>dlmodeler</pkg> provides functions for fitting, analysing and forecasting generalized dynamic linear models.
       The <pkg>tslars</pkg> package applies a dynamic variable selection procedure using an extension of the LARS
       algorithm. More advanced dynamic system equations can be fitted using <pkg>dse</pkg>. Gaussian linear state
       space models can be fitted using <pkg>dlm</pkg> (via maximum
@@ -240,25 +266,25 @@
       restricted to be stationary. Possibly non-stationary VAR models
       are fitted in the <pkg>mAr</pkg> package, which also allows
       VAR models in principal component space. More elaborate models
-      are provided in package <pkg>vars</pkg>, <code>estVARXls()</code> 
+      are provided in package <pkg>vars</pkg>, <code>estVARXls()</code>
 	  in <pkg>dse</pkg> and a Bayesian approach is available in <pkg>MSBVAR</pkg>.
-      <pkg>fastVAR</pkg> uses fast implementations to estimate VAR models (possibly with 
+      <pkg>fastVAR</pkg> uses fast implementations to estimate VAR models (possibly with
       exogenous inputs and sparse coefficient matrices).	  </li>
   <li><i>VARIMA models</i> and <i>state space models</i> are provided
-      in the <pkg>dse</pkg> package. <pkg>EvalEst</pkg> facilitates Monte Carlo experiments to 
+      in the <pkg>dse</pkg> package. <pkg>EvalEst</pkg> facilitates Monte Carlo experiments to
 	  evaluate the associated estimation methods.</li>
   <li><i>Vector error correction models</i> are available via the
       <pkg>urca</pkg> and <pkg>vars</pkg> packages, including versions with structural
       constraints. </li>
-  <li><i>Time series factor analysis</i> is provided in <pkg>tsfa</pkg>.</li>
-  <li><i>Multivariate state space models</i> are implemented in the <pkg>FKF</pkg> (Fast Kalman Filter) package. 
-      This provides relatively flexible state space models via the <code>fkf()</code> comment: state-space 
-	  parameters are allowed to be time-varying and intercepts are included in both equations. 
-      An alternative implementation is provided by the <pkg>KFAS</pkg> package which provides a 
+  <li><i>Time series component analysis</i>: Time series factor analysis is provided in <pkg>tsfa</pkg>. <pkg>ForeCA</pkg> implements forecatable component analysis by searching for the best linear transformations that make a multivariate time series as forecastable as possible.</li>
+  <li><i>Multivariate state space models</i> are implemented in the <pkg>FKF</pkg> (Fast Kalman Filter) package.
+      This provides relatively flexible state space models via the <code>fkf()</code> comment: state-space
+	  parameters are allowed to be time-varying and intercepts are included in both equations.
+      An alternative implementation is provided by the <pkg>KFAS</pkg> package which provides a
 	  fast multivariate Kalman filter, smoother, simulation smoother and forecasting. Yet another implementation
 	  is given in the <pkg>dlm</pkg> package which also contains tools for converting other multivariate models
-	  into state space form. MARSS fits constrained and unconstrained multivariate autoregressive state-space models using an EM algorithm. All four packages assume the observational and state error terms are uncorrelated.</li>
-  <li><i>Partially-observed Markov processes</i> are a generalization of the usual linear multivariate state 
+	  into state space form. <pkg>MARSS</pkg> fits constrained and unconstrained multivariate autoregressive state-space models using an EM algorithm. All four packages assume the observational and state error terms are uncorrelated.</li>
+  <li><i>Partially-observed Markov processes</i> are a generalization of the usual linear multivariate state
   space models, allowing non-Gaussian and non-linear models. These are implemented in the <pkg>pomp</pkg> package.</li>
 </ul>
 
@@ -271,18 +297,19 @@
 <p><strong>Time Series Data</strong></p>
 <ul>
   <li>Data from Makridakis, Wheelwright and Hyndman (1998) <i>Forecasting: methods and
-       applications</i> are provided in the <pkg>fma</pkg> package.</li>
+      applications</i> are provided in the <pkg>fma</pkg> package.</li>
   <li>Data from Hyndman, Koehler, Ord and Snyder (2008) <i>Forecasting
-       with exponential smoothing</i>  are in the <pkg>expsmooth</pkg>
-       package.</li>
+      with exponential smoothing</i>  are in the <pkg>expsmooth</pkg> package.</li>
+  <li>Data from Hyndman and Athanasopoulos (2013) <i>Forecasting: principles and practice</i>
+      are in the <pkg>fpp</pkg> package.</li>
   <li>Data from the M-competition and M3-competition are provided in the <pkg>Mcomp</pkg> package.</li>
+  <li>Data from Cryer and Chan (2010) are in the <pkg>TSA</pkg> package.</li>
+  <li>Data from Shumway and Stoffer (2011) are in the <pkg>astsa</pkg> package.</li>
   <li>Data from Tsay (2005) <i>Analysis of financial
-       time series</i> are in the <pkg>FinTS</pkg> package, along with some functions and
-       script files required to work some of the examples.</li>
+      time series</i> are in the <pkg>FinTS</pkg> package, along with some functions and
+      script files required to work some of the examples.</li>
   <li><pkg>TSdbi</pkg> provides a common interface to time series databases.</li>
   <li><pkg>fame</pkg> provides an interface for FAME time series databases</li>
-  <li><pkg>VhayuR</pkg> provides an interface to he Vhayu Velocity time series database</li>
-  <li><pkg>fEcofin</pkg> Economic and Financial Data Sets</li>
   <li><pkg>AER</pkg> and <pkg>Ecdat</pkg> both contain many data sets (including time series data)
        from many econometrics text books</li>
 </ul>
@@ -291,21 +318,25 @@
 <ul>
   <li><pkg>dtw</pkg>: Dynamic time warping algorithms for computing and plotting pairwise alignments between time series.</li>
   <li><pkg>ensembleBMA</pkg>: Bayesian Model Averaging to create probabilistic forecasts from ensemble forecasts and weather observations.</li>
-  <li><pkg>fractal</pkg>: Fractal time series modeling and analysis.</li>
+  <li><pkg>events</pkg>: turns machine-extracted event data into regular aggregated multivariate time series.</li>
   <li><pkg>fractalrock</pkg>: Generate fractal time series with non-normal returns distribution.</li>
-  <li><pkg>hydroTSM</pkg> and <pkg>hydroGOF</pkg> provide functions for analysing and modelling time series in hydrology and related environmental sciences.</li>
   <li><pkg>GeneCycle</pkg> and <pkg>GeneNet</pkg>: Microarray time series and network analysis.</li>
+  <li><pkg>hydroTSM</pkg> and <pkg>hydroGOF</pkg> provide functions for analysing and modelling time series in hydrology and related environmental sciences.</li>
+  <li><pkg>Interpol.T</pkg> makes hourly interpolation of daily minimum and maximum temperature series. It is useful in climatology when hourly time-series must be downscaled from the daily information.</li>
   <li><pkg>paleoTS</pkg>: Modeling evolution in paleontological time series.</li>
   <li><pkg>pastecs</pkg>: Regulation, decomposition and analysis of space-time series.</li>
   <li><pkg>ptw</pkg>: Parametric time warping.</li>
+  <li><pkg>RMAWGEN</pkg> is set of S3 and S4   functions for spatial multi-site stochastic generation of daily time-series of temperature and precipitation making use of VAR models. The package can be used in climatology and statistical hydrology.</li>
   <li><pkg>RSEIS</pkg>: Seismic time series analysis tools.</li>
-  <li><pkg>season</pkg>: Seasonal analysis of health data including regression models, time-stratified case-crossover, plotting functions and residual checks.</li>
+  <li><pkg>rts</pkg>: Raster time series analysis (e.g., time series of satellite images).</li>
   <li><pkg>sde</pkg>: Simulation and inference for stochastic differential equations.</li>
+  <li><pkg>surveillance</pkg>: Temporal and spatio-temporal modeling and monitoring of epidemic phenomena.</li>
   <li><pkg>tiger</pkg>: Temporally resolved groups of typical differences (errors) between two time series are determined and visualized.</li>
   <li><pkg>tsModel</pkg>: Time series modeling for air pollution and health.</li>
   <li><pkg>wavethresh</pkg>: Locally stationary wavelet models for nonstationary time series
       (including estimation, plotting, and simulation functionality for time-varying spectrums).</li>
   <li><pkg>wq</pkg>: Exploring water quality time series.</li>
+  <li><pkg>WeightedPortTest</pkg> provides weighted portmanteau statistics for time series goodness-of-fit testing.</li>
 </ul>
 
 </info>
@@ -313,40 +344,49 @@
 <packagelist>
   <pkg>AER</pkg>
   <pkg>afmtools</pkg>
+  <pkg>arfima</pkg>
+  <pkg>astsa</pkg>
   <pkg>bayesGARCH</pkg>
   <pkg>BAYSTAR</pkg>
   <pkg>bentcableAR</pkg>
+  <pkg>biwavelet</pkg>
+  <pkg>bfast</pkg>
   <pkg>boot</pkg>
   <pkg>BootPR</pkg>
-  <pkg>bspec</pkg>
+  <pkg>brainwaver</pkg>
   <pkg>CADFtest</pkg>
   <pkg>chron</pkg>
+  <pkg>CommonTrend</pkg>
   <pkg>cts</pkg>
   <pkg>ctarma</pkg>
+  <pkg>deseasonalize</pkg>
   <pkg>dlm</pkg>
+  <pkg>dlmodeler</pkg>
   <pkg>dlnm</pkg>
   <pkg>dse</pkg>
   <pkg>dtw</pkg>
   <pkg>dyn</pkg>
   <pkg>dynlm</pkg>
   <pkg>Ecdat</pkg>
-  <pkg>egarch</pkg>
   <pkg>ensembleBMA</pkg>
   <pkg>EvalEst</pkg>
+  <pkg>events</pkg>
   <pkg>expsmooth</pkg>
   <pkg>fame</pkg>
+  <pkg>fArma</pkg>
   <pkg>fastVAR</pkg>
-  <pkg>fEcofin</pkg>
   <pkg>fGarch</pkg>
+  <pkg>FGN</pkg>
   <pkg>FinTS</pkg>
   <pkg>FitAR</pkg>
   <pkg>FitARMA</pkg>
   <pkg>FKF</pkg>
   <pkg>fma</pkg>
   <pkg>fNonlinear</pkg>
+  <pkg>ForeCA</pkg>
   <pkg priority="core">forecast</pkg>
+  <pkg>fpp</pkg>
   <pkg>fracdiff</pkg>
-  <pkg>fractal</pkg>
   <pkg>fractalrock</pkg>
   <pkg>fUnitRoots</pkg>
   <pkg>fts</pkg>
@@ -356,6 +396,7 @@
   <pkg>gsarima</pkg>
   <pkg>hydroGOF</pkg>
   <pkg>hydroTSM</pkg>
+  <pkg>Interpol.T</pkg>
   <pkg>its</pkg>
   <pkg>ltsa</pkg>
   <pkg>KFAS</pkg>
@@ -369,42 +410,54 @@
   <pkg>mFilter</pkg>
   <pkg>mondate</pkg>
   <pkg>MSBVAR</pkg>
+  <pkg>nlts</pkg>
   <pkg>paleoTS</pkg>
   <pkg>pastecs</pkg>
+  <pkg>Peak2Trough</pkg>
   <pkg>pear</pkg>
   <pkg>pomp</pkg>
   <pkg>ptw</pkg>
+  <pkg>quantspec</pkg>
+  <pkg>RMAWGEN</pkg>
   <pkg>robfilter</pkg>
   <pkg>RSEIS</pkg>
   <pkg>Rssa</pkg>
   <pkg>RTisean</pkg>
-  <pkg>rtv</pkg>
+  <pkg>rts</pkg>
   <pkg>rwt</pkg>
   <pkg>sde</pkg>
+  <pkg>seas</pkg>
   <pkg>season</pkg>
   <pkg>signalextraction</pkg>
+  <pkg>surveillance</pkg>
+  <pkg>tempdisagg</pkg>
   <pkg>tiger</pkg>
   <pkg>timsac</pkg>
   <pkg>timeDate</pkg>
   <pkg>timeSeries</pkg>
+  <pkg>TimeProjection</pkg>
   <pkg>tis</pkg>
   <pkg>tpr</pkg>
+  <pkg>TSA</pkg>
   <pkg>TSAgg</pkg>
   <pkg>TSdbi</pkg>
   <pkg>tsDyn</pkg>
-  <pkg>tslars</pkg>
   <pkg priority="core">tseries</pkg>
   <pkg>tseriesChaos</pkg>
-  <pkg>tsModel</pkg>
   <pkg>tsfa</pkg>
+  <pkg>tslars</pkg>
+  <pkg>tsModel</pkg>
+  <pkg>TSTutorial</pkg>
   <pkg>urca</pkg>
   <pkg>vars</pkg>
-  <pkg>VhayuR</pkg>
   <pkg>wavelets</pkg>
   <pkg>waveslim</pkg>
-  <pkg>wavethresh</pkg>	  
+  <pkg>wavethresh</pkg>
+  <pkg>WeightedPortTest</pkg>
   <pkg>wmtsa</pkg>
   <pkg>wq</pkg>
+  <pkg>x12</pkg>
+  <pkg>x12GUI</pkg>
   <pkg>xts</pkg>
   <pkg priority="core">zoo</pkg>
 </packagelist>
@@ -413,7 +466,7 @@
     <view>Finance</view>
     <view>Econometrics</view>
     <rforge>rgarch</rforge>
-    <a href="http://robjhyndman.com/TSDL/" target="_top">Time Series Data Library</a>
+    <a href="http://data.is/TSDLdemo" target="_top">Time Series Data Library</a>
     <a href="http://www.mpipks-dresden.mpg.de/~tisean/">TISEAN Project</a>
 </links>
 </CRANTaskView>

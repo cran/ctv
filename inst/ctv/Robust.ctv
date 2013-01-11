@@ -5,7 +5,7 @@
   <topic>Robust Statistical Methods</topic>
   <!--  &amp; Resistant  ?? -->
   <maintainer email="Martin.Maechler@R-project.org">Martin Maechler</maintainer>
-  <version>2011-10-17</version>
+  <version>2012-11-01</version>
 
   <info>
     <p>
@@ -42,7 +42,7 @@
     the scattered developments and make the important ones available
     through a set of R packages complementing each other.
 
-    which should build on a basic package with "Essentials",
+    These should build on a basic package with "Essentials",
     coined <pkg>robustbase</pkg> with (potentially many) other packages
     building on top and extending the essential functionality to particular
     models and or applications.
@@ -84,9 +84,6 @@
 	special case, doing so also for nonparametric regression via
 	splines.
 
-	Package <pkg>mblm</pkg>'s function <code>mblm()</code> fits
-	median-based (Theil-Sen or Siegel's repeated) simple linear models.
-
 	Generalized linear models (GLMs) are provided both via
 	<code>glmrob()</code> (<pkg>robustbase</pkg>) and <code>glmRob()</code>
 	(<pkg>robust</pkg>).
@@ -122,13 +119,15 @@
       and <b>R</b>obust <b>B</b>ootstrap on robust estimators, including
       multivarate regression, PCA and Hotelling tests.
 
-      <pkg>covRobust</pkg> provides the
-      nearest neighbor variance estimation (NNVE) method of Wang and
-      Raftery (2002).
 
 <!-- Package <pkg>MCLIME</pkg>'s function <code>m.clime())</code> fits -->
 <!-- constrained L1 ...  MM: Its example never ran correctly, as they -->
 <!-- did *not* escape '%' !! -->
+
+      Note that robust PCA can be performed by using standard
+      \R's <code>princomp()</code>, e.g.,
+      <code> X &lt;- stackloss; pc.rob &lt;- princomp(X, covmat= MASS::cov.rob(X))</code>
+
 
       See also the CRAN task views
           <view>Multivariate</view> and
@@ -205,11 +204,9 @@
   </info>
 
   <packagelist>
-    <pkg>covRobust</pkg>
     <pkg>distr</pkg>
     <pkg>FRB</pkg>
     <pkg priority="core">MASS</pkg>
-    <pkg>mblm</pkg>
     <pkg>multinomRob</pkg>
     <pkg>mvoutlier</pkg>
     <pkg>quantreg</pkg>

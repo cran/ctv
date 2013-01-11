@@ -2,8 +2,8 @@
 
 <name>Psychometrics</name>
 <topic>Psychometric Models and Methods</topic>
-<maintainer email="Patrick.Mair@wu.ac.at">Patrick Mair and Reinhold Hatzinger</maintainer>
-<version>2011-11-18</version>
+<maintainer email="Patrick.Mair@wu.ac.at">Patrick Mair</maintainer>
+<version>2012-12-05</version>
 
 <info> Psychometrics is concerned with the design and analysis of research and
 the measurement of human characteristics. Psychometricians have also
@@ -13,14 +13,10 @@ data.  Since much functionality is already contained in base R and there
 is considerable overlap between tools for psychometry and tools
 described in other views, particularly in <view>SocialSciences</view>,
 we only give a brief overview of packages that are closely related to
-psychometric methodology. Recently, Journal of Statistical Software (JSS)
-published a special volume on
-<a href="http://www.jstatsoft.org/v20/" target="_top">Psychometrics in R</a>
-in which some new R packages were published which are not yet on CRAN.
+psychometric methodology. 
 
 <p>
-<a href="mailto:Patrick.Mair@wu.ac.at">Please let us know</a>
-if we have omitted something of importance, or if a new package or function
+<a href="mailto:Patrick.Mair@wu.ac.at">Please let us know</a> if we have omitted something of importance, or if a new package or function
 should be mentioned here.
 </p>
 
@@ -45,7 +41,7 @@ should be mentioned here.
     The <pkg>mirt</pkg> includes the multivariate two- and three-parameter logistic models, confirmatory bifactor analysis, polytomous confirmatory and exploratory item response models, and partially-compensatory item response modeling in conjunction with other IRT models.
   </li>
   <li>
-    Conditional maximum likelihood estimation via the EM algorithm and information-criterion-based model selection in binary mixed Rasch models are implemented in the <pkg>mRm</pkg> package. The <pkg>mixRasch</pkg> package estimates mixture Rasch models, including the dichotomous Rasch model, the rating scale model, and the partial credit model.
+    Conditional maximum likelihood estimation via the EM algorithm and information-criterion-based model selection in binary mixed Rasch models are implemented in the <pkg>mRm</pkg> package and the <pkg>psychomix</pkg> package. The <pkg>mixRasch</pkg> package estimates mixture Rasch models, including the dichotomous Rasch model, the rating scale model, and the partial credit model.
   </li>
   <li>
      Item and ability parameters can be calibrated using the package 
@@ -75,7 +71,8 @@ should be mentioned here.
   <li>
      A multilevel Rasch model can be estimated using the package
      <pkg>lme4</pkg> with functions for mixed-effects models with crossed or
-     partially crossed random effects.
+     partially crossed random effects. Furthermore, infrastructure for estimating tree-structured item response models of the GLMM family using <pkg>lme4</pkg> is provided in
+     <pkg>irtrees</pkg>.
   </li>
   <li>
      Nonparametric IRT analysis can be computed by means if the <pkg>mokken</pkg> package. It includes an automated item selection algorithm, and various checks of model assumptions. In relation to that, <pkg>fwdmsa</pkg> performs the Forward Search for Mokken scale analysis. It detects outliers, it produces several types of diagnostic plots. 
@@ -102,6 +99,9 @@ should be mentioned here.
     The package <pkg>irtoys</pkg> provides a simple common interface to the estimation of item parameters in IRT models for binary responses with three different programs (ICL, BILOG-MG, and ltm, and a variety of functions useful with IRT models.
   </li>
   <li>
+  Functions and example empirical (i.e., fraction subtraction) and artificial data for cognitive diagnosis modeling are provided by the <pkg>CDM</pkg> package.
+  </li>
+  <li>
     Gaussian ordination, related to logistic IRT and also approximated as
     maximum likelihood estimation through canonical correspondence analysis
     is implemented in various forms in the package <pkg>VGAM</pkg>.
@@ -120,6 +120,12 @@ should be mentioned here.
   <li>
      The <pkg>latdiag</pkg> package produces commands to drive the dot program from graphviz to produce a 
      graph useful in deciding whether a set of binary items might have a latent scale with non-crossing ICCs. 
+  </li>
+  <li>
+    The purpose of the <pkg>rpf</pkg> package is to factor out logic and math common to IRT fitting, diagnostics, and analysis. It is envisioned as core support code suitable for more specialized IRT packages to build upon.
+  </li>
+  <li>
+    The <pkg>classify</pkg> package can be used to examine classification accuracy and consistency under IRT models.
   </li>
 </ul>
 
@@ -217,16 +223,19 @@ should be mentioned here.
     The package <pkg>lavaan</pkg> can be used to estimate a large variety of multivariate statistical models, including path analysis, confirmatory factor analysis, structural equation modeling and growth curve models. It includes the lavaan model syntax which allows users to express their models in a compact way and allows for ML, GLS, WLS, robust ML using Satorra-Bentler corrections, and FIML for data with missing values. It fully supports for meanstructures and multiple groups and reports standardized solutions, fit measures, modification indices and more as output.
   </li>
   <li>
-    The package <pkg>semPLS</pkg> sits structural equation models using partial least squares (PLS). The PLS approach is referred to as soft-modeling technique requiring no distributional assumptions on the observed data.
+    A general implementation of a computational framework for latent variable models (including structural equation models) is given in <pkg>lava</pkg>. The <pkg>lava.tobit</pkg> package generalizes the framework to censored and dichotomous variables via a probit link formulation.
+  </li>
+  <li>
+    The package <pkg>semPLS</pkg> fits structural equation models using partial least squares (PLS). The PLS approach is referred to as soft-modeling technique requiring no distributional assumptions on the observed data. PLS methods with emphasis on structural equation models with latent variables are given in <pkg>plspm</pkg> which also includes <pkg>pathmox</pkg> as a companion package with approaches of segmentation trees in PLS path modeling.
   </li> 
   <li>
-    The <pkg>plsRglm</pkg> package is designed to provide PLS regression and PLS generalized linear regression. It includes various criteria to select the number of components, repeated k-fold cross-validation, bootstrap confidence intervals and significance testing.
+    <pkg>simsem</pkg> is a package designed to aid in Monte Carlo simulations using SEM (for methodological investigations, power analyses and much more). 
   </li>
   <li>
-    <pkg>SEMModComp</pkg> conducts tests of difference in fit for mean and covariance structure models as in structural equation modeling (SEM)
+    <pkg>semTools</pkg> is a package of add on functions that can aid in fitting SEMs in R (for example one function automates imputing missing data, running imputed datasets and combining the results from these datasets).
   </li>
   <li>
-    The package <pkg>FAiR</pkg> performs factor analysis based on a genetic algorithm for optimization. This makes it possible to impose a wide range of restrictions on the factor analysis model, whether using exploratory factor analysis, confirmatory factor analysis, or a new estimator called semi-exploratory factor analysis (SEFA).
+    <pkg>SEMModComp</pkg> conducts tests of difference in fit for mean and covariance structure models as in structural equation modeling (SEM).
   </li>
   <li>
     FA and PCA with supplementary individuals and supplementary quantitative/qualitative variables
@@ -252,6 +261,9 @@ should be mentioned here.
   </li>
   <li>
     The <a href="http://openmx.psyc.virginia.edu/">OpenMX</a> package allows estimation of a wide variety of advanced multivariate statistical models. It consists of a library of functions and optimizers that allow you to quickly and flexibly define an SEM model and estimate parameters given observed data. It is available under this <a href="http://openmx.psyc.virginia.edu/">link</a>.
+  </li>
+  <li>
+    The <pkg>MplusAutomation</pkg> package allows to automate latent variable model estimation and interpretation using Mplus.
   </li>
 </ul>
 
@@ -316,12 +328,20 @@ should be mentioned here.
     for personality and experimental psychology are contained in the
     packages <pkg>psych</pkg> and <pkg>MiscPsycho</pkg>.
   </li>
-  <li>
-    Additional measures for reliability and concordance can be computed with the
-    <pkg>concord</pkg> package.
-  </li>
 </ul>
 
+<p><strong>Knowledge structure analysis:</strong></p>
+<ul>
+ <li>
+     <pkg>DAKS</pkg> provides functions and example datasets for the psychometric theory of knowledge 
+     spaces. This package implements data analysis methods and procedures for simulating data and 
+     transforming different formulations in knowledge space theory.
+  </li>
+  <li>
+    The <pkg>kst</pkg> package contains basic functionality to generate, handle, and manipulate deterministic knowledge structures based on sets and relations.
+Functions for fitting probabilistic knowledge structures are included in the <pkg>pks</pkg> package.
+  </li>
+</ul>
 
 <p><strong>Other related packages:</strong></p>
   <ul>
@@ -332,10 +352,13 @@ should be mentioned here.
      Recursive partitioning based on psychometric models, employing the general MOB algorithm (from package party) are implemented in <pkg>psychotree</pkg>. Currently, only Bradley-Terry trees are provided.
   </li>
   <li>
-    Psychometric mixture models based on flexmix infrastructure are provided by means of the <pkg>psychomix</pkg> package (at the moment only Rasch mixture models).
+    Psychometric mixture models based on flexmix infrastructure are provided by means of the <pkg>psychomix</pkg> package (at the moment Rasch mixture models and Bradley-Terry mixture models).
   </li>
   <li>
     The <pkg>equate</pkg> package contains functions for non-IRT equating under both random groups and nonequivalent groups with anchor test designs. Mean, linear, equipercentile and circle-arc equating are supported, as are methods for univariate and bivariate presmoothing of score distributions. Specific equating methods currently supported include Tucker, Levine observed score, Levine true score, Braun/Holland, frequency estimation, and chained equating.
+  </li>
+  <li>
+    The <pkg>CopyDetect</pkg> package contains several IRT and non-IRT based statistical indices proposed in the literature for detecting answer copying on multiple-choice examinations.
   </li>
   <li>
      Latent class analysis with random effects can be performed with the package <pkg>randomLCA</pkg>.
@@ -351,18 +374,13 @@ should be mentioned here.
      <pkg>irr</pkg>.
   </li>
   <li>
-    <pkg>prefmod</pkg> generates design matrix for analysing real paired comparisons and derived paired comparison data 
+    <pkg>prefmod</pkg> generates design matrices for analysing real paired comparisons and derived paired comparison data 
     (Likert type items / ratings or rankings) using a loglinear approach. Fits loglinear Bradley-Terry model (LLBT) exploting an eliminate feature. Computes pattern models 
     for paired comparisons, rankings, and ratings. Some treatment of missing values (MCAR and MNAR).
   </li>
   <li>
      Bradley-Terry models for paired comparisons are implemented in the package <pkg>BradleyTerry2</pkg> 
-     and in <pkg>eba</pkg>. The latter allowes for the computation of elimination-by-aspects models.
-  </li>
-  <li>
-     <pkg>DAKS</pkg> provides functions and example datasets for the psychometric theory of knowledge 
-     spaces. This package implements data analysis methods and procedures for simulating data and 
-     transforming different formulations in knowledge space theory.
+     and in <pkg>eba</pkg>. The latter allows for the computation of elimination-by-aspects models.
   </li>
   <li>
      Psychophysical data can be analyzed with the <pkg>psyphy</pkg> package. The <pkg>MLCM</pkg> package contains functions to estimate the contribution of the n scales to the judgment by a maximum likelihood method under several hypotheses of how the perceptual dimensions interact.  
@@ -387,10 +405,14 @@ should be mentioned here.
   Social Relations Analyses for round robin designs are implemented in the <pkg>TripleR</pkg> package. It implements all functionality of the SOREMO software, and provides new functions like the handling of missing values, significance tests for single groups, or the calculation of the self enhancement index.
   </li>
   <li>
-  Fitting and testing multinomial processing tree models, a class of statistical models for categorical data with latent parameters, can be performed using the <pkg>mpt</pkg> package. These parameters are the link probabilities of a tree-like graph and represent the cognitive processing steps executed to arrive at observable response categories.
+  Fitting and testing multinomial processing tree models, a class of statistical models for categorical data with latent parameters, can be performed using the <pkg>mpt</pkg> package. These parameters are the link probabilities of a tree-like graph and represent the cognitive processing steps executed to arrive at observable response categories.The <pkg>MPTinR</pkg> package provides a user-friendly way for analysis of multinomial processing tree (MPT) models.
   </li>
   <li>
   The <pkg>mprobit</pkg> package fits the multivariate binary probit model.
+  </li>
+  <li>
+  Beta regression for modeling beta-distributed dependent variables, e.g., rates and proportions,
+  is available in <pkg>betareg</pkg>.
   </li>
 </ul>
 
@@ -399,16 +421,19 @@ should be mentioned here.
 <packagelist>
     <pkg priority="core">ade4</pkg>
     <pkg priority="core">anacor</pkg>
+    <pkg>betareg</pkg>
     <pkg>BiplotGUI</pkg>
     <pkg>BradleyTerry2</pkg>
     <pkg priority="core">ca</pkg>
     <pkg>cacIRT</pkg>
     <pkg>caGUI</pkg>
     <pkg>catR</pkg>
+    <pkg>CDM</pkg>
     <pkg>cfa</pkg>
+    <pkg>classify</pkg>
     <pkg>CMC</pkg>
     <pkg>cocorresp</pkg>
-    <pkg>concord</pkg>
+    <pkg>CopyDetect</pkg>
     <pkg priority="core">CTT</pkg>
     <pkg>DAKS</pkg>
     <pkg>difR</pkg>
@@ -419,17 +444,19 @@ should be mentioned here.
     <pkg priority="core">eRm</pkg>
     <pkg>EstCRM</pkg>
     <pkg>FactoMineR</pkg>
-    <pkg priority="core">FAiR</pkg>
     <pkg>fechner</pkg>
     <pkg>fwdmsa</pkg>
     <pkg>GPArotation</pkg>
     <pkg priority="core">homals</pkg>
     <pkg>irr</pkg>
     <pkg>irtoys</pkg>
+    <pkg>irtrees</pkg>
     <pkg>KernSmoothIRT</pkg>
     <pkg>labdsv</pkg>
     <pkg>latdiag</pkg>
+    <pkg>lava</pkg>
     <pkg priority="core">lavaan</pkg>
+    <pkg>lava.tobit</pkg>
     <pkg priority="core">lme4</pkg>
     <pkg>lordif</pkg>
     <pkg priority="core">ltm</pkg>
@@ -440,18 +467,21 @@ should be mentioned here.
     <pkg>mixRasch</pkg>
     <pkg>MLCM</pkg>
     <pkg>MLDS</pkg>
+    <pkg>MplusAutomation</pkg>
     <pkg>modelfree</pkg>
     <pkg priority="core">mokken</pkg>
     <pkg>mprobit</pkg>
     <pkg>mpt</pkg>
+    <pkg>MPTinR</pkg>
     <pkg priority="core">mirt</pkg>
     <pkg>mRm</pkg>
     <pkg>nFactors</pkg>
+    <pkg>pathmox</pkg>
     <pkg>pcaPP</pkg>
     <pkg priority="core">plink</pkg>
     <pkg>plRasch</pkg>
     <pkg>pls</pkg>
-    <pkg>plsRglm</pkg>
+    <pkg>plspm</pkg>
     <pkg>poLCA</pkg>
     <pkg>polycor</pkg>
     <pkg priority="core">prefmod</pkg>
@@ -469,10 +499,13 @@ should be mentioned here.
     <pkg>RaschSampler</pkg>
     <pkg>randomLCA</pkg>
     <pkg>REQS</pkg>
+    <pkg>rpf</pkg>
     <pkg priority="core">sem</pkg>
     <pkg>semPLS</pkg>
     <pkg>SEMModComp</pkg>
+    <pkg>semTools</pkg>
     <pkg>SensoMineR</pkg>
+    <pkg>simsem</pkg>
     <pkg priority="core">smacof</pkg>
     <pkg>systemfit</pkg>
     <pkg>TripleR</pkg>
@@ -488,8 +521,10 @@ should be mentioned here.
     <view>Cluster</view>
     <view>Multivariate</view>
     <a href="http://www.jstatsoft.org/v20/" target="_top">Journal of Statistical Software Special Volume: Psychometrics in R</a>
+    <a href="http://www.jstatsoft.org/v48/" target="_top">Journal of Statistical Software Special Volume: Psychoco - Psychometric Computing in R</a>
     <a href="http://r-forge.r-project.org/projects/psychor/" target="_top">PsychoR project platform</a>
     <a href="http://gifi.stat.ucla.edu/psychoR/" target="_top">PsychoR snippets</a>
+    <a href="http://openmx.psyc.virginia.edu/">OpenMx - Advanced Structural Equation Modeling</a>
 </links>
 
 </CRANTaskView>

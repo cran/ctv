@@ -2,8 +2,8 @@
 
 <name>OfficialStatistics</name>
 <topic>Official Statistics &amp; Survey Methodology</topic>
-<maintainer email="templ@tuwien.ac.at">Matthias Templ</maintainer>
-<version>2011-11-18</version>
+<maintainer email="matthias.templ@gmail.com">Matthias Templ</maintainer>
+<version>2013-01-11</version>
   
 <info> This CRAN task view contains a list of packages that includes
 methods typically used in official statistics and survey methodology.
@@ -57,9 +57,6 @@ missing until now.
   The <pkg>pps</pkg> package contains functions to select samples using pps 
   sampling.  Also stratified simple random sampling is possible as well as to 
   compute joint inclusion probabilities for Sampford's method of pps sampling. 
-  </li>
-  <li> Package <pkg>sampfling</pkg> implements the Sampford algorithm to obtain 
-  a sample without replacement and with unequal probabilities. 
   </li>
   <li>
   Package <pkg>stratification</pkg> allows univariate stratification of survey 
@@ -172,8 +169,13 @@ Package <pkg>deducorrect</pkg> depends on package <pkg>editrules</pkg> and appli
    Package <pkg>tabplot</pkg>  provides the tableplot visualization method, which is used to profile or explore large statistical datasets. 
    Up to a dozen of variables are shown column-wise as bar charts (numeric variables) or stacked bar charts (factors). 
    Key aspects of the analysis with tableplots are the smoothness of a data distribution, 
-   the selective occurrence of missing values, and the distribution of correlated variables.   
+   the selective occurrence of missing values, and the distribution of correlated variables. The package <pkg>tabplotGTK</pkg> is a graphical user interface for 
+   <pkg>tabplot</pkg>. 
       </li>
+   	<li>
+   	Package <pkg>treemap</pkg> provide treemaps. A treemap is a space-filling visualization of aggregates of data with
+    hierarchical structures. Colors can be used to relate to highlight differences between comparable aggregates.
+    </li>
 </ul>
    
 <p><strong>Imputation</strong></p>
@@ -256,14 +258,6 @@ Note that only few imputation methods can deal with mixed types of variables and
   used for determining the distance between observations.
   </li>
   <li>
-  Function <code>SeqKNN()</code> in Package <pkg>SeqKnn</pkg> imputes the 
-  missing values in continuously scaled variables sequentially.  First, it 
-  separates the dataset into incomplete and complete observations.  The 
-  observations in the incomplete set are imputed by the order of missing rate.  
-  Once the missing values in an observations are imputed, the imputed 
-  observation is moved into the complete set. It can only applied to continuous scaled variables.
-  </li>
-  <li>
   Package <pkg>robCompositions</pkg> provides knn imputation for 
   compositional data (function <code>impKNNa()</code>) using the Aitchison 
   distance and adjustment of the nearest neighbor. 
@@ -334,10 +328,10 @@ For general time series methodology we refer to the
   which can also be found in the <pkg>stats</pkg> package.
   </li>
   <li>
-  Many powerful tools can be accessed via package <pkg>x12</pkg>.  It provides 
-  a wrapper function and GUI for the 
-  <a href="http://www.census.gov/srd/www/x12a/">X12 binaries</a> under 
-  windows, which have to be installed first.
+  Many powerful tools can be accessed via packages <pkg>x12</pkg> and <pkg>x12GUI</pkg>. <pkg>x12</pkg> provides 
+  a wrapper function for the <a href="http://www.census.gov/srd/www/x12a/"> X12 binaries</a>, which have to be installed first. It uses  
+  with a S4-class interface for batch processing of multiple time series. <pkg>x12GUI</pkg> provides a graphical user interface for 
+  the X12-Arima seasonal adjustment software. 
   </li>
 </ul>
 
@@ -360,6 +354,32 @@ For general time series methodology we refer to the
   </li>
 </ul>  
 
+<p><strong>Small Area Estimation</strong></p>
+<ul>
+  <li>
+	Package <pkg>rsae</pkg> provides functions to estimate the parameters of the basic unit-level 
+	small area estimation (SAE) model (aka nested error regression model) 
+	by means of maximum likelihood (ML) or robust ML. On the basis of the estimated parameters, robust predictions of the area-specific 
+	means are computed (incl. MSE estimates; parametric bootstrap). 
+	The current version (rsae 0.4-x) does not allow for categorical independent variables.
+  </li>
+    <li>
+  Package <pkg>nlme</pkg> provides facilities to fit Gaussian linear and nonlinear mixed-effects models and 
+  <pkg>lme4</pkg> provides facilities to fit linear and generalized linear mixed-effects model, both used in 
+  small area estimation. 
+  </li>
+  <li>
+  The <pkg>hbsae</pkg> package provides functions to compute small area estimates based on a basic area or unit-level model. 
+  The model is fit using restricted maximum likelihood, or in a hierarchical Bayesian way. Auxilary information can be either
+  counts resulting from categorical variables or means from continuous population information. 
+  </li>
+  <li>
+  With package <pkg>JoSAE</pkg> point and variance estimation for the generalized regression (GREG) and a unit level
+  empirical best linear unbiased prediction EBLUP estimators can be made at domain level. It basically provides wrapper functions to the <pkg>lme</pkg> package 
+that is used to fit the basic random effects models.
+  </li>
+</ul> 
+ 
 <p><strong>Indices and Indicators</strong></p>
 <ul>
   <li>
@@ -376,6 +396,10 @@ For general time series methodology we refer to the
   measures (Watts, Sen, SST, and Foster). It also computes and draws empirical and theoretical
   Lorenz curves as well as Pen's parade. It is not designed to deal with sampling weights directly
   (these could only be emulated via <code>rep(x, weights)</code>). 
+  </li>
+  <li> Package <pkg>IC2</pkg> include three inequality indices: 
+  extended Gini, Atkinson and Generalized Entropy. It can deal with sampling weights and 
+  subgroup decomposition is supported.
   </li>
   <li>
   Function <code>priceIndex()</code> from package <pkg>micEcon</pkg> allows to 
@@ -403,9 +427,6 @@ For general time series methodology we refer to the
   designs and parameter estimation in finite populations.
   </li>
   <li>
-  Package <pkg>urn</pkg> allows sampling without replacement.
-  </li>
-  <li>
   Package <pkg>memisc</pkg> includes tools for the management of survey data, 
   graphics and simulation.
   </li>
@@ -418,9 +439,17 @@ For general time series methodology we refer to the
   analysis for equal and unequal probability (stratified) sampling.
   </li>
   <li>
-  Package <pkg>nlme</pkg> provides facilities to fit Gaussian linear and nonlinear mixed-effects models and 
-  <pkg>lme4</pkg> provides facilities to fit linear and generalized linear mixed-effects model, both used in 
-  small area estimation. 
+  The <pkg>FFD</pkg> package is designed to calculate optimal sample sizes of a population of animals 
+  living in herds for surveys to substantiate freedom from disease. 
+  The criteria of estimating the sample sizes take the herd-level clustering of 
+  diseases as well as imperfect diagnostic tests into account and select the samples 
+  based on a two-stage design. Inclusion probabilities are not considered in the estimation. 
+  The package provides a graphical user interface as well. 
+  </li>
+  <li>
+  The <pkg>pxR</pkg> package provides a set of functions for reading
+and writing PC-Axis files, used by different statistical
+organizations around the globe for disemination of their (multidimensional) tables.
   </li>
 </ul>  
   
@@ -434,7 +463,9 @@ For general time series methodology we refer to the
   <pkg>deducorrect</pkg>
   <pkg>editrules</pkg>
   <pkg>EVER</pkg>
+  <pkg>FFD</pkg>
   <pkg>Hmisc</pkg>
+  <pkg>IC2</pkg>
   <pkg>ineq</pkg>
   <pkg>laeken</pkg>
   <pkg>lme4</pkg>
@@ -451,18 +482,17 @@ For general time series methodology we refer to the
   <pkg>odfWeave.survey</pkg>
   <pkg>pan</pkg>
   <pkg>pps</pkg>
+  <pkg>pxR</pkg> 
   <pkg>RecordLinkage</pkg>
   <pkg>reweight</pkg>
   <pkg>robCompositions</pkg>
   <pkg>rrcovNA</pkg>
-  <pkg>sampfling</pkg>
   <pkg>sampling</pkg>
   <pkg>samplingbook</pkg>
   <pkg>SDaA</pkg>
   <pkg>sdcMicro</pkg>
   <pkg>sdcTable</pkg>
   <pkg>SeleMix</pkg>
-  <pkg>SeqKnn</pkg>
   <pkg>simFrame</pkg>
   <pkg>simPopulation</pkg>
   <pkg>spsurvey</pkg>
@@ -470,7 +500,6 @@ For general time series methodology we refer to the
   <pkg>stratification</pkg>
   <pkg priority="core">survey</pkg>
   <pkg>TeachingSampling</pkg>
-  <pkg>urn</pkg>
   <pkg>VIM</pkg>
   <pkg>x12</pkg>
   <pkg>yaImpute</pkg>

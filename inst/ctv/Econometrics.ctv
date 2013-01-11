@@ -3,7 +3,7 @@
   <name>Econometrics</name>
   <topic>Computational Econometrics</topic>
   <maintainer email="Achim.Zeileis@R-project.org">Achim Zeileis</maintainer>
-  <version>2011-12-19</version>
+  <version>2012-10-12</version>
   
   <info>
     <p>Base R ships with a lot of functionality useful for computational
@@ -73,6 +73,7 @@
 	  can be fitted by <code>survreg()</code> in <pkg>survival</pkg>, a convenience
 	  interface <code>tobit()</code> is in package <pkg>AER</pkg>. Further censored
 	  regression models, including models for panel data, are provided in <pkg>censReg</pkg>.
+	  Interval regression models are in <pkg>intReg</pkg>.
 	  Furthermore, hurdle models for left-censored data at zero can be estimated with
 	  <pkg>mhurdle</pkg>. Models for sample selection are available in <pkg>sampleSelection</pkg>.</li>
       <li>Multivariate probit models: Estimation and marginal effect computations can be
@@ -106,8 +107,8 @@
       <li>Spatial econometric models: The <view>Spatial</view> view gives details about
           handling spatial data, along with information about (regression) modeling. In particular,
 	  spatial regression models can be fitted using <pkg>spdep</pkg> and <pkg>sphet</pkg> (the
-	  latter using a GMM approach). A package for spatial panel
-          models, <rforge>splm</rforge>, is under development on R-Forge.</li>
+	  latter using a GMM approach). <pkg>splm</pkg> is a package for spatial panel
+          models. Spatial probit models are available in <pkg>spatialprobit</pkg>.</li>
       <li>Linear structural equation models: <pkg>sem</pkg> (including two-stage least squares).</li>
       <li>Simultaneous equation estimation: <pkg>systemfit</pkg>.</li>
       <li>Nonparametric kernel methods: <pkg>np</pkg>.</li>
@@ -178,6 +179,8 @@
       <li>Package <pkg>sde</pkg> provides simulation and inference for stochastic
 	  differential equations.</li>
       <li>Asymmetric price transmission modeling is available in <pkg>apt</pkg>.</li>
+      <li><pkg>AutoSEARCH</pkg>: General-to-specific (GETS) model selection of the mean and
+        log-volatility specifications of a log-ARCH-X model.</li>
     </ul>
 
     <p><strong>Data sets</strong></p>
@@ -241,9 +244,10 @@
   </info>
 
   <packagelist>
-    <pkg>AER</pkg>
+    <pkg priority="core">AER</pkg>
     <pkg>aod</pkg>
     <pkg>apt</pkg>
+    <pkg>AutoSEARCH</pkg>
     <pkg>bayesm</pkg>
     <pkg>betareg</pkg>
     <pkg>boot</pkg>
@@ -271,6 +275,7 @@
     <pkg>gmm</pkg>
     <pkg>Hmisc</pkg>
     <pkg>ineq</pkg>
+    <pkg>intReg</pkg>
     <pkg>its</pkg>
     <pkg>lfe</pkg>
     <pkg>lme4</pkg>
@@ -308,8 +313,10 @@
     <pkg>sem</pkg>
     <pkg>simpleboot</pkg>
     <pkg>SparseM</pkg>
+    <pkg>spatialprobit</pkg>
     <pkg>spdep</pkg>
     <pkg>sphet</pkg>
+    <pkg>splm</pkg>
     <pkg>strucchange</pkg>
     <pkg>systemfit</pkg>
     <pkg>timeSeries</pkg>
@@ -337,7 +344,7 @@
     <a href="http://www.springer.com/978-0-387-77316-2">Book: Applied Econometrics with R (Kleiber and Zeileis)</a>
     <a href="http://www.worldscibooks.com/economics/6895.html">Book: Hands-On Intermediate Econometrics Using R (Vinod)</a>
     <a href="http://www2.cirano.qc.ca/~bacc/">BACC Software for Bayesian Econometrics (Bayesian Analysis, Computation and Communication)</a>
-    <rforge>splm</rforge>
 </links>
 
 </CRANTaskView>
+

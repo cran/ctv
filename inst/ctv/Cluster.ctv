@@ -3,7 +3,7 @@
 <name>Cluster</name>
 <topic>Cluster Analysis &amp; Finite Mixture Models</topic>
 <maintainer email="Bettina.Gruen@jku.at">Friedrich Leisch and Bettina Gruen</maintainer>
-<version>2011-12-09</version>
+<version>2012-12-22</version>
   
 <info> This CRAN Task View contains a list of packages that can be
 used for finding groups in data and modelling unobserved
@@ -15,11 +15,7 @@ base R and hence are part of every R installation), each package is
 listed only once.
 <p>Most of the packages listed in this CRAN Task View, but not all are
 distributed under the GPL. Please have a look at the DESCRIPTION file
-of each package to check under which license it is distributed. Note
-especially the license of package <pkg>mclust</pkg>, which by its use
-(also through other packages) requires payment of an annual license
-fee and completion of a license agreement except for strict academic
-use.</p>
+of each package to check under which license it is distributed.</p>
 
 <p><strong>Hierarchical Clustering:</strong></p>
 <ul>
@@ -42,8 +38,6 @@ use.</p>
   the classification of ordination scores from isometric feature
   mapping. The classification is performed either as a hierarchical,
   divisive method or as non-hierarchical partitioning.</li>
-  <li>Package <pkg>LLAhclust</pkg> provides likelihood linkage analysis
-  hierarchical clustering.</li>
   <li>The package <pkg>protoclust</pkg> implements a form of
   hierarchical clustering that associates a prototypical element with
   each interior node of the dendrogram.  Using the package's
@@ -90,9 +84,6 @@ use.</p>
   clustering by <code>specc</code>.</li>
   <li>Packages <pkg>kml</pkg> and <pkg>kml3d</pkg> provide k-means
   clustering specifically for longitudinal (joint) data.</li>
-  <li>Package <pkg>optpart</pkg> contains a set of algorithms for
-  creating partitions and coverings of objects largely based on
-  operations on similarity relations (or matrices).</li>
   <li>Package <pkg>pdfCluster</pkg> provides tools to perform cluster
   analysis via kernel density estimation. Clusters are associated to
   the maximally connected components with estimated density above a
@@ -110,45 +101,63 @@ use.</p>
 <p><strong>Model-based Clustering:</strong></p>
 <ul><li>ML estimation:
 <ul>
+  <li>For semi- or partially supervised problems, where for a part of
+  the observations labels are given with certainty or with some
+  probability, package <pkg>bgmm</pkg> provides belief-based and
+  soft-label mixture modeling for mixtures of Gaussians with the EM
+  algorithm.</li> 
+  <li>Package <pkg>HDclassif</pkg> provides function <code>hddc</code>
+  to fit Gaussian mixture model to high-dimensional data where it is
+  assumed that the data lives in a lower dimension than the original
+  space.</li>
+  <li>Package <pkg>teigen</pkg> allows to fit multivariate
+  t-distribution mixture models (with eigen-decomposed covarianc
+  structure) from a clustering or classification point of
+  view. Package <pkg>longclust</pkg> allows to fit these models as
+  well as Gaussian mixture models to longitudinal data.</li>
   <li>Package <pkg>mclust</pkg> fits mixtures of Gaussians using the EM
   algorithm. It allows fine control of volume and shape of
   covariance matrices and agglomerative hierarchical clustering
   based on maximum likelihood. It provides comprehensive strategies
   using hierarchical clustering, EM and the Bayesian Information Criterion
   (BIC) for clustering, density estimation, and discriminant
-  analysis.
-  Please note the license under which this package is
-  distributed. Except for strict academic use, use of
-  <pkg>mclust</pkg> (by itself or through other packages) requires
-  payment of an annual license fee and completion of a license
-  agreement.</li> 
-  <li>Package <pkg>HDclassif</pkg> provides function <code>hddc</code>
-  to fit Gaussian mixture model to high-dimensional data where it is
-  assumed that the data lives in a lower dimension than the original
-  space.</li>
-  <li><pkg>mritc</pkg> provides tools for classification using normal
-  mixture models and (higher resolution) hidden Markov normal mixture
-  models fitted by various methods.</li>
-  <li><pkg>prabclus</pkg> clusters a presence-absence matrix
-  object by calculating an MDS 
-  from the distances, and applying maximum likelihood Gaussian
-  mixtures clustering to the MDS
-  points.</li>
+  analysis.</li>
   <li>Package <pkg>MetabolAnalyze</pkg> fits mixtures of probabilistic
   principal component analysis with the EM algorithm.</li>
+  <li>For grouped conditional data package <pkg>mixdist</pkg> can be
+  used.</li>
   <li>Fitting finite mixtures of uni- and multivariate scale mixtures
   of skew-normal distributions with the EM algorithm is provided by
   package <pkg>mixsmsn</pkg>.</li>
   <li>Package <pkg>movMF</pkg> fits finite mixtures of von
   Mises-Fisher distributions with the EM algorithm.</li>
-  <li>Package <pkg>MFDA</pkg> implements model-based functional data
-  analysis.</li>
-  <li>Package <pkg>GLDEX</pkg> fits mixtures of generalized lambda
-  distributions and for grouped conditional data package
-  <pkg>mixdist</pkg> can be used.</li>
-  <li>Package <pkg>mixRasch</pkg> estimates mixture Rasch models,
-  including the dichotomous Rasch model, the rating scale model, and the
-  partial credit model with joint maximum likelihood estimation.</li>
+  <li><pkg>mritc</pkg> provides tools for classification using normal
+  mixture models and (higher resolution) hidden Markov normal mixture
+  models fitted by various methods.</li>
+  <li>Parsimonious Gaussian mixture models allow to fit mixtures of
+  factor analyzers with a constraints on the components of the factor
+  models. Functionality to fit these models is provided in package
+  <pkg>pgmm</pkg>.
+  </li>
+  <li><pkg>prabclus</pkg> clusters a presence-absence matrix
+  object by calculating an MDS 
+  from the distances, and applying maximum likelihood Gaussian
+  mixtures clustering to the MDS
+  points.</li>
+  <li>Package <pkg>psychomix</pkg> estimates mixtures of the
+  dichotomous Rasch model (via conditional ML) and the Bradley-Terry
+  model. Package <pkg>mixRasch</pkg> estimates mixture Rasch models,
+  including the dichotomous Rasch model, the rating scale model, and
+  the partial credit model with joint maximum likelihood estimation.
+  </li>
+  <li>Package <pkg>pmclust</pkg> allows to use unsupervised
+  model-based clustering for high dimensional (ultra) large data. The
+  package uses <pkg>Rmpi</pkg> to perform a parallel version of the EM
+  algorithm for mixtures of Gaussians.</li>
+  <li>Package <pkg>Rmixmod</pkg> provides tools for fitting mixture
+  models of multivariate Gaussian or multinomial components to a given
+  data set with either a clustering, a density estimation or a
+  discriminant analysis point of view.</li>
 </ul></li>
 <li>Bayesian estimation:
 <ul>
@@ -165,9 +174,6 @@ use.</p>
   JAGS.</li>
   <li>Package <pkg>Bmix</pkg> provides Bayesian Sampling for
   stick-breaking mixtures.</li>
-  <li>Package <pkg>bclust</pkg> allows Bayesian clustering using a
-  spike-and-slab hierarchical model and is suitable for clustering
-  high-dimensional data.</li>
   <li>Package <pkg>dpmixsim</pkg> fits Dirichlet process mixture
   models using conjugate models with normal structure. Package
   <pkg>profdpm</pkg> determines the maximum posterior estimate for
@@ -190,8 +196,6 @@ use.</p>
   <li>Package <pkg>AdMit</pkg> allows to fit an adaptive mixture of Student-t
   distributions to approximate a target density through its kernel
   function.</li>
-  <li>Circular and orthogonal regression clustering using redescending
-  M-estimators is provided by package <pkg>edci</pkg>.</li>
   <li>Robust estimation using Weighted Likelihood can be done with
   package <pkg>wle</pkg>.</li>
   <li>Package <pkg>pendensity</pkg> estimates densities with a penalized
@@ -213,6 +217,10 @@ use.</p>
   (1999) data sharpening method.</li>
   <li>Package <pkg>clue</pkg> implements ensemble methods for both
   hierarchical and partitioning cluster methods.</li>
+  <li>Package <pkg>CoClust</pkg> implements a cluster algorithm that
+  is based on copula functions and therefore allows to group
+  observations according to the multivariate dependence structure of
+  the generating process without any assumptions on the margins.</li>
   <li>Fuzzy clustering and bagged clustering are available in
   package <pkg>e1071</pkg>.</li>
   <li>Package <pkg>compHclust</pkg> provides complimentary
@@ -225,8 +233,8 @@ use.</p>
   hierarchical methods and PAM and builds a tree by
   recursively  partitioning a data set.</li>
   <li>For graphs and networks model-based clustering approaches are
-  implemented in packages <pkg>latentnet</pkg>
-  and <pkg>mixer</pkg>.</li>
+  implemented in package
+  <pkg>mixer</pkg>.</li>
   <li>Package <pkg>nnclust</pkg> allows fast clustering of large data sets
   by constructing a minimum spanning tree for each cluster. For each
   cluster the procedure is stopped when the nearest-neighbour distance
@@ -236,23 +244,21 @@ use.</p>
   to hundreds of thousands.</li>
   <li>Package <pkg>randomLCA</pkg> provides the fitting of latent
   class models which optionally also include a random effect.  Package
-  <pkg>poLCA</pkg> allows for polytomous variable latent class 
-  analysis and regression.</li>
+  <pkg>poLCA</pkg> allows for polytomous variable latent class
+  analysis and regression. <pkg>BayesLCA</pkg> allows to fit Bayesian
+  LCA models employing the EM algorithm, Gibbs sampling or variational
+  Bayes methods.</li>
   <li>Package <pkg>RPMM</pkg> fits recursively partitioned mixture
   models for Beta and Gaussian Mixtures. This is a model-based
   clustering algorithm that returns a hierarchy of classes, similar to
   hierarchical clustering, but also similar to finite mixture
   models.</li>
-  <li>Package <pkg>segclust</pkg> fits a segmentation/clustering
-  model.  A mixture of univariate gaussian distributions is used for
-  the cluster structure and segments are assumed to arise because
-  switching between clusters over time occurs.</li>
   <li>Self-organizing maps are available in package
   <pkg>som</pkg>.</li>
   <li>Several packages provide cluster algorithms which have been
   developped for bioinformatics applications. These packages include
-  <pkg>FunCluster</pkg> for profiling microarray expression data,
-  <pkg>MMG</pkg> for mixture models on graphcs, and <pkg>ORIClust</pkg>
+  <pkg>FunCluster</pkg> for profiling microarray expression data
+  and <pkg>ORIClust</pkg>
   for order-restricted information-based clustering.</li>
 </ul>
   
@@ -277,11 +283,6 @@ use.</p>
   <li>Package <pkg>lcmm</pkg> fits a latent class linear mixed model
   which is also known as growth mixture model or heterogeneous linear
   mixed model using a maximum likelihood method.</li>
-  <li><pkg>moc</pkg> fits mixture models to multivariate mixed data
-  using a Newton-type algorithm. The component specific distribution
-  may have one, two or three parameters. Covariates and concomitant
-  variables can be specified as well as constraints for the
-  parameters.</li>
   <li><pkg>mixtools</pkg> provides fitting with the EM algorithm for
   parametric and non-parametric (multivariate) mixtures. Parametric
   mixtures include mixtures of multinomials, multivariate normals,
@@ -300,7 +301,7 @@ use.</p>
 <ul>
   <li>Mixtures of univariate normal distributions can be printed
   and plotted using package <pkg>nor1mix</pkg>.</li>
-  <li>Packages <pkg>gcExplorer</pkg> and <pkg>clusterfly</pkg> allow
+  <li>Package <pkg>gcExplorer</pkg> allows
   to visualise the results of clustering algorithms.</li>
   <li>Package <pkg>clusterGeneration</pkg> contains functions for
   generating random clusters and random covariance/correlation
@@ -317,10 +318,6 @@ use.</p>
   use for most of the outputs produced by functions from package
   <pkg>cluster</pkg> and <pkg>clValid</pkg> calculates several
   stability measures.</li>
-  <li>Package <pkg>clustTool</pkg> provides a GUI for clustering data
-  with spatial information.</li>
-  <li>Package <pkg>clustvarsel</pkg> provides variable selection for
-  model-based clustering.</li>
   <li>Functionality to compare the similarity between two cluster
   solutions is provided by <code>cluster.stats()</code> in package
   <pkg>fpc</pkg>.</li>
@@ -349,11 +346,12 @@ use.</p>
 <pkg>amap</pkg>
 <pkg>apcluster</pkg>
 <pkg>bayesclust</pkg>
+<pkg>BayesLCA</pkg>
 <pkg>bayesm</pkg>
 <pkg>bayesmix</pkg>
-<pkg>bclust</pkg>
-<pkg>Bmix</pkg>
+<pkg>bgmm</pkg>
 <pkg>biclust</pkg>
+<pkg>Bmix</pkg>
 <pkg>cba</pkg>
 <pkg>cclust</pkg>
 <pkg>CHsharp</pkg>
@@ -361,21 +359,18 @@ use.</p>
 <pkg>clues</pkg>
 <pkg priority="core">cluster</pkg>
 <pkg>clusterCons</pkg>
-<pkg>clusterfly</pkg>
 <pkg>clusterGeneration</pkg>
 <pkg>clusterRepro</pkg>
 <pkg>clusterSim</pkg>
-<pkg>clustTool</pkg>
-<pkg>clustvarsel</pkg>
 <pkg>clv</pkg>
 <pkg>clValid</pkg>
+<pkg>CoClust</pkg>
 <pkg>compHclust</pkg>
 <pkg>depmix</pkg>
 <pkg>depmixS4</pkg>
 <pkg>dpmixsim</pkg>
 <pkg>dynamicTreeCut</pkg>
 <pkg>e1071</pkg>
-<pkg>edci</pkg>
 <pkg>FactoClass</pkg>
 <pkg>flashClust</pkg>
 <pkg>fastcluster</pkg>
@@ -385,7 +380,6 @@ use.</p>
 <pkg>FunCluster</pkg>
 <pkg>gamlss.mx</pkg>
 <pkg>gcExplorer</pkg>
-<pkg>GLDEX</pkg>
 <pkg>GSM</pkg>
 <pkg>HDclassif</pkg>
 <pkg>hybridHclust</pkg>
@@ -394,14 +388,12 @@ use.</p>
 <pkg>kernlab</pkg>
 <pkg>kml</pkg>
 <pkg>kml3d</pkg>
-<pkg>latentnet</pkg>
 <pkg>lcmm</pkg>
-<pkg>LLAhclust</pkg>
+<pkg>longclust</pkg>
 <pkg>mcclust</pkg>
-<pkg>mclust</pkg>
+<pkg priority="core">mclust</pkg>
 <pkg>MetabolAnalyze</pkg>
 <pkg>mixsmsn</pkg>
-<pkg>MFDA</pkg>
 <pkg>mixAK</pkg>
 <pkg>mixdist</pkg>
 <pkg>mixer</pkg>
@@ -410,32 +402,33 @@ use.</p>
 <pkg>mixreg</pkg>
 <pkg>MixSim</pkg>
 <pkg>mixtools</pkg>
-<pkg>MMG</pkg>
-<pkg>moc</pkg>
 <pkg>MOCCA</pkg>
 <pkg>movMF</pkg>
 <pkg>mritc</pkg>
 <pkg>nnclust</pkg>
 <pkg>nor1mix</pkg>
-<pkg>optpart</pkg>
 <pkg>ORIClust</pkg>
 <pkg>pdfCluster</pkg>
 <pkg>pendensity</pkg>
+<pkg>pgmm</pkg>
+<pkg>pmclust</pkg>
 <pkg>poLCA</pkg>
 <pkg>prabclus</pkg>
 <pkg>profdpm</pkg>
 <pkg>protoclust</pkg>
+<pkg>psychomix</pkg>
 <pkg>pvclust</pkg>
 <pkg>randomLCA</pkg>
 <pkg>rjags</pkg>
+<pkg priority="core">Rmixmod</pkg>
 <pkg>RPMM</pkg>
-<pkg>segclust</pkg>
 <pkg>SDisc</pkg>
 <pkg>sigclust</pkg>
 <pkg>skmeans</pkg>
 <pkg>som</pkg>
 <pkg>sparcl</pkg>
 <pkg>tclust</pkg>
+<pkg>teigen</pkg>
 <pkg>trimcluster</pkg>
 <pkg>wle</pkg>
 </packagelist>
