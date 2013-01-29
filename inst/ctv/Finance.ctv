@@ -4,7 +4,7 @@
   <name>Finance</name>
   <topic>Empirical Finance</topic>
   <maintainer email="Dirk.Eddelbuettel@R-project.org">Dirk Eddelbuettel</maintainer>
-  <version>2013-01-09</version>
+  <version>2013-01-29</version>
   
   <info>
     <p>
@@ -232,7 +232,7 @@
     <ul>
       <li>Several packages provide functionality for 
           Extreme Value Theory models: <pkg>evd</pkg>, <pkg>evdbayes</pkg>, 
-          <pkg>evir</pkg>, <pkg>extRremes</pkg>, <pkg>ismev</pkg>, 
+          <pkg>evir</pkg>, <pkg>extRemes</pkg>, <pkg>ismev</pkg>, 
           <pkg>POT</pkg>.
       </li>
       <li>
@@ -266,6 +266,9 @@
       </li>
       <li>
 	  The <pkg>frmqa</pkg> package aims to collect functions for Financial Risk Management and Quantitative Analysis.
+      </li>
+      <li>
+	  The <pkg>ESG</pkg> package can be used to model for asset projection, a scenario-based simulation approach.
       </li>
     </ul>
 
@@ -363,6 +366,7 @@
     <pkg>dse</pkg>
     <pkg>dyn</pkg>
     <pkg>dynlm</pkg>
+    <pkg>ESG</pkg>
     <pkg>evd</pkg>
     <pkg>evdbayes</pkg>
     <pkg>evir</pkg>
@@ -380,6 +384,7 @@
     <pkg priority="core">fGarch</pkg>
     <pkg priority="core">fImport</pkg>
     <pkg>FinAsym</pkg>
+    <pkg>FinTS</pkg>
     <pkg priority="core">fMultivar</pkg>
     <pkg priority="core">fNonlinear</pkg>
     <pkg priority="core">fOptions</pkg>
@@ -403,6 +408,7 @@
     <pkg>maRketSim</pkg>
     <pkg>MSBVAR</pkg>
     <pkg>mvtnorm</pkg>
+    <pkg>nlme</pkg>
     <pkg>NMOF</pkg>
     <pkg>opefimor</pkg>
     <pkg>pa</pkg>

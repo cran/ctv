@@ -2,7 +2,7 @@
  <name>Bayesian</name>  
  <topic>Bayesian Inference</topic>
  <maintainer email="jongheepark@snu.ac.kr">Jong Hee Park</maintainer>
- <version>2012-12-22</version>
+ <version>2013-01-29</version>
 
  <info>
    <p>Applied researchers interested in Bayesian statistics are increasingly 
@@ -245,6 +245,9 @@
 	item-response theory models using MCMC methods 
 	and to compute highest density regions for the Beta distribution and the inverse gamma distribution.</li>
 
+	<li>The <pkg>PAWL</pkg> package implements parallel adaptive
+	Metropolis-Hastings and sequential Monte Carlo samplers for sampling from multimodal target distributions.</li>
+
 	<li><pkg>rcppbugs</pkg> is a package that attempts to provide an R alternative to using OpenBUGS/WinBUGS/JAGS 
 	using random walk Metropolis sampling.</li>
 
@@ -456,6 +459,7 @@
     	<pkg priority="core">DPpackage</pkg>
     	<pkg>EbayesThresh</pkg>
 	<pkg>ebdbNet</pkg>
+	<pkg>eco</pkg>
     	<pkg>ensembleBMA</pkg>
     	<pkg>evdbayes</pkg>
     	<pkg>exactLoglinTest</pkg>
@@ -488,6 +492,7 @@
 	<pkg>predmixcor</pkg>
 	<pkg>profdpm</pkg>
     	<pkg>pscl</pkg>
+	<pkg>PAWL</pkg>
     	<pkg>R2jags</pkg>
     	<pkg>R2WinBUGS</pkg>
     	<pkg>ramps</pkg>
@@ -522,6 +527,7 @@
     <a href="http://www.mrc-bsu.cam.ac.uk/bugs/" target="_top">The BUGS Project (WinBUGS)</a>
     <a href="http://mathstat.helsinki.fi/openbugs/" target="_top">OpenBUGS</a>
     <a href="http://www.stats.ox.ac.uk/pub/RWin/src/contrib/" target="_top">BRugs in CRANextras</a>
+    <a href="http://www.bayesian-inference.com/software" target="_top">LaplacesDemonk</a>
     <view>gR</view>
     <bioc>vbmp</bioc>
     <a href="http://www.public-health.uiowa.edu/boa/" target="_top">BOA</a>

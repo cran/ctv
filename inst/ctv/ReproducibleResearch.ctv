@@ -3,7 +3,7 @@
   <name>ReproducibleResearch</name>
   <topic>Reproducible Research</topic>
   <maintainer email="max.kuhn@pfizer.com">Max Kuhn</maintainer>
-  <version>2012-07-11</version>
+  <version>2013-01-29</version>
   
   <info>
     <p>
@@ -30,9 +30,7 @@
        being converted to PDF via the <pkg>animation</pkg>
        package. The
        <code>pictex</code> function in the base grDevices package is a
-       PicTeX graphics driver. The <pkg>makesweave</pkg> package for
-       Linux streamlines the generation of Sweave files using
-       <tt>make</tt>.
+       PicTeX graphics driver.
       </li>
       <li><i>HTML Markup</i>: 
        The <pkg>R2HTML</pkg> package
@@ -72,9 +70,6 @@
        text formats using the <pkg>ascii</pkg> package.
       </li>
       <li><i>Syntax Highlighting</i>: 
-       The <pkg>highlight</pkg> package can render R 
-       code with more control over the results (e.g., syntax coloring, etc) in LaTeX
-       and HTML.
        The <pkg>SweaveListingUtils</pkg> package can also provide enhanced control over how
        R code chunks and their output are rendered in LaTeX.
       </li>
@@ -136,9 +131,9 @@
     <pkg>ascii</pkg>
     <pkg>apsrtable</pkg>
     <pkg>brew</pkg>
+    <pkg>cacher</pkg>
     <pkg>cacheSweave</pkg>
     <pkg>exams</pkg>
-    <pkg>highlight</pkg>
     <pkg>hwriter</pkg>
     <pkg priority="core">Hmisc</pkg>
     <pkg>knitr</pkg>

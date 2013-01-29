@@ -3,7 +3,7 @@
 <name>ChemPhys</name>
 <topic>Chemometrics and Computational Physics</topic>
 <maintainer email="mullenkate@gmail.com">Katharine Mullen</maintainer>
-<version>2012-12-30</version>
+<version>2013-01-29</version>
 
 <info>
 
@@ -493,10 +493,12 @@ photovoltaics. </li>
   <pkg>rpubchem</pkg>
   <pkg>ringscale</pkg>
   <pkg>sapa</pkg>
+  <pkg>simecol</pkg>
   <pkg>solaR</pkg>		
   <pkg>som</pkg>
   <pkg>spls</pkg>
   <pkg>stellaR</pkg>
+  <pkg>stepPlr</pkg>
   <pkg>subselect</pkg>
   <pkg>TIMP</pkg>
   <pkg>titan</pkg>

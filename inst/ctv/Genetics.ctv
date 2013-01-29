@@ -3,7 +3,7 @@
   <name>Genetics</name>
   <topic>Statistical Genetics</topic>
   <maintainer email="g.montana@imperial.ac.uk">Giovanni Montana</maintainer>
-  <version>2012-11-01</version>
+  <version>2013-01-29</version>
   <info>
       <p>
         Great advances have been made in the field of genetic analysis over the last years. The availability of millions
@@ -62,7 +62,7 @@ The <pkg>hierfstat</pkg> package allows the estimation of hierarchical F-statist
 <pkg>stepwise</pkg>
           implements a method for stepwise detection of recombination breakpoints in
           sequence alignments.
-<pkg>phangor</pkg>
+<pkg>phangorn</pkg>
           estimates phylogenetic trees and networks using maximum likelihood, maximum parsimony, distance
           methods and Hadamard conjugation.
         </li>
@@ -77,9 +77,7 @@ The <pkg>hierfstat</pkg> package allows the estimation of hierarchical F-statist
 <pkg>ibdreg</pkg>
           uses Identity By Descent (IBD) Non-Parametric Linkage (NPL) statistics for related pairs calculated
           externally to test for genetic linkage with covariates by regression modelling. 
-<pkg>multic</pkg>
-          also utilises IBD sharing statistics calculated externally for detecting quantitative trait loci
-          under polygenic and major gene models via variance components. Whilst not 
+Whilst not 
           official R packages one software suite in particular is worthy of mention.
 <a href="http://pngu.mgh.harvard.edu/~purcell/plink/">
   PLINK
@@ -162,7 +160,7 @@ The <pkg>hierfstat</pkg> package allows the estimation of hierarchical F-statist
           With recent technical advances in high-throughput genotyping technologies the possibility of performing 
           Genome-Wide Association Studies is now a feasible strategy.  A number of packages are available to facilitate
           the analysis of these large data sets.
-<pkg>GenAbel</pkg> 
+<pkg>GenABEL</pkg> 
           is designed for the efficent storage and handling of GWAS data with fast analysis tools for quality control,
           association with binary and quantitative traits, as well as tools for visualizing results.
 <pkg>pbatR</pkg>
@@ -174,7 +172,7 @@ The <pkg>hierfstat</pkg> package allows the estimation of hierarchical F-statist
           (inlcuding patterns of missing data) and tests for Hardy-Weinberg equilibrium.  Single-point analyses with binary 
           or quantitative traits are implemented via generalized linear models, and multiple SNPs can be anlaysed for 
           haplotypic associations or epistasis. -->
-<pkg>snpMatrix</pkg>
+<bioc>snpMatrix</bioc>
 	  Implements classes and methods for large-scale SNP association studies.
         </li>        
         <li>
@@ -224,16 +222,17 @@ The <pkg>hierfstat</pkg> package allows the estimation of hierarchical F-statist
     <pkg>HardyWeinberg</pkg>
     <pkg priority="core">haplo.stats</pkg>
     <pkg>hapsim</pkg>
+    <pkg>hierfstat</pkg>
     <pkg>hwde</pkg>
     <pkg>ibdreg</pkg>
     <pkg>ldDesign</pkg>
     <pkg>LDheatmap</pkg>
     <pkg>luca</pkg>
-    <pkg>multic</pkg>
     <pkg>ouch</pkg>
     <pkg>pbatR</pkg>
     <pkg>phangorn</pkg>
     <pkg>qtl</pkg>
+    <pkg>qtlbim</pkg>
     <pkg>seqinr</pkg>
     <pkg>SNPmaxsel</pkg>
     <pkg>snp.plotter</pkg>
@@ -253,6 +252,7 @@ The <pkg>hierfstat</pkg> package allows the estimation of hierarchical F-statist
     </a> 
     <bioc>multtest</bioc>
     <bioc>qvalue</bioc>
+    <bioc>snpMatrix</bioc>
     <a href="http://mayoresearch.mayo.edu/mayo/research/biostat/splusfunctions.cfm">
      R packages from Divison of Biostatistics, Mayo Clinic
     </a> 
