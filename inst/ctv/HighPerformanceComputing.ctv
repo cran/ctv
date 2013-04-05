@@ -4,7 +4,7 @@
    <name>HighPerformanceComputing</name>
    <topic>High-Performance and Parallel Computing with R</topic>
    <maintainer email="Dirk.Eddelbuettel@R-project.org">Dirk Eddelbuettel</maintainer>
-   <version>2013-01-29</version>
+   <version>2013-03-23</version>
 
   <info>
     <p>
@@ -29,7 +29,7 @@
       Suggestions and corrections by Achim Zeileis, Markus
       Schmidberger, Martin Morgan, Max Kuhn, Tomas Radivoyevitch,
       Jochen Knaus, Tobias Verbeke, Hao Yu, David Rosenberg, Marco
-      Enea, Ivo Welch, Jay Emerson, Wei-Chen Chen, Bill Cleveland 
+      Enea, Ivo Welch, Jay Emerson, Wei-Chen Chen, Bill Cleveland, Ross Boylan 
       (as well as others I may have forgotten to add here) are gratefully acknowledged. 
     </p>
     <p>
@@ -38,9 +38,8 @@
       (slightly revised) copies of packages <pkg>multicore</pkg> and 
       <pkg>snow</pkg> (but excluding MPI, PVM and NWS clusters).  Code written to
       use the higher-level API functions in those packages should work
-      unchanged (apart from changing any references to their namespaces
-      to a reference to parallel, and links explicitly to multicore or
-      snow on help pages).
+      unchanged (apart from changing any references in namespaces and help files 
+      from snow or multicore to parallel). 
       <br/>
 
       The <strong>parallel</strong> package also contains support for multiple 
@@ -117,13 +116,9 @@
 	above), <pkg>doMPI</pkg> (using <pkg>Rmpi</pkg>) packages and
 	<pkg>doRedis</pkg> (using <pkg>rredis</pkg>) packages.
       </li>
-      <li>The <pkg>Rdsm</pkg> package provides a threads-like parallel
-	computing environment, both on multicore machine and across the network
-	by providing facilities inspired from distributed shared memory
-	programming.
-      </li>
-      <li>The <pkg>harvestr</pkg> package provides helper functions
-        for (reproducible) simulations.
+      <li>The <pkg>bigrf</pkg> package provides a Random Forests
+        implementation with support for parellel execution and large
+        memory. 
       </li>
     </ul>
 
@@ -162,6 +157,15 @@
       </li>
       <li>
 	The <pkg>sprint</pkg> adds another parallel framework to R.
+      </li>
+      <li>The <pkg>Rdsm</pkg> package provides a threads-like parallel
+	computing environment, both on multicore machine and across the network
+	by providing facilities inspired from distributed shared memory
+	programming.
+      </li>
+      <li>The <pkg>mchof</pkg> package provides convenient, consistent
+        parallel implementations of several commonly used higher-order
+        functions found in base R such as Filter or Reduce.
       </li>
     </ul>
 
@@ -244,10 +248,6 @@
 	currently limited to LAM/MPI. 
       </li>
       <li>
-        The <pkg>Rsge</pkg> package by Bode offers an interface to the Sun Grid
-        Engine batch-queuing system.
-      </li>
-      <li>
         The <pkg>batch</pkg> package by Hoffmann can launch parallel computing
         requests onto a cluster and gather results.
       </li>
@@ -308,6 +308,8 @@
 	the <pkg>STAR</pkg> package by Pouzat for spike train analysis,
 	the <pkg>bnlearn</pkg> package by Scutari for bayesian network
 	structure learning,
+	the <pkg>latentnet</pkg> package by Krivitsky and Handcock for latent
+	position and cluster models,
 	the <pkg>lga</pkg> package by Harrington for linear grouping analysis,
 	the <pkg>peperr</pkg> package by Porzelius and Binder for parallised
 	estimation of prediction error,
@@ -343,10 +345,19 @@
 	OpenBUGS; parallel computing is supported via the <pkg>snow</pkg>
 	package.
       </li>
+      <li>
+	The <pkg>mapReduce</pkg> package by Brown provides a simple framework
+	for parallel computations following the Google mapReduce approach. It
+	provides a pure R implementation,  a syntax following the mapReduce
+	paper and a flexible and parallelizable back end. 
+      </li>
       <li>The <pkg>pmclust</pkg> package utilizes unsupervised model-based
         clustering for high dimensional (ultra) large data. The package uses
 	<pkg>Rmpi</pkg> to perform a parallel version of the EM algorithm for
 	finite mixture Gaussian models.
+      </li>
+      <li>The <pkg>harvestr</pkg> package provides helper functions
+        for (reproducible) simulations.
       </li>
     </ul>
 
@@ -442,6 +453,10 @@
 	to support large-than-memory datasets for least-angle regression,
 	lasso and stepwise regression.
       </li>
+      <li>The <pkg>bigrf</pkg> package provides a Random Forests
+        implementation with support for parellel execution and large
+        memory. 
+      </li>
     </ul>
 
     <p>
@@ -493,6 +508,7 @@
     <pkg>biglars</pkg>
     <pkg>biglm</pkg>
     <pkg>bigmemory</pkg>
+    <pkg>bigrf</pkg>
     <pkg>biopara</pkg>
     <pkg>bnlearn</pkg>
     <pkg>caret</pkg>
@@ -517,9 +533,12 @@
     <pkg>harvestr</pkg>
     <pkg>HiPLARM</pkg>
     <pkg>inline</pkg>
+    <pkg>latentnet</pkg>
     <pkg>lga</pkg>
     <pkg>magma</pkg>
+    <pkg>mapReduce</pkg>
     <pkg>Matching</pkg>
+    <pkg>mchof</pkg>
     <pkg>multicore</pkg>
     <pkg>nws</pkg>
     <pkg>orloca</pkg>
@@ -544,7 +563,6 @@
     <pkg priority="core">Rmpi</pkg>
     <pkg>rpud</pkg>
     <pkg>rredis</pkg>
-    <pkg>Rsge</pkg>
     <pkg>rsprng</pkg>
     <pkg>scaleboot</pkg>
     <pkg priority="core">snow</pkg>

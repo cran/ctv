@@ -4,7 +4,7 @@
 <name>Distributions</name> 
 <topic>Probability Distributions</topic> 
 <maintainer email="Christophe.Dutang@ensimag.fr">Christophe Dutang</maintainer> 
-<version>2012-12-04</version> 
+<version>2013-03-23</version> 
 
 <info> 
 For most of the classical distributions, base R provides
@@ -19,10 +19,11 @@ Ultimate bibles on probability distributions are
  <LI> different volumes of N. L. Johnson, S. Kotz and N. Balakrishnan books, e.g. Continuous Univariate Distributions, Vol. 1,</LI> 
  <LI> Thesaurus of univariate discrete probability distributions by G. Wimmer and G. Altmann.</LI>
  <LI> Statistical Distributions by M. Evans, N. Hastings, B. Peacock. </LI>
+ <LI> Distributional Analysis with L-moment Statistics using the R Environment for Statistical Computing, Asquith (2011).</LI>
 </UL>
 
 The maintainer greatfully acknowledged Achim Zeileis, David Luethi, Tobias Verbeke, Robin
-Hankin, Mathias Kohl, G. Jay Kerns, Kjetil Halvorsen for their useful comments/suggestions.
+Hankin, Mathias Kohl, G. Jay Kerns, Kjetil Halvorsen, William Asquith for their useful comments/suggestions.
 
 If you think information is not accurate
 or not complete, please let me know.
@@ -185,6 +186,9 @@ or not complete, please let me know.
 	 <pkg>bayesm</pkg>. The generalized and the hyperdirichlet distributions are provided
 	 by <pkg>hyperdirichlet</pkg>.</LI>   
 
+	 <LI><I>Eta-mu distribution</I>: Provided in <pkg>lmomco</pkg>.</LI>     
+	 
+
      <LI><I>Exponential distribution and its extensions</I>: Base R provides the d, p, q, r functions
      for this distribution (see above). <pkg>actuar</pkg> provides additional functions
      such as the moment generating function, moments and limited expected values. It also has
@@ -255,8 +259,8 @@ or not complete, please let me know.
 	 The package
 	 <pkg>loglognorm</pkg> implements d, p, q, r functions for the double lognormal distribution,
 	 as well as the raw moment, the expected value and the variance functions.
-	 Ex-Gaussian distribution is implemented in <pkg>gamlss.dist</pkg>.
-	 The Exponentially modified Gaussian is available in <pkg>emg</pkg>.
+	 The Exponentially modified Gaussian is available in <pkg>emg</pkg>, <pkg>gamlss.dist</pkg> and
+	 <pkg>retimes</pkg>.
      Finally, the multivariate Gaussian distribution
      is provided by the packages <pkg>mvtnorm</pkg> and <pkg>mnormt</pkg>. 
      <pkg>tmvtnorm</pkg> implements the truncated
@@ -306,13 +310,16 @@ or not complete, please let me know.
 	 <LI><I>J-shaped distribution</I>: Provided in <pkg>ActuDistns</pkg>.</LI>     
 	 
 	 <LI><I>Johnson distribution</I>: Provided in <pkg>SuppDists</pkg>.</LI>     
+
+	 <LI><I>Kappa distribution</I>: A 4-parameter Kappa distribution is provided in
+	<pkg>lmomco</pkg> and <pkg>FAdist</pkg>. </LI>  
+	
+	 <LI><I>Kappa-mu distribution</I>: Provided in <pkg>lmomco</pkg>.</LI>     
 	 
      <LI><I>Kendall's tau distribution</I>: Provided in <pkg>SuppDists</pkg>.</LI>	 
 
      <LI><I>Kruskal Wallis distribution</I>: Provided in <pkg>SuppDists</pkg>.</LI>     
-     
-	 <LI><I>Kappa distribution</I>: Provided in <pkg>lmomco</pkg> and <pkg>FAdist</pkg>. A
-	 four-parameter Kappa distribution is also provided by <pkg>FAdist</pkg>.</LI>  
+     	
 	 
      <LI><I>Kumaraswamy distribution</I>: Provided in packages <pkg>VGAM</pkg>, <pkg>ActuDistns</pkg> 
 	 and <pkg>lmomco</pkg>.</LI>
@@ -461,7 +468,7 @@ or not complete, please let me know.
 	 the method of Emrich and Piedmonte.
      </LI> 
 
-     <LI><I>Wakeby distribution</I>: Provided in <pkg>lmomco</pkg>.
+     <LI><I>Wakeby distribution</I>: A 5-parameter Wakeby is provided in <pkg>lmomco</pkg>.
      </LI>
 
      <LI><I>Weibull distribution and its extensions</I>: Base R provides
@@ -527,14 +534,17 @@ or not complete, please let me know.
 	  <code>sd()</code>, <code>var()</code> functions to compute
 	  the mean, standard deviation and variance, respectively.
 	  The skewness is available in <pkg>agricolae</pkg>, <pkg>e1071</pkg>,
-	  <pkg>HyperbolicDist</pkg>, <pkg>modeest</pkg>,
+	  <pkg>GLDEX</pkg>, <pkg>HyperbolicDist</pkg>, <pkg>modeest</pkg>,
       <pkg>moments</pkg>, <pkg>npde</pkg>, <pkg>TSA</pkg>, <pkg>s20x</pkg> packages.
 	  The kurtosis is available in <pkg>agricolae</pkg>, <pkg>e1071</pkg>,
-	  <pkg>HyperbolicDist</pkg>, 
+	  <pkg>GLDEX</pkg>, <pkg>HyperbolicDist</pkg>, 
 	  <pkg>moments</pkg>, <pkg>npde</pkg>, <pkg>TSA</pkg> packages.
 	  The raw or centered moments are provided in <pkg>e1071</pkg>,
-      <pkg>moments</pkg>, while L-moments and trimmed L-moments 
-	  are available in <pkg>lmomco</pkg> and <pkg>Lmoments</pkg>. 
+      <pkg>moments</pkg>. 
+	  L-moments are available in <pkg>lmom</pkg>, <pkg>lmomco</pkg>, <pkg>Lmoments</pkg>, <pkg>GLDEX</pkg>,
+	  trimmed L-moments are available in <pkg>lmomco</pkg>, and <pkg>Lmoments</pkg>, 
+	  right-censored L-moments are available in <pkg>lmomco</pkg>,
+	  and cumulants in <pkg>GLDEX</pkg>.
 	  Finally, the mode is provided in <pkg>modeest</pkg>.
 	  </LI>
    
@@ -544,14 +554,17 @@ or not complete, please let me know.
 	  <pkg>HyperbolicDist</pkg> provides the mean, variance, skewness, kurtosis, mode,
 	  raw and centered moments for the hyperbolic, the generalized hyperbolic and the
 	  generalized inverse Gaussian distributions.
-	  <pkg>lmomco</pkg> provides L-moments (L) and trimmed L-moments (TL) for the following
-	  distributions: Asymmetric Exponential Power (L), Cauchy (TL), 
+	  <pkg>lmomco</pkg> provides L-moments (L), trimmed L-moments (TL), 
+	  and right-censored [RC] for the following distributions: 
+	  Asymmetric Exponential Power (L), Cauchy (TL), Eta-Mu (L), 
 	  Exponential (L), Gamma (L), Generalized Extreme Value (L), 
-	  Generalized Lambda (L, TL), Generalized Logistic (L), Generalized Normal (L), 
-	  Generalized Pareto (L[RC], TL), Gumbel (L), Kappa (L), Kumaraswamy (L), 
-	  Laplace (L), Normal (L), 3-parameter log-Normal (L), Pearson Type III (L), 
-	  Rayleigh (L), Reverse Gumbel (L[RC]), Rice/Rician (L), Truncated Exponential (L), 
-	  Wakeby (L) and Weibull (L).
+	  Generalized Lambda (L and TL), Generalized Logistic (L), 
+	  Generalized Normal (L), Generalized Pareto (L[RC] and TL), 
+	  Gumbel (L), Kappa (L), Kappa-Mu (L), Kumaraswamy (L), 
+	  Laplace (L), Normal (L), 3-parameter log-Normal (L), 
+	  Pearson Type III (L), Rayleigh (L), Reverse Gumbel (L[RC]), 
+	  Rice/Rician (L), Truncated Exponential (L), Wakeby (L), and Weibull (L).  
+	  Multivariate L-moments (L-comoments) are provided in <pkg>lmomco</pkg>.   
       </LI>
 
    </UL>
@@ -591,8 +604,11 @@ or not complete, please let me know.
 
       <UL>
       <LI><I>Unified approaches</I>:
-      The packages <pkg>fCopulae</pkg>, <pkg>copula</pkg>
-      provide a lot of general functionality for copulas.</LI>
+	  The packages <pkg>fCopulae</pkg>, <pkg>copula</pkg>, and <pkg>copBasic</pkg> provide a lot of 
+	  general functionality for copulas. Although lacking support for 
+	  many existing copulas themselves, <pkg>copBasic</pkg> is primarily oriented 
+	  around utility functions for the general mathematics of copulas 
+	  as described in the well known introduction to copulas by Nelson.</LI>
 
       <LI><I>Archimedean copulas</I>: The Frank bivariate distribution 
       is available in <pkg>VGAM</pkg>. <pkg>fCopulae</pkg> implements the 22 Archimedean 
@@ -601,8 +617,9 @@ or not complete, please let me know.
       standalone package for the Gumbel copula and <pkg>VGAM</pkg> 
       provides the Ali-Mikhail-Haq bivariate distribution. <pkg>nacopula</pkg> provides
 	   Ali-Mikhail-Haq, Clayton, Frank, Gumbel and Joe copulas.
-	  Generalized Archimedean copulas
-      are implemented in the <pkg>fgac</pkg> package.</LI>
+	   <pkg>CDVine</pkg> and <pkg>VineCopula</pkg> provide
+	   Clayton, Gumbel, Frank, Joe, BB1, BB6, BB7 and BB8 copulas.
+	  Generalized Archimedean copulas are implemented in the <pkg>fgac</pkg> package.</LI>
 	  
 	  <LI><I>Blomqvist copula</I>: provided in <pkg>copBasic</pkg>.</LI>	  
 
@@ -616,8 +633,8 @@ or not complete, please let me know.
 	  <LI><I>Empirical copula</I>: provided in <pkg>copBasic</pkg>.</LI>
       
       <LI><I>Elliptical copulas</I>: Gaussian, Student and Cauchy copulas are implemented in
-      <pkg>fCopulae</pkg> for the bivariate cases. <pkg>copula</pkg> provides the Gaussian 
-      and the Student copula.</LI>
+      <pkg>fCopulae</pkg> for the bivariate cases. <pkg>copula</pkg>, <pkg>CDVine</pkg>, 
+	  <pkg>VineCopula</pkg> provide the Gaussian and the Student copula.</LI>
       
       <LI><I>Extreme value copulas</I>: <pkg>fCopulae</pkg> provides the following copulas
       Gumbel, Galambos, Husler-Reiss, Tawn, or BB5. <pkg>copula</pkg> also implements
@@ -633,7 +650,10 @@ or not complete, please let me know.
       
       <LI><I>Plackett</I>: Provided in <pkg>VGAM</pkg>, <pkg>copBasic</pkg> 
 	  and <pkg>copula</pkg>.</LI>
-                   
+      
+	  <LI><I>Vine copulas</I>: Packages <pkg>CDVine</pkg>, <pkg>VineCopula</pkg> 
+	  provide functions for C- and D-vine copulas and for general 
+	  R-vine copulas, respectively.</LI>
       </UL>
 
 <p><strong>Random Number Generators:</strong></p>
@@ -779,6 +799,7 @@ or not complete, please let me know.
   <pkg>bayesm</pkg>
   <pkg>benchden</pkg>
   <pkg>BiasedUrn</pkg>
+  <pkg>CDVine</pkg>
   <pkg>compoisson</pkg>
   <pkg>CompQuadForm</pkg>  
   <pkg>copBasic</pkg>
@@ -813,6 +834,7 @@ or not complete, please let me know.
   <pkg>geoR</pkg>
   <pkg>GeneralizedHyperbolic</pkg>
   <pkg>gld</pkg>
+  <pkg>GLDEX</pkg>
   <pkg>glogis</pkg>  
   <pkg>ghyp</pkg>
   <pkg>GSM</pkg>
@@ -824,6 +846,7 @@ or not complete, please let me know.
   <pkg>LearnBayes</pkg>
   <pkg>lhs</pkg>
   <pkg>loglognorm</pkg>
+  <pkg>lmom</pkg>
   <pkg priority="core">lmomco</pkg>
   <pkg>Lmoments</pkg>
   <pkg>MASS</pkg>
@@ -853,6 +876,7 @@ or not complete, please let me know.
   <pkg>randtoolbox</pkg>
   <pkg>RDieHarder</pkg>
   <pkg priority="core">reliaR</pkg> 
+  <pkg>retimes</pkg>
   <pkg>RMTstat</pkg>
   <pkg>rngwell19937</pkg>
   <pkg>rsprng</pkg>
@@ -876,6 +900,7 @@ or not complete, please let me know.
   <pkg>tweedie</pkg>
   <pkg>VarianceGamma</pkg>
   <pkg priority="core">VGAM</pkg>
+  <pkg>VineCopula</pkg> 
   <pkg>zipfR</pkg> 
 </packagelist> 
 
@@ -887,6 +912,7 @@ or not complete, please let me know.
   <A HREF="http://www.jstatsoft.org/v16/c02/">Journal of Statistical Software: R programs for truncated distributions</A> 
   <A HREF="http://distr.r-forge.r-project.org/">The "distrXXX"-family of R-packages</A>
   <A HREF="http://wiki.r-project.org/rwiki/doku.php?id=tips:stats-distri">The R wiki on distributions</A>
+  <A HREF="http://www-m4.ma.tum.de/forschung/vine-copula-models/#c662">Overview of vine copula models</A>
 </links> 
 
 </CRANTaskView>

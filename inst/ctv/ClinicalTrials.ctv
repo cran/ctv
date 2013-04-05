@@ -3,7 +3,7 @@
 <name>ClinicalTrials</name>
 <topic>Clinical Trial Design, Monitoring, and Analysis</topic>
 <maintainer email="Ed.Zhang.jr@gmail.com">Ed Zhang and Harry G. Zhang</maintainer>
-<version>2013-01-29</version>
+<version>2013-03-23</version>
 
 <info>
 
@@ -70,7 +70,6 @@ Armitage-McPherson and Rowe Algorithm using the method described in Schoenfeld
 <p><strong>Design and Analysis</strong></p>
 
 <ul>
-<li>Package <pkg>AGSDest</pkg> This package provides tools and functions for parameter estimation in adaptive group sequential trials.</li>
 <li>Package <pkg>clinfun</pkg> has functions for both design and analysis of
 clinical trials. For phase II trials, it has functions to calculate sample size,
 effect size, and power based on Fisher's exact test, the operating
@@ -86,7 +85,6 @@ It provides functions for: multiple contrast tests, fitting non-linear dose-resp
 calculating optimal designs and an implementation of the <pkg>MCPMod</pkg> methodology. 
 Currently only normally distributed homoscedastic endpoints are supported.</li> 
 <li><pkg>MCPMod</pkg> This package implements a methodology for the design and analysis of dose-response studies that combines aspects of multiple comparison procedures and modeling approaches (Bretz, Pinheiro and Branson, 2005, Biometrics 61, 738-748). The package provides tools for the analysis of dose finding trials as well as a variety of tools necessary to plan a trial to be conducted with the MCPMod methodology. </li>
-<li><pkg>MSToolkit</pkg> This package is for evaluating clinical trial design and analysis operating characteristics through simulation.</li>
 <li>Package <pkg>TEQR</pkg> The target equivalence range (TEQR) design is a frequentist implementation of the modified toxicity probability interval (mTPI) design and a competitor to the standard 3+3 design (3+3). The 3+3 is the work horse design in Phase I. It is good at determining if a safe dose exits, but provides poor accuracy and precision in estimating the level of toxicity at the maximum tolerated dose (MTD). The TEQR is better than the 3+3 when compared on: 1) the number of times the dose at or nearest the target toxicity level was selected as the MTD, 2) the number of subjects assigned to doses levels, at or nearest the MTD, and 3) the overall trial DLT rate. TEQR more accurately and more precisely estimates the rate of toxicity at the MTD because a larger number of subjects are studied at the MTD dose. The TEQR on average uses fewer subjects and provide reasonably comparable results to the continual reassessment method (CRM) in the number of times the dose at or nearest the target toxicity level was selected as the MTD and the number of subjects assigned doses, at, or nearest the target and in overall DLT rate.</li> 
 </ul>
 
@@ -135,6 +133,10 @@ quantities utilizing asymptotic likelihood ratio methods.</li>
 <li><pkg>coin</pkg> offers conditional inference procedures for the general
 independence problem including two-sample, K-sample (non-parametric ANOVA),
 correlation, censored, ordered and multivariate problems.</li>
+
+<li><pkg>epibasix</pkg> has functions such as <code>diffdetect</code>,
+<code>n4means</code> for continuous outcome and <code>n4props</code> and
+functions for matched pairs analysis in randomized trials.</li>
 
 <li><pkg>epicalc</pkg> provides a set of functions for sample size calculations,
 such as <code>n.for.2means</code>, <code>n.for.2p</code>,
@@ -193,7 +195,6 @@ association and heterogeneity.</li>
 
 <packagelist>
   <pkg priority="core">adaptTest</pkg>
-  <pkg>AGSDest</pkg>
   <pkg priority="core">asd</pkg>
   <pkg>asypow</pkg>
   <pkg priority="core">bcrm</pkg> 
@@ -209,6 +210,7 @@ association and heterogeneity.</li>
   <pkg priority="core">CRTSize</pkg>
   <pkg priority="core">dfcrm</pkg>
   <pkg>DoseFinding</pkg>
+  <pkg>epibasix</pkg>
   <pkg>epicalc</pkg>
   <pkg priority="core">experiment</pkg>
   <pkg>FrF2</pkg>
@@ -224,7 +226,6 @@ association and heterogeneity.</li>
   <pkg>meta</pkg>
   <pkg>metafor</pkg>
   <pkg>metaLik</pkg>
-  <pkg priority="core">MSToolkit</pkg>
   <pkg>multcomp</pkg>
   <pkg>nppbib</pkg>
   <pkg priority="core">PIPS</pkg>

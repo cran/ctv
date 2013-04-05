@@ -3,7 +3,7 @@
 <name>Cluster</name>
 <topic>Cluster Analysis &amp; Finite Mixture Models</topic>
 <maintainer email="Bettina.Gruen@jku.at">Friedrich Leisch and Bettina Gruen</maintainer>
-<version>2013-01-23</version>
+<version>2013-03-23</version>
   
 <info> This CRAN Task View contains a list of packages that can be
 used for finding groups in data and modelling unobserved
@@ -109,10 +109,20 @@ of each package to check under which license it is distributed.</p>
   probability, package <pkg>bgmm</pkg> provides belief-based and
   soft-label mixture modeling for mixtures of Gaussians with the EM
   algorithm.</li> 
+  <li>Package <pkg>FisherEM</pkg> is a subspace clustering method
+  which allows for efficient unsupervised classification of
+  high-dimensional data. It is based on the Gaussian mixture model and
+  on the idea that the data lives in a common and low dimensional
+  subspace. An EM-like algorithm estimates both the discriminative
+  subspace and the parameters of the mixture model.</li>
   <li>Package <pkg>HDclassif</pkg> provides function <code>hddc</code>
   to fit Gaussian mixture model to high-dimensional data where it is
   assumed that the data lives in a lower dimension than the original
   space.</li>
+  <li>Package <pkg>HMMmix</pkg> allows to fit mixtures of Gaussians
+  with a hidden Markov model for the latent component memberships of
+  the clusters which might be derived by combining components of the
+  mixture.</li>
   <li>Package <pkg>teigen</pkg> allows to fit multivariate
   t-distribution mixture models (with eigen-decomposed covarianc
   structure) from a clustering or classification point of
@@ -134,6 +144,11 @@ of each package to check under which license it is distributed.</p>
   package <pkg>mixsmsn</pkg>.</li>
   <li>Package <pkg>movMF</pkg> fits finite mixtures of von
   Mises-Fisher distributions with the EM algorithm.</li>
+  <li>Package <pkg>MFDA</pkg> implements model-based functional data
+  analysis.</li>
+  <li>Package <pkg>GLDEX</pkg> fits mixtures of generalized lambda
+  distributions and for grouped conditional data package
+  <pkg>mixdist</pkg> can be used.</li>
   <li><pkg>mritc</pkg> provides tools for classification using normal
   mixture models and (higher resolution) hidden Markov normal mixture
   models fitted by various methods.</li>
@@ -175,6 +190,9 @@ of each package to check under which license it is distributed.</p>
   <li>Package
   <pkg>bayesmix</pkg> provides Bayesian estimation using
   JAGS.</li>
+  <li>Package <pkg>bclust</pkg> allows Bayesian clustering using a
+  spike-and-slab hierarchical model and is suitable for clustering
+  high-dimensional data.</li>
   <li>Package <pkg>Bmix</pkg> provides Bayesian Sampling for
   stick-breaking mixtures.</li>
   <li>Package <pkg>dpmixsim</pkg> fits Dirichlet process mixture
@@ -235,9 +253,6 @@ of each package to check under which license it is distributed.</p>
   <li>The <bioc>hopach</bioc> algorithm is a hybrid between
   hierarchical methods and PAM and builds a tree by
   recursively  partitioning a data set.</li>
-  <li>For graphs and networks model-based clustering approaches are
-  implemented in package
-  <pkg>mixer</pkg>.</li>
   <li>Package <pkg>nnclust</pkg> allows fast clustering of large data sets
   by constructing a minimum spanning tree for each cluster. For each
   cluster the procedure is stopped when the nearest-neighbour distance
@@ -353,6 +368,7 @@ of each package to check under which license it is distributed.</p>
 <pkg>bayesm</pkg>
 <pkg>bayesmix</pkg>
 <pkg>bgmm</pkg>
+<pkg>bclust</pkg>
 <pkg>biclust</pkg>
 <pkg>Bmix</pkg>
 <pkg>cba</pkg>
@@ -377,14 +393,17 @@ of each package to check under which license it is distributed.</p>
 <pkg>FactoClass</pkg>
 <pkg>flashClust</pkg>
 <pkg>fastcluster</pkg>
+<pkg>FisherEM</pkg>
 <pkg priority="core">flexclust</pkg>
 <pkg priority="core">flexmix</pkg>
 <pkg>fpc</pkg>
 <pkg>FunCluster</pkg>
 <pkg>gamlss.mx</pkg>
 <pkg>gcExplorer</pkg>
+<pkg>GLDEX</pkg>
 <pkg>GSM</pkg>
 <pkg>HDclassif</pkg>
+<pkg>HMMmix</pkg>
 <pkg>hybridHclust</pkg>
 <pkg>isa2</pkg>
 <pkg>isopam</pkg>
@@ -396,10 +415,10 @@ of each package to check under which license it is distributed.</p>
 <pkg>mcclust</pkg>
 <pkg priority="core">mclust</pkg>
 <pkg>MetabolAnalyze</pkg>
+<pkg>MFDA</pkg>
 <pkg>mixsmsn</pkg>
 <pkg>mixAK</pkg>
 <pkg>mixdist</pkg>
-<pkg>mixer</pkg>
 <pkg>mixPHM</pkg>
 <pkg>mixRasch</pkg>
 <pkg>mixreg</pkg>
