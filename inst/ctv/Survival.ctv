@@ -4,7 +4,7 @@
 <name>Survival</name>
 <topic>Survival Analysis</topic>
 <maintainer email="arthur.allignol@fdm.uni-freiburg.de">Arthur Allignol and Aurelien Latouche</maintainer>
-<version>2013-03-23</version>
+<version>2013-04-09</version>
 
 <info>
 <p>Survival analysis, also called event history analysis in social science,
@@ -336,9 +336,7 @@ something is inaccurate or missing.</p>
     modelled in terms of covariates. 
     Nonparametric estimates in illness-death models and other three
     state models can be obtained with package
-    <pkg>p3state.msm</pkg>. The <pkg>TPmsm</pkg> package permits to
-    estimate transition probabilities of an illness-death model or
-    three-state progressive model. The <pkg>SmoothHazard</pkg> package
+    <pkg>p3state.msm</pkg>. The <pkg>SmoothHazard</pkg> package
     fits illness-death model with possibly interval-censored data for
     the transition time into the transient state. Weibull baseline
     intensities or a semi-parametric approach with M-splines
@@ -383,6 +381,8 @@ something is inaccurate or missing.</p>
     can also be used to estimate the cumulative incidence function.
     The <pkg>compeir</pkg> package estimates event-specific incidence rates,
     rate ratios, event-specific incidence proportions and cumulative incidence functions.
+    <pkg>randomSurvivalForest</pkg> provides summary measures for 
+    competing risk such as ensemble CIF.
   </li>
   
   <li>
@@ -556,7 +556,9 @@ something is inaccurate or missing.</p>
   <li>
     <em><b>Random forest:</b></em>
     Package <pkg>ipred</pkg> implements bagging for survival data.
-    A variant of the random forest is implemented in <pkg>party</pkg>.
+    The <pkg>randomSurvivalForest</pkg> package fits random forest
+    to survival data,
+    while a variant of the random forest is implemented in <pkg>party</pkg>.
     Another implementation is proposed in the <pkg>randomForestSRC</pkg> package.
  
   </li>
@@ -895,6 +897,7 @@ something is inaccurate or missing.</p>
 <pkg>powerSurvEpi</pkg>
 <pkg>pseudo</pkg>
 <pkg>randomForestSRC</pkg>
+<pkg>randomSurvivalForest</pkg>
 <pkg>rankhazard</pkg>
 <pkg>relsurv</pkg>
 <pkg>rhosp</pkg>
@@ -932,7 +935,6 @@ something is inaccurate or missing.</p>
 <pkg priority="core">timereg</pkg>
 <pkg>timeROC</pkg>
 <pkg>tlmec</pkg>
-<pkg>TPmsm</pkg>
 <pkg>tpr</pkg>
 <pkg>TraMineR</pkg>
 <pkg>TSHRC</pkg>
