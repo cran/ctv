@@ -4,7 +4,7 @@
 <name>Distributions</name> 
 <topic>Probability Distributions</topic> 
 <maintainer email="Christophe.Dutang@ensimag.fr">Christophe Dutang</maintainer> 
-<version>2013-04-09</version> 
+<version>2013-12-10</version> 
 
 <info> 
 For most of the classical distributions, base R provides
@@ -210,7 +210,11 @@ or not complete, please let me know.
 	 <LI><I>Fisher-Snedecor or F distribution</I>: Base R provides the d, p, q, r functions
      for the F distribution, possibly with a non-central parameter. Doubly non-central
 	 F distribution does not seem to be implemented?.
-	 <pkg>ActuDistns</pkg> provides integrated hazard rate function for generalized F distribution.
+	  <pkg>flexsurv</pkg> provides d, p, q, r functions as well as
+	hazard (h) and integrated hazard rate (i) functions for 
+	the generalized F distribution.
+	 <pkg>ActuDistns</pkg> provides integrated hazard rate function 
+	 for generalized F distribution.
 	</LI>
      
      <LI><I>Frechet distribution</I>: Provided in <pkg>VGAM</pkg>
@@ -232,7 +236,11 @@ or not complete, please let me know.
      gamma and the generalized gamma distribution. The generalized gamma distribution
 	 can also be found in <pkg>gamlss.dist</pkg>. <pkg>reliaR</pkg> provides
 	 the log gamma distribution. See Pearson III for a three-parameter
-	 gamma distribution with a location parameter.</LI>
+	 gamma distribution with a location parameter.
+	  <pkg>flexsurv</pkg> provides d, p, q, r functions as well as
+	hazard (h) and integrated hazard rate (i) functions for 
+	the	generalized gamma distribution.
+	 </LI>
      
      <LI><I>Gaussian (or normal) distribution and its extensions</I>: Base R provides
      the d, p, q, r functions for this distribution (see above). 
@@ -262,11 +270,14 @@ or not complete, please let me know.
 	 The Exponentially modified Gaussian is available in <pkg>emg</pkg>, <pkg>gamlss.dist</pkg> and
 	 <pkg>retimes</pkg>.
      Finally, the multivariate Gaussian distribution
-     is provided by the packages <pkg>mvtnorm</pkg> and <pkg>mnormt</pkg>. 
+     is provided by the packages <pkg>mvtnorm</pkg> and <pkg>mnormt</pkg>;
      <pkg>tmvtnorm</pkg> implements the truncated
-	 multivariate normal distribution.
+	 multivariate normal distribution; <pkg>sparseMVN</pkg> implements very
+	 fast algorithms to compute the density and generate random variates of 
+	 a multivariate normal distribution for which the covariance matrix or precision matrix is sparse.
 	 <pkg>CompQuadForm</pkg> provides the distribution function of quadratic forms
 	 in normal variates.
+	 <pkg>NormalGamma</pkg> provides the density of the sum of a gaussian and a gamma random variables.
 	 </LI> 
      
      <LI><I>General Error Distribution (also known as exponential power distribution)</I>:
@@ -280,8 +291,9 @@ or not complete, please let me know.
 	 additional functions for GEV distribution using MCMC. </LI>         
      
 	 
-	 <LI><I>Gompertz distribution</I>: Provided in <pkg>reliaR</pkg> and <pkg>ActuDistns</pkg>.
-	 <pkg>ActuDistns</pkg> also provides hazard (h) and integrated hazard rate (i) functions.</LI>     
+	 <LI><I>Gompertz distribution</I>: Provided in <pkg>reliaR</pkg>, <pkg>ActuDistns</pkg>,
+	  <pkg>flexsurv</pkg>.  <pkg>ActuDistns</pkg> and <pkg>flexsurv</pkg> also 
+	  provide hazard (h) and integrated hazard rate (i) functions.</LI>     
 
 	 
      <LI><I>Gumbel distribution</I>: Provided in packages <pkg>lmomco</pkg>, 
@@ -376,6 +388,11 @@ or not complete, please let me know.
      </LI> 
 	      
      <LI><I>Maxwell distribution</I>: Provided in <pkg>VGAM</pkg>.
+     </LI>     
+
+     <LI><I>Maxwell-Boltzmann-Bose-Einstein-Fermie-Dirac (MBBEFD) distribution </I>: 
+	 Provided in <pkg>mbbefd</pkg>. Note that the distribution is a 
+	 mixed-type distribution.
      </LI>     
      
      <LI><I>Nakagami distribution</I>: Provided in <pkg>VGAM</pkg>.
@@ -489,13 +506,15 @@ or not complete, please let me know.
 
   </UL> 
 
-<p><strong>Mixture of probability laws:</strong></p>
+<p><strong>Mixture of probability laws (and composite):</strong></p>
    
    <UL>
       <LI><I>Cauchy-polynomial quantile mixture</I>: d, p, q, r functions are
 	  provided by <pkg>Lmoments</pkg>.</LI>
    
-   
+	  <LI><I>composite lognormal distribution</I>: d, p, q, r functions are
+	  provided by <pkg>CompLognormal</pkg>.	  
+	  </LI>
    
       <LI><I>Gaussian mixture</I>: Functions d, r are provided by <pkg>mixtools</pkg>
       package when dealing with finite mixture models. <pkg>nor1mix</pkg> provides
@@ -508,6 +527,10 @@ or not complete, please let me know.
       UnivarMixingDistribution in package <pkg>distr</pkg>. <pkg>gamlss.mx</pkg>
 	  uses the <pkg>gamlss.dist</pkg> package.</LI>
 	  
+      <LI><I>Normal-polynomial quantile mixture</I>: d, p, q, r functions are
+	  provided by <pkg>Lmoments</pkg>.</LI>
+
+	  
 	  <LI><I>Poisson Binomial distribution</I>: <pkg>poibin</pkg> implements
 	  the Poisson Binomial distribution.</LI>
 
@@ -516,9 +539,6 @@ or not complete, please let me know.
 
 	  <LI><I>Poisson-Tweedie exponential family models</I>: provided in <pkg>poistweedie</pkg>.</LI>
 	  
-
-      <LI><I>Student mixture</I>: The <pkg>AdMit</pkg> package provides d, r functions
-      for Student mixtures in the context of Adaptive Mixture of Student-t distributions.</LI>
 
       <LI><I>von Mises Fisher mixture</I>: The <pkg>movMF</pkg> package provides d, r functions
       for finite von Mises Fisher mixtures.</LI>
@@ -718,8 +738,10 @@ or not complete, please let me know.
       <pkg>randtoolbox</pkg> provides basic RNG tests.
      </LI>
      
-     <LI><I>Parallel computing</I>: For parallel computing with random numbers, see the 
-     <view>HighPerformanceComputing</view> task view.</LI>
+     <LI><I>Parallel computing</I>: 
+	 Random-number generators for parallel computing are available via 
+	 the <pkg>rsprng</pkg> package and the <pkg>rlecuyer</pkg> package.
+	See the <view>HighPerformanceComputing</view> task view for more details.</LI>
    </UL>     
 
 <p><strong>Miscellaneous:</strong></p>
@@ -731,7 +753,15 @@ or not complete, please let me know.
 	in the <pkg>benchden</pkg> package. The densities vary greatly in degree of 
 	smoothness, number of modes and other properties. The package 
 	provides d,p,q and r functions.</LI>   
-	  
+	
+	<LI>
+	Binned Empirical distributions: The <pkg>HistogramTools</pkg> package
+	provides a number of methods for manipulating empirical data that has
+	been binned into histogram form, including: (1) the empirical
+	cumulative distribution function, (2) the empirical quantile, and (3)
+	information loss metrics associated with binning.
+	</LI>
+		  
 	  <LI><I>Empirical distribution</I>: Base R provides functions for univariate analysis:
 	(1) the empirical density (see density), (2) the empirical cumulative
 	distribution function (see ecdf), (3) the empirical quantile (see quantile)
@@ -784,7 +814,11 @@ or not complete, please let me know.
 	 multivariate Gaussian probability density functions
 	 Package <pkg>MASS</pkg> implements the flexible <code>fitdistr</code>
      function for parameter estimations. <pkg>fitdistrplus</pkg> greatly enlarges and enhances
-     the tools to fit probability distributions.</LI>	       
+     the tools to fit probability distributions.
+	  <pkg>flexsurv</pkg> and <pkg>msm</pkg> provides a quantile
+	function for a generic distribution based on numerical 
+	computation based on a dichotomic search.
+	 </LI>	       
       </UL>
 </info> 
 
@@ -793,13 +827,13 @@ or not complete, please let me know.
 <packagelist>
   <pkg priority="core">actuar</pkg> 
   <pkg priority="core">ActuDistns</pkg>
-  <pkg>AdMit</pkg>
   <pkg>agricolae</pkg>
   <pkg>AtelieR</pkg> 
   <pkg>bayesm</pkg>
   <pkg>benchden</pkg>
   <pkg>BiasedUrn</pkg>
   <pkg>CDVine</pkg>
+  <pkg>CompLognormal</pkg>
   <pkg>compoisson</pkg>
   <pkg>CompQuadForm</pkg>  
   <pkg>copBasic</pkg>
@@ -827,6 +861,7 @@ or not complete, please let me know.
   <pkg>fExtremes</pkg>
   <pkg>fgac</pkg>
   <pkg>fitdistrplus</pkg>
+  <pkg>flexsurv</pkg>
   <pkg priority="core">gamlss.dist</pkg>
   <pkg>gamlss.mx</pkg>
   <pkg>gaussDiff</pkg>
@@ -841,6 +876,7 @@ or not complete, please let me know.
   <pkg>GSM</pkg>
   <pkg>gumbel</pkg>
   <pkg>HI</pkg>
+  <pkg>HistogramTools</pkg>
   <pkg>HyperbolicDist</pkg>
   <pkg>hyperdirichlet</pkg>
   <pkg>LambertW</pkg>
@@ -851,6 +887,7 @@ or not complete, please let me know.
   <pkg priority="core">lmomco</pkg>
   <pkg>Lmoments</pkg>
   <pkg>MASS</pkg>
+  <pkg>mbbefd</pkg>
   <pkg>mc2d</pkg>
   <pkg>MCMCpack</pkg>
   <pkg>mgpd</pkg>
@@ -859,10 +896,12 @@ or not complete, please let me know.
   <pkg>modeest</pkg>
   <pkg>moments</pkg>
   <pkg>movMF</pkg>
+  <pkg>msm</pkg>
   <pkg>mvtBinaryEP</pkg>
   <pkg priority="core">mvtnorm</pkg>
   <pkg>nacopula</pkg>
-  <pkg>nor1mix</pkg>  
+  <pkg>nor1mix</pkg> 
+  <pkg>NormalGamma</pkg> 
   <pkg>normalp</pkg>
   <pkg>npde</pkg>
   <pkg priority="core">PearsonDS</pkg>
@@ -880,6 +919,7 @@ or not complete, please let me know.
   <pkg>retimes</pkg>
   <pkg>RMTstat</pkg>
   <pkg>rngwell19937</pkg>
+  <pkg>rlecuyer</pkg>
   <pkg>rsprng</pkg>
   <pkg>rstream</pkg>
   <pkg>Runuran</pkg>
@@ -889,6 +929,7 @@ or not complete, please let me know.
   <pkg>SkewHyperbolic</pkg>
   <pkg>smoothmest</pkg>
   <pkg>sn</pkg>
+  <pkg>sparseMVN</pkg>
   <pkg>spd</pkg>
   <pkg>stabledist</pkg>
   <pkg priority="core">SuppDists</pkg>
@@ -906,13 +947,13 @@ or not complete, please let me know.
 </packagelist> 
 
 <links> 
-  <A HREF="http://www.actuar-project.org/">actuar: An R package for actuarial science</A>
   <A HREF="http://www.rmetrics.org/Meielisalp2009/Presentations/Scott.pdf">Advices to implement (new) distributions in R</A>
   <A HREF="http://www.johndcook.com/distribution_chart.html">Clickable diagram of distribution relationships</A>
+  <A HREF="http://wiki.r-project.org/rwiki/doku.php?id=tips:stats-distri">The R wiki on distributions</A>
+  <A HREF="http://www.actuar-project.org/">actuar: An R package for actuarial science</A>
   <A HREF="http://www.rmetrics.org/">fCopulae, fBasics, randtoolbox packages, part of the Rmetrics project</A>
   <A HREF="http://www.jstatsoft.org/v16/c02/">Journal of Statistical Software: R programs for truncated distributions</A> 
   <A HREF="http://distr.r-forge.r-project.org/">The "distrXXX"-family of R-packages</A>
-  <A HREF="http://wiki.r-project.org/rwiki/doku.php?id=tips:stats-distri">The R wiki on distributions</A>
   <A HREF="http://www-m4.ma.tum.de/forschung/vine-copula-models/#c662">Overview of vine copula models</A>
 </links> 
 

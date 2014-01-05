@@ -4,7 +4,7 @@
    <name>HighPerformanceComputing</name>
    <topic>High-Performance and Parallel Computing with R</topic>
    <maintainer email="Dirk.Eddelbuettel@R-project.org">Dirk Eddelbuettel</maintainer>
-   <version>2013-03-23</version>
+   <version>2013-12-18</version>
 
   <info>
     <p>
@@ -29,17 +29,18 @@
       Suggestions and corrections by Achim Zeileis, Markus
       Schmidberger, Martin Morgan, Max Kuhn, Tomas Radivoyevitch,
       Jochen Knaus, Tobias Verbeke, Hao Yu, David Rosenberg, Marco
-      Enea, Ivo Welch, Jay Emerson, Wei-Chen Chen, Bill Cleveland, Ross Boylan 
+      Enea, Ivo Welch, Jay Emerson, Wei-Chen Chen, Bill Cleveland, 
+      Ross Boylan, and Ramon Diaz-Uriarte
       (as well as others I may have forgotten to add here) are gratefully acknowledged. 
     </p>
     <p>
-      <strong>Direct support in R is starting with release 2.14.0</strong> 
+      <strong>Direct support in R started with release 2.14.0</strong> 
       which includes a new package <strong>parallel</strong> incorporating 
       (slightly revised) copies of packages <pkg>multicore</pkg> and 
-      <pkg>snow</pkg> (but excluding MPI, PVM and NWS clusters).  Code written to
-      use the higher-level API functions in those packages should work
-      unchanged (apart from changing any references in namespaces and help files 
-      from snow or multicore to parallel). 
+      <pkg>snow</pkg>.  Some types of clusters are not handled directly by 
+      the base package 'parallel'. However, and as explained in the package vignette, the parts of
+      parallel which provide <pkg>snow</pkg>-like functions will
+      accept <pkg>snow</pkg> clusters including MPI clusters. 
       <br/>
 
       The <strong>parallel</strong> package also contains support for multiple 
@@ -81,7 +82,13 @@
 	The <pkg>pbdBASE</pkg> builds on these and provides the core classes
         and methods for distributed data types upon which the 
 	<pkg>pbdDMAT</pkg> builds to provide distributed dense matrices for "Programming 
-	with Big Data".
+	with Big Data". The <pkg>pbdNCDF4</pkg> package permits
+	multiple processes to write to the same file (without manual
+	synchronization) and supports terabyte-sized files.
+	The <pkg>pbdDEMO</pkg> package provides examples for these
+	packages, and a detailed vignette.
+        The <pkg>pbdPROF</pkg> package profiles MPI communication SPMD code
+        via MPI profiling libraries, such as fpmpi, mpiP, or TAU.
       </li>
       <li>An alternative is provided by the <pkg>nws</pkg> (NetWorkSpaces)
         packages from REvolution Computing.  It is the successor to the
@@ -100,11 +107,6 @@
       </li>
      <li>The <pkg>biopara</pkg> package by Lazar and Schoenfeld offers socket-based parallel
         execution with some support for load-balancing and fault-tolerance.
-      </li>
-      <li>The <pkg>sprint</pkg> package (for "Simple Parallel R INTerface") 
-	provides a parallel framework for R containing correlation, partitioning 
-	around medoids, apply, permutation tesing, bootstrapping, random forest, 
-	rank product and more.
       </li>
       <li>The <pkg>foreach</pkg> package allows general iteration over
 	elements in a collection without the use of an explicit loop
@@ -155,9 +157,6 @@
       <li>The R/parallel package by Vera, Jansen and Suppi offers a C++-based master-slave dispatch
         mechanism for parallel execution (<a href="http://www.rparallel.org/">link</a>)
       </li>
-      <li>
-	The <pkg>sprint</pkg> adds another parallel framework to R.
-      </li>
       <li>The <pkg>Rdsm</pkg> package provides a threads-like parallel
 	computing environment, both on multicore machine and across the network
 	by providing facilities inspired from distributed shared memory
@@ -167,15 +166,20 @@
         parallel implementations of several commonly used higher-order
         functions found in base R such as Filter or Reduce.
       </li>
+      <li>
+        The <pkg>RhpcBLASctl</pkg> detects the number of available
+        BLAS cores, and permits explicit selection of the number of
+        cores.
+      </li>
+      <li>
+        The <pkg>Rhpc</pkg> permits <code>*apply()</code> style dispatch via MPI.
+      </li>
     </ul>
 
     <p>
     <strong>Parallel computing: Grid computing</strong>
     </p>
     <ul>	     
-      <li>The <pkg>GridR</pkg> package by Wegener et al. can be used in a grid computing
-        environment via a web service, via ssh or via Condor or Globus.
-      </li>
       <li>The multiR package by Grose was presented at useR! 2008 
 	but has not been released. It may offer a snow-style framework on a grid computing platform.
       </li>
@@ -204,6 +208,20 @@
       <li>
 	A related package, segue package by Long, permits easy execution of embarassingly parallel task on Elastic Map Reduce (EMR) at Amazon.
 	(<a href="http://code.google.com/p/segue/">link</a>)
+      </li>
+      <li>
+        The <pkg>RProtoBuf</pkg> package provides an interface to
+        Google's language-neutral, platform-neutral, extensible
+        mechanism for serializing structured data.  This package can
+        be used in R code to read data streams from other systems in a
+        distributed MapReduce setting where data is serialized and
+        passed back and forth between tasks.
+      </li>
+      <li>
+        The <pkg>HistogramTools</pkg> package provides a number of
+        routines useful for the construction, aggregation,
+        manipulation, and plotting of large numbers of Histograms such
+        as those created by Mappers in a MapReduce application.
       </li>
     </ul>	     
 
@@ -234,7 +252,7 @@
 	parallel computing resources and tasks.  The slurm (Simple Linux
         Utility for Resource Management) set of programs (written by a
         consortium led by Lawrence Livermore Labs) works well with
-        MPI. (<a href="https://computing.llnl.gov/linux/slurm/">link</a>)
+        MPI. (<a href="https://slurm.schedmd.com/">link</a>)
       </li>
       <li>
         The Condor toolkit (<a href="http://www.cs.wisc.edu/condor/">link</a>) from 
@@ -319,12 +337,9 @@
 	optimization using derivatives 
 	the <bioc>affyPara</bioc> package by Schmidberger, Vicedo and
 	Mansmann for parallel normalization of Affymetrix microarrays, 
-	the <bioc>puma</bioc> package by Pearson et al. which propagates
+	and the <bioc>puma</bioc> package by Pearson et al. which propagates
 	uncertainty into standard microarray analyses such as differential
 	expression
-	and
-	the <pkg>ccems</pkg> package for combinatorically complex equilibrium
-	model selection
 	all can use <pkg>snow</pkg> for parallelized operations using either
 	one of the MPI, PVM, NWS or socket protocols supported by <pkg>snow</pkg>.
       </li>
@@ -345,19 +360,18 @@
 	OpenBUGS; parallel computing is supported via the <pkg>snow</pkg>
 	package.
       </li>
-      <li>
-	The <pkg>mapReduce</pkg> package by Brown provides a simple framework
-	for parallel computations following the Google mapReduce approach. It
-	provides a pure R implementation,  a syntax following the mapReduce
-	paper and a flexible and parallelizable back end. 
-      </li>
       <li>The <pkg>pmclust</pkg> package utilizes unsupervised model-based
         clustering for high dimensional (ultra) large data. The package uses
-	<pkg>Rmpi</pkg> to perform a parallel version of the EM algorithm for
+	<pkg>pbdMPI</pkg> to perform a parallel version of the EM algorithm for
 	finite mixture Gaussian models.
       </li>
       <li>The <pkg>harvestr</pkg> package provides helper functions
         for (reproducible) simulations.
+      </li>
+      <li>
+        Nowadays, many packages can use the facilities offered by
+        the <strong>parallel</strong> (or <pkg>multicore</pkg>) package. One example 
+        is <pkg>pls</pkg>
       </li>
     </ul>
 
@@ -457,6 +471,10 @@
         implementation with support for parellel execution and large
         memory. 
       </li>
+      <li>The <pkg>MonetDB.R</pkg> package allows R to access the MonetDB 
+         column-oriented, open source database system as a
+	 backend. 
+      </li>
     </ul>
 
     <p>
@@ -512,7 +530,6 @@
     <pkg>biopara</pkg>
     <pkg>bnlearn</pkg>
     <pkg>caret</pkg>
-    <pkg>ccems</pkg>
     <pkg>cudaBayesreg</pkg>
     <pkg>dclone</pkg>
     <pkg>doMC</pkg>
@@ -528,28 +545,32 @@
     <pkg>gcbd</pkg>
     <pkg>Geneland</pkg>
     <pkg>gputools</pkg>
-    <pkg>GridR</pkg>
     <pkg>HadoopStreaming</pkg>
     <pkg>harvestr</pkg>
     <pkg>HiPLARM</pkg>
+    <pkg>HistogramTools</pkg>
     <pkg>inline</pkg>
     <pkg>latentnet</pkg>
     <pkg>lga</pkg>
     <pkg>magma</pkg>
-    <pkg>mapReduce</pkg>
     <pkg>Matching</pkg>
     <pkg>mchof</pkg>
+    <pkg>MonetDB.R</pkg>
     <pkg>multicore</pkg>
     <pkg>nws</pkg>
     <pkg>orloca</pkg>
     <pkg>OpenCL</pkg>
     <pkg>partDSA</pkg>
     <pkg>pbdBASE</pkg>
+    <pkg>pbdDEMO</pkg>
     <pkg>pbdDMAT</pkg>
+    <pkg>pbdPROF</pkg>
     <pkg>pbdMPI</pkg>
+    <pkg>pbdNCDF4</pkg>
     <pkg>pbdSLAP</pkg>
     <pkg>peperr</pkg>
     <pkg>permGPU</pkg>
+    <pkg>pls</pkg>
     <pkg>pmclust</pkg>
     <pkg>profr</pkg>
     <pkg>proftools</pkg>
@@ -557,10 +578,13 @@
     <pkg>Rcpp</pkg>
     <pkg>Rdsm</pkg>
     <pkg>rgenoud</pkg>
+    <pkg>Rhpc</pkg>
+    <pkg>RhpcBLASctl</pkg>
     <pkg>RInside</pkg>
     <pkg>rJava</pkg>
     <pkg>rlecuyer</pkg>
     <pkg priority="core">Rmpi</pkg>
+    <pkg>RProtoBuf</pkg>
     <pkg>rpud</pkg>
     <pkg>rredis</pkg>
     <pkg>rsprng</pkg>
@@ -569,7 +593,6 @@
     <pkg>snowfall</pkg>
     <pkg>snowFT</pkg>
     <pkg>speedglm</pkg>
-    <pkg>sprint</pkg>
     <pkg>sqldf</pkg>
     <pkg>STAR</pkg>
     <pkg>tm</pkg>
@@ -599,9 +622,9 @@
     <a href="https://gforge.nbic.nl/projects/rgpu/">rgpu project at nbic.nl</a>
     <a href="http://icl.cs.utk.edu/magma/">Magma: Matrix Algebra on GPU and Multicore architectures</a>
     <a href="http://shop.oreilly.com/product/0636920021421.do">Parallel R: Data Analysis in the Distributed World"</a>
-    <a href="http://thirteen-01.stat.iastate.edu/snoweye/hpsc/">High Performance Statistical Computing with Rmpi</a>
+    <a href="http://thirteen-01.stat.iastate.edu/snoweye/hpsc/">High Performance Statistical Computing for Data Intensive Research</a>
     <a href="http://heather.cs.ucdavis.edu/~matloff/rth.html">Rth: Parallel R through Thrust</a>
-    <a href="http://r-pbd.org">R Programming with Big Data</a>
+    <a href="http://r-pbd.org">Programming with Big Data in R</a>
     <a href="http://www.datadr.org">RHIPE</a>
   </links>
 

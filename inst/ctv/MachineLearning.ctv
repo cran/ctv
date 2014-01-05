@@ -3,7 +3,7 @@
   <name>MachineLearning</name>
   <topic>Machine Learning &amp; Statistical Learning</topic>
   <maintainer email="Torsten.Hothorn@R-project.org">Torsten Hothorn</maintainer>
-  <version>2013-04-09</version>
+  <version>2013-12-12</version>
   
   <info>
     Several add-on packages implement ideas and methods developed at the
@@ -48,9 +48,8 @@
              trees are available in package <pkg>maptree</pkg>. An approach to deal with the instability
              problem via extra splits is available in package <pkg>TWIX</pkg>.
              <br/> Trees for modelling longitudinal data by means of
-             random effects are offered by packages <pkg>REEMtree</pkg>
-             and <pkg>longRPart</pkg>. Partitioning of mixture models
-             is performed by <pkg>RPMM</pkg>.
+             random effects is offered by package <pkg>REEMtree</pkg>.
+	     Partitioning of mixture models is performed by <pkg>RPMM</pkg>.
              <br/>
              Computational infrastructure for representing trees and
              unified methods for predition and visualization is implemented
@@ -69,9 +68,7 @@
              <pkg>randomSurvivalForest</pkg> offers a random forest algorithm for
              censored data. Quantile regression forests <pkg>quantregForest</pkg>
              allow to regress quantiles of a numeric response on exploratory
-             variables via a random forest approach. For binary data,
-             <pkg>LogicForest</pkg> is a forest of logic regression trees (package
-             <pkg>LogicReg</pkg>.
+             variables via a random forest approach.
              The <pkg>varSelRF</pkg> and <pkg>Boruta</pkg> packages focus on variable selection by means
              for random forest algorithms. For large data sets, package <pkg>bigrf</pkg> 
              computes random forests in parallel and uses large memory objects 
@@ -91,10 +88,14 @@
              The <pkg>penalized</pkg> package provides
              an alternative implementation of lasso (L1) and ridge (L2) 
              penalized regression models (both GLM and Cox models).
+             Package <pkg>RXshrink</pkg> can be used to identify and display TRACEs 
+             for a specified shrinkage path and to determine the appropriate extent of shrinkage.
              Semiparametric additive hazards models under lasso penalties are offered
              by package <pkg>ahaz</pkg>.
              A generalisation of the Lasso shrinkage technique for linear regression
              is called relaxed lasso and is available in package <pkg>relaxo</pkg>.
+             Fisher's LDA projection with an optional LASSO penalty to produce sparse 
+             solutions is implemented in package  <pkg>penalizedLDA</pkg>.
              The shrunken
              centroids classifier and utilities for gene expression analyses are
              implemented in package <pkg>pamr</pkg>. An implementation
@@ -108,7 +109,11 @@
              the LIBLINEAR library.
              The <pkg>ncvreg</pkg> package fits linear and logistic
              regression models under the the SCAD and MCP 
-             regression penalties using a coordinate descent algorithm.</li> 
+             regression penalties using a coordinate descent algorithm.
+	     High-throughput ridge regression (i.e., penalization with many predictor variables) and
+	     heteroskedastic effects models are the focus of the <pkg>bigRR</pkg> package.
+             An implementation of bundle methods for regularized risk minimization 
+             is available form package <pkg>bmrm</pkg>.</li> 
       <li><i>Boosting</i>: Various forms of gradient boosting are
              implemented in package <pkg>gbm</pkg> (tree-based functional gradient
              descent boosting). The Hinge-loss is optimized by the boosting implementation 
@@ -139,13 +144,22 @@
              </li>
       <li><i>Optimization using Genetic Algorithms</i>:
              Packages <pkg>rgp</pkg> and
-             <pkg>rgenoud</pkg> offer optimization routines based on genetic algorithms. </li>
+             <pkg>rgenoud</pkg> offer optimization routines based on genetic algorithms. 
+             The package <pkg>Rmalschains</pkg> implements memetic algorithms 
+             with local search chains, which are a special type of 
+             evolutionary algorithms, combining a steady state genetic 
+             algorithm with local search for real-valued
+             parameter optimization.</li>
       <li><i>Association Rules</i>: Package
              <pkg>arules</pkg> provides both data structures for efficient
              handling of sparse binary data as well as interfaces to
              implementations of Apriori and Eclat for mining
              frequent itemsets, maximal frequent itemsets, closed 
              frequent itemsets and association rules.</li>
+      <li><i>Fuzzy Rule-based Systems</i>:
+             Package <pkg>frbs</pkg> implements a host of standard 
+             methods for learning fuzzy rule-based systems from data 
+             for regression and classification.</li>
       <li><i>Model selection and validation</i>: Package <pkg>e1071</pkg>
              has function <code>tune()</code> for hyper parameter tuning and 
              function <code>errorest()</code> (<pkg>ipred</pkg>) can be used for
@@ -179,6 +193,8 @@
     <pkg>arules</pkg>
     <pkg>BayesTree</pkg>
     <pkg>bigrf</pkg>
+    <pkg>bigRR</pkg>
+    <pkg>bmrm</pkg>
     <pkg>Boruta</pkg>
     <pkg>bst</pkg>
     <pkg>C50</pkg>
@@ -191,6 +207,7 @@
     <pkg>ElemStatLearn</pkg>
     <pkg>earth</pkg>
     <pkg>elasticnet</pkg>
+    <pkg>frbs</pkg>
     <pkg>GAMBoost</pkg>
     <pkg>gamboostLSS</pkg>
     <pkg priority="core">gbm</pkg>
@@ -206,9 +223,7 @@
     <pkg>lars</pkg>
     <pkg>lasso2</pkg>
     <pkg>LiblineaR</pkg>
-    <pkg>LogicForest</pkg>
     <pkg>LogicReg</pkg>
-    <pkg>longRPart</pkg>
     <pkg>maptree</pkg>
     <pkg priority = "core">mboost</pkg>
     <pkg>mvpart</pkg>
@@ -219,6 +234,7 @@
     <pkg>party</pkg>
     <pkg>partykit</pkg>
     <pkg>penalized</pkg>
+    <pkg>penalizedLDA</pkg>
     <pkg>penalizedSVM</pkg>
     <pkg>quantregForest</pkg>
     <pkg priority="core">randomForest</pkg>
@@ -230,12 +246,14 @@
     <pkg>REEMtree</pkg>
     <pkg>rgenoud</pkg>
     <pkg>rgp</pkg>
+    <pkg>Rmalschains</pkg>
     <pkg>rminer</pkg>
     <pkg>ROCR</pkg>
     <pkg priority="core">rpart</pkg>
     <pkg>RPMM</pkg>
     <pkg>RSNNS</pkg>
     <pkg>RWeka</pkg>
+    <pkg>RXshrink</pkg>
     <pkg>sda</pkg>
     <pkg>SDDA</pkg>
     <pkg>svmpath</pkg>

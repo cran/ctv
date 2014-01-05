@@ -3,15 +3,13 @@
 <name>OfficialStatistics</name>
 <topic>Official Statistics &amp; Survey Methodology</topic>
 <maintainer email="matthias.templ@gmail.com">Matthias Templ</maintainer>
-<version>2013-02-18</version>
+<version>2013-12-10</version>
   
 <info> This CRAN task view contains a list of packages that includes
 methods typically used in official statistics and survey methodology.
 Many packages provide functionality for more than one of the topics listed 
 below.  Therefore this list is not a strict categorization and packages can be 
-listed more than once.  Please note that not all topics that are of interest in 
-official statistics are listed below, because functionality in R might be 
-missing until now.
+listed more than once.  
  
 
 <p><strong>Complex Survey Design: General Comments</strong></p>
@@ -365,13 +363,6 @@ For general time series methodology we refer to the
 
 <p><strong>Small Area Estimation</strong></p>
 <ul>
-  <li>
-	Package <pkg>rsae</pkg> provides functions to estimate the parameters of the basic unit-level 
-	small area estimation (SAE) model (aka nested error regression model) 
-	by means of maximum likelihood (ML) or robust ML. On the basis of the estimated parameters, robust predictions of the area-specific 
-	means are computed (incl. MSE estimates; parametric bootstrap). 
-	The current version (rsae 0.4-x) does not allow for categorical independent variables.
-  </li>
     <li>
   Package <pkg>nlme</pkg> provides facilities to fit Gaussian linear and nonlinear mixed-effects models and 
   <pkg>lme4</pkg> provides facilities to fit linear and generalized linear mixed-effects model, both used in 
@@ -422,6 +413,11 @@ that is used to fit the basic random effects models.
 <p><strong>Additional Packages and Functionalities</strong></p>
 <ul>
   <li>
+  Package <pkg>SAScii</pkg> imports ASCII files directly into R using only a SAS input script, which
+  is parsed and converted into arguments for a read.fwf call. This is useful whenever SAS scripts for importing data
+  are already available.
+  </li> 
+  <li>
   Package <pkg>samplingbook</pkg> includes sampling procedures from the book 
   'Stichproben. Methoden und praktische Umsetzung mit R' by Goeran Kauermann 
   and Helmut Kuechenhoff (2010).
@@ -430,6 +426,11 @@ that is used to fit the basic random effects models.
   Package <pkg>SDaA</pkg> is designed to reproduce results from Lohr, S. (1999) 
   'Sampling: Design and Analysis, Duxbury' and includes the data sets from this 
   book.
+  </li>
+    <li>
+  The main contributions of
+ <pkg>samplingVarEst</pkg> are Jackknife alternatives for variance estimation
+ of unequal probability one or two stage designs. 
   </li>
   <li>
   Package <pkg>TeachingSampling</pkg> includes functionality for sampling 
@@ -503,10 +504,11 @@ organizations around the globe for disemination of their (multidimensional) tabl
   <pkg>reweight</pkg>
   <pkg>robCompositions</pkg>
   <pkg>rrcovNA</pkg>
-  <pkg>rsae</pkg>
   <pkg>sampling</pkg>
   <pkg>samplingbook</pkg>
   <pkg>SamplingStrata</pkg>
+  <pkg>samplingVarEst</pkg>
+  <pkg>SAScii</pkg>
   <pkg>SDaA</pkg>
   <pkg>sdcMicro</pkg>
   <pkg>sdcTable</pkg>

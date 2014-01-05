@@ -4,7 +4,7 @@
 <name>Survival</name>
 <topic>Survival Analysis</topic>
 <maintainer email="arthur.allignol@fdm.uni-freiburg.de">Arthur Allignol and Aurelien Latouche</maintainer>
-<version>2013-04-09</version>
+<version>2013-12-21</version>
 
 <info>
 <p>Survival analysis, also called event history analysis in social science,
@@ -41,10 +41,10 @@ something is inaccurate or missing.</p>
     Kaplan-Meier estimator.
     <code>nested.km</code> in <pkg>NestedCohort</pkg> estimates the
     survival curve for each level of categorical variables with
-    missing data.
-    The <code>kaplan-meier</code> function
+    missing data.  The <code>kaplan-meier</code> function
     in <pkg>spatstat</pkg> computes the Kaplan-Meier estimator from
-    histogram data.  The <code>KM</code> function in
+    histogram data.  The <pkg>MAMSE</pkg> package permits to compute a
+    weighted Kaplan-Meier estimate.  The <code>KM</code> function in
     package <pkg>rhosp</pkg> plots the survival function using a
     variant of the Kaplan-Meier estimator in a hospitalisation risk
     context.  The <pkg>survPresmooth</pkg> package computes
@@ -336,7 +336,9 @@ something is inaccurate or missing.</p>
     modelled in terms of covariates. 
     Nonparametric estimates in illness-death models and other three
     state models can be obtained with package
-    <pkg>p3state.msm</pkg>. The <pkg>SmoothHazard</pkg> package
+    <pkg>p3state.msm</pkg>. The <pkg>TPmsm</pkg> package permits to
+    estimate transition probabilities of an illness-death model or
+    three-state progressive model. The <pkg>SmoothHazard</pkg> package
     fits illness-death model with possibly interval-censored data for
     the transition time into the transient state. Weibull baseline
     intensities or a semi-parametric approach with M-splines
@@ -535,7 +537,7 @@ something is inaccurate or missing.</p>
 </li>
   <li>
     Bayesian parametric and semiparametric estimation for
-    semi-competing risks data is available via the <pkg>bscr</pkg>
+    semi-competing risks data is available via the <pkg>SemiCompRisks</pkg>
     package.
 </li>
 </ul>
@@ -646,10 +648,6 @@ something is inaccurate or missing.</p>
     reclassification index for comparing competing risks prediction
     models.
   </li>
-  <li>
-    The <pkg>aBioMarVsuit</pkg> package provides tools for validating
-    predictive gene signatures when the primary endpoint is survival.
-  </li>
 </ul>
 
 <h1>Power Analysis</h1>
@@ -746,11 +744,6 @@ something is inaccurate or missing.</p>
     W.J. (2003, 2007) also contain survival data sets.
   </li>
   <li>
-    The <pkg>bwsurvival</pkg> package proposes a nonparametric
-    estimator of the conditional survival function for successive
-    survival times.
-  </li>
-  <li>
     The <pkg>SvyNom</pkg> package permits to construct, validate and
     calibrate nomograms stemming from complex right-censored survey
     data.
@@ -768,7 +761,6 @@ something is inaccurate or missing.</p>
 </info>
 
 <packagelist>
-<pkg>aBioMarVsuit</pkg>
 <pkg>AER</pkg>
 <pkg>ahaz</pkg>
 <pkg>AIM</pkg>
@@ -782,8 +774,6 @@ something is inaccurate or missing.</p>
 <pkg>BMA</pkg>
 <pkg>bpcp</pkg>
 <pkg>boot</pkg>
-<pkg>bscr</pkg>
-<pkg>bwsurvival</pkg>
 <pkg>censReg</pkg>
 <pkg>changeLOS</pkg>
 <pkg>clinfun</pkg>
@@ -860,6 +850,7 @@ something is inaccurate or missing.</p>
 <pkg>logspline</pkg>
 <pkg>lpc</pkg>
 <pkg>lss</pkg>
+<pkg>MAMSE</pkg>
 <pkg>maxstat</pkg>
 <pkg>mboost</pkg>
 <pkg>MCMCglmm</pkg>
@@ -907,6 +898,7 @@ something is inaccurate or missing.</p>
 <pkg>RobustAFT</pkg>
 <pkg>rpart</pkg>
 <pkg>saws</pkg>
+<pkg>SemiCompRisks</pkg>
 <pkg>SGL</pkg>
 <pkg>simexaft</pkg>
 <pkg>SMIR</pkg>
@@ -935,6 +927,7 @@ something is inaccurate or missing.</p>
 <pkg priority="core">timereg</pkg>
 <pkg>timeROC</pkg>
 <pkg>tlmec</pkg>
+<pkg>TPmsm</pkg>
 <pkg>tpr</pkg>
 <pkg>TraMineR</pkg>
 <pkg>TSHRC</pkg>

@@ -2,8 +2,8 @@
 
 <name>ChemPhys</name>
 <topic>Chemometrics and Computational Physics</topic>
-<maintainer email="mullenkate@gmail.com">Katharine Mullen</maintainer>
-<version>2013-01-29</version>
+<maintainer email="katharine.mullen@statistics.ucla.edu">Katharine Mullen</maintainer>
+<version>2013-12-12</version>
 
 <info>
 
@@ -49,7 +49,7 @@ was published in January 2007.
 
 
 <p>
-<a href="mailto:mullenkate@gmail.com">Please let us know</a> if 
+<a href="mailto:katharine.mullen@stat.ucla.edu">Please let us know</a> if 
 we have omitted something of importance, or if a new package or function
 should be mentioned here.
 </p>
@@ -82,8 +82,7 @@ should be mentioned here.
   least squares problems. </li> 
 <li> Correlated and/or 
      unequal variances can be modeled using the  
-  <code>gnls()</code> function of the <pkg>nlme</pkg> package
-  and the <pkg>nlreg</pkg>. </li>  
+  <code>gnls()</code> function of the <pkg>nlme</pkg> package. </li>  
 </ul>
 
 <p>
@@ -182,7 +181,11 @@ should be mentioned here.
   <pkg>varSelRF</pkg> provides variable selection methods for random
   forests. Cross-validation-based variable selection using Wilcoxon rank
   sum tests is available in package <pkg>WilcoxCV</pkg>, focused on
-  binary classification in microarrays.</li>
+  binary classification in microarrays. Package <pkg>clustvarsel</pkg>
+  implements variable selection for model-based clustering.</li>
+ <li>
+The <pkg>BioMark</pkg> package
+implements two meta-methods for variable selection: stability selection (applying a primary selection method like a t-test, VIP value or PLSDA regression coefficient) to different subsets of the data, and higher criticism, which provides a data-driven choice of significance cutoffs in statistical testing. </li>
 </ul>
 
 <p>
@@ -216,8 +219,7 @@ See the <view>DifferentialEquations</view> task view packages dealing with
      statistical evaluation of calibration curves by different regression 
      techniques. </li>
      <li>
-      The <pkg>drm</pkg> package and the  
-      <pkg>nlreg</pkg> package are useful for nonlinear calibration models.
+      The <pkg>drm</pkg> package is useful for nonlinear calibration models.
 </li>
     <li> The package <pkg>represent</pkg> calculates the 'representativity'
 of two multidimensional 
@@ -263,10 +265,15 @@ libraries for use in R.
   to <a href="http://pubchem.ncbi.nlm.nih.gov/" target="_top">PubChem</a> data
   (compounds, substance, assays).</li>
   <li> 
-<a href="http://manuals.bioinformatics.ucr.edu/home/chemminer" target="_top">ChemmineR</a>  is a
-cheminformatics package for analyzing drug-like small molecule data in
-R. <a href="http://chemmine.ucr.edu/" target="_top">ChemMine Tools</a> provides a web interface to
-some of this package's utilities.
+ <bioc>ChemmineR</bioc> is
+a cheminformatics toolkit for analyzing small molecules in R. Its add-on
+packages include <bioc>fmcsR</bioc> for
+mismatch tolerant maximum common substructure matching, <bioc>eiR</bioc>
+for
+accelerated structure similarity searching; <bioc>bioassayR</bioc>
+for analyzing bioactivity data, and <bioc>ChemmineOB</bioc>
+for accessing <a href="http://openbabel.org/wiki/Main_Page" target="_top">OpenBabel</a>
+functionalities from R.
  </li>
 </ul>
 
@@ -298,6 +305,8 @@ analysis of Raman, IR, NIR, UV/VIS, NMR, etc., spectroscopic data sets.
   <li>The package <pkg>NMRS</pkg> 
   is designed to load and preprocess nuclear magnetic resonance spectra measured
   with Bruker instruments. </li>
+   <li>The package <pkg>prospectr</pkg> 
+      provides functions for pretreatment and sample selection of visible and near infrared diffuse reflectance spectra. </li>
   <li>Also note that the <rforge>photonics</rforge> project on 
   <a href="http://R-Forge.R-project.org/" target="_top">R-Forge</a> 
   collects various packages related to spectroscopy and optics; however, 
@@ -389,6 +398,16 @@ VLT/NACO cube mode images.
 distances, times, luminosities, and other quantities useful in
 observational cosmology, including molecular line observations.
     </li>  
+<li> The <pkg>astro</pkg> package provides tools for astronomy; functions 
+provided may be grouped into 4 main areas: cosmology, FITS file manipulation, the Sersic function and general (plotting and scripting) tools.
+</li>
+<li> The <pkg>celestial</pkg> package includes a number of common astronomy conversion routines, particularly the HMS and degrees schemes.
+</li>
+<li> The <pkg>SCEPtER</pkg> and <pkg>SCEPtERextras</pkg> packages 
+are used to 
+estimate stellar mass and radius given observational data of effective 
+temperature, [Fe/H], and astroseismic parameters.
+</li>
 <li>  The <a href="https://asaip.psu.edu/forums/software-forum" target="_top">Astrostatistics and Astroinformatics Portal Software Forum</a> is an R-centric forum for issues concerning software for statistical analysis in astronomy.
 </li> 
 </ul>
@@ -441,10 +460,13 @@ photovoltaics. </li>
   <pkg priority="core">ALS</pkg>
   <pkg>AnalyzeFMRI</pkg>
   <pkg>AquaEnv</pkg>
+  <pkg>astro</pkg>	
   <pkg>astroFns</pkg>
-  <pkg>Bchron</pkg>    
+  <pkg>Bchron</pkg>   
+  <pkg>BioMark</pkg>		 
   <pkg>bvls</pkg>  
   <pkg>cda</pkg>
+  <pkg>celestial</pkg>
   <pkg>CellularAutomaton</pkg>  
   <pkg>cosmoFns</pkg>
   <pkg>CHNOSZ</pkg>
@@ -453,6 +475,7 @@ photovoltaics. </li>
   <pkg>ChemometricsWithR</pkg>
   <pkg>ChemometricsWithRData</pkg>
   <pkg>ChemoSpec</pkg>
+  <pkg>clustvarsel</pkg>
   <pkg>dielectric</pkg>
   <pkg>diffractometry</pkg>
   <pkg>drc</pkg>
@@ -473,7 +496,6 @@ photovoltaics. </li>
   <pkg>minpack.lm</pkg>    
   <pkg>moonsun</pkg>
   <pkg>nlme</pkg>
-  <pkg>nlreg</pkg>
   <pkg>NMRS</pkg>  
   <pkg>OrgMassSpecR</pkg>
   <pkg priority="core">nnls</pkg>
@@ -484,6 +506,7 @@ photovoltaics. </li>
   <pkg priority="core">pls</pkg>
   <pkg>plspm</pkg>
   <pkg>ppls</pkg>
+  <pkg>prospectr</pkg> 
   <pkg>psy</pkg>
   <pkg priority="core">PTAk</pkg>
   <pkg>quantchem</pkg>	
@@ -494,6 +517,8 @@ photovoltaics. </li>
   <pkg>ringscale</pkg>
   <pkg>sapa</pkg>
   <pkg>simecol</pkg>
+  <pkg>SCEPtER</pkg> 
+  <pkg>SCEPtERextras</pkg> 
   <pkg>solaR</pkg>		
   <pkg>som</pkg>
   <pkg>spls</pkg>
@@ -516,16 +541,20 @@ photovoltaics. </li>
     <a href="http://CRAN.R-project.org/doc/Rnews/Rnews_2006-3.pdf" target="_top">R News: R in Chemistry</a> 
     <a href="http://www.jstatsoft.org/v18" target="_top">Journal of Statistical Software: Spectroscopy and Chemometrics in R</a>
     <rforge>photonics</rforge>
+    <bioc>bioassayR</bioc>
+    <bioc>ChemmineOB</bioc>
+    <bioc>ChemmineR</bioc>		
+    <bioc>fmcsR</bioc>
     <bioc>gpls</bioc>
+    <bioc>eiR</bioc>
     <bioc>MassSpecWavelet</bioc>
     <bioc>MSnbase</bioc>
     <bioc>PROcess</bioc>
-    <bioc>xcms</bioc> 
+    <bioc>xcms</bioc>	
+    <a href="https://asaip.psu.edu/forums/software-forum" target="_top">Astrostatistics and Astroinformatics Portal Software Forum</a>
     <a href="http://sourceforge.net/projects/cdk/" target="_top">Chemistry Development Kit (CDK)</a>
-    <a href="http://manuals.bioinformatics.ucr.edu/home/chemminer" target="_top">ChemmineR</a>  
-    <a href="http://chemmine.ucr.edu/" target="_top">ChemMine Tools</a>
+    <a href="http://openbabel.org/wiki/Main_Page" target="_top">OpenBabel</a>
     <a href="http://pubchem.ncbi.nlm.nih.gov/" target="_top">PubChem</a>
-     <a href="https://asaip.psu.edu/forums/software-forum" target="_top">Astrostatistics and Astroinformatics Portal Software Forum</a>
-</links>
+</links>  
 
 </CRANTaskView>

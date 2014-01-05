@@ -2,8 +2,8 @@
 
 <name>Psychometrics</name>
 <topic>Psychometric Models and Methods</topic>
-<maintainer email="Patrick.Mair@wu.ac.at">Patrick Mair</maintainer>
-<version>2013-04-06</version>
+<maintainer email="mair@fas.harvard.edu">Patrick Mair</maintainer>
+<version>2013-12-01</version>
 
 <info> Psychometrics is concerned with the design and analysis of research and
 the measurement of human characteristics. Psychometricians have also
@@ -16,7 +16,7 @@ we only give a brief overview of packages that are closely related to
 psychometric methodology. 
 
 <p>
-<a href="mailto:Patrick.Mair@wu.ac.at">Please let us know</a> if we have omitted
+<a href="mailto:mair@fas.harvard.edu">Please let us know</a> if we have omitted
 something of importance, or if a new package or function
 should be mentioned here.
 </p>
@@ -39,13 +39,23 @@ should be mentioned here.
      model.
   </li>
   <li>
-    The <pkg>mirt</pkg> includes the multivariate two- and three-parameter
-logistic models, confirmatory bifactor analysis, polytomous confirmatory and
-exploratory item response models, and partially-compensatory item response
-modeling in conjunction with other IRT models.
+    <pkg>TAM</pkg> fits unidimensional and multidimensional item response models and also includes multifaceted models, 
+    latent regression models and options for drawing plausible values.
   </li>
   <li>
-  Tha package <pkg>MultiLCIRT</pkg> estimates IRT models under (1) multidimensionality assumption, (2) discreteness of
+    The <pkg>mirt</pkg> allows for the analysis of dichotomous and polytomous response data using
+unidimensional and multidimensional latent trait models under the IRT paradigm. Exploratory and confirmatory models can be
+estimated with quadrature (EM) or stochastic (MHRM) methods. Confirmatory bi-factor and two-tier analyses are available for
+modeling item testlets. Multiple group analysis and mixed effects designs also are available for detecting differential item functioning
+and modelling item and person covariates. 
+  </li>
+  <li>
+  The <pkg>mcIRT</pkg> package provides functions to estimate the Nominal Response Model and the Nested Logit Model. Both are models to examine multiple-choice items 
+  and other polytomous response formats. Some additional uni- and multidimensional item response models (especially for locally dependent item responses) and 
+  some exploratory methods (DETECT, LSDM, model-based reliability) are included in <pkg>sirt</pkg>.
+  </li>
+  <li>
+  <pkg>MultiLCIRT</pkg> estimates IRT models under (1) multidimensionality assumption, (2) discreteness of
 latent traits, (3) binary and ordinal polytomous items. 
   </li>
   <li>
@@ -65,6 +75,10 @@ and multiple-choice model) items.
      The multidimensional methods include the Reckase-Martineau method and
 extensions 
      of the Haebara and Stocking-Lord method. 
+  </li>
+  <li>
+  The <pkg>equateIRT</pkg> package computes direct, chain and average (bisector) equating coefficients with 
+  standard errors using Item Response Theory (IRT) methods for dichotomous items.
   </li>
   <li>
      The <pkg>EstCRM</pkg> package calibrates the parameters for Samejima's
@@ -95,11 +109,9 @@ IRT methods.
   </li>
   <li>
      A multilevel Rasch model can be estimated using the package
-     <pkg>lme4</pkg> with functions for mixed-effects models with crossed or
-     partially crossed random effects. Furthermore, infrastructure for
-estimating tree-structured item response models of the GLMM family using
-<pkg>lme4</pkg> is provided in
-     <pkg>irtrees</pkg>.
+     <pkg>lme4</pkg>, <pkg>nlme</pkg>, and <pkg>MCMCglmm</pkg> with functions for mixed-effects models with crossed or
+     partially crossed random effects. The <pkg>ordinal</pkg> package implements this approach for polytomous models. An infrastructure for
+estimating tree-structured item response models of the GLMM family using <pkg>lme4</pkg> is provided in <pkg>irtrees</pkg>. 
   </li>
   <li>
      Nonparametric IRT analysis can be computed by means if the
@@ -122,7 +134,7 @@ tests by generating random zero-one matrices with given marginals.
      Simple Rasch computations such a simulating data and joint maximum
 likelihood are included in the <pkg>MiscPsycho</pkg> package.
   </li>
-<!--  <li>
+<li>
     The <pkg>irtProb</pkg> is designed to estimate multidimensional subject
 parameters (MLE and MAP) such as personnal pseudo-guessing, 
     personal fluctuation, personal inattention. These supplemental parameters
@@ -130,7 +142,7 @@ can be used to assess person fit, to identify misfit
     type, to generate misfitting response patterns, or to make correction while
 estimating the proficiency level considering 
     potential misfit at the same time. 
-  </li> -->
+  </li>
   <li>
     <pkg>cacIRT</pkg> computes classification accuracy and consistency under
 Item Response Theory. Currently, only works for 3PL IRT models (or 2PL or 1PL)
@@ -143,9 +155,7 @@ different programs (ICL, BILOG-MG, and ltm, and a variety of functions useful
 with IRT models.
   </li>
   <li>
-  Functions and example empirical (i.e., fraction subtraction) and artificial
-data for cognitive diagnosis modeling are provided by the <pkg>CDM</pkg>
-package.
+  The <pkg>CDM</pkg> package estimates cognitive diagnosis models (DINA, DINO and GDINA models) and the general diagnostic model with discrete and quasi-continuous multidimensional latent variables which also includes the multidimensional compensatory item response model.
   </li>
   <li>
     Gaussian ordination, related to logistic IRT and also approximated as
@@ -253,9 +263,9 @@ plots, star plots,
     analysis.
   </li>
   <li>
-    Other extensions of CA and MCA which also generalize many common IRT
-    models can be found on the <a href="http://gifi.stat.ucla.edu/psychoR/"
-target="_top">PsychoR</a> page.
+    SVD based multivariate exploratory methods such as PCA, CA, MCA 
+    (as well as a Hellinger form of CA), generalized PCA are implemented in <pkg>ExPosition</pkg>. 
+    The package also allows for supplementary data projection.
   </li>
 </ul>
 
@@ -328,6 +338,9 @@ SEMs in R (for example one function automates imputing missing data, running
 imputed datasets and combining the results from these datasets).
   </li>
   <li>
+    <pkg>semPlot</pkg> produces path diagrams and visual analysis for outputs of various SEM packages.
+  </li>
+  <li>
     <pkg>SEMModComp</pkg> conducts tests of difference in fit for mean and
 covariance structure models as in structural equation modeling (SEM).
   </li>
@@ -345,7 +358,7 @@ quantitative/qualitative variables
     the posterior for ordinal and mixed factor models.
   </li>
   <li>
-    The <pkg>homals</pkg> package provides nonlinear PCA and, by defining sets,
+    The <pkg>homals</pkg> package provides nonlinear PCA (aka categorical PCA) and, by defining sets,
 nonlinear canonical
     correlation analysis (models of the Gifi-family).
   </li>
@@ -412,9 +425,9 @@ and tertiary approaches
   </li>
   <li>
     Non-metric MDS can additionally be performed with <code>metaMDS()</code> in
-<pkg>vegan</pkg>. Furthermore,
-    <pkg>labdsv</pkg> and <pkg>ecodist</pkg> provide the function
-<code>nmds()</code> and some routines can be found in <pkg>xgobi</pkg>.
+<pkg>vegan</pkg>. Furthermore, <pkg>labdsv</pkg> and <pkg>ecodist</pkg> provide the function
+<code>nmds()</code> and some routines can be found in <pkg>xgobi</pkg>. Also, the <pkg>ExPosition</pkg> implements a function for
+metric MDS.
   </li>
   <li>
     Principal coordinate analysis can be computed with <code>capscale()</code>
@@ -448,6 +461,10 @@ reliability, item analysis, inter-rater reliability, and classical utility are
 contained in the <pkg>psychometric</pkg> package.
   </li>
   <li>
+  The <pkg>cocron</pkg> package provides functions to statistically compare two or more alpha coefficients based 
+  on either dependent or independent groups of individuals.
+  </li>
+  <li>
     The <pkg>CMC</pkg> package calculates and plots the step-by-step
 Cronbach-Mesbach curve, that is a method, based on the Cronbach alpha
 coefficient of reliability, for checking the unidimensionality of a measurement
@@ -455,12 +472,15 @@ scale.
   </li>
   <li>
     Cronbach alpha, kappa coefficients, and intra-class correlation coefficients
-(ICC) can be found in the <pkg>psy</pkg> package.
+(ICC) can be found in the <pkg>psy</pkg> package. Functions for ICC computation can be also found in the packages <pkg>psych</pkg>, <pkg>psychometric</pkg>and <pkg>ICC</pkg>.
   </li>
   <li>
     A number of routines for scale construction and reliability analysis useful
     for personality and experimental psychology are contained in the
     packages <pkg>psych</pkg> and <pkg>MiscPsycho</pkg>.
+  </li>
+  <li>
+    <a href="https://github.com/zief0002/QME">QME</a> (not on CRAN) computes measures from generalizability theory.
   </li>
 </ul>
 
@@ -525,8 +545,7 @@ more-sample, and
   </li>
   <li>
      Coefficents for interrater reliability and agreements can be computed with
-the
-     <pkg>irr</pkg>.
+the <pkg>irr</pkg>.
   </li>
   <li>
     <pkg>prefmod</pkg> generates design matrices for analysing real paired
@@ -565,8 +584,18 @@ and slope, and their standard deviations and confidence intervals.
 package.
   </li>
   <li>
+  The <pkg>mediation</pkg> allows both parametric and nonparametric causal mediation analysis. 
+  It also allows researchers to conduct sensitivity analysis for certain parametric models.
+  </li>
+  <li>
   Functions for data screening, testing moderation, mediation, and estimating
 power are contained in the <pkg>QuantPsyc</pkg> package. 
+  </li>
+  <li>
+  The package <pkg>multiplex</pkg> is especially designed for social networks with relations at 
+  different levels. In this sense, the program has effective ways to treat multiple networks data 
+  sets with routines that combine algebraic structures like the partially ordered semigroup 
+  with the existing relational bundles found in multiple networks.
   </li>
   <li>
   The <pkg>qgraph</pkg> package can be used to visualize data as networks.
@@ -591,6 +620,13 @@ user-friendly way for analysis of multinomial processing tree (MPT) models.
 and proportions,
   is available in <pkg>betareg</pkg>.
   </li>
+  <li>
+  The <pkg>cocor</pkg> package provides functions to compare two correlations based on either dependent or independent groups.
+  </li>
+  <li>
+   The <pkg>profileR</pkg> package provides a set of tools that implement profile
+analysis and cross-validation techniques.
+  </li>
 </ul>
 
 </info>
@@ -609,7 +645,9 @@ and proportions,
     <pkg>cfa</pkg>
     <pkg>classify</pkg>
     <pkg>CMC</pkg>
+    <pkg>cocor</pkg>
     <pkg>cocorresp</pkg>
+    <pkg>cocron</pkg>
     <pkg>CopyDetect</pkg>
     <pkg priority="core">CTT</pkg>
     <pkg>DAKS</pkg>
@@ -617,9 +655,11 @@ and proportions,
     <pkg>e1071</pkg>
     <pkg>eba</pkg>
     <pkg>ecodist</pkg>
+    <pkg>equateIRT</pkg>
     <pkg>equate</pkg>
     <pkg priority="core">eRm</pkg>
     <pkg>EstCRM</pkg>
+    <pkg>ExPosition</pkg>
     <pkg>FactoMineR</pkg>
     <pkg priority="core">FAiR</pkg>
     <pkg>fastICA</pkg>
@@ -627,8 +667,10 @@ and proportions,
     <pkg>fwdmsa</pkg>
     <pkg>GPArotation</pkg>
     <pkg priority="core">homals</pkg>
+    <pkg>ICC</pkg>
     <pkg>irr</pkg>
     <pkg>irtoys</pkg>
+    <pkg>irtProb</pkg>
     <pkg>irtrees</pkg>
     <pkg>KernSmoothIRT</pkg>
     <pkg>kst</pkg>
@@ -643,7 +685,10 @@ and proportions,
     <pkg priority="core">ltm</pkg>
     <pkg>MASS</pkg>
     <pkg>MBESS</pkg>
+    <pkg>MCMCglmm</pkg>
     <pkg>MCMCpack</pkg>
+    <pkg>mcIRT</pkg>
+    <pkg>mediation</pkg>
     <pkg priority="core">MiscPsycho</pkg>
     <pkg>mixRasch</pkg>
     <pkg>MLCM</pkg>
@@ -656,7 +701,10 @@ and proportions,
     <pkg priority="core">mirt</pkg>
     <pkg>mRm</pkg>
     <pkg>MultiLCIRT</pkg>
+    <pkg>multiplex</pkg>
     <pkg>nFactors</pkg>
+    <pkg>nlme</pkg>
+    <pkg>ordinal</pkg>
     <pkg>pathmox</pkg>
     <pkg>pcaPP</pkg>
     <pkg>pks</pkg>
@@ -667,6 +715,7 @@ and proportions,
     <pkg>poLCA</pkg>
     <pkg>polycor</pkg>
     <pkg priority="core">prefmod</pkg>
+    <pkg>profileR</pkg>
     <pkg>pscl</pkg>
     <pkg priority="core">psy</pkg>
     <pkg priority="core">psych</pkg>
@@ -684,12 +733,15 @@ and proportions,
     <pkg>rpf</pkg>
     <pkg priority="core">sem</pkg>
     <pkg>semPLS</pkg>
+    <pkg>semPlot</pkg>
     <pkg>SEMModComp</pkg>
     <pkg>semTools</pkg>
     <pkg>SensoMineR</pkg>
     <pkg>simsem</pkg>
+    <pkg>sirt</pkg>
     <pkg priority="core">smacof</pkg>
     <pkg>systemfit</pkg>
+    <pkg priority="core">TAM</pkg>
     <pkg>TripleR</pkg>
     <pkg priority="core">vegan</pkg>
     <pkg>VGAM</pkg>

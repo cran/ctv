@@ -3,7 +3,7 @@
 <name>ClinicalTrials</name>
 <topic>Clinical Trial Design, Monitoring, and Analysis</topic>
 <maintainer email="Ed.Zhang.jr@gmail.com">Ed Zhang and Harry G. Zhang</maintainer>
-<version>2013-03-23</version>
+<version>2013-12-10</version>
 
 <info>
 
@@ -19,7 +19,6 @@ to e-mail me regarding new packages or major package updates.</p>
 <p><strong>Design and Monitoring</strong></p>
 
 <ul>
-
 <li><pkg>TrialSize</pkg> This package has more than 80 functions from the book <i>Sample Size Calculations in Clinical Research</i> (Chow &amp; Wang &amp; Shao, 2007, 2nd ed., Chapman &amp;Hall/CRC). </li>
 <li><pkg>asd</pkg> This Package runs simulations for adaptive seamless designs using early outcomes for treatment selection.</li>
 <li><pkg>bcrm</pkg> This package implements a wide variety of one and two-parameter Bayesian CRM designs. The program can run interactively, allowing the user to enter outcomes after each cohort has been recruited, or via simulation to assess operating characteristics.</li>
@@ -70,6 +69,7 @@ Armitage-McPherson and Rowe Algorithm using the method described in Schoenfeld
 <p><strong>Design and Analysis</strong></p>
 
 <ul>
+<li>Package <pkg>AGSDest</pkg> This package provides tools and functions for parameter estimation in adaptive group sequential trials.</li>
 <li>Package <pkg>clinfun</pkg> has functions for both design and analysis of
 clinical trials. For phase II trials, it has functions to calculate sample size,
 effect size, and power based on Fisher's exact test, the operating
@@ -106,7 +106,6 @@ the hyperparameters and the posterior analysis can be processed.</li>
 of different sequential stopping boundaries (a truncated sequential probability
 ratio test boundary and a boundary proposed by Besag and Clifford (1991). It
 gives valid p-values and confidence intervals on p-values.</li> 
-<li><pkg>medAdherence</pkg> A variety of measures have been developed to calculate the medication adherence. Definitions and methods to address adherence differ greatly in public literature. Choosing which definition should be determined by overall study goals. This package provides the functions to calculate medication adherence based on commonly used definitions.</li>
 <li><pkg>nppbib</pkg>implements a nonparametric statistical test for rank or score data from partially-balanced incomplete block-design experiments.</li>
 <li><pkg>speff2trial</pkg>, the package performs estimation and testing of the
 treatment effect in a 2-group randomized clinical trial with a quantitative or
@@ -195,6 +194,7 @@ association and heterogeneity.</li>
 
 <packagelist>
   <pkg priority="core">adaptTest</pkg>
+  <pkg>AGSDest</pkg>
   <pkg priority="core">asd</pkg>
   <pkg>asypow</pkg>
   <pkg priority="core">bcrm</pkg> 
@@ -222,7 +222,6 @@ association and heterogeneity.</li>
   <pkg>longpower</pkg>
   <pkg priority="core">MChtest</pkg>
   <pkg>MCPMod</pkg>
-  <pkg>medAdherence</pkg>
   <pkg>meta</pkg>
   <pkg>metafor</pkg>
   <pkg>metaLik</pkg>

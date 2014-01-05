@@ -3,7 +3,7 @@
   <name>Environmetrics</name>
   <topic>Analysis of Ecological and Environmental Data</topic>
   <maintainer email="ucfagls@gmail.com">Gavin Simpson</maintainer>
-  <version>2013-03-23</version>
+  <version>2013-12-12</version>
   
   <info>
     <h4>Introduction</h4>
@@ -15,10 +15,10 @@
       analysis of environmental and ecological data, a <a href="http://www.jstatsoft.org/v22/" >special volume</a> of 
       the <em>Journal of Statistical Software</em> was produced in 2007.</p>
     <p>Those useRs interested in environmetrics should consult the <view>Spatial</view> view. 
-      Complementary information is also available in the <view>Multivariate</view>, <view>Phylogenetics</view> and 
-      <view>Cluster</view> task views.</p>
+      Complementary information is also available in the <view>Multivariate</view>, <view>Phylogenetics</view>, 
+      <view>Cluster</view>, and <view>SpatioTemporal</view> task views.</p>
     <p>If you have any comments or suggestions for additions or improvements, then please contact the
-      <a href="mailto:gavin_DOT_simpson_AT_ucl_DOT_ac_DOT_uk?subject=Environmetrics%20Task%20View">maintainer</a>.</p>
+      <a href="mailto:ucfagls_AT_gmail_DOT_com?subject=Environmetrics%20Task%20View">maintainer</a>.</p>
     <p>A list of available packages and functions is presented below, grouped by analysis type.</p>
     
     <h4>Modelling species responses and other data</h4>
@@ -253,12 +253,12 @@
 	survival and population size with Cormack-Jolly-Seber and Jolly-Seber open-population models.</li>
     </ul>
     <p>Packages <pkg>mra</pkg>, <pkg>secr</pkg> and <pkg>DSpat</pkg> can also be used to simulate data from their respective models.</p>
+    
+    <p>See also the <view>SpatioTemporal</view> task view for analysis of animal tracking data under <em>Moving objects, trajectories</em>.</p>
+
     <h5>Modelling population growth rates:</h5>
     <ul>
       <li>Package <pkg>popbio</pkg> can be used to construct and analyse age- or stage-specific matrix population models.</li>
-      <li>The <pkg>rconifers</pkg> package contains functions for simulating future forest conditions under different silvicultural
-	regimes using the <a href="http://www.fs.fed.us/psw/programs/ecology_of_western_forests/projects/conifers/">CONIFERS</a>
-	growth model.</li>
     </ul>
     
     <h4>Environmental time series</h4>
@@ -375,15 +375,14 @@
         of the Regional Frequency Analysis methods in hydrology.</li>
       <li>The <pkg>boussinesq</pkg> package is a collection of functions implementing the one-dimensional Boussinesq Equation
 	(ground-water).</li>
+      <li><pkg>rtop</pkg> is a package for geostatistical interpolation of data with irregular spatial support such as runoff
+        related data or data from administrative units.</li>
     </ul>
     
     <a id="climatology"></a>
     <h4>Climatology</h4>
     <p>Several packages related to the field of climatology.</p>
     <ul>
-      <li><pkg>climatol</pkg>provides functions to homogenize (outlier and shifts detection/correction) climatological
-	series and to list climatological summaries of the homogenized results, plus functions to draw wind-rose and Walter 
-	&amp; Lieth diagrams.</li>
       <li><pkg>seas</pkg> implements a number of functions for analysis and graphics of seasonal data.</li>
       <li><pkg>RMAWGEN</pkg> is set of S3 and S4 functions for spatial multi-site stochastic generation of daily
 	time series of temperature and precipitation making use of Vector Autoregressive Models.</li>
@@ -430,6 +429,8 @@
       <li>Package <pkg>eco</pkg> fits Bayesian models of ecological inference to 2 x 2 contingency tables.</li>
       <li>Package <pkg>e1071</pkg> provides functions for latent class analysis, short time Fourier transform, fuzzy clustering, 
       support vector machines, shortest path computation, bagged clustering, naive Bayes classifier, and more...</li>
+      <li>Package <pkg>pcurve</pkg> fits a principal curve to a numeric multivariate dataset in arbitrary dimensions. Produces 
+	diagnostic plots.</li>
       <li>Package <pkg>pgirmess</pkg> provides a suite of miscellaneous functions for data analysis in ecology.</li>
       <li><pkg>mefa</pkg> provides functions for handling and reporting on multivariate count data in ecology and 
       biogeography.</li>
@@ -440,6 +441,10 @@
       <li>Functions to analyze coherence, boundary clumping, and turnover following the pattern-based metacommunity analysis of
       <a href="http://dx.doi.org/10.1034/j.1600-0706.2002.970210.x">Leibold and Mikkelson (2002)</a> are provided in the
       <pkg>metacom</pkg> package.</li>
+      <li>Growth curve estimation via noncrossing and nonparametric regression quantiles is implemented in package
+        <pkg>quantregGrowth</pkg>. A supporting paper is <a href="http://dx.doi.org/10.1007/s10651-012-0232-1">Muggeo et al
+        (2013)</a>.
+      </li>
     </ul>
   </info>
   <packagelist>
@@ -454,7 +459,6 @@
     <pkg>boussinesq</pkg>
     <pkg>CircStats</pkg>
     <pkg>circular</pkg>
-    <pkg>climatol</pkg>
     <pkg priority="core">cluster</pkg>
     <pkg>cocorresp</pkg>
     <pkg>diveMove</pkg>
@@ -506,6 +510,7 @@
     <pkg>ouch</pkg>
     <pkg>party</pkg>
     <pkg>pastecs</pkg>
+    <pkg>pcurve</pkg>
     <pkg>pgirmess</pkg>
     <pkg>popbio</pkg>
     <pkg>POT</pkg>
@@ -515,11 +520,12 @@
     <pkg>pvclust</pkg>
     <pkg>qualV</pkg>
     <pkg>quantreg</pkg>
+    <pkg>quantregGrowth</pkg>
     <pkg>randomForest</pkg>
-    <pkg>rconifers</pkg>
     <pkg>Rcapture</pkg>
     <pkg>rioja</pkg>
     <pkg>rpart</pkg>
+    <pkg>rtop</pkg>
     <pkg>RMAWGEN</pkg>
     <pkg>seacarb</pkg>
     <pkg>seas</pkg>

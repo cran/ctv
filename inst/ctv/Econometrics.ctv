@@ -3,7 +3,7 @@
   <name>Econometrics</name>
   <topic>Computational Econometrics</topic>
   <maintainer email="Achim.Zeileis@R-project.org">Achim Zeileis</maintainer>
-  <version>2013-03-31</version>
+  <version>2014-01-01</version>
   
   <info>
     <p>Base R ships with a lot of functionality useful for computational
@@ -50,7 +50,9 @@
           family of generalized linear models (GLM) and can be fitted by <code>glm()</code>
 	  from package stats. This includes in particular logit and probit models
 	  for modeling choice data and poisson models for count data. Effects for typical
-	  values of regressors in these models can be obtained and visualized using <pkg>effects</pkg>.</li>
+	  values of regressors in these models can be obtained and visualized using <pkg>effects</pkg>.
+	  Marginal effects tables for certain GLMs can be obtained using the 
+	  <pkg>mfx</pkg> package.</li>
       <li>Negative binomial GLMs are available via <code>glm.nb()</code> in package <pkg>MASS</pkg>.
 	  Another implementation of negative binomial models
 	  is provided by <pkg>aod</pkg>, which also contains other models for overdispersed
@@ -58,12 +60,14 @@
       <li>Zero-inflated and hurdle count models are provided in package <pkg>pscl</pkg>.</li>
       <li>Multinomial responses: Multinomial models
 	  with individual-specific covariates only are available in <code>multinom()</code>
-	  from package <pkg>nnet</pkg>. An implementation with both individual- and
-	  choice-specific variables is <pkg>mlogit</pkg>. Generalized additive models
+	  from package <pkg>nnet</pkg>. Implementations with both individual- and
+	  choice-specific variables are <pkg>mlogit</pkg> and <pkg>mnlogit</pkg>. Generalized additive models
 	  (GAMs) for multinomial responses can be fitted with the <pkg>VGAM</pkg> package.	  
 	  A Bayesian approach to multinomial probit models is provided by <pkg>MNP</pkg>.
 	  Various Bayesian multinomial models (including logit and probit) are available
-	  in <pkg>bayesm</pkg>.</li>
+	  in <pkg>bayesm</pkg>. Furthermore, the package <pkg>RSGHB</pkg> fits various
+	  hierarchical Bayesian specifications based on direct specification of the likelihood
+	  function.</li>
       <li>Ordered responses: Proportional-odds regression for ordered responses is implemented
           in <code>polr()</code> from package <pkg>MASS</pkg>. The package <pkg>ordinal</pkg>
 	  provides cumulative link models for ordered data which encompasses proportional
@@ -73,9 +77,13 @@
 	  can be fitted by <code>survreg()</code> in <pkg>survival</pkg>, a convenience
 	  interface <code>tobit()</code> is in package <pkg>AER</pkg>. Further censored
 	  regression models, including models for panel data, are provided in <pkg>censReg</pkg>.
-	  Interval regression models are in <pkg>intReg</pkg>.
+	  Interval regression models are in <pkg>intReg</pkg>. Censored regression models with
+	  conditional heteroskedasticity are in <pkg>crch</pkg>.
 	  Furthermore, hurdle models for left-censored data at zero can be estimated with
-	  <pkg>mhurdle</pkg>. Models for sample selection are available in <pkg>sampleSelection</pkg>.</li>
+	  <pkg>mhurdle</pkg>. Models for sample selection are available in <pkg>sampleSelection</pkg>
+	  and semiparametric extensions of these are provided by <pkg>SemiParSampleSel</pkg>.</li>
+      <li>Instrumental variables for binary responses: The <pkg>LARF</pkg> package estimates
+          local average response functions for binary treatments and binary instruments.</li>
       <li>Multivariate probit models: Estimation and marginal effect computations can be
           carried out with <pkg>mvProbit</pkg>.</li>
       <li>Miscellaneous: Further more refined tools for microecnometrics are provided in
@@ -116,7 +124,8 @@
       <li>Truncated (Gaussian) regression: <pkg>truncreg</pkg>.</li>
       <li>Nonlinear mixed-effect models: <pkg>nlme</pkg> and <pkg>lme4</pkg>.</li>
       <li>Generalized additive models (GAMs): <pkg>mgcv</pkg>, <pkg>gam</pkg>, <pkg>gamlss</pkg>
-          and <pkg>VGAM</pkg>.</li> 
+          and <pkg>VGAM</pkg>.</li>
+      <li>Mixed data sampling regression: <pkg>midasr</pkg>.</li>
       <li>Miscellaneous: The packages <pkg>VGAM</pkg>, <pkg>rms</pkg> and <pkg>Hmisc</pkg> provide several tools for extended
 	  handling of (generalized) linear regression models. <pkg>Zelig</pkg> is a unified
 	  easy-to-use interface to a wide range of regression models.</li>
@@ -196,7 +205,8 @@
 	  Financial Time Series' (2nd ed., 2005, Wiley) containing data sets, functions
           and script files required to work some of the examples.</li>
       <li><pkg>CDNmoney</pkg> provides Canadian monetary aggregates.</li>
-      <li><pkg>pwt</pkg> provides (several releases of) the Penn world table.</li>
+      <li><pkg>pwt</pkg> provides the Penn World Table from versions 5.6, 6.x, 7.x. The version 8.x
+          data are available in <pkg>pwt8</pkg>.</li>
       <li>The packages <pkg>expsmooth</pkg>, <pkg>fma</pkg>, and <pkg>Mcomp</pkg> are
           data packages with time series data
 	  from the books 'Forecasting with Exponential Smoothing: The State Space Approach'
@@ -205,6 +215,8 @@
 	  respectively.</li>
       <li>Package <pkg>erer</pkg> contains functions and datasets for the book of
           'Empirical Research in Economics: Growing up with R' (Sun, forthcoming).</li>
+      <li>The package <a href="http://github.com/floswald/psidR/">psidR</a> available from GitHub can build panel data
+          sets from the Panel Study of Income Dynamics (PSID).</li>
     </ul>
 
     <p><strong>Miscellaneous</strong></p>
@@ -254,6 +266,7 @@
     <pkg priority="core">car</pkg>
     <pkg>CDNmoney</pkg>
     <pkg>censReg</pkg>
+    <pkg>crch</pkg>
     <pkg>dlm</pkg>
     <pkg>dse</pkg>
     <pkg>dyn</pkg>
@@ -275,6 +288,7 @@
     <pkg>ineq</pkg>
     <pkg>intReg</pkg>
     <pkg>its</pkg>
+    <pkg>LARF</pkg>
     <pkg>lfe</pkg>
     <pkg>lme4</pkg>
     <pkg priority="core">lmtest</pkg>
@@ -283,13 +297,16 @@
     <pkg>Mcomp</pkg>
     <pkg>meboot</pkg>
     <pkg>mFilter</pkg>
+    <pkg>mfx</pkg>
     <pkg>mgcv</pkg>
     <pkg>mhurdle</pkg>
     <pkg>micEcon</pkg>
     <pkg>micEconAids</pkg>
     <pkg>micEconCES</pkg>
     <pkg>micEconSNQP</pkg>
+    <pkg>midasr</pkg>
     <pkg>mlogit</pkg>
+    <pkg>mnlogit</pkg>
     <pkg>MNP</pkg>
     <pkg>MSBVAR</pkg>
     <pkg>mvProbit</pkg>
@@ -302,14 +319,17 @@
     <pkg priority="core">plm</pkg>
     <pkg>pscl</pkg>
     <pkg>pwt</pkg>
+    <pkg>pwt8</pkg>
     <pkg>quantreg</pkg>
     <pkg>reldist</pkg>
     <pkg>rms</pkg>
+    <pkg>RSGHB</pkg>
     <pkg>sampleSelection</pkg>
     <pkg priority="core">sandwich</pkg>
     <pkg>sde</pkg>
     <pkg>segmented</pkg>
     <pkg>sem</pkg>
+    <pkg>SemiParSampleSel</pkg>
     <pkg>simpleboot</pkg>
     <pkg>SparseM</pkg>
     <pkg>spatialprobit</pkg>
@@ -344,7 +364,7 @@
     <a href="http://www.springer.com/978-0-387-77316-2">Book: Applied Econometrics with R (Kleiber and Zeileis)</a>
     <a href="http://www.worldscibooks.com/economics/6895.html">Book: Hands-On Intermediate Econometrics Using R (Vinod)</a>
     <a href="http://www2.cirano.qc.ca/~bacc/">BACC Software for Bayesian Econometrics (Bayesian Analysis, Computation and Communication)</a>
+    <a href="http://github.com/floswald/psidR/">psidR Package (GitHub)</a>
 </links>
 
 </CRANTaskView>
-

@@ -3,11 +3,11 @@
   <name>SpatioTemporal</name>
   <topic>Handling and Analyzing Spatio-Temporal Data</topic>
   <maintainer email="edzer.pebesma@uni-muenster.de">Edzer Pebesma</maintainer>
-  <version>2013-03-02</version>
+  <version>2013-11-29</version>
 
   <info>
-  <p>This task view aims at presenting the useful R packages for the analysis
-  of spatio-temporal data.</p>
+  <p>This task view aims at presenting R packages that are useful for 
+  the analysis of spatio-temporal data.</p>
   <p>Please let the
   <a href="mailto:edzer.pebesma@uni-muenster.de">maintainer</a> know if
   something is inaccurate or missing.</p>
@@ -120,8 +120,8 @@
 
 	<li><b>Trajectory data:</b>
     Package <pkg>adehabitatLT</pkg> offers a class <code>ltraj</code>
-    for trajectories, and methods for analyzing them; package
-	<pkg>trip</pkg> extends <pkg>sp</pkg> based classes for trajectories.
+    for trajectories, and methods for analyzing them; the packages <pkg>move</pkg> and 
+	<pkg>trip</pkg> both extend <pkg>sp</pkg> based classes for trajectories. 
 	</li>
 
   </ul>
@@ -252,12 +252,12 @@
 
     <li><b>Moving objects, trajectories</b>
 	 <ul>
-	 <li><pkg>adehabitatLT</pkg> provids a	collection of tools
+	 <li><pkg>adehabitatLT</pkg> provides a	collection of tools
 	 for the analysis of animal movements, including biased random walk 
 	 simulation and home range estimation.
 	 </li>
 
-	 <li>package <pkg>trip</pkg> provides functions for accessing
+	 <li><pkg>trip</pkg> provides functions for accessing
 	 and manipulating spatial data for animal tracking. Filter
 	 for speed and create time spent plots from animal track
 	 data.
@@ -267,20 +267,20 @@
 	 sampler and supporting functions for estimating animal
 	 movement from archival tags and satellite fixes.
 
-	 It further provides Data handling and estimation functions
+	 It further provides data handling and estimation functions
 	 for animal movement estimation from archival or satellite
 	 tags. Helper functions are included for making image
 	 summaries binned by time interval from MCMC simulations
 	 of point data.
 	 </li>
 
-	 <li><pkg>diveMove</pkg> provides tilities to represent,
+	 <li><pkg>diveMove</pkg> provides utilities to represent,
 	 visualize, filter, analyze, and summarize time-depth
 	 recorder (TDR) data; miscellaneous functions for handling
 	 location data are also provided.  
 	 </li>
 
-	 <li><pkg>argosfilter</pkg> provides unctions to filters
+	 <li><pkg>argosfilter</pkg> provides functions to filter
 	 animal satellite tracking data obtained from Argos. It is
 	 especially indicated for telemetry studies of marine
 	 animals, where Argos locations are predominantly of
@@ -296,14 +296,58 @@
 	 </li>
 	 
 	 <li>
-	 crawl (<a
-	 href="http://cran.r-project.org/src/contrib/Archive/crawl/">ARCHIVED</a>):
+	 <pkg>crawl</pkg>:
 	 The (C)orrelated (RA)ndom (W)alk (L)ibrary of R functions
 	 was designed for fitting continuous-time correlated random
 	 walk (CTCRW) models with time indexed covariates. The
 	 model is fit using the Kalman-Filter on a state space
 	 version of the continuous-time stochastic movement process.
 	 </li>
+
+	 <li>
+	 <pkg>move</pkg> is a package for analyzing animal
+	 movement data; it contains functions to access movement data
+	 stored in <a href="http://www.movebank.org/">movebank</a>
+	 as well as tools to visualize and statistically analyse
+	 animal movement data. 
+	 </li>
+
+	 <li> 
+	 <pkg>animalTrack</pkg> provides animal track reconstruction
+	 for high frequency 2-dimensional (2D) or 3-dimensional (3D)
+	 movement data. 2D and 3D animal tracking data can be used to
+	 reconstruct tracks through time/space with correction based
+	 on known positions as well as 3D visualization of animal
+	 position and attitude.	 
+	 </li>
+
+	 <li> 
+	 The <pkg>BBMM</pkg> (Brownian bridge movement model) package
+	 provides an empirical estimate of a movement path using
+	 discrete location data obtained at relatively short time
+	 intervals. This is a continuous-time stochastic model of
+	 movement in which the probability of being in an area during
+	 the time of observation is conditioned on starting and ending
+	 locations. A BBMM is typically fit to animal location data
+	 obtained by a Global Positioning System (GPS) or Very High
+	 Frequency (VHF) device.
+	 </li>
+
+	 <li> 
+	 The <pkg>bcpa</pkg> package for behavioral change point
+	 analysis (BCPA) is a method of identifying hidden shifts in
+	 the underlying parameters of a time series, developed
+	 specifically to be applied to animal movement data which is
+	 irregularly sampled. The original paper on which it is based
+	 is: E. Gurarie, R. Andrews and K. Laidre A novel method for
+	 identifying behavioural changes in animal movement data
+	 (2009) Ecology Letters 12:5 395-408.
+	 </li>
+
+	 <li> The <pkg>smam</pkg> package provides Animal movement models
+	 including moving-resting process with embedded Brownian
+	 motion, Brownian motion with measurement error.
+	   </li>
 
 	 <li>
 	 The <a href="http://code.google.com/p/geolocation/">
@@ -313,13 +357,6 @@
 	 and most probable positions from tracking data.
 	 </li>
 
-	 <li>
-	 <rforge>move</rforge> is a package for analyzing animal
-	 movement data; it contains functions to access movement data
-	 stored in <a href="http://www.movebank.org/">movebank</a>
-	 as well as tools to visualize and statistically analyse
-	 animal movement data. 
-	 </li>
 
 	 <li><a href="http://ram.biology.dal.ca/~jonsen/code.html">bsam</a>
 	 fits Bayesian state-space models to Argos satellite tracking
@@ -402,30 +439,12 @@
   <li>Package <pkg>openair</pkg> has tools to analyze, interpret and understand air pollution data, but also tools to download UK air quality data.
   </li>
 
-  <li>
-  <pkg>sos4R</pkg> provides methods to request data from a <a
-  href="http://www.opengeospatial.org/standards/sos">sensor
-  observation service</a>.
-  </li>
-
   <li><pkg>ncdf</pkg>, <pkg>ncdf4</pkg> and
   <pkg>RNetCDF</pkg> allow reading and writing <a
   href="http://www.unidata.ucar.edu/software/netcdf/">netcdf</a>
   files; 
   <pkg>pbdNCDF4</pkg> adds collective parallel read and write capability 
   to <pkg>ncdf4</pkg>.
-  </li>
-
-  <li><pkg>NMMAPSlite</pkg> Provides remote access to daily
-  mortality, weather, and air pollution data from the National
-  Morbidity, Mortality, and Air Pollution Study for 108 U.S. cities
-  (1987--2000); data are obtained from the Internet-based Health
-  and Air Pollution Surveillance System (iHAPSS).
-  </li>
-
-  <li>
-  <pkg>RghcnV3</pkg> provides (access to) global historical climate
-  network (V3) data
   </li>
 
   <li>
@@ -440,7 +459,11 @@
 
   <packagelist>
     <pkg priority="core">adehabitatLT</pkg>
+    <pkg		>animalTrack</pkg>
     <pkg                >argosfilter</pkg>
+    <pkg		>BBMM</pkg>
+    <pkg                >bcpa</pkg>
+    <pkg                >crawl</pkg>
     <pkg                >cshapes</pkg>
     <pkg                >diveMove</pkg>
     <pkg                >GeoLight</pkg>
@@ -449,11 +472,11 @@
     <pkg                >lgcp</pkg>
     <pkg                >lme4</pkg>
     <pkg                >M3</pkg>
+    <pkg                >move</pkg>
     <pkg                >mvtsplot</pkg>
     <pkg                >ncdf</pkg>
     <pkg                >ncdf4</pkg>
     <pkg                >nlme</pkg>
-    <pkg                >NMMAPSlite</pkg>
     <pkg                >openair</pkg>
     <pkg                >pastecs</pkg>
     <pkg                >pbdNCDF4</pkg>
@@ -462,11 +485,10 @@
     <pkg priority="core">RandomFields</pkg>
     <pkg priority="core">raster</pkg>
     <pkg                >rasterVis</pkg>
-    <pkg                >RghcnV3</pkg>
     <pkg                >rgl</pkg>
     <pkg                >RNetCDF</pkg>
+    <pkg                >smam</pkg>
     <pkg                >solaR</pkg>
-    <pkg                >sos4R</pkg>
     <pkg priority="core">sp</pkg>
     <pkg priority="core">spacetime</pkg>
     <pkg                >spate</pkg>
@@ -490,14 +512,14 @@
   <links>
     <view>Spatial</view>
     <view>TimeSeries</view>
-    <view>Econometry</view>
+    <view>Econometrics</view>
     <view>Environmetrics</view>
     <view>DifferentialEquations</view>
     <rforge>spcopula</rforge>
     <a href="http://www.jstatsoft.org/v51/i07/">Pebesma (2012). spacetime: Spatio-Temporal Data in R. Journal of Statistical Software, 51(7).</a>
     <a href="http://www.jstatsoft.org/v25/c01/">Peng (2008). A Method for Visualizing Multivariate Time Series Data. Journal of Statistical Software, Code Snippets, 25(1).</a>
-    <a href="http://www.gapminder.org/world/">Gapminder world: A tool for visualization of economic and health indicators per country (including access to the underlying tables in time-wide form.</a>
+    <a href="http://www.gapminder.org/world/">Gapminder world: A tool for visualization of economic and health indicators per country (including access to the underlying tables in time-wide form).</a>
   </links>
   <!-- what about <pkg>LICORS</pkg>, <pkg>LSC</pkg>? -->
-
+  <!-- could add a lot more about classes, e.g. sp, move, trip and how they fit together, where there is coercion etc. -->
 </CRANTaskView>

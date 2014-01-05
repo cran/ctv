@@ -4,7 +4,7 @@
   <name>Finance</name>
   <topic>Empirical Finance</topic>
   <maintainer email="Dirk.Eddelbuettel@R-project.org">Dirk Eddelbuettel</maintainer>
-  <version>2013-04-10</version>
+  <version>2013-12-20</version>
   
   <info>
     <p>
@@ -80,9 +80,7 @@
 	  builds on it to provide the ability to estimate several multivariate 
 	  GARCH models. The
           <pkg>betategarch</pkg> package can estimate and simulate the
-          Beta-t-EGARCH model by Harvey.  The <pkg>bayesGARCH</pkg>
-          package can perform Bayesian estimation of a GARCH(1,1)
-          model with Student's t innovations.  For multivariate
+          Beta-t-EGARCH model by Harvey. For multivariate
           models, the <pkg>ccgarch</pkg> package can estimate
           (multivariate) Conditional Correlation GARCH models whereas
           the <pkg>gogarch</pkg> package provides functions for
@@ -174,9 +172,7 @@
           of functions for portfolio performance calculations and risk management.
       </li>
       <li>The <pkg>TTR</pkg> contains functions to construct technical
-          trading rules in R. The <pkg>ttrTests</pkg> package contains
-          several test statistics for assessing the efficacy 
-          of such rules.
+          trading rules in R.
       </li>
       <li>The <pkg>sde</pkg> package provides simulation and inference functionality
           for stochastic differential equations.
@@ -186,6 +182,8 @@
           Nelson and Siegel (1987) method with the Svensson (1994)
           extension. The former package adds the McCulloch (1975) cubic
           splines approach, the latter package adds the Diebold and Li approach.
+	  The <pkg>SmithWilsonYieldCurve</pkg> construct the yield curve using 
+          the Smith-Wilson approach based on LIBOR and SWAP rates.
       </li>
       <li>The <pkg>vrtest</pkg> package contains a number of variance ratio
           tests for the weak-form of the efficient markets hypothesis.
@@ -208,10 +206,6 @@
       </li>
       <li> The <pkg>maRketSim</pkg> package provides a market simulator, 
           initially designed around the bond market.
-      </li>
-      <li> The <pkg>PairTrading</pkg> package provides an implementation of the
-          classical "Pair(s) trading" trading strategy using
-          cointegration.
       </li>
       <li> The <pkg>BurStFin</pkg> and <pkg>BurStMisc</pkg> package has a collection of
           function for Finance including the estimation of covariance
@@ -236,6 +230,40 @@
 	<em>DE</em>rivatives and contains numerous pricer examples as
 	well as interactive 2d and 3d plots to study these pricing
 	functions.
+      </li>
+      <li>
+	The <pkg>PIN</pkg> package estimates the probability of
+	informed trading using microstructure data. 
+      </li>
+      <li>
+	The <pkg>SharpeR</pkg> package contains a collection of tools
+	for analyzing significance of trading strategies, based on the
+	Sharpe ratio and overfit of the same.
+      </li>
+      <li>
+	The <pkg>RND</pkg> package implements various functions to extract risk-neutral densities 
+       from option prices.
+      </li>
+      <li>
+	<pkg>LSMonteCarlo</pkg> can price American Options via the Least Squares Monte Carlo 
+        method 
+      </li>
+      <li>
+	The <pkg>BenfordTests</pkg> package provides 
+        seven statistical tests and support functions for determining if numerical data 
+        could conform to Benford's law. 
+      </li>
+      <li>
+	The <pkg>OptHedging</pkg> package values call and put option portfolio and implements an 
+        optimal hedging strategy.
+      </li>
+      <li>
+	The <pkg>markovchain</pkg> package provides functionality to
+	easily handle and analyse discrete Markov chains.
+      </li>
+      <li>
+	The <pkg>ycinterextra</pkg> package models yield curve interpolation and extrapolation using 
+        via the Nelson-Siegel, Svensson, or Smith-Wilson models, as well as Hermite cubic splines.
       </li>
     </ul>
 
@@ -363,7 +391,7 @@
     <pkg>AmericanCallOpt</pkg>
     <pkg>AutoSEARCH</pkg>
     <pkg>backtest</pkg>
-    <pkg>bayesGARCH</pkg>
+    <pkg>BenfordTests</pkg>
     <pkg>betategarch</pkg>
     <pkg>BurStFin</pkg>
     <pkg>BurStMisc</pkg>
@@ -418,16 +446,19 @@
     <pkg>its</pkg>    
     <pkg>lifecontingencies</pkg>
     <pkg>lmtest</pkg>
+    <pkg>LSMonteCarlo</pkg>
     <pkg>longmemo</pkg>
+    <pkg>markovchain</pkg>
     <pkg>maRketSim</pkg>
     <pkg>MSBVAR</pkg>
     <pkg>mvtnorm</pkg>
     <pkg>nlme</pkg>
     <pkg>NMOF</pkg>
     <pkg>opefimor</pkg>
+    <pkg>OptHedging</pkg>
     <pkg>pa</pkg>
-    <pkg>PairTrading</pkg>
     <pkg>parma</pkg>
+    <pkg>PIN</pkg>
     <pkg priority="core">PerformanceAnalytics</pkg>
     <pkg>portfolio</pkg>
     <pkg>portfolioSim</pkg>
@@ -435,12 +466,15 @@
     <pkg>quantmod</pkg>
     <pkg>Rcmdr</pkg>
     <pkg>rmgarch</pkg> 
+    <pkg>RND</pkg>
     <pkg>RQuantLib</pkg>
     <pkg>rugarch</pkg> 
     <pkg>rwt</pkg> 
     <pkg>sandwich</pkg>
     <pkg>schwartz97</pkg>
     <pkg>sde</pkg>
+    <pkg>SharpeR</pkg>
+    <pkg>SmithWilsonYieldCurve</pkg>
     <pkg>stochvol</pkg>
     <pkg>stockPortfolio</pkg>    
     <pkg>strucchange</pkg>
@@ -453,7 +487,6 @@
     <pkg>tseriesChaos</pkg>
     <pkg>tsfa</pkg>
     <pkg>TTR</pkg>
-    <pkg>ttrTests</pkg>
     <pkg>tawny</pkg>
     <pkg priority="core">timeDate</pkg>
     <pkg priority="core">timeSeries</pkg>
@@ -465,6 +498,7 @@
     <pkg>wavelets</pkg>
     <pkg>waveslim</pkg>
     <pkg>wavethresh</pkg> 
+    <pkg>ycinterextra</pkg>
     <pkg>YieldCurve</pkg>
     <pkg priority="core">xts</pkg> 
     <pkg>Zelig</pkg>

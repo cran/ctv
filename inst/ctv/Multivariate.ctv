@@ -3,7 +3,7 @@
   <name>Multivariate</name>
   <topic>Multivariate Statistics</topic>
   <maintainer email="Paul.Hewson@plymouth.ac.uk">Paul Hewson</maintainer>
-  <version>2013-04-05</version>
+  <version>2013-12-12</version>
   
   <info>
     <p>Base R contains most of the functionality for classical multivariate analysis,
@@ -35,7 +35,8 @@
           which provides an interface to the qhull library,
           gives indices to the relevant points via <code>convexhulln()</code>.
           <pkg>ellipse</pkg> draws ellipses for two parameters, and provides <code>plotcorr()</code>,
-          visual display of a correlation matrix.  Mosaic plots are available via 
+          visual display of a correlation matrix.  <pkg>denpro</pkg> provides level set trees 
+          for multivariate visualisation.  Mosaic plots are available via 
           <code>mosaicplot()</code> in graphics and <code>mosaic()</code>
 	  in <pkg>vcd</pkg> that also contains other visualization techniques for multivariate
 	  categorical data. <pkg>gclus</pkg> provides a number of 
@@ -65,7 +66,8 @@
           will provide estimates of the covariance
           and correlation  matrices respectively. <pkg>ICSNP</pkg> offers several descriptive measures such as <code>spatial.median()</code> which provides an estimate of the spatial median and further functions which provide estimates of scatter.   Further robust methods are provided such as <code>cov.rob()</code> in MASS which
           provides robust estimates of the variance-covariance matrix by minimum volume 
-          ellipsoid, minimum covariance determinant or classical product-moment. <pkg>robustbase</pkg> provides robust covariance estimation via fast minimum covariance determinant with <code>covMCD()</code> and the Orthogonalized pairwise estimate of Gnanadesikan-Kettenring via <code>covOGK()</code>.   Scalable robust methods are provided within <pkg>rrcov</pkg> also using fast minimum covariance determinant with <code>covMcd()</code> as well as M-estimators with <code>covMest()</code>. 
+          ellipsoid, minimum covariance determinant or classical product-moment. <pkg>covRobust</pkg> 
+          provides robust covariance estimation via nearest neighbor variance estimation. <pkg>robustbase</pkg> provides robust covariance estimation via fast minimum covariance determinant with <code>covMCD()</code> and the Orthogonalized pairwise estimate of Gnanadesikan-Kettenring via <code>covOGK()</code>.   Scalable robust methods are provided within <pkg>rrcov</pkg> also using fast minimum covariance determinant with <code>covMcd()</code> as well as M-estimators with <code>covMest()</code>. 
           <pkg>corpcor</pkg> provides shrinkage estimation of large scale covariance
 	  and (partial) correlation matrices.   </li>  
           <li><i>Densities (estimation and simulation):</i>          
@@ -117,6 +119,7 @@
 	  with S-PLUS) from stats.  <pkg>sca</pkg> provides simple components. <code>pc1()</code> in <pkg>Hmisc</pkg> 
           provides the first principal component and gives coefficients for unscaled 
           data.  Additional support for an assessment of the scree plot can be found in <pkg>nFactors</pkg>, whereas <pkg>paran</pkg> provides routines for Horn's evaluation of the number of dimensions to retain.
+	  <pkg>pcurve</pkg> provides Principal Curve analysis and visualisation as well as a further principal component method.
 	  For wide matrices, <pkg>gmodels</pkg> provides <code>fast.prcomp()</code> and <code>fast.svd()</code>.
           <pkg>kernlab</pkg> 
           uses kernel methods to provide a form of non-linear principal components with 
@@ -165,6 +168,7 @@
 	   A range of established
           clustering and visualisation techniques are also available in <pkg>cluster</pkg>, some cluster validation routines are available in <pkg>clv</pkg> and the Rand index can be computed from <code>classAgreement()</code> in <pkg>e1071</pkg>.  Trimmed cluster analysis is available from <pkg>trimcluster</pkg>, cluster ensembles are available from <pkg>clue</pkg>, methods to assist with choice of routines are available in <pkg>clusterSim</pkg> and hybrid methodology is provided by <pkg>hybridHclust</pkg>.  Distance 
           measures  (<code>edist()</code>) and hierarchical clustering (<code>hclust.energy()</code>) based on            E-statistics are available in <pkg>energy</pkg>.   Mahalanobis distance based clustering (for fixed points as well as clusterwise regression) are available from <pkg>fpc</pkg>.  
+	  <pkg>clustvarsel</pkg> provides variable selection within model-based clustering.
 	  Fuzzy clustering is available within <pkg>cluster</pkg> as well as via the 
 	  <bioc>hopach</bioc> (Hierarchical Ordered Partitioning and 
           Collapsing Hybrid) algorithm.    <pkg>kohonen</pkg> provides supervised and unsuperised SOMs 
@@ -261,14 +265,17 @@
     <pkg>clue</pkg> 
     <pkg priority="core">cluster</pkg> 
     <pkg>clusterGeneration</pkg>
-    <pkg>clusterSim</pkg> 
+    <pkg>clusterSim</pkg>
+    <pkg>clustvarsel</pkg>
     <pkg>clv</pkg> 
     <pkg>cocorresp</pkg> 
     <pkg>concor</pkg>
     <pkg>copula</pkg>     
     <pkg>corpcor</pkg>
+    <pkg>covRobust</pkg>
     <pkg>cramer</pkg> 
     <pkg>cwhmisc</pkg> 
+    <pkg>denpro</pkg>
     <pkg>desirability</pkg>
     <pkg>dr</pkg>
     <pkg>e1071</pkg>
@@ -334,6 +341,7 @@
     <pkg>PearsonICA</pkg> 
     <pkg>poLCA</pkg> 
     <pkg>polycor</pkg> 
+    <pkg>pcurve</pkg>
     <pkg>plsgenomics</pkg>
     <pkg>pls</pkg>
     <pkg>ppls</pkg> 

@@ -3,7 +3,7 @@
  <name>MetaAnalysis</name>
  <topic>Meta-Analysis</topic>
  <maintainer email = "info@aghmed.fsnet.co.uk">Michael Dewey</maintainer>
- <version>2013-04-04</version>
+ <version>2014-01-01</version>
 
  <info>
 <p>
@@ -30,7 +30,7 @@
 </p>
 
 <h4>Univariate meta-analysis</h4>
-   <i>Preparing for meta-analysis</i>
+   <p><i>Preparing for meta-analysis</i></p>
    <ul>
    <li>The primary studies often use a range of statistics to present their
    results. Convenience functions to convert these onto a common
@@ -52,8 +52,7 @@
    </li>
    </ul>
 
-<i>Fitting the model</i>
-
+   <p><i>Fitting the model</i></p>
    <ul>
    <li>
     Four packages provide the inverse variance weighted, Mantel-Haenszel,
@@ -64,7 +63,13 @@
     In addition radial (Galbraith) plots are provided by <pkg>metafor</pkg>
     and L'Abbe plots by <pkg>meta</pkg> and <pkg>metafor</pkg>.
    </li>
-
+   <li>
+   For binary data <pkg>metafor</pkg> provides the binomial-normal model.
+   </li>
+   <li>
+   For sparse binary data <pkg>exactmeta</pkg> provides an exact method which does not involve continuity
+   corrections
+   </li>
    <li>Packages which work with specific effect sizes may be more congenial
     to workers in some areas of science
     <pkg>MAc</pkg> and
@@ -78,9 +83,11 @@
    </li>
    
    <li>
-   A Bayesian approach is contained in <pkg>bspmma</pkg> which 
+   Bayesian approaches are contained in two packages.
+   <pkg>bspmma</pkg> which 
     provides two different models: a non-parametric and a semi-parametric.
     Graphical display of the results is provided.
+   <pkg>metamisc</pkg> provides a method with priors suggested by Higgins.
    </li>
    <li>
     Some packages concentrate on providing a specialised version of the core
@@ -88,7 +95,9 @@
     functions. These are: <pkg>metagen</pkg> which provides
      an improved method of obtaining confidence intervals,
      <pkg>metaLik</pkg>
-    which uses a more sophisticated approach to the likelihood, and
+    which uses a more sophisticated approach to the likelihood,
+    <pkg>metamisc</pkg> which as well as the method of moments provides two likelihood-based
+    methods, and
     <pkg>metatest</pkg> which provides
      another improved method of obtaining confidence intervals.
    </li>
@@ -107,6 +116,8 @@
    In addition <pkg>meta</pkg> and <pkg>metafor</pkg> provide
    both the non-parametric method suggested by Begg and Mazumdar
    and a range of regression tests modelled after the approach of Egger.
+   An exploratory technique for detecting an excess of statistically
+   significant studies is provided by <pkg>PubBias</pkg>
  </p>
 
 <i>Unobserved studies</i>
@@ -141,27 +152,38 @@
 
 <h4>Multivariate meta-analysis</h4>
 
-   In the situation where the outcome is multivariate:
+   <p>Standard methods outlined above assume that the effect sizes
+   are independent. This assumption may be violated in a number of ways
+   such as multiple treatments compared to the same control, multiple
+   endpoints or various forms of clustering.
+   In these situations where the outcome is multivariate:</p>
    <ul>
    <li>
-   <pkg>mvmeta</pkg> provides a range of model fitting procedures
-   and includes meta-regression.
+   <pkg>mvmeta</pkg> and <pkg>metafor</pkg>
+   provide a range of model fitting procedures
+   and include meta-regression,
    </li>
    <li>
    <pkg>mvtmeta</pkg> provides multivariate meta-analysis 
-   although not meta-regression.
+   although not meta-regression,
+   </li>
+   <li>
+   <pkg>mmeta</pkg> provides multivariate meta-analysis using
+   Sarmanov beta prior distributions
    </li>
    <li>
    <rforge>metaSEM</rforge> is available from R-Forge and
-   provides multivariate (and univariate) meta-analysis by
-   embedding it in the structural equation framework. It uses
-   OpenMx for the structural equation modelling. It provides
-   meta-regression. It also provides via a two-stage approach
+   provides multivariate (and univariate) meta-analysis and
+   meta-regression by embedding it in the structural equation framework
+   and using OpenMx for the structural equation modelling.
+   It can provide a three-level meta-analysis taking account of
+   clustering and allowing for level 2 and level 3 heterogeneity.
+   It also provides via a two-stage approach
    meta-analysis of correlation or covariance matrices.
    </li>
    <li>
-   <pkg>mmeta</pkg> provides a Bayesian approach using
-   Sarmanov beta priors for the bivariate case.
+   <pkg>dosresmeta</pkg> concentrates on the situation where individual
+   studies have information on the dose-response relationship.
    </li>
    </ul>
 
@@ -192,6 +214,10 @@
     The case of imperfect reference standards is catered for.
    </li>
    <li>
+   <pkg>Metatron</pkg> provides a method for the Reitsma model
+    incuding the case of an imperfect reference standard
+   </li>
+   <li>
     <pkg>metamisc</pkg> provides the method of Riley which estimates a common
     within and between correlation. Graphical output is also
     provided.
@@ -203,9 +229,9 @@
   </ul>
 
 <h4>Meta-regression</h4>
-    Where suitable moderator variables are available they may
+   <p>Where suitable moderator variables are available they may
     be included using meta-regression. All these packages are mentioned above, this
-    just draws that information together.
+    just draws that information together.</p>
    <ul>
    <li>
     <pkg>metafor</pkg> provides meta-regression (multiple
@@ -232,7 +258,8 @@
    <p>Also known as multiple treatment comparison.</p>
 
    <p>This is provided by <pkg>gemtc</pkg> which acts as a front-end to your
-   favourite MCMC package.</p>
+   favourite MCMC package and by <pkg>netmeta</pkg> which works in a frequentist
+   framework.</p>
 
 <h4>Genetics</h4>
    <p>
@@ -246,12 +273,12 @@
       expressed dene detection,
    <pkg>metaMA</pkg> provides meta-analysis of p-values or moderated
     effect sizes to find differentially expressed genes,
-   <pkg>MetaPath</pkg> provides meta-analysis for Pathway Enrichment analysis,
    <pkg>MetaPCA</pkg> provides meta-analysis in the dimension reduction
     of genomic data,
    <pkg>MetaQC</pkg> provides objective quality control and
     inclusion/exclusion criteria for genomic meta-analysis,
-   <pkg>skatMeta</pkg> provides meta-analysis for the SKAT test.
+   <pkg>MetaSKAT</pkg>, <pkg>seqMeta</pkg>, and
+   <pkg>skatMeta</pkg> provide meta-analysis for the SKAT test.
    </p>
 <h4>Others</h4>
 
@@ -266,7 +293,11 @@
     provides meta-analysis as part of a package primarily dedicated to the determination
     of sample size in cluster randomised trials.
    </p>
-
+   <p>
+   <pkg>CAMAN</pkg> offers the possibility of using finite semiparametric mixtures as an
+    alternative to the random effects model where there is heterogeneity.
+   Covariates can be included to provide meta-regression.
+   </p>
    <p>
     <pkg>RcmdrPlugin.MA</pkg>
     provides an interface to the Rcmdr GUI.
@@ -277,9 +308,12 @@
  <packagelist>
   <pkg>bamdit</pkg>
   <pkg>bspmma</pkg>
+  <pkg>CAMAN</pkg>
   <pkg>copas</pkg>
   <pkg>compute.es</pkg>
   <pkg>CRTSize</pkg>       
+  <pkg>dosresmeta</pkg>
+  <pkg>exactmeta</pkg>
   <pkg>epiR</pkg>
   <pkg>gap</pkg>
   <pkg>gemtc</pkg>
@@ -298,19 +332,23 @@
   <pkg>metaLik</pkg>
   <pkg>metaMA</pkg>
   <pkg>metamisc</pkg>
-  <pkg>MetaPath</pkg>
   <pkg>MetaPCA</pkg>
   <pkg>MetaQC</pkg>
+  <pkg>MetaSKAT</pkg>
   <pkg>metatest</pkg>
+  <pkg>Metatron</pkg>
   <pkg>mmeta</pkg>
   <pkg>mvmeta</pkg>
   <pkg>mvtmeta</pkg>
+  <pkg>netmeta</pkg>
   <pkg>psychometric</pkg>
+  <pkg>PubBias</pkg>
   <pkg>RcmdrPlugin.MA</pkg>
   <pkg>rmeta</pkg>
   <pkg>SAMURAI</pkg>
   <pkg>SCMA</pkg>
   <pkg>selectMeta</pkg>
+  <pkg>seqMeta</pkg>
   <pkg>skatMeta</pkg>
  </packagelist>
 
