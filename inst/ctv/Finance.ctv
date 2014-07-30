@@ -4,7 +4,7 @@
   <name>Finance</name>
   <topic>Empirical Finance</topic>
   <maintainer email="Dirk.Eddelbuettel@R-project.org">Dirk Eddelbuettel</maintainer>
-  <version>2013-12-20</version>
+  <version>2014-06-08</version>
   
   <info>
     <p>
@@ -63,7 +63,7 @@
           by the <code>arima()</code> and <code>KalmanLike()</code>commands in the
           basic R distribution.  
       </li>
-      <li>The <pkg>dse</pkg> and <pkg>timsac</pkg> packages provides a variety of more
+      <li>The <pkg>dse</pkg> and <pkg>timsac</pkg> packages provide a variety of more
 	  advanced estimation methods; <pkg>fracdiff</pkg> can
 	  estimate fractionally integrated series; <pkg>longmemo</pkg> covers
 	  related material.
@@ -80,14 +80,19 @@
 	  builds on it to provide the ability to estimate several multivariate 
 	  GARCH models. The
           <pkg>betategarch</pkg> package can estimate and simulate the
-          Beta-t-EGARCH model by Harvey. For multivariate
+          Beta-t-EGARCH model by Harvey.  The <pkg>bayesGARCH</pkg>
+          package can perform Bayesian estimation of a GARCH(1,1)
+          model with Student's t innovations.  For multivariate
           models, the <pkg>ccgarch</pkg> package can estimate
           (multivariate) Conditional Correlation GARCH models whereas
           the <pkg>gogarch</pkg> package provides functions for
           generalized orthogonal GARCH models.  The
           <pkg>AutoSEARCH</pkg> package provides automated
           general-to-specific model selection of the mean and
-          log-volatility of a log-ARCH-X model.
+          log-volatility of a log-ARCH-X model. The <pkg>GEVStableGarch</pkg>
+          package can fit  ARMA-GARCH or ARMA-APARCH models with GEV and 
+          stable conditional distributions. The <pkg>lgarch</pkg> package 
+          can estimate and fit log-Garch models. 
       </li>
       <li>Unit root and cointegration tests are provided by <pkg>tseries</pkg>,
     	  and <pkg>urca</pkg>.
@@ -97,8 +102,7 @@
 	  The <pkg>CADFtest</pkg> package implements the Hansen unit root test.
       </li>
       <li>
-	  <pkg>MSBVAR</pkg> provides
-	  Bayesian estimation of vector autoregressive models. The  <pkg>dlm</pkg> package  provides
+	  The  <pkg>dlm</pkg> package  provides
 	  Bayesian and likelihood analysis of dynamic linear models (ie
 	  linear Gaussian state space models). 
       </li>
@@ -116,9 +120,8 @@
       	  Several packages provide wavelet analysis 
 	  functionality: <pkg>rwt</pkg>, <pkg>wavelets</pkg>, 
           <pkg>waveslim</pkg>, <pkg>wavethresh</pkg>. Some methods from chaos 
-          theory are provided by the package <pkg>tseriesChaos</pkg>, and
-          <pkg>tsDyn</pkg> adds time series analysis based on dynamical
-          systems therory. 
+          theory are provided by the package <pkg>tseriesChaos</pkg>.
+          <pkg>tsDyn</pkg> adds time series analysis based on dynamical systems therory.
       </li>
       <li>
 	  The <pkg>forecast</pkg> package adds functions for
@@ -197,9 +200,6 @@
 	  matrix theory as well as shrinkage methods to remove sampling noise
 	  when estimating sample covariance matrices.
       </li>
-      <li> The <pkg>schwartz97</pkg> package can be used to model the
-	  Schwartz (1997) two-factor model for commodities markets.
-      </li>
       <li> The <pkg>opefimor</pkg> package by contains material to
           accompany the Iacus (2011) book entitled "Option Pricing and
           Estimation of Financial Models in R".
@@ -265,6 +265,24 @@
 	The <pkg>ycinterextra</pkg> package models yield curve interpolation and extrapolation using 
         via the Nelson-Siegel, Svensson, or Smith-Wilson models, as well as Hermite cubic splines.
       </li>
+      <li>
+	The <pkg>tvm</pkg> package models provides functions for time
+	value of money such as cashflows and yield curves.
+      </li>
+      <li>
+	The <pkg>MarkowitzR</pkg> package provides functions to test
+	the statistical signicance of Markowitz portfolios.
+      </li>
+      <li>
+	The <pkg>egcm</pkg> package implements the Engle-Granger
+	two-stage cointegration modeling procedure with a particular
+	focus on pairs trading.
+      </li>
+      <li>
+	The <pkg>pbo</pkg> package models the probability of backtest
+        overfitting, performance degradation, probability of loss, and the
+        stochastic dominance when analysing trading strategies. 
+      </li>
     </ul>
 
     <p>
@@ -273,8 +291,7 @@
     <ul>
       <li>Several packages provide functionality for 
           Extreme Value Theory models: <pkg>evd</pkg>, <pkg>evdbayes</pkg>, 
-          <pkg>evir</pkg>, <pkg>extRemes</pkg>, <pkg>ismev</pkg>, 
-          <pkg>POT</pkg>.
+          <pkg>evir</pkg>, <pkg>extRemes</pkg>, <pkg>ismev</pkg>.
       </li>
       <li>
 	The packages <pkg>CreditMetrics</pkg> and <pkg>crp.CSFP</pkg> provide function for modelling credit risks.
@@ -382,6 +399,22 @@
 	  measures, estimate and forecast volatility, and investigate
 	  microstructure noise and intraday periodicity.
       </li>
+      <li>
+          The <pkg>Rbitcoin</pkg> package offers access to Bitcoin
+          exchange APIs (mtgox, bitstamp, btce, kraken) via public and
+          private API calls and integration of data structures for all
+          markets.
+      </li>
+      <li>
+      	  The <pkg>TAQMNGR</pkg> package manages tick-by-tick (equity)
+      	  transaction data performing 'cleaning', 'aggregation' and
+      	  'import' where cleaning and aggregation are performed
+      	  according to Brownlees and Gallo (2006).
+      </li>
+      <li>
+      	  The <pkg>bizdays</pkg> package compute business days if
+      	  provided a list of holidays.
+      </li>
     </ul>
 
   </info>
@@ -391,8 +424,10 @@
     <pkg>AmericanCallOpt</pkg>
     <pkg>AutoSEARCH</pkg>
     <pkg>backtest</pkg>
+    <pkg>bayesGARCH</pkg>
     <pkg>BenfordTests</pkg>
     <pkg>betategarch</pkg>
+    <pkg>bizdays</pkg>
     <pkg>BurStFin</pkg>
     <pkg>BurStMisc</pkg>
     <pkg>CADFtest</pkg>
@@ -407,6 +442,7 @@
     <pkg>dse</pkg>
     <pkg>dyn</pkg>
     <pkg>dynlm</pkg>
+    <pkg>egcm</pkg>
     <pkg>ESG</pkg>
     <pkg>evd</pkg>
     <pkg>evdbayes</pkg>
@@ -436,6 +472,7 @@
     <pkg>forecast</pkg>
     <pkg>fracdiff</pkg>
     <pkg>frmqa</pkg>
+    <pkg>GEVStableGarch</pkg>
     <pkg>ghyp</pkg>
     <pkg>gmm</pkg>
     <pkg>gogarch</pkg>
@@ -444,13 +481,14 @@
     <pkg>IBrokers</pkg>
     <pkg>ismev</pkg>
     <pkg>its</pkg>    
+    <pkg>lgarch</pkg>
     <pkg>lifecontingencies</pkg>
     <pkg>lmtest</pkg>
     <pkg>LSMonteCarlo</pkg>
     <pkg>longmemo</pkg>
     <pkg>markovchain</pkg>
     <pkg>maRketSim</pkg>
-    <pkg>MSBVAR</pkg>
+    <pkg>MarkowitzR</pkg>
     <pkg>mvtnorm</pkg>
     <pkg>nlme</pkg>
     <pkg>NMOF</pkg>
@@ -458,12 +496,13 @@
     <pkg>OptHedging</pkg>
     <pkg>pa</pkg>
     <pkg>parma</pkg>
+    <pkg>pbo</pkg> 
     <pkg>PIN</pkg>
     <pkg priority="core">PerformanceAnalytics</pkg>
     <pkg>portfolio</pkg>
     <pkg>portfolioSim</pkg>
-    <pkg>POT</pkg>
     <pkg>quantmod</pkg>
+    <pkg>Rbitcoin</pkg>
     <pkg>Rcmdr</pkg>
     <pkg>rmgarch</pkg> 
     <pkg>RND</pkg>
@@ -471,13 +510,13 @@
     <pkg>rugarch</pkg> 
     <pkg>rwt</pkg> 
     <pkg>sandwich</pkg>
-    <pkg>schwartz97</pkg>
     <pkg>sde</pkg>
     <pkg>SharpeR</pkg>
     <pkg>SmithWilsonYieldCurve</pkg>
     <pkg>stochvol</pkg>
     <pkg>stockPortfolio</pkg>    
     <pkg>strucchange</pkg>
+    <pkg>TAQMNGR</pkg>
     <pkg>timsac</pkg>
     <pkg priority="core">tseries</pkg>
     <pkg>termstrc</pkg>
@@ -491,6 +530,7 @@
     <pkg priority="core">timeDate</pkg>
     <pkg priority="core">timeSeries</pkg>
     <pkg>tis</pkg> 
+    <pkg>tvm</pkg>
     <pkg priority="core">urca</pkg>
     <pkg>vars</pkg>
     <pkg>vrtest</pkg>

@@ -2,7 +2,7 @@
   <name>Spatial</name>
   <topic>Analysis of Spatial Data</topic>
   <maintainer email="Roger.Bivand@nhh.no">Roger Bivand</maintainer>
-  <version>2013-12-16</version>
+  <version>2014-06-08</version>
 
   <info>
     <p>Base R includes many functions that can be used for reading,
@@ -12,11 +12,11 @@
     these locations may be retrieved if the location is recorded with
     care. Base R functions are complemented by contributed packages,
     some of which are on CRAN, and others are still in development. One
-    active location is <a target="_top" href="http://R-Forge.R-project.org/">
+    active location is <a href="http://R-Forge.R-project.org/">
     R-Forge</a>, which lists "Spatial Data and Statistics" projects in its
-    <a target="_top" href="http://R-Forge.R-project.org/softwaremap/trove_list.php">project tree</a>. Information on R-spatial packages,
+    <a href="http://R-Forge.R-project.org/softwaremap/trove_list.php">project tree</a>. Information on R-spatial packages,
     especially <pkg>sp</pkg>  will be posted
-    on the R-Forge rspatial project <a target="_top" 
+    on the R-Forge rspatial project <a 
     href="http://rspatial.R-Forge.R-project.org/">website</a>, including
     a visualisation gallery.</p>
 
@@ -104,7 +104,14 @@
       data set, Guerry's "Moral Statistics of France", has been made
       available in the <pkg>Guerry</pkg> package, which provides data
       and maps and examples designed to contribute to the integration
-      of multivariate and spatial analysis. Modern country boundaries are
+      of multivariate and spatial analysis. 
+      The <pkg>marmap</pkg> package is designed for downloading, plotting
+      and manipulating bathymetric and topographic data in R. <pkg>marmap</pkg>
+      can query the ETOPO1 bathymetry and topography database hosted by the
+      NOAA, use simple latitude-longitude-depth data in ascii format, and take
+      advantage of the advanced plotting tools available in R to build
+      publication-quality bathymetric maps (see the <a href="http://www.plosone.org/article/info%3Adoi%2F10.1371%2Fjournal.pone.0073051">PLOS</a>
+      paper). Modern country boundaries are
       provided at 2 resolutions by <pkg>rworldmap</pkg> along with
       functions to join and map tabular data referenced by country
       names or codes. Chloropleth and bubble maps are supported and general
@@ -119,7 +126,8 @@
       sensing data. <pkg>taRifx</pkg> is a collection of utility and 
       convenience functions, and some interesting spatial functions.</p></li>
 
-      <li><p><b>Reading and writing spatial data - <pkg>rgdal</pkg></b>: Maps may be
+      <li><p><b>Reading and writing spatial data - <pkg>rgdal</pkg></b>:
+      Maps may be
       vector-based or raster-based. The <pkg>rgdal</pkg> package provides
       bindings to <a href="http://www.gdal.org/">GDAL</a>-supported raster
       formats and <a href="http://www.gdal.org/ogr/">OGR</a>-supported
@@ -133,6 +141,7 @@
       include subsets of possible data source drivers; if others
       are needed, use other conversion utilities, or install from source
       against a version of GDAL with the required drivers.</p></li>
+
       <li><p><b>Reading and writing spatial data - other packages</b>:
       There are a
       number of other packages for accessing vector data on CRAN:
@@ -162,8 +171,11 @@
       spatial visualisation with Google Maps and OpenStreetMap.
       The <pkg>plotGoogleMaps</pkg> package provides methods for the 
       visualisation of spatial and spatio-temporal objects in Google Maps in
-      a web browser. <pkg>plotKML</pkg> is a package providing methods for the 
-      visualisation of spatial and spatio-temporal objects in Google Earth. 
+      a web browser. <pkg>plotKML</pkg> is a package providing methods for
+      the visualisation of spatial and spatio-temporal objects in Google
+      Earth. A further option is <pkg>leafletR</pkg>, which provides basic
+      web-mapping functionality to combine vector data files and online
+      map tiles from different sources.
       <pkg>OpenStreetMap</pkg> gives access to open street map raster images, 
       and <pkg>osmar</pkg> provides infrastructure to access OpenStreetMap 
       data from different sources, to work with the data in common R manner, 
@@ -173,7 +185,7 @@
       distributed data, and is capable of error corrections and data
       visualisation.</p>
 
-      <p>Integration with version 6.* of the leading open source
+      <p>Integration with version 6.* and 7 (devel) of the leading open source
       GIS, GRASS, is provided in CRAN package <pkg>spgrass6</pkg>, using
       <pkg>rgdal</pkg> for exchanging data. <pkg>RPyGeo</pkg> is a wrapper
       for Python access to the ArcGIS GeoProcessor, and <pkg>RSAGA</pkg>
@@ -218,7 +230,10 @@
       distance, including classical ones (Ripley's K and others) and more 
       recent ones used by spatial economists (Duranton and Overman's Kd, 
       Marcon and Puech's M). It relies on spatstat for core 
-      calculation.</p></li>
+      calculation. <pkg>latticeDensity</pkg> contains functions that compute
+      the lattice-based density estimator of Barry and McIntyre, which
+      accounts for point processes in two-dimensional regions with
+      irregular boundaries and holes.</p></li>
 
       <li><p><b>Geostatistics</b>: The <pkg>gstat</pkg> package
       provides a wide range of functions for univariate and multivariate
@@ -296,7 +311,12 @@
       models assume that the spatial dependence can be described by known
       weights. The <pkg>SpatialEpi</pkg> package provides implementations of
       cluster detection and disease mapping functions, including Bayesian
-      cluster detection, and supports strata.
+      cluster detection, and supports strata. Regionalisation of polygon
+      objects is provided by <pkg>AMOEBA</pkg>: a function to calculate
+      spatial clusters using the Getis-Ord local statistic. It searches
+      irregular clusters (ecotopes) on a map, and by <code>skater</code>
+      in <pkg>spdep</pkg>. The <pkg>seg</pkg> package provides functions
+      for measuring spatial segregation.
       The <pkg>spgwr</pkg> package contains an implementation of
       geographically weighted regression methods for exploring possible
       non-stationarity. The <pkg>gwrr</pkg> package fits geographically
@@ -313,7 +333,16 @@
       distribution. Examples of the models included are the BYM model as 
       well as a recently developed localised spatial smoothing model.
       The <pkg>glmmBUGS</pkg> package is a helpful way of passing out spatial
-      models to WinBUGS.</p></li>
+      models to WinBUGS. The <pkg>spaMM</pkg> package fits spatial GLMMs,
+      using the Matern correlation function as the basic model for spatial
+      random effects.
+      The <pkg>spacom</pkg> package provides tools to
+      construct and exploit spatially weighted context data, and further
+      allows combining the resulting spatially weighted context data with
+      individual-level predictor and outcome variables, for the purposes
+      of multilevel modelling. The <pkg>geospacom</pkg> package gnerates
+      distance matrices from shape files and represents spatially weighted
+      multilevel analysis results.</p></li>
 
       <li><p><b>Spatial regression</b>:
       The choice of function for spatial regression will depend on the 
@@ -367,7 +396,9 @@
       provides a range of spatial nonparametric covariance functions.
       <pkg>rangeMapper</pkg> is a package to manipulate species range
       (extent-of-occurrence) maps, mainly tools for easy generation of
-      biodiversity (species richness) or life-history traits maps.
+      biodiversity (species richness) or life-history traits maps. The
+      <pkg>siplab</pkg> package is a platform for experimenting with
+      spatially explicit individual-based vegetation models.
       <pkg>ModelMap</pkg> builds on other packages to create models
       using underlying GIS data. The <pkg>gstudio</pkg> package contains 
       classes and functions for the spatial analysis of marker data to 
@@ -400,6 +431,7 @@
     <pkg>adehabitatMA</pkg>
     <pkg>ads</pkg>
     <pkg>akima</pkg>
+    <pkg>AMOEBA</pkg>
     <pkg>aspace</pkg>
     <pkg>ash</pkg>
     <pkg>automap</pkg>
@@ -423,8 +455,8 @@
     <pkg>georob</pkg>
     <pkg priority="core">geoR</pkg>
     <pkg>geoRglm</pkg>
+    <pkg>geospacom</pkg>
     <pkg>geosphere</pkg>
-    <pkg>geospt</pkg>
     <pkg>geospt</pkg>
     <pkg>GeoXp</pkg>
     <pkg>ggmap</pkg>
@@ -440,12 +472,15 @@
     <pkg>hdeco</pkg>
     <pkg>intamap</pkg>
     <pkg>landsat</pkg>
+    <pkg>latticeDensity</pkg>
+    <pkg>leafletR</pkg>
     <pkg>mapdata</pkg>
     <pkg>mapproj</pkg>
     <pkg>maps</pkg>
     <pkg>MBA</pkg>
     <pkg priority="core">maptools</pkg>
     <pkg>MarkedPointProcess</pkg>
+    <pkg>marmap</pkg>
     <pkg>McSpatial</pkg>
     <pkg>micromap</pkg>
     <pkg>ModelMap</pkg>
@@ -478,10 +513,14 @@
     <pkg>rtop</pkg>
     <pkg>rworldmap</pkg>
     <pkg>rworldxtra</pkg>
+    <pkg>seg</pkg>
     <pkg>sgeostat</pkg>
     <pkg>shapefiles</pkg>
     <pkg priority="core">sp</pkg>
     <pkg priority="core">spacetime</pkg>
+    <pkg>siplab</pkg>
+    <pkg>spacom</pkg>
+    <pkg>spaMM</pkg>
     <pkg>sparr</pkg>
     <pkg>spatial</pkg>
     <pkg>spatialCovariance</pkg>
@@ -523,7 +562,7 @@
     
   <links>
     <view>Environmetrics</view>
-    <a target="_top" href="http://geodacenter.asu.edu/projects/rsp">Rgeo: Spatial Statistics with R</a>
+    <a href="http://geodacenter.asu.edu/projects/rsp">Rgeo: Spatial Statistics with R</a>
     <a href="https://www.stat.math.ethz.ch/mailman/listinfo/R-SIG-Geo/">R-SIG-Geo mailing list</a>
   </links> 
 

@@ -3,10 +3,10 @@
 <name>Cluster</name>
 <topic>Cluster Analysis &amp; Finite Mixture Models</topic>
 <maintainer email="Bettina.Gruen@jku.at">Friedrich Leisch and Bettina Gruen</maintainer>
-<version>2013-12-12</version>
+<version>2014-07-29</version>
   
 <info> This CRAN Task View contains a list of packages that can be
-used for finding groups in data and modelling unobserved
+used for finding groups in data and modeling unobserved
 cross-sectional heterogeneity. Many packages provide functionality for
 more than one of the topics listed below, the section headings are
 mainly meant as quick starting points rather than an ultimate
@@ -30,6 +30,12 @@ of each package to check under which license it is distributed.</p>
   <li>Function <code>dendrogram()</code> from stats and associated
   methods can be used for improved visualization for cluster
   dendrograms.</li>
+  <li>The <pkg>dendextend</pkg> package provides functions for easy
+  visualization (coloring labels and branches, etc.), manipulation
+  (rotating, pruning, etc.) and comparison of dendrograms (tangelgrams
+  with heuristics for optimal branch rotations, and tree correlation
+  measures with bootstrap and permutation tests for
+  significance).</li>
   <li>Package <pkg>dynamicTreeCut</pkg> contains methods for detection
   of clusters in hierarchical clustering dendrograms.</li>
   <li><pkg>hybridHclust</pkg> implements hybrid hierarchical
@@ -38,11 +44,6 @@ of each package to check under which license it is distributed.</p>
   the classification of ordination scores from isometric feature
   mapping. The classification is performed either as a hierarchical,
   divisive method or as non-hierarchical partitioning.</li>
-  <li>The package <pkg>protoclust</pkg> implements a form of
-  hierarchical clustering that associates a prototypical element with
-  each interior node of the dendrogram.  Using the package's
-  <code>plot()</code> function, one can produce dendrograms that are
-  prototype-labeled and are therefore easier to interpret.</li>
   <li><pkg>pvclust</pkg> is a package for assessing the uncertainty in
   hierarchical cluster analysis. It provides approximately
   unbiased p-values as well as bootstrap p-values.</li>
@@ -88,9 +89,7 @@ of each package to check under which license it is distributed.</p>
    an interface to the CLUTO vcluster program for clustering
    high-dimensional datasets.</li>
   <li>Package <pkg>trimcluster</pkg> provides trimmed k-means
-  clustering. Package <pkg>tclust</pkg> also allows for trimmed
-  k-means clustering. In addition using this package other covariance
-  structures can also be specified for the clusters.</li>
+  clustering.</li>
 </ul>
 <p><strong>Model-Based Clustering:</strong></p>
 <ul><li>ML estimation:
@@ -114,15 +113,10 @@ of each package to check under which license it is distributed.</p>
   to fit Gaussian mixture model to high-dimensional data where it is
   assumed that the data lives in a lower dimension than the original
   space.</li>
-  <li>Package <pkg>HMMmix</pkg> allows to fit mixtures of Gaussians
-  with a hidden Markov model for the latent component memberships of
-  the clusters which might be derived by combining components of the
-  mixture.</li>
   <li>Package <pkg>teigen</pkg> allows to fit multivariate
   t-distribution mixture models (with eigen-decomposed covariance
   structure) from a clustering or classification point of
-  view. Package <pkg>longclust</pkg> allows to fit these models as
-  well as Gaussian mixture models to longitudinal data.</li>
+  view.</li>
   <li>Package <pkg>mclust</pkg> fits mixtures of Gaussians using the
   EM algorithm. It allows fine control of volume and shape of
   covariance matrices and agglomerative hierarchical clustering based
@@ -153,11 +147,6 @@ of each package to check under which license it is distributed.</p>
   <li><pkg>mritc</pkg> provides tools for classification using normal
   mixture models and (higher resolution) hidden Markov normal mixture
   models fitted by various methods.</li>
-  <li>Parsimonious Gaussian mixture models allow to fit mixtures of
-  factor analyzers with a constraints on the components of the factor
-  models. Functionality to fit these models is provided in package
-  <pkg>pgmm</pkg>.
-  </li>
   <li><pkg>prabclus</pkg> clusters a presence-absence matrix
   object by calculating an MDS 
   from the distances, and applying maximum likelihood Gaussian
@@ -200,20 +189,26 @@ of each package to check under which license it is distributed.</p>
   <pkg>profdpm</pkg> determines the maximum posterior estimate for
   product partition models where the Dirichlet process mixture is a
   specific case in the class.</li>
+  <li>Package <pkg>GSM</pkg> fits mixtures of gamma distributions.</li> 
   <li>Package <pkg>mixAK</pkg> contains a mixture of statistical
   methods including the MCMC methods to analyze normal mixtures with
   possibly censored data.  </li>
-  <li>Package <pkg>GSM</pkg> fits mixtures of gamma distributions.</li> 
   <li>Package <pkg>mcclust</pkg> implements methods for processing a
   sample of (hard) clusterings, e.g. the MCMC output of a Bayesian
   clustering model. Among them are methods that find a single best
   clustering to represent the sample, which are based on the posterior
-  similarity matrix or a relabelling algorithm.</li>
+  similarity matrix or a relabeling algorithm.</li>
+  <li>Package <pkg>PReMiuM</pkg> is a package for profile regression,
+  which is a Dirichlet process Bayesian clustering where the response
+  is linked non-parametrically to the covariate profile.</li>
   <li>Package <pkg>rjags</pkg> provides an interface to the JAGS
   MCMC library which includes a module for mixture modelling.</li>
 </ul></li>
 <li>Other estimation methods:
 <ul>
+  <li>Package <pkg>AdMit</pkg> allows to fit an adaptive mixture of Student-t
+  distributions to approximate a target density through its kernel
+  function.</li>
   <li>Package <pkg>pendensity</pkg> estimates densities with a penalized
   mixture approach.</li>
   <li>Robust estimation using Weighted Likelihood can be done with
@@ -253,7 +248,7 @@ of each package to check under which license it is distributed.</p>
   implemented in packages <pkg>latentnet</pkg> and <pkg>mixer</pkg>.</li>
   <li>Package <pkg>nnclust</pkg> allows fast clustering of large data sets
   by constructing a minimum spanning tree for each cluster. For each
-  cluster the procedure is stopped when the nearest-neighbour distance
+  cluster the procedure is stopped when the nearest-neighbor distance
   rises above a specified threshold. A set of clusters and a
   set of "outliers" not in any cluster is returned. The algorithm works best for 
   well-separated clusters in up to 8 dimensions, and sample sizes up
@@ -280,7 +275,7 @@ of each package to check under which license it is distributed.</p>
   <li>Self-organizing maps are available in package
   <pkg>som</pkg>.</li>
   <li>Several packages provide cluster algorithms which have been
-  developped for bioinformatics applications. These packages include
+  developed for bioinformatics applications. These packages include
   <pkg>FunCluster</pkg> for profiling microarray expression data
   and <pkg>ORIClust</pkg>
   for order-restricted information-based clustering.</li>
@@ -319,13 +314,13 @@ of each package to check under which license it is distributed.</p>
   available.</li>
   <li><pkg>mixPHM</pkg> fits mixtures of proportional hazard models
   with the EM algorithm.</li> <li>Package <pkg>gamlss.mx</pkg> fits
-  finite mixtures of of gamlss family distributions.</li> </ul>
+  finite mixtures of gamlss family distributions.</li> </ul>
 
 <p><strong>Additional Functionality:</strong></p>
 <ul>
   <li>Mixtures of univariate normal distributions can be printed
   and plotted using package <pkg>nor1mix</pkg>.</li>
-  <li>Package <pkg>gcExplorer</pkg> allows
+  <li>Packages <pkg>gcExplorer</pkg> and <pkg>clusterfly</pkg> allow
   to visualise the results of clustering algorithms.</li>
   <li>Package <pkg>clusterGeneration</pkg> contains functions for
   generating random clusters and random covariance/correlation
@@ -353,18 +348,17 @@ of each package to check under which license it is distributed.</p>
   <li>Package <pkg>MOCCA</pkg> provides methods to analyze cluster
   alternatives based on multi-objective optimization of cluster
   validation indices.</li>
-  <li>Package <pkg>SDisc</pkg> provides an integrated methodology for
-  the identification of homogeneous profiles in a data distribution by
-  including methods for data treatment and pre-processing, repeated
-  cluster analysis, model selection, model reliability and
-  reproducibility assessment, profiles characterization and validation
-  by visual and table summaries.</li>
+  <li>Package <pkg>seriation</pkg> provides <code>dissplot()</code> for
+  visualizing dissimilarity matrices using seriation and matrix shading. 
+  This also allows to inspect cluster quality by restricting objects 
+  belonging to the same cluster to be displayed in consecutive order.</li>
   <li>Package <pkg>sigclust</pkg> provides a statistical method for
   testing the significance of clustering results.</li>
 </ul>
   </info>
 
 <packagelist>
+<pkg>AdMit</pkg>
 <pkg>amap</pkg>
 <pkg>apcluster</pkg>
 <pkg>bayesclust</pkg>
@@ -381,6 +375,7 @@ of each package to check under which license it is distributed.</p>
 <pkg>CHsharp</pkg>
 <pkg>clue</pkg>
 <pkg priority="core">cluster</pkg>
+<pkg>clusterfly</pkg>
 <pkg>clusterGeneration</pkg>
 <pkg>clusterRepro</pkg>
 <pkg>clusterSim</pkg>
@@ -389,6 +384,7 @@ of each package to check under which license it is distributed.</p>
 <pkg>clValid</pkg>
 <pkg>CoClust</pkg>
 <pkg>compHclust</pkg>
+<pkg>dendextend</pkg>
 <pkg>depmix</pkg>
 <pkg>depmixS4</pkg>
 <pkg>dpmixsim</pkg>
@@ -408,7 +404,6 @@ of each package to check under which license it is distributed.</p>
 <pkg>GLDEX</pkg>
 <pkg>GSM</pkg>
 <pkg>HDclassif</pkg>
-<pkg>HMMmix</pkg>
 <pkg>hybridHclust</pkg>
 <pkg>isopam</pkg>
 <pkg>kernlab</pkg>
@@ -416,7 +411,6 @@ of each package to check under which license it is distributed.</p>
 <pkg>kml3d</pkg>
 <pkg>latentnet</pkg>
 <pkg>lcmm</pkg>
-<pkg>longclust</pkg>
 <pkg>mcclust</pkg>
 <pkg priority="core">mclust</pkg>
 <pkg>MetabolAnalyze</pkg>
@@ -440,12 +434,11 @@ of each package to check under which license it is distributed.</p>
 <pkg>ORIClust</pkg>
 <pkg>pdfCluster</pkg>
 <pkg>pendensity</pkg>
-<pkg>pgmm</pkg>
 <pkg>pmclust</pkg>
 <pkg>poLCA</pkg>
 <pkg>prabclus</pkg>
+<pkg>PReMiuM</pkg>
 <pkg>profdpm</pkg>
-<pkg>protoclust</pkg>
 <pkg>psychomix</pkg>
 <pkg>pvclust</pkg>
 <pkg>randomLCA</pkg>
@@ -453,12 +446,11 @@ of each package to check under which license it is distributed.</p>
 <pkg priority="core">Rmixmod</pkg>
 <pkg>Rmpi</pkg>
 <pkg>RPMM</pkg>
-<pkg>SDisc</pkg>
+<pkg>seriation</pkg>
 <pkg>sigclust</pkg>
 <pkg>skmeans</pkg>
 <pkg>som</pkg>
 <pkg>sparcl</pkg>
-<pkg>tclust</pkg>
 <pkg>teigen</pkg>
 <pkg>trimcluster</pkg>
 <pkg>wle</pkg>

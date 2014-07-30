@@ -2,7 +2,7 @@
  <name>Bayesian</name>  
  <topic>Bayesian Inference</topic>
  <maintainer email="jongheepark@snu.ac.kr">Jong Hee Park</maintainer>
- <version>2013-12-12</version>
+ <version>2014-06-03</version>
 
  <info>
    <p>Applied researchers interested in Bayesian statistics are increasingly 
@@ -15,9 +15,9 @@
     packages that address specific Bayesian models or specialized methods in Bayesian statistics.  
     This is followed by a description of packages used for post-estimation analysis.  
     Finally, we review packages that link R to other Bayesian sampling engines such as
-    <a href="http://www-fis.iarc.fr/~martyn/software/jags/" target="_top">JAGS,</a> 
-    <a href="http://mathstat.helsinki.fi/openbugs/" target="_top">OpenBUGS,</a> and
-    <a href="http://www.mrc-bsu.cam.ac.uk/bugs/" target="_top">WinBUGS.</a> </p> 
+    <a href="http://www-fis.iarc.fr/~martyn/software/jags/">JAGS</a>, 
+    <a href="http://mathstat.helsinki.fi/openbugs/">OpenBUGS</a>, and
+    <a href="http://www.mrc-bsu.cam.ac.uk/bugs/">WinBUGS</a>.</p> 
 
     <p><strong>Bayesian packages for general model fitting</strong> </p>
     
@@ -46,8 +46,9 @@
     	<li><pkg>MCMCpack</pkg> provides model-specific Markov chain Monte Carlo (MCMC) algorithms for 
 	wide range of models commonly used in the social and behavioral sciences. It contains R functions 
 	to fit a number of regression models (linear regression, logit, ordinal probit, probit, Poisson regression, etc.), 
-	measurement models (item response theory and factor models), changepoint models (linear regression, binary probit, ordinal probit, Poisson, panel), 
-	and models for ecological inference. It also contains a generic Metropolis sampler that can be used to fit arbitrary models. </li>
+	measurement models (item response theory and factor models), changepoint models (linear regression, 
+	binary probit, ordinal probit, Poisson, panel), and models for ecological inference. 
+	It also contains a generic Metropolis sampler that can be used to fit arbitrary models. </li>
 
     	<li>The <pkg>mcmc</pkg> package consists of an R function for a random-walk Metropolis algorithm for 
 	a continuous random vector.</li>
@@ -61,6 +62,10 @@
 	Cross-validation tools are also available for measuring the accuracy of ABC estimates, and to calculate the misclassification 			
 	probabilities of different models.</li>
 	
+	<li><pkg>AdMit</pkg> provides functions to perform the fitting of an adapative mixture of Student-t distributions 	
+	to a tgarget density through its kernel function. The mixture approximation can be used as the importance density 	
+	in importance sampling or as the candidate density in the Metropolis-Hastings algorithm.</li>
+
 	<li>The <pkg>BaBooN</pkg> package contains two variants of Bayesian Bootstrap Predictive Mean Matching to 
 	multiply impute missing data. </li>
 
@@ -70,12 +75,12 @@
 	<li>The <pkg>BAS</pkg> package implements BMA for regression models using g-priors and mixtures of g-priors.  
 	<pkg>BAS</pkg> utilizes an efficient aglorithm to sample models without replacement.</li>
 	
+ 	<li>The <pkg>bayesGARCH</pkg> package provides a function which perform the Bayesian estimation of the 
+	GARCH(1,1) model with Student's t innovations.</li>
+
   	<li><pkg>Bayesthresh</pkg> fits a linear mixed model for ordinal categorical responses using 
 	Bayesian inference via Monte Carlo Markov Chains. Default is Nandran and Chen algorithm 
 	using Gaussian link function and saving just the summaries of the chains. </li>  
-
-  	<li><pkg>BayesTree</pkg> implements BART (Bayesian Additive Regression Trees) 
-	by Chipman, George, and McCulloch (2006).</li>  
 
 	<li><pkg>bayesQR</pkg> supports Bayesian quantile regression using the asymmetric Laplace distribution, 
 	both continuous as well as binary dependent variables.</li>  
@@ -160,10 +165,12 @@
     	the context of wavelets, this package is useful when researchers need to take 
 	advantage of possible sparsity in a parameter set.</li> 
 
-    	<li><pkg>eco</pkg> fits Bayesian ecological inference models in two by two tables using MCMC methods.</li>  
-
 	<li><pkg>ebdbNet</pkg> can be used to infer the adjacency matrix of a network from time course data 
 	using an empirical Bayes estimation procedure based on Dynamic Bayesian Networks.</li>
+	
+   	<li><pkg>eigenmodel</pkg> estimates the parameters of a model for symmetric relational data 
+	(e.g., the above-diagonal part of a square matrix), using a model-based eigenvalue decomposition and regression using MCMC methods.</li>
+
 
     	<li><pkg>evdbayes</pkg> provides tools for Bayesian analysis of extreme value models.</li>
 
@@ -193,8 +200,7 @@
     	Adaptive Rejection Metropolis Sampling.</li>
 	
     	<li>The <pkg>hbsae</pkg> package provides functions to compute small area estimates based on a basic area or unit-level model. 
-	The model is fit using restricted maximum likelihood, or in a hierarchical Bayesian way.</li>
-	 
+	The model is fit using restricted maximum likelihood, or in a hierarchical Bayesian way.</li>	 
 
 	<li><pkg>iterLap</pkg> performs an iterative Laplace approximation to build a global approximation of the posterior (using
 	mixture distributions) and then uses importance sampling for simulation based inference. </li>
@@ -223,7 +229,7 @@
 
 	<li><pkg>mombf</pkg> performs model selection based on non-local priors, including MOM, eMOM and iMOM priors..</li>
 
-	<li><pkg>monomvn</pkg> is an R package for stimation of multivariate normal and Student-t data of arbitrary 
+	<li><pkg>monomvn</pkg> is an R package for estimation of multivariate normal and Student-t data of arbitrary 
 	dimension where the pattern of missing data is monotone.</li>
 
     	<li><pkg>MSBVAR</pkg> is an R package for estimating Bayesian Vector 
@@ -251,6 +257,9 @@
 	<li>The <pkg>PAWL</pkg> package implements parallel adaptive
 	Metropolis-Hastings and sequential Monte Carlo samplers for sampling from multimodal target distributions.</li>
 
+	<li><pkg>PReMiuM</pkg> is a package for profile regression, which is a Dirichlet process Bayesian clustering 
+	where the response is linked non-parametrically to the covariate profile.</li>
+
 	<li><pkg>rcppbugs</pkg> is a package that attempts to provide an R alternative to using OpenBUGS/WinBUGS/JAGS 
 	using random walk Metropolis sampling.</li>
 
@@ -264,6 +273,10 @@
 	
 	<li><pkg>RSGHB</pkg> can be used to estimate models using a hierarchical Bayesian framework and provides flexibility in allowing 
 	the user to specify the likelihood function directly instead of assuming predetermined model structures.</li>
+
+	<li><pkg>rstiefel</pkg> simulates random orthonormal matrices from linear and quadratic exponential family distributions on the
+	Stiefel manifold using the Gibbs sampling method. The most general type of distribution covered is 
+	the matrix-variate Bingham-von Mises-Fisher distribution.</li>
 
 	<li><pkg>RxCEcolInf</pkg> fits the R x C inference model described in Greiner and Quinn (2009).</li>
 
@@ -339,9 +352,6 @@
     	<li><pkg>ramps</pkg> implements Bayesian geostatistical analysis of Gaussian processes 
 	using a reparameterized and marginalized posterior sampling algorithm. </li>
 
-	<li><pkg>scapeMCMC</pkg> is a Bayesian companion package of scape which deals with age and time structured population models. It provides multipanel 
-	MCMC diagnostic plots with aestically pleasing defaults and graphical parameters that are easy to change.</li>
-
     </ul>
 
     <p> <strong>Packages for learning Bayesian statistics</strong></p>
@@ -369,15 +379,15 @@
     <p> <strong>Packages that link R to other sampling engines</strong></p>
     <ul>
     	<li> <pkg>bayesmix</pkg> is an R package to fit Bayesian mixture models 
-	using <a href="http://www-fis.iarc.fr/~martyn/software/jags/" target="_top">JAGS</a>.</li>
+	using <a href="http://www-fis.iarc.fr/~martyn/software/jags/">JAGS</a>.</li>
 
    	<li> <pkg>BayesX</pkg> provides functionality for exploring and visualizing estimation results 
-	obtained with the software package <a href="http://www.stat.uni-muenchen.de/~bayesx" target="_top">BayesX</a>.</li>
+	obtained with the software package <a href="http://www.BayesX.org/">BayesX</a>.</li>
 
     	<li><b>BRugs</b> provides an R interface to 
-	<a href="http://mathstat.helsinki.fi/openbugs/" target="_top">OpenBUGS</a>. 
+	<a href="http://mathstat.helsinki.fi/openbugs/">OpenBUGS</a>. 
 	It works under Windows and Linux.  <b>BRugs</b> used to be available from CRAN, now it is 
-	located at the <a href="http://www.stats.ox.ac.uk/pub/RWin/" target="_top">CRANextras</a>
+	located at the <a href="http://www.stats.ox.ac.uk/pub/RWin/">CRANextras</a>
     	repository.</li>
 
    	<li> <pkg>cudaBayesreg</pkg> provides a Compute Unified Device Architecture (CUDA) implementation of a Bayesian multilevel model 
@@ -385,16 +395,16 @@
 	CUDA is a software platform for massively parallel high-performance computing on NVIDIA GPUs.</li>
 
     	<li>There are two packages that can be used to interface R with 
-	<a href="http://www.mrc-bsu.cam.ac.uk/bugs/" target="_top">WinBUGS</a>.
+	<a href="http://www.mrc-bsu.cam.ac.uk/bugs/">WinBUGS</a>.
     	<pkg>R2WinBUGS</pkg> provides a set of functions to call WinBUGS on 
 	a Windows system and a Linux system;  <pkg>rbugs</pkg>
     	supports Linux systems through 
-	<a href="http://mathstat.helsinki.fi/openbugs/" target="_top">OpenBUGS</a> on Linux (LinBUGS).</li>
+	<a href="http://mathstat.helsinki.fi/openbugs/">OpenBUGS</a> on Linux (LinBUGS).</li>
 
 	<li> <pkg>glmmBUGS</pkg> writes BUGS model files, formats data, and creates starting values for generalized linear mixed models.</li>
 
     	<li>There are three packages that provide R interface with 
-	<a href="http://www-fis.iarc.fr/~martyn/software/jags/" target="_top">Just Another Gibbs Sampler (JAGS)</a>:
+	<a href="http://www-fis.iarc.fr/~martyn/software/jags/">Just Another Gibbs Sampler (JAGS)</a>:
     	<pkg>rjags</pkg>, <pkg>R2jags</pkg>, and <pkg>runjags</pkg>.</li>    
 
     	<li> All of these BUGS engines use graphical models for model specification.  As such, the <view>gR</view> task view may be of interest. </li>
@@ -415,6 +425,7 @@
 
     	<packagelist>
 	<pkg>abc</pkg>
+    	<pkg>AdMit</pkg>
     	<pkg priority="core">arm</pkg>
 	<pkg>AtelieR</pkg>
 	<pkg>BaBooN</pkg>
@@ -422,6 +433,7 @@
     	<pkg>BaM</pkg>
     	<pkg>bark</pkg> 
     	<pkg>BAS</pkg> 
+    	<pkg>bayesGARCH</pkg>
     	<pkg priority="core">bayesm</pkg>
     	<pkg>bayesmix</pkg>
     	<pkg>BayHaz</pkg>
@@ -429,7 +441,6 @@
     	<pkg>BayesDA</pkg>
     	<pkg>bayesQR</pkg>
 	<pkg>Bayesthresh</pkg>
-    	<pkg>BayesTree</pkg>
     	<pkg>BayesValidate</pkg>
     	<pkg priority="core">bayesSurv</pkg>    
 	<pkg>BayesX</pkg>
@@ -462,8 +473,8 @@
     	<pkg priority="core">DPpackage</pkg>
     	<pkg>EbayesThresh</pkg>
 	<pkg>ebdbNet</pkg>
-	<pkg>eco</pkg>
-    	<pkg>ensembleBMA</pkg>
+    	<pkg>eigenmodel</pkg>
+	<pkg>ensembleBMA</pkg>
     	<pkg>evdbayes</pkg>
     	<pkg>exactLoglinTest</pkg>
 	<pkg>factorQR</pkg>
@@ -489,7 +500,7 @@
     	<pkg>MNP</pkg>
 	<pkg>mombf</pkg>
     	<pkg>monomvn</pkg>
-    	<pkg>MSBVAR</pkg>
+	<pkg>MSBVAR</pkg>
 	<pkg>pacbpred</pkg>
 	<pkg>PottsUtils</pkg>
 	<pkg>predmixcor</pkg>
@@ -497,6 +508,8 @@
 	<pkg>profdpm</pkg>
     	<pkg>pscl</pkg>
 	<pkg>PAWL</pkg>
+	<pkg>PReMiuM</pkg>
+	<pkg>RSGHB</pkg>
     	<pkg>R2jags</pkg>
     	<pkg>R2WinBUGS</pkg>
     	<pkg>ramps</pkg>
@@ -506,12 +519,12 @@
 	<pkg>rcppbugs</pkg>
     	<pkg>rjags</pkg>
 	<pkg>RSGHB</pkg>
+ 	<pkg>rstiefel</pkg>
     	<pkg>runjags</pkg>
 	<pkg>Runuran</pkg>
     	<pkg>SampleSizeMeans</pkg>
     	<pkg>SampleSizeProportions</pkg>
 	<pkg>sbgcop</pkg>
-    	<pkg>scapeMCMC</pkg>
     	<pkg>SimpleTable</pkg>
     	<pkg>sna</pkg>
     	<pkg>spBayes</pkg>
@@ -526,18 +539,18 @@
 	</packagelist>
 
     <links>
-    <a href="http://mcmcpack.wustl.edu/" target="_top">MCMCpack</a>
-    <a href="http://faculty.chicagogsb.edu/peter.rossi/research/bsm.html" target="_top">Bayesian Statistics and Marketing (bayesm)</a>
-    <a href="http://www.stat.uni-muenchen.de/~bayesx" target="_top">BayesX</a>
-    <a href="http://www-fis.iarc.fr/~martyn/software/jags/" target="_top">Just Another Gibbs Sampler (JAGS)</a>
-    <a href="http://www.mrc-bsu.cam.ac.uk/bugs/" target="_top">The BUGS Project (WinBUGS)</a>
-    <a href="http://mathstat.helsinki.fi/openbugs/" target="_top">OpenBUGS</a>
-    <a href="http://www.stats.ox.ac.uk/pub/RWin/src/contrib/" target="_top">BRugs in CRANextras</a>
-    <a href="http://www.bayesian-inference.com/software" target="_top">LaplacesDemon</a>
+    <a href="http://mcmcpack.wustl.edu/">MCMCpack</a>
+    <a href="http://faculty.chicagogsb.edu/peter.rossi/research/bsm.html">Bayesian Statistics and Marketing (bayesm)</a>
+    <a href="http://www.BayesX.org/">BayesX</a>
+    <a href="http://www-fis.iarc.fr/~martyn/software/jags/">Just Another Gibbs Sampler (JAGS)</a>
+    <a href="http://www.mrc-bsu.cam.ac.uk/bugs/">The BUGS Project (WinBUGS)</a>
+    <a href="http://mathstat.helsinki.fi/openbugs/">OpenBUGS</a>
+    <a href="http://www.stats.ox.ac.uk/pub/RWin/src/contrib/">BRugs in CRANextras</a>
+    <a href="http://www.bayesian-inference.com/software">LaplacesDemon</a>
     <view>gR</view>
     <bioc>vbmp</bioc>
-    <a href="http://www.public-health.uiowa.edu/boa/" target="_top">BOA</a>
-    <a href="http://www-fis.iarc.fr/coda/" target="_top">CODA</a>
+    <a href="http://www.public-health.uiowa.edu/boa/">BOA</a>
+    <a href="http://www-fis.iarc.fr/coda/">CODA</a>
     </links>
 
 

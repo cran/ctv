@@ -3,7 +3,7 @@
   <name>Multivariate</name>
   <topic>Multivariate Statistics</topic>
   <maintainer email="Paul.Hewson@plymouth.ac.uk">Paul Hewson</maintainer>
-  <version>2013-12-12</version>
+  <version>2014-07-29</version>
   
   <info>
     <p>Base R contains most of the functionality for classical multivariate analysis,
@@ -57,7 +57,7 @@
 
 <p><strong>Hypothesis testing</strong></p>
  
-<ul><li><pkg>ICSNP</pkg> provides Hotellings T2 test as well as a range of non-parametric tests including location tests based on marginal ranks, spatial median and spatial signs computation, estimates of shape.  Non-parametric two sample tests are also available from <pkg>cramer</pkg> and spatial sign and rank tests to investigate location, sphericity and independence are available in <pkg>SpatialNP</pkg>. </li></ul>
+<ul><li><pkg>ICSNP</pkg> provides Hotellings T2 test as well as a range of non-parametric tests including location tests based on marginal ranks, spatial median and spatial signs computation, estimates of shape.  Spatial sign and rank tests to investigate location, sphericity and independence are available in <pkg>SpatialNP</pkg>. </li></ul>
 
 
           <p><strong>Multivariate distributions</strong></p>
@@ -119,7 +119,6 @@
 	  with S-PLUS) from stats.  <pkg>sca</pkg> provides simple components. <code>pc1()</code> in <pkg>Hmisc</pkg> 
           provides the first principal component and gives coefficients for unscaled 
           data.  Additional support for an assessment of the scree plot can be found in <pkg>nFactors</pkg>, whereas <pkg>paran</pkg> provides routines for Horn's evaluation of the number of dimensions to retain.
-	  <pkg>pcurve</pkg> provides Principal Curve analysis and visualisation as well as a further principal component method.
 	  For wide matrices, <pkg>gmodels</pkg> provides <code>fast.prcomp()</code> and <code>fast.svd()</code>.
           <pkg>kernlab</pkg> 
           uses kernel methods to provide a form of non-linear principal components with 
@@ -178,7 +177,7 @@
           <li><i>Tree methods:</i>
           Full details on tree methods are given in the <view>MachineLearning</view> task view.   
 	  Suffice to say here that classification trees are sometimes considered within 
-          multivariate methods; <pkg>rpart</pkg> is most used for this purpose.   <pkg>TWIX</pkg> provides trees with extra splits.
+          multivariate methods; <pkg>rpart</pkg> is most used for this purpose.
           <pkg>mvpart</pkg> extend regression trees to cover multivariate 
           regression trees, <pkg>party</pkg> provides recursive partitioning.   Classification and regression training is provided by
 	  <pkg>caret</pkg>.  <pkg>kknn</pkg> provides k-nearest neighbour methods which can be used for regression as well as classification.</li></ul>
@@ -242,8 +241,7 @@
 
       <p><strong>Miscellaneous utitlies</strong></p>
           <ul><li><pkg>abind</pkg> generalises <code>cbind()</code> and <code>rbind()</code> for arrays, <code>mApply()</code> in <pkg>Hmisc</pkg> generalises <code>apply()</code> for matrices and passes multiple functions.   In addition to functions listed earlier, <pkg>sn</pkg> provides operations such as marginalisation, affine transformations and graphics for the multivariate skew normal and skew t distribution.
-	  <pkg>mAr</pkg> provides for vector auto-regression, <pkg>MSBVAR</pkg> provides for
-	  Bayesian vector autoregression models, along with impulse responses and forecasting.   <code>rm.boot()</code> from <pkg>Hmisc</pkg> bootstraps repeated measures models.  <pkg>cramer</pkg> Multivariate nonparametric Cramer-Test for the two-sample-problem  <pkg>psy</pkg> also provides a range of statistics based on Cohen's kappa including weighted measures and agreement among more than 2 raters. 
+	  <pkg>mAr</pkg> provides for vector auto-regression.   <code>rm.boot()</code> from <pkg>Hmisc</pkg> bootstraps repeated measures models.  <pkg>psy</pkg> also provides a range of statistics based on Cohen's kappa including weighted measures and agreement among more than 2 raters. 
 	  <pkg>cwhmisc</pkg> contains a number of interesting support functions which are of interest, such as <code>ellipse()</code>, <code>normalise()</code> and various rotation functions.
 	  <pkg>desirability</pkg> provides functions for multivariate optimisation.
 	  <pkg>geozoo</pkg> provides plotting of geometric objects in GGobi. </li></ul>
@@ -273,7 +271,6 @@
     <pkg>copula</pkg>     
     <pkg>corpcor</pkg>
     <pkg>covRobust</pkg>
-    <pkg>cramer</pkg> 
     <pkg>cwhmisc</pkg> 
     <pkg>denpro</pkg>
     <pkg>desirability</pkg>
@@ -327,7 +324,6 @@
     <pkg>monomvn</pkg> 
     <pkg>mnormt</pkg>  
     <pkg>MNP</pkg>
-    <pkg>MSBVAR</pkg> 
     <pkg>mvnmle</pkg> 
     <pkg>mvnormtest</pkg>
     <pkg>mvoutlier</pkg>
@@ -341,7 +337,6 @@
     <pkg>PearsonICA</pkg> 
     <pkg>poLCA</pkg> 
     <pkg>polycor</pkg> 
-    <pkg>pcurve</pkg>
     <pkg>plsgenomics</pkg>
     <pkg>pls</pkg>
     <pkg>ppls</pkg> 
@@ -371,7 +366,6 @@
     <pkg>superpc</pkg>
     <pkg>trimcluster</pkg>  
     <pkg>tsfa</pkg>
-    <pkg>TWIX</pkg>
     <pkg priority="core">vegan</pkg>
     <pkg>vcd</pkg>
     <pkg>VGAM</pkg> 

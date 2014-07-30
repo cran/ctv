@@ -3,7 +3,7 @@
   <name>Environmetrics</name>
   <topic>Analysis of Ecological and Environmental Data</topic>
   <maintainer email="ucfagls@gmail.com">Gavin Simpson</maintainer>
-  <version>2013-12-12</version>
+  <version>2014-05-31</version>
   
   <info>
     <h4>Introduction</h4>
@@ -20,6 +20,12 @@
     <p>If you have any comments or suggestions for additions or improvements, then please contact the
       <a href="mailto:ucfagls_AT_gmail_DOT_com?subject=Environmetrics%20Task%20View">maintainer</a>.</p>
     <p>A list of available packages and functions is presented below, grouped by analysis type.</p>
+  
+    <h4>General packages</h4>
+    <p>These packages are general, having wide applicability to the environmetrics field.</p>
+    <ul>
+      <li>Package <pkg>EnvStats</pkg> is the successor to the S-PLUS module <em>EnvironmentalStats</em>, both by Steven Millard. A <a href="http://doi.org/10.1007/978-1-4614-8456-1">user guide in the form of a book</a> has recently be released.</li>
+    </ul>
     
     <h4>Modelling species responses and other data</h4>
     <p>Analysing species response curves or modeling other data often involves the fitting of standard statistical models 
@@ -248,9 +254,12 @@
 	Examples include single- and multi-season occupancy models, binomial mixture models, and hierarchical distance sampling models. The data
 	can arise from survey methods such temporally replicated counts, removal sampling, double-observer sampling, and distance sampling.
 	Parameters governing the state and observation processes can be modeled as functions of covariates.</li>
-      <li>Package RMark (not on CRAN) provides a formula-based R interface for the MARK package which fits a wide variety of capture-recapture
-	models (see <a href="http://www.phidot.org/software/mark/rmark/">RMark website</a>). RMark also includes native R functions for estimating
-	survival and population size with Cormack-Jolly-Seber and Jolly-Seber open-population models.</li>
+      <li>Package <pkg>RMark</pkg> provides a formula-based R interface for the MARK package which fits a wide variety of capture-recapture
+      models. See the <a href="http://www.phidot.org/software/mark/rmark/">RMark website</a> and a <a href="http://www.afsc.noaa.gov/Publications/ProcRpt/PR2013-01.pdf">NOAA report</a> (pdf) for further details.</li>
+      <li>Package <pkg>marked</pkg> provides a framework for handling data and analysis for mark-recapture. <pkg>marked</pkg> can fit Cormack-Jolly-Seber (CJS)and Jolly-Seber (JS) models via maximum likelihood and the CJS model via MCMC. Maximum likelihood estimates for the CJS model can be obtained using R or via a link to the Automatic Differentiation Model Builder software. A <a href="http://doi.org/10.1111/2041-210X.12065">description of the package</a> was published in Methods in Ecology and Evolution.</li>
+      <li><pkg>mrds</pkg> fits detection functions to point and line transect distance sampling survey data (for both single and double observer surveys). Abundance can be estimated using Horvitz-Thompson-type estimators.</li>
+      <li><pkg>Distance</pkg> is a simpler interface to <pkg>mrds</pkg> for single observer distance sampling surveys.</li>
+      <li><pkg>dsm</pkg> fits <a href="http://doi.org/10.1111/2041-210X.12105">density surface models</a> to spatially-referenced distance sampling data. Count data are corrected using detection function models fitted using <pkg>mrds</pkg> or <pkg>Distance</pkg>. Spatial models are constructed as in <pkg>mgcv</pkg>.</li>
     </ul>
     <p>Packages <pkg>mra</pkg>, <pkg>secr</pkg> and <pkg>DSpat</pkg> can also be used to simulate data from their respective models.</p>
     
@@ -292,6 +301,7 @@
 	for aquatic ecosystems, with a focus on time series data for physical and chemical properties of water, and for the 
 	plankton.</li>
       <li>The <pkg>openair</pkg> provides numerous tools to analyse, interpret and understand air pollution time series data</li>
+      <li>The <pkg>bReeze</pkg> package is a collection of widely used methods to analyse, visualise, and interpret wind data. Wind resource analyses can subsequently be combined with characteristics of wind turbines to estimate the potential energy production.</li>
     </ul>
     <p>Additionally, a fuller description of available packages for time series analysis can be found in the <view>TimeSeries</view>
       task view.</p>
@@ -309,8 +319,6 @@
       <li><pkg>evd</pkg></li>
       <li><pkg>evdbayes</pkg>, which provides a Bayesian approach to extreme value theory</li>
       <li><pkg>extRemes</pkg></li>
-      <li><pkg>POT</pkg>, which provides functions for the Generalized Pareto Distribution and the Peaks Over Threshold 
-	method</li>
       <li>The <pkg>SpatialExtremes</pkg> provides several approaches for modelling spatial extreme events.</li>
     </ul>
     
@@ -357,24 +365,23 @@
 	hydrological/environmental models. Related packages are <pkg>tiger</pkg>, which allows temporally resolved groups of
 	typical differences (errors) between two time series to be determined and visualized, and <pkg>qualV</pkg> which
 	provides quantitative and qualitative criteria to compare models with data and to measure similarity of patterns</li>
-      <li><pkg>hydroPSO</pkg> is a model-independent global optimization tool for calibration of environmental/hydrological
-	models, implementing an state-of-the-art <acronym title="Particle Swarm Optimisation">PSO</acronym> algorithm, with several
-	fine-tuning options.</li>
+      <li><pkg>hydroPSO</pkg> is a model-independent global optimization tool for calibration of environmental and other real-world models that need to be executed from the system console. <pkg>hydroPSO</pkg> implements a state-of-the-art <acronym title="Particle Swarm Optimisation">PSO</acronym> (SPSO-2011 and SPSO-2007 capable), with several fine-tuning options. The package is parallel-capable, to alleviate the computational burden of complex models.</li>
       <li><pkg>EcoHydRology</pkg> provides a flexible foundation for scientists, engineers, and policy makers to base
 	teaching exercises as well as for more applied use to model complex eco-hydrological interactions.</li>
       <li><pkg>topmodel</pkg> is a set of hydrological functions including an R implementation of the hydrological model
 	TOPMODEL, which is based on the 1995 FORTRAN version by Keith Beven. New functionality is being developed as part of
 	the <rforge>RHydro</rforge> package on R-Forge.</li>
+      <li><pkg>dynatopmodel</pkg> is a native R implementation and enhancement of the Dynamic TOPMODEL, Beven and Freers' (2001) extension to the semi-distributed hydrological model TOPMODEL (Beven and Kirkby, 1979).</li>
       <li><pkg>wasim</pkg> provides tools for data processing and visualisation of results of the hydrological model WASIM-ETH</li>
       <li>Package <pkg>seacarb</pkg> provides functions for calculating parameters of the seawater carbonate system.</li>
       <li>Stephen Sefick's <pkg>StreamMetabolism</pkg> package contains function for calculating stream metabolism 
-	characteristics, such as GPP, NDM, and R, from single station diurnal Oxygen curves.</li>
+      characteristics, such as GPP, NDM, and R, from single station diurnal Oxygen curves.</li>
       <li>Package <pkg>oce</pkg> supports the analysis of Oceanographic data, including ADP measurements, CTD measurements,
-	sectional data, sea-level time series, and coastline files.</li>
+      sectional data, sea-level time series, and coastline files.</li>
       <li>The <pkg>nsRFA</pkg> package provides collection of statistical tools for objective (non-supervised) applications
         of the Regional Frequency Analysis methods in hydrology.</li>
       <li>The <pkg>boussinesq</pkg> package is a collection of functions implementing the one-dimensional Boussinesq Equation
-	(ground-water).</li>
+      (ground-water).</li>
       <li><pkg>rtop</pkg> is a package for geostatistical interpolation of data with irregular spatial support such as runoff
         related data or data from administrative units.</li>
     </ul>
@@ -426,11 +433,8 @@
       <a href="http://CRAN.R-project.org/doc/Rnews">R News</a> 
       <a href="http://CRAN.R-project.org/doc/Rnews/Rnews_2003-3.pdf">article</a> on the package for further information.</li>
       <li>Functions for circular statistics are found in <pkg>CircStats</pkg> and <pkg>circular</pkg>.</li>
-      <li>Package <pkg>eco</pkg> fits Bayesian models of ecological inference to 2 x 2 contingency tables.</li>
       <li>Package <pkg>e1071</pkg> provides functions for latent class analysis, short time Fourier transform, fuzzy clustering, 
       support vector machines, shortest path computation, bagged clustering, naive Bayes classifier, and more...</li>
-      <li>Package <pkg>pcurve</pkg> fits a principal curve to a numeric multivariate dataset in arbitrary dimensions. Produces 
-	diagnostic plots.</li>
       <li>Package <pkg>pgirmess</pkg> provides a suite of miscellaneous functions for data analysis in ecology.</li>
       <li><pkg>mefa</pkg> provides functions for handling and reporting on multivariate count data in ecology and 
       biogeography.</li>
@@ -442,9 +446,10 @@
       <a href="http://dx.doi.org/10.1034/j.1600-0706.2002.970210.x">Leibold and Mikkelson (2002)</a> are provided in the
       <pkg>metacom</pkg> package.</li>
       <li>Growth curve estimation via noncrossing and nonparametric regression quantiles is implemented in package
-        <pkg>quantregGrowth</pkg>. A supporting paper is <a href="http://dx.doi.org/10.1007/s10651-012-0232-1">Muggeo et al
+        <pkg>quantregGrowth</pkg>. A supporting paper is <a href="http://dx.doi.org/10.1007/s10651-012-0232-1">Muggeo et al.
         (2013)</a>.
       </li>
+      <li>The <pkg>siplab</pkg> package provides an R platform for experimenting with spatially explicit individual-based vegetation models. A supporting paper is <a href="http://www.mcfns.com/index.php/Journal/article/view/6_36">García, O. (2014)</a>.</li>
     </ul>
   </info>
   <packagelist>
@@ -457,19 +462,23 @@
     <pkg>aqp</pkg>
     <pkg>BiodiversityR</pkg>
     <pkg>boussinesq</pkg>
+    <pkg>bReeze</pkg>
     <pkg>CircStats</pkg>
     <pkg>circular</pkg>
     <pkg priority="core">cluster</pkg>
     <pkg>cocorresp</pkg>
+    <pkg>Distance</pkg>
     <pkg>diveMove</pkg>
     <pkg>dse</pkg>
+    <pkg>dsm</pkg>
     <pkg>DSpat</pkg>
     <pkg>dyn</pkg>
+    <pkg>dynatopmodel</pkg>
     <pkg>dynlm</pkg>
     <pkg>EcoHydRology</pkg>
+    <pkg>EnvStats</pkg>
     <pkg>e1071</pkg>
     <pkg>earth</pkg>
-    <pkg>eco</pkg>
     <pkg>ecodist</pkg>
     <pkg>equivalence</pkg>
     <pkg>evd</pkg>
@@ -495,6 +504,7 @@
     <pkg>latticeDensity</pkg>
     <pkg>lme4</pkg>
     <pkg>maptree</pkg>
+    <pkg>marked</pkg>
     <pkg priority="core">MASS</pkg>
     <pkg>mclust</pkg>
     <pkg>mda</pkg>
@@ -502,6 +512,7 @@
     <pkg>metacom</pkg>
     <pkg priority="core">mgcv</pkg>
     <pkg>mra</pkg>
+    <pkg>mrds</pkg>
     <pkg priority="core">mvpart</pkg>
     <pkg>nlme</pkg>
     <pkg>nsRFA</pkg>
@@ -510,10 +521,8 @@
     <pkg>ouch</pkg>
     <pkg>party</pkg>
     <pkg>pastecs</pkg>
-    <pkg>pcurve</pkg>
     <pkg>pgirmess</pkg>
     <pkg>popbio</pkg>
-    <pkg>POT</pkg>
     <pkg>pscl</pkg>
     <pkg>prabclus</pkg>
     <pkg>primer</pkg>
@@ -526,6 +535,7 @@
     <pkg>rioja</pkg>
     <pkg>rpart</pkg>
     <pkg>rtop</pkg>
+    <pkg>RMark</pkg>
     <pkg>RMAWGEN</pkg>
     <pkg>seacarb</pkg>
     <pkg>seas</pkg>

@@ -4,7 +4,7 @@
    <name>HighPerformanceComputing</name>
    <topic>High-Performance and Parallel Computing with R</topic>
    <maintainer email="Dirk.Eddelbuettel@R-project.org">Dirk Eddelbuettel</maintainer>
-   <version>2013-12-18</version>
+   <version>2014-07-27</version>
 
   <info>
     <p>
@@ -122,6 +122,12 @@
         implementation with support for parellel execution and large
         memory. 
       </li>
+      <li> <pkg>h2o</pkg> provides an interface for R to the 
+        <a href="https://github.com/0xdata/h2o">H20</a> 
+        backend which implements several R algorithms such as GLMs, Gradient
+        Boosted Machines, Random Forests, PCA, and KMeans in a distributed
+        parallel computing environment.
+      </li>
     </ul>
 
     <p>
@@ -161,10 +167,6 @@
 	computing environment, both on multicore machine and across the network
 	by providing facilities inspired from distributed shared memory
 	programming.
-      </li>
-      <li>The <pkg>mchof</pkg> package provides convenient, consistent
-        parallel implementations of several commonly used higher-order
-        functions found in base R such as Filter or Reduce.
       </li>
       <li>
         The <pkg>RhpcBLASctl</pkg> detects the number of available
@@ -222,6 +224,10 @@
         routines useful for the construction, aggregation,
         manipulation, and plotting of large numbers of Histograms such
         as those created by Mappers in a MapReduce application.
+      </li>
+      <li>
+        The <pkg>toaster</pkg> package by Teradaya provides a set of tools to perform
+        in-database analytics with the Teradata Aster platform (which is required).
       </li>
     </ul>	     
 
@@ -475,6 +481,9 @@
          column-oriented, open source database system as a
 	 backend. 
       </li>
+      <li>The <pkg>ffbase</pkg> package by de Jonge et al adds basic
+        statistical functionality to the <pkg>ff</pkg> package.
+      </li>
     </ul>
 
     <p>
@@ -511,13 +520,16 @@
       <li>The <pkg>profr</pkg> package by Wickham can visualize output from
 	the <code>Rprof</code> interface for profiling.
       </li>
-      <li>The <pkg>proftools</pkg> package by Tierney can also be used to analyse profiling output.
+      <li>The <pkg>proftools</pkg> package by Tierney, and the
+      <pkg>aprof</pkg> package by Visser, can also be used to analyse
+      profiling output. 
       </li>
     </ul>
 
   </info>
 
   <packagelist>
+    <pkg>aprof</pkg>
     <pkg>batch</pkg>
     <pkg>BatchJobs</pkg>
     <pkg>BatchExperiments</pkg>
@@ -539,12 +551,14 @@
     <pkg>doSNOW</pkg>
     <pkg>data.table</pkg>
     <pkg>ff</pkg>
+    <pkg>ffbase</pkg>
     <pkg>foreach</pkg>
     <pkg>fork</pkg>
     <pkg>GAMBoost</pkg>
     <pkg>gcbd</pkg>
     <pkg>Geneland</pkg>
     <pkg>gputools</pkg>
+    <pkg>h2o</pkg>
     <pkg>HadoopStreaming</pkg>
     <pkg>harvestr</pkg>
     <pkg>HiPLARM</pkg>
@@ -554,7 +568,6 @@
     <pkg>lga</pkg>
     <pkg>magma</pkg>
     <pkg>Matching</pkg>
-    <pkg>mchof</pkg>
     <pkg>MonetDB.R</pkg>
     <pkg>multicore</pkg>
     <pkg>nws</pkg>
@@ -596,6 +609,7 @@
     <pkg>sqldf</pkg>
     <pkg>STAR</pkg>
     <pkg>tm</pkg>
+    <pkg>toaster</pkg>
     <pkg>varSelRF</pkg>
     <pkg>WideLM</pkg>
     <pkg>xgrid</pkg>
@@ -626,6 +640,7 @@
     <a href="http://heather.cs.ucdavis.edu/~matloff/rth.html">Rth: Parallel R through Thrust</a>
     <a href="http://r-pbd.org">Programming with Big Data in R</a>
     <a href="http://www.datadr.org">RHIPE</a>
+    <a href="http://www.bayesian-inference.com/software">LaplacesDemon</a>
   </links>
 
 </CRANTaskView>

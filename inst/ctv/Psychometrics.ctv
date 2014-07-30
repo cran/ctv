@@ -3,13 +3,12 @@
 <name>Psychometrics</name>
 <topic>Psychometric Models and Methods</topic>
 <maintainer email="mair@fas.harvard.edu">Patrick Mair</maintainer>
-<version>2013-12-01</version>
+<version>2014-07-03</version>
 
-<info> Psychometrics is concerned with the design and analysis of research and
-the measurement of human characteristics. Psychometricians have also
-worked collaboratively with those in the field of statistics and
-quantitative methods to develop improved ways to organize and analyze
-data.  Since much functionality is already contained in base R and there
+<info> Psychometrics is concerned with theory and techniques of psychological measurement.
+Psychometricians have also worked collaboratively with those in the field of statistics and
+quantitative methods to develop improved ways to organize, analyze, and scale
+corresponding data. Since much functionality is already contained in base R and there
 is considerable overlap between tools for psychometry and tools
 described in other views, particularly in <view>SocialSciences</view>,
 we only give a brief overview of packages that are closely related to
@@ -55,6 +54,9 @@ and modelling item and person covariates.
   some exploratory methods (DETECT, LSDM, model-based reliability) are included in <pkg>sirt</pkg>.
   </li>
   <li>
+  The <pkg>pcIRT</pkg> estimates the multidimensional polytomous Rasch model and the Mueller's continuous rating scale model.
+  </li>
+  <li>
   <pkg>MultiLCIRT</pkg> estimates IRT models under (1) multidimensionality assumption, (2) discreteness of
 latent traits, (3) binary and ordinal polytomous items. 
   </li>
@@ -98,6 +100,15 @@ deal with more than one focal group.
 detecting various types of differential item functioning (DIF). 
   </li>
   <li>
+  <pkg>DIFlasso</pkg> implements a penalty approach to Differential Item Functioning in Rasch Models. 
+  It can handle settings with multiple (metric) covariates.
+  </li>
+  <li>
+  A set of functions to perform Raju, van der Linden and Fleer's (1995) Differential Item and Item Functioning analyses is implemented
+  in the <pkg>DFIT</pkg> package. It includes functions to use the Monte Carlo Item Parameter Replication (IPR) approach 
+  for obtaining the associated statistical significance tests cut-off points.
+  </li>
+  <li>
     The <pkg>catR</pkg> package allows for computarized adaptive testing using
 IRT methods. 
   </li>
@@ -135,7 +146,7 @@ tests by generating random zero-one matrices with given marginals.
 likelihood are included in the <pkg>MiscPsycho</pkg> package.
   </li>
 <li>
-    The <pkg>irtProb</pkg> is designed to estimate multidimensional subject
+    The <pkg>irtProb</pkg> package is designed to estimate multidimensional subject
 parameters (MLE and MAP) such as personnal pseudo-guessing, 
     personal fluctuation, personal inattention. These supplemental parameters
 can be used to assess person fit, to identify misfit
@@ -165,9 +176,8 @@ with IRT models.
   <li>
     Two additional IRT packages (for Microsoft Windows only) are available and
 documented on the JSS site.
-    The package <a href="http://www.jstatsoft.org/v20/i05/"
-target="_top">mlirt</a> computes multilevel IRT models,
-    and <a href="http://www.jstatsoft.org/v20/i07/" target="_top">cirt</a> uses
+    The package <a href="http://www.jstatsoft.org/v20/i05/">mlirt</a> computes multilevel IRT models,
+    and <a href="http://www.jstatsoft.org/v20/i07/">cirt</a> uses
 a joint
     hierarchically built up likelihood for estimating a two-parameter normal
     ogive model for responses and a log-normal model for response times.
@@ -193,6 +203,9 @@ support code suitable for more specialized IRT packages to build upon.
     The <pkg>classify</pkg> package can be used to examine classification
 accuracy and consistency under IRT models.
   </li>
+  <li>
+   <pkg>WrightMap</pkg> provides graphical tools for plotting item-person maps. 
+  </li>
 </ul>
 
 <p><strong>Correspondence Analysis (CA):</strong></p>
@@ -209,7 +222,7 @@ accuracy and consistency under IRT models.
     the rgl package. Graphical options include shading and
     sizing plot symbols for the points according to their contributions to
     the map and masses respectively. A corresponding GUI is provided by the
-package <pkg>caGUI</pkg>. 
+package <a href="http://cran.r-project.org/src/contrib/Archive/caGUI/">caGUI</a>. 
   </li>
   <li>
     Simple and canonical CA are provided by the package <pkg>anacor</pkg>. It 
@@ -239,9 +252,9 @@ plots, star plots,
     functions covering, e.g., principal components, simple and multiple,
     fuzzy, non symmetric, and decentered correspondence
     analysis.  Additional functionality is provided at <a
-    href="http://www.bioconductor.org/" target="_top">Bioconductor </a> in
+    href="http://www.bioconductor.org/">Bioconductor </a> in
     the package <code>made4</code>  (see also
-    <a href="http://bioinf.ucd.ie/people/aedin/R/" target="_top">here</a>).
+    <a href="http://bioinf.ucd.ie/people/aedin/R/">here</a>).
   </li>
   <li>
     The package <pkg>cocorresp</pkg> fits predictive and symmetric
@@ -294,11 +307,9 @@ FIML,
     for observed-variables models, including nonlinear simultaneous-equations
 models.
     See also the <pkg>pls</pkg> package, for partial least-squares estimation,
-    the <a href="http://CRAN.R-project.org/src/contrib/Views/gR.html"
-target="_top">gR</a>
+    the <view>gR</view>
     task view for graphical models and the
-    <a href="http://CRAN.R-project.org/src/contrib/Views/SocialSciences.html"
-target="_top">SocialSciences</a>
+    <view>SocialSciences</view>
     task view for other related packages.
   </li>
   <li>
@@ -369,6 +380,10 @@ nonlinear canonical
   <li>
     A desired number of robust principal components can be computed with the
 <pkg>pcaPP</pkg> package.
+  </li>
+  <li>
+  The <pkg>pcaPA</pkg> package performs a parallel analysis of continuous, ordered 
+  (including dichotomous/binary as a special case) or mixed type of data associated with a principal components analysis.
   </li>
   <li>
     The package <pkg>psych</pkg> includes functions such as
@@ -627,6 +642,10 @@ and proportions,
    The <pkg>profileR</pkg> package provides a set of tools that implement profile
 analysis and cross-validation techniques.
   </li>
+  <li>
+  The <pkg>TestScorer</pkg> package provides a GUI for entering test items and obtaining raw and transformed scores. The results are shown on the console and can be saved to a 
+  tabular text file for further statistical analysis. The user can define his own tests and scoring procedures through a GUI.
+  </li>
 </ul>
 
 </info>
@@ -639,7 +658,6 @@ analysis and cross-validation techniques.
     <pkg>BradleyTerry2</pkg>
     <pkg priority="core">ca</pkg>
     <pkg>cacIRT</pkg>
-    <pkg>caGUI</pkg>
     <pkg>catR</pkg>
     <pkg>CDM</pkg>
     <pkg>cfa</pkg>
@@ -651,6 +669,8 @@ analysis and cross-validation techniques.
     <pkg>CopyDetect</pkg>
     <pkg priority="core">CTT</pkg>
     <pkg>DAKS</pkg>
+    <pkg>DFIT</pkg>
+    <pkg>DIFlasso</pkg>
     <pkg>difR</pkg>
     <pkg>e1071</pkg>
     <pkg>eba</pkg>
@@ -706,7 +726,9 @@ analysis and cross-validation techniques.
     <pkg>nlme</pkg>
     <pkg>ordinal</pkg>
     <pkg>pathmox</pkg>
+    <pkg>pcaPA</pkg>
     <pkg>pcaPP</pkg>
+    <pkg>pcIRT</pkg>
     <pkg>pks</pkg>
     <pkg priority="core">plink</pkg>
     <pkg>plRasch</pkg>
@@ -742,28 +764,24 @@ analysis and cross-validation techniques.
     <pkg priority="core">smacof</pkg>
     <pkg>systemfit</pkg>
     <pkg priority="core">TAM</pkg>
+    <pkg>TestScorer</pkg>
     <pkg>TripleR</pkg>
     <pkg priority="core">vegan</pkg>
     <pkg>VGAM</pkg>
+    <pkg>WrightMap</pkg>
     <pkg>xgobi</pkg>
 </packagelist>
 
-
-
 <links>
+    <a href="http://cran.r-project.org/src/contrib/Archive/caGUI/">caGUI</a>
     <view>SocialSciences</view>
     <view>Cluster</view>
     <view>Multivariate</view>
-    <a href="http://www.jstatsoft.org/v20/" target="_top">Journal of Statistical
-Software Special Volume: Psychometrics in R</a>
-    <a href="http://www.jstatsoft.org/v48/" target="_top">Journal of Statistical
-Software Special Volume: Psychoco - Psychometric Computing in R</a>
-    <a href="http://r-forge.r-project.org/projects/psychor/"
-target="_top">PsychoR project platform</a>
-    <a href="http://gifi.stat.ucla.edu/psychoR/" target="_top">PsychoR
-snippets</a>
-    <a href="http://openmx.psyc.virginia.edu/">OpenMx - Advanced Structural
-Equation Modeling</a>
+    <a href="http://www.jstatsoft.org/v20/">Journal of Statistical Software Special Volume: Psychometrics in R</a>
+    <a href="http://www.jstatsoft.org/v48/">Journal of Statistical Software Special Volume: Psychoco - Psychometric Computing in R</a>
+    <a href="http://R-Forge.R-project.org/projects/psychor/">PsychoR project platform</a>
+    <a href="http://gifi.stat.ucla.edu/psychoR/">PsychoR snippets</a>
+    <a href="http://openmx.psyc.virginia.edu/">OpenMx - Advanced Structural Equation Modeling</a>
 </links>
 
 </CRANTaskView>

@@ -3,7 +3,7 @@
 <name>ClinicalTrials</name>
 <topic>Clinical Trial Design, Monitoring, and Analysis</topic>
 <maintainer email="Ed.Zhang.jr@gmail.com">Ed Zhang and Harry G. Zhang</maintainer>
-<version>2013-12-10</version>
+<version>2014-06-24</version>
 
 <info>
 
@@ -96,10 +96,6 @@ Currently only normally distributed homoscedastic endpoints are supported.</li>
 and trifactorial clinical trial designs using bootstrap methods and a classical
 approach.</li>
 
-<li>The package <pkg>ClinicalRobustPriors</pkg> can be employed for computing
-distributions (prior, likelihood, and posterior) and moments of robust models:
-Cauchy/Binomial, Cauchy/Normal and Berger/Normal. Furthermore, the assessment of
-the hyperparameters and the posterior analysis can be processed.</li>
 <li><pkg>clinsig</pkg> This function calculates both parametric and non-parametric versions of the Jacobson-Truax estimates of clinical significance.</li>
 
 <li><pkg>MChtest</pkg> performs Monte Carlo hypothesis tests. It allows a couple
@@ -128,6 +124,11 @@ for design and analysis of clinical trials. For example, <code>chisq.test</code>
 
 <li><pkg>asypow</pkg> has a set of routines for calculating power and related
 quantities utilizing asymptotic likelihood ratio methods.</li>
+
+<li><pkg>binomSamSize</pkg> is a suite of functions for computing confidence
+intervals and necessary sample sizes for the success probability parameter
+Bernoulli distribution under simple random sampling or under pooled
+sampling.</li>
 
 <li><pkg>coin</pkg> offers conditional inference procedures for the general
 independence problem including two-sample, K-sample (non-parametric ANOVA),
@@ -170,7 +171,7 @@ or variability that comes from using data to estimate parameters.</li>
 <p><strong>Meta-Analysis</strong></p>
 <ul>
 
-<li><pkg>copas</pkg> is a package for statistical methods to model and adjust
+<li><pkg>metasens</pkg> is a package for statistical methods to model and adjust
 for bias in meta-analysis</li>
 
 <li><pkg>meta</pkg> is for fixed and random effects meta-analysis. It has
@@ -199,13 +200,12 @@ association and heterogeneity.</li>
   <pkg>asypow</pkg>
   <pkg priority="core">bcrm</pkg> 
   <pkg priority="core">bifactorial</pkg> 
+  <pkg>binomSamSize</pkg>
   <pkg priority="core">blockrand</pkg>
   <pkg priority="core">clinfun</pkg>
-  <pkg priority="core">ClinicalRobustPriors</pkg>
   <pkg>clinsig</pkg>
   <pkg>coin</pkg>
   <pkg>conf.design</pkg>
-  <pkg>copas</pkg>
   <pkg>CRM</pkg>
   <pkg priority="core">CRTSize</pkg>
   <pkg priority="core">dfcrm</pkg>
@@ -225,6 +225,7 @@ association and heterogeneity.</li>
   <pkg>meta</pkg>
   <pkg>metafor</pkg>
   <pkg>metaLik</pkg>
+  <pkg>metasens</pkg>
   <pkg>multcomp</pkg>
   <pkg>nppbib</pkg>
   <pkg priority="core">PIPS</pkg>

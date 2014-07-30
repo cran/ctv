@@ -3,7 +3,7 @@
   <name>MachineLearning</name>
   <topic>Machine Learning &amp; Statistical Learning</topic>
   <maintainer email="Torsten.Hothorn@R-project.org">Torsten Hothorn</maintainer>
-  <version>2013-12-12</version>
+  <version>2014-07-18</version>
   
   <info>
     Several add-on packages implement ideas and methods developed at the
@@ -23,7 +23,7 @@
              Package <pkg>rpart</pkg> is recommended for computing CART-like
              trees. 
              A rich toolbox of partitioning algorithms is available in
-             <A HREF="http://www.cs.waikato.ac.nz/~ml/weka/">Weka</A>, 
+             <a href="http://www.cs.waikato.ac.nz/~ml/weka/">Weka</a>, 
              package <pkg>RWeka</pkg> provides an interface to this
              implementation, including the J4.8-variant of C4.5 and M5.
              The <pkg>Cubist</pkg> package fits rule-based models (similar
@@ -45,16 +45,15 @@
              is available in package <pkg>mvpart</pkg>. For problems with binary input variables
              the package <pkg>LogicReg</pkg> implements logic regression.
              Graphical tools for the visualization of
-             trees are available in package <pkg>maptree</pkg>. An approach to deal with the instability
-             problem via extra splits is available in package <pkg>TWIX</pkg>.
+             trees are available in package <pkg>maptree</pkg>.
              <br/> Trees for modelling longitudinal data by means of
              random effects is offered by package <pkg>REEMtree</pkg>.
 	     Partitioning of mixture models is performed by <pkg>RPMM</pkg>.
              <br/>
              Computational infrastructure for representing trees and
              unified methods for predition and visualization is implemented
-             in <pkg>partykit</pkg>. This infrastructure is used by
-             package <pkg>evtree</pkg> to implement evolutionary learning 
+             in <pkg>partykit</pkg>.
+	     This infrastructure is used by package <pkg>evtree</pkg> to implement evolutionary learning 
              of globally optimal trees.
              Oblique trees are available in package <pkg>oblique.tree</pkg>.</li>
       <li><i>Random Forests</i>: The reference implementation of the random
@@ -65,8 +64,8 @@
              ensemble learning. In addition, a random forest variant for
              response variables measured at arbitrary scales based on
              conditional inference trees is implemented in package <pkg>party</pkg>.
-             <pkg>randomSurvivalForest</pkg> offers a random forest algorithm for
-             censored data. Quantile regression forests <pkg>quantregForest</pkg>
+             <pkg>randomForestSRC</pkg> implements a unified treatment of Breiman's random forests for
+             survival, regression and classification problems. Quantile regression forests <pkg>quantregForest</pkg>
              allow to regress quantiles of a numeric response on exploratory
              variables via a random forest approach.
              The <pkg>varSelRF</pkg> and <pkg>Boruta</pkg> packages focus on variable selection by means
@@ -134,10 +133,7 @@
              The relevant dimension in kernel feature spaces can be estimated
              using <pkg>rdetools</pkg> which also offers procedures for model selection
              and prediction.</li>
-      <li><i>Bayesian Methods</i>: Bayesian Additive Regression Trees (BART),
-             where the final model is defined in terms of the sum over
-             many weak learners (not unlike ensemble methods), 
-             are implemented in package <pkg>BayesTree</pkg>. 
+      <li><i>Bayesian Methods</i>: 
              Bayesian nonstationary, semiparametric nonlinear regression 
              and design by treed Gaussian processes including Bayesian CART and 
              treed linear models are made available by package <pkg>tgp</pkg>.
@@ -159,7 +155,9 @@
       <li><i>Fuzzy Rule-based Systems</i>:
              Package <pkg>frbs</pkg> implements a host of standard 
              methods for learning fuzzy rule-based systems from data 
-             for regression and classification.</li>
+             for regression and classification. Package <pkg>RoughSets</pkg> provides comprehensive implementations of the
+             rough set theory (RST) and the fuzzy rough set theory (FRST) in a single
+             package.</li>
       <li><i>Model selection and validation</i>: Package <pkg>e1071</pkg>
              has function <code>tune()</code> for hyper parameter tuning and 
              function <code>errorest()</code> (<pkg>ipred</pkg>) can be used for
@@ -175,8 +173,8 @@
              with various parallel implementations (e.g. MPI, NWS etc).</li>
       <li><i>Elements of Statistical Learning</i>: Data sets, functions and
              examples from the book 
-             <A HREF="http://www-stat.stanford.edu/~tibs/ElemStatLearn/">The Elements of Statistical Learning: Data Mining,
-             Inference, and Prediction</A> by Trevor Hastie, Robert Tibshirani and 
+             <a href="http://www-stat.stanford.edu/~tibs/ElemStatLearn/">The Elements of Statistical Learning: Data Mining,
+             Inference, and Prediction</a> by Trevor Hastie, Robert Tibshirani and 
              Jerome Friedman have been packaged and are available as
              <pkg>ElemStatLearn</pkg>.</li>
       <li><i>GUI</i><pkg>rattle</pkg> is a graphical user interface for data mining in R.</li>
@@ -186,12 +184,15 @@
   several feature selection methods. Similar, package <pkg>rminer</pkg> interfaces
   several learning algorithms implemented in other packages and computes
   several performance measures.
+  <pkg>h2o</pkg> is an R-interface to the <a href="https://github.com/0xdata/h2o">H20</a> 
+  framework for
+  distributed and parallel computing which includes implementations of Deeplearning, 
+  GLMs, Gradient Boosted Machines, Random Forests, PCA, and KMeans.
   </info>
 
   <packagelist>
     <pkg>ahaz</pkg>
     <pkg>arules</pkg>
-    <pkg>BayesTree</pkg>
     <pkg>bigrf</pkg>
     <pkg>bigRR</pkg>
     <pkg>bmrm</pkg>
@@ -202,11 +203,11 @@
     <pkg>CORElearn</pkg>
     <pkg>CoxBoost</pkg>
     <pkg>Cubist</pkg>
-    <pkg>evtree</pkg>
     <pkg priority="core">e1071</pkg>
     <pkg>ElemStatLearn</pkg>
     <pkg>earth</pkg>
     <pkg>elasticnet</pkg>
+    <pkg>evtree</pkg>
     <pkg>frbs</pkg>
     <pkg>GAMBoost</pkg>
     <pkg>gamboostLSS</pkg>
@@ -216,6 +217,7 @@
     <pkg>GMMBoost</pkg>
     <pkg>grplasso</pkg>
     <pkg>grpreg</pkg>
+    <pkg>h2o</pkg>
     <pkg>hda</pkg>
     <pkg>ipred</pkg>
     <pkg priority="core">kernlab</pkg>
@@ -238,7 +240,7 @@
     <pkg>penalizedSVM</pkg>
     <pkg>quantregForest</pkg>
     <pkg priority="core">randomForest</pkg>
-    <pkg>randomSurvivalForest</pkg>
+    <pkg>randomForestSRC</pkg>
     <pkg>rattle</pkg>
     <pkg>rda</pkg>
     <pkg>rdetools</pkg>
@@ -249,6 +251,7 @@
     <pkg>Rmalschains</pkg>
     <pkg>rminer</pkg>
     <pkg>ROCR</pkg>
+    <pkg>RoughSets</pkg>
     <pkg priority="core">rpart</pkg>
     <pkg>RPMM</pkg>
     <pkg>RSNNS</pkg>
@@ -259,7 +262,6 @@
     <pkg>svmpath</pkg>
     <pkg>tgp</pkg>
     <pkg>tree</pkg>
-    <pkg>TWIX</pkg>
     <pkg>varSelRF</pkg>
   </packagelist>
 

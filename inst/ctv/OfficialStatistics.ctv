@@ -3,13 +3,14 @@
 <name>OfficialStatistics</name>
 <topic>Official Statistics &amp; Survey Methodology</topic>
 <maintainer email="matthias.templ@gmail.com">Matthias Templ</maintainer>
-<version>2013-12-10</version>
+<version>2014-06-25</version>
   
 <info> This CRAN task view contains a list of packages that includes
 methods typically used in official statistics and survey methodology.
 Many packages provide functionality for more than one of the topics listed 
 below.  Therefore this list is not a strict categorization and packages can be 
-listed more than once.  
+listed more than once. Certain data import/export facilities regarding to often used statistical software tools
+like SPSS, SAS or Stata are mentioned in the end of the task view.
  
 
 <p><strong>Complex Survey Design: General Comments</strong></p>
@@ -310,16 +311,16 @@ re-identified and by guaranting a minimum amount of information loss.
   (micro)data, i.e. for the generation of public- and scientific-use files.  
   The package also comes with a graphical user interface.
   </li>
-  <li>
+<!--  <li>
   Package <pkg>simPopulation</pkg> simulates synthetic, confidential, close-to-reality populations for 
   surveys based on sample data. Such population data can then be used for 
   extensive simulation studies in official statistics, using <pkg>simFrame</pkg> for example.
-  </li>
+  </li> -->
   <li>
   Package <pkg>sdcTable</pkg>  can be used to provide confidential 
   (hierarchical) tabular data.  It includes the HITAS and the HYPERCUBE 
-  technique and uses package <pkg>lpSolve</pkg> for solving (a large amount of) 
-  linear programs.
+  technique and uses linear programming packages Rglpk and lpSolveAPI for solving
+  (a large amount of) linear programs.
   </li>
 </ul>
 
@@ -335,10 +336,10 @@ For general time series methodology we refer to the
   which can also be found in the stats package.
   </li>
   <li>
-  Many powerful tools can be accessed via packages <pkg>x12</pkg> and <pkg>x12GUI</pkg>. <pkg>x12</pkg> provides 
-  a wrapper function for the <a href="http://www.census.gov/srd/www/x12a/"> X12 binaries</a>, which have to be installed first. It uses  
+  Many powerful tools can be accessed via packages <pkg>x12</pkg> and <pkg>x12GUI</pkg> and package <pkg>seasonal</pkg>. <pkg>x12</pkg> provides a wrapper function for the <a href="http://www.census.gov/srd/www/x12a/"> X12 binaries</a>, which have to be installed first. It uses  
   with a S4-class interface for batch processing of multiple time series. <pkg>x12GUI</pkg> provides a graphical user interface for 
   the X12-Arima seasonal adjustment software. 
+Less functionality but with the support of SEATS Spec is supported by package <pkg>seasonal</pkg>. 
   </li>
 </ul>
 
@@ -351,10 +352,6 @@ For general time series methodology we refer to the
   likelihood aproach or via hot-deck.
   </li>
   <li>
-  Package <pkg>RecordLinkage</pkg> provides functions for linking and 
-  deduplicating data sets. 
-  </li>
-  <li>
   Package <pkg>MatchIt</pkg> allows nearest neighbor matching, exact matching, optimal matching and full matching amonst
   other matching methods. If two data sets have to be matched, the data must come as one data frame including a factor
   variable which includes information about the membership of each observation.
@@ -363,7 +360,14 @@ For general time series methodology we refer to the
 
 <p><strong>Small Area Estimation</strong></p>
 <ul>
-    <li>
+  <li>
+	Package <pkg>rsae</pkg> provides functions to estimate the parameters of the basic unit-level 
+	small area estimation (SAE) model (aka nested error regression model) 
+	by means of maximum likelihood (ML) or robust ML. On the basis of the estimated parameters, robust predictions of the area-specific 
+	means are computed (incl. MSE estimates; parametric bootstrap). 
+	The current version (rsae 0.4-x) does not allow for categorical independent variables.
+  </li>
+  <li>
   Package <pkg>nlme</pkg> provides facilities to fit Gaussian linear and nonlinear mixed-effects models and 
   <pkg>lme4</pkg> provides facilities to fit linear and generalized linear mixed-effects model, both used in 
   small area estimation. 
@@ -407,16 +411,49 @@ that is used to fit the basic random effects models.
   </li>
 </ul>
  
- 
-
+<p><strong>Microsimulation</strong></p>
+<ul>
+  <li>
+The <pkg>MicSim</pkg> package includes methods for microsimulations. Given a initial population, mortality rates, divorce rates, marriage rates, eduction changes, etc. and their transition matrix can be defined and included for the simulation of future states of the population. The package does not contain compiled code but functionality to run the microsimulation in parallel is provided.
+  </li>
+  <li>
+Package <pkg>sms</pkg> provides facilities to simulate micro-data from given area-based macro-data. Simulated annealing is used to best satisfy the available description of an area. 
+For computational issues, the calculations can be run in parallel mode.
+  </li>
+</ul>
   
 <p><strong>Additional Packages and Functionalities</strong></p>
+Various additional packages are available that provides certain functionality useful in official statistics and survey methodology.
+<p>Data Import and Export:</p>
 <ul>
   <li>
   Package <pkg>SAScii</pkg> imports ASCII files directly into R using only a SAS input script, which
   is parsed and converted into arguments for a read.fwf call. This is useful whenever SAS scripts for importing data
   are already available.
   </li> 
+<li>
+The <pkg>foreign</pkg> package includes tools for reading data from SAS Xport (function <code>read.xport()</code>), Stata (function <code>read.dta()</code>), SPSS (function <code>read.spss()</code>) and various other formats. It provides facilites to write file to various formats, see function <code>write.foreign()</code>.
+</li>
+<li>
+Also the package <pkg>Hmisc</pkg> provides tools to read data sets from SPSS (function 
+<code>spss.get()</code>)  or Stata (function <code>stata.get()</code>). 
+</li>
+  <li>
+  The <pkg>pxR</pkg> package provides a set of functions for reading
+and writing PC-Axis files, used by different statistical
+organizations around the globe for disemination of their (multidimensional) tables.
+  </li>
+<li>
+With package <pkg>prevR</pkg> and it's function <code>import.dhs()</code> it is possible to directly imports 
+data from the Demographic Health Survey.
+</li>
+<li>
+Function <code>describe()</code> from package <pkg>questionr</pkg> describes the variables of a dataset that might include labels imported with the foreign or memisc packages.
+</li>
+</ul>
+
+<p>Sampling Techniques:</p>
+<ul>
   <li>
   Package <pkg>samplingbook</pkg> includes sampling procedures from the book 
   'Stichproben. Methoden und praktische Umsetzung mit R' by Goeran Kauermann 
@@ -456,11 +493,6 @@ that is used to fit the basic random effects models.
   based on a two-stage design. Inclusion probabilities are not considered in the estimation. 
   The package provides a graphical user interface as well. 
   </li>
-  <li>
-  The <pkg>pxR</pkg> package provides a set of functions for reading
-and writing PC-Axis files, used by different statistical
-organizations around the globe for disemination of their (multidimensional) tables.
-  </li>
 </ul>  
   
 
@@ -474,6 +506,7 @@ organizations around the globe for disemination of their (multidimensional) tabl
   <pkg>editrules</pkg>
   <pkg>EVER</pkg>
   <pkg>FFD</pkg>
+  <pkg>foreign</pkg>
   <pkg>hbsae</pkg>
   <pkg>Hmisc</pkg>
   <pkg>IC2</pkg>
@@ -483,12 +516,12 @@ organizations around the globe for disemination of their (multidimensional) tabl
   <pkg>lavaan</pkg>
   <pkg>lavaan.survey</pkg>
   <pkg>lme4</pkg>
-  <pkg>lpSolve</pkg>
   <pkg>MatchIt</pkg>
   <pkg>memisc</pkg>
   <pkg>mi</pkg>
   <pkg>mice</pkg>
   <pkg>micEcon</pkg>
+  <pkg>MicSim</pkg>
   <pkg>MImix</pkg>
   <pkg>missMDA</pkg>
   <pkg>mitools</pkg>
@@ -499,11 +532,13 @@ organizations around the globe for disemination of their (multidimensional) tabl
   <pkg>odfWeave.survey</pkg>
   <pkg>pan</pkg>
   <pkg>pps</pkg>
+  <pkg>prevR</pkg>
   <pkg>pxR</pkg> 
-  <pkg>RecordLinkage</pkg>
+  <pkg>questionr</pkg> 
   <pkg>reweight</pkg>
   <pkg>robCompositions</pkg>
   <pkg>rrcovNA</pkg>
+  <pkg>rsae</pkg>
   <pkg>sampling</pkg>
   <pkg>samplingbook</pkg>
   <pkg>SamplingStrata</pkg>
@@ -512,9 +547,10 @@ organizations around the globe for disemination of their (multidimensional) tabl
   <pkg>SDaA</pkg>
   <pkg>sdcMicro</pkg>
   <pkg>sdcTable</pkg>
+  <pkg>seasonal</pkg>
   <pkg>SeleMix</pkg>
   <pkg>simFrame</pkg>
-  <pkg>simPopulation</pkg>
+  <pkg>sms</pkg>
   <pkg>spsurvey</pkg>
   <pkg>StatMatch</pkg>
   <pkg>stratification</pkg>
