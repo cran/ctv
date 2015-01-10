@@ -4,7 +4,7 @@
 <name>Distributions</name> 
 <topic>Probability Distributions</topic> 
 <maintainer email="Christophe.Dutang@ensimag.fr">Christophe Dutang</maintainer> 
-<version>2014-07-29</version>
+<version>2014-12-18</version>
 
 <info> 
 For most of the classical distributions, base R provides
@@ -101,10 +101,7 @@ or not complete, please let me know.
 					 
 		<li><i>Sichel distribution</i>: This can be found in
 	    <pkg>gamlss.dist</pkg>.</li>	    
-	    
-	    <li><i>Triangle distribution</i>: The discrete triangle distribution can be found in
-	    <pkg>TRIANG</pkg>.</li>	  
-	    
+	    	    
 		<li><i>Zero inflated/modified (ZI/ZM) distributions</i>: 
 		ZM (or Hurdle) Poisson, ZM logarithmic, 
 		ZI/ZM negative binomial, ZI Poisson inverse Gaussian,
@@ -250,7 +247,7 @@ or not complete, please let me know.
 	 <pkg>actuar</pkg>
      provides the moment generating function and moments.
      <pkg>lmomco</pkg> implements the generalized normal distribution.
-	 The Exponentially modified Gaussian is available in <pkg>emg</pkg>, <pkg>gamlss.dist</pkg> and
+	 The Exponentially modified Gaussian is available in <pkg>gamlss.dist</pkg> and
 	 <pkg>retimes</pkg>.
      <pkg>VGAM</pkg>, <pkg>ActuDistns</pkg> and <pkg>fBasics</pkg>
      also implement
@@ -642,9 +639,10 @@ or not complete, please let me know.
       is available in <pkg>VGAM</pkg>, <pkg>RTDE</pkg>.
       <pkg>fCopulae</pkg> implements the 22 Archimedean
       copulas of Nelsen (1998, <i>Introduction to Copulas</i>, Springer-Verlag) including
-      Gumbel, Frank, Clayton, and Ali-Mikhail-Haq. <pkg>gumbel</pkg> is a 
+      Gumbel, Frank, Clayton, and Ali-Mikhail-Haq.
+      <pkg>gumbel</pkg> is a 
       standalone package for the Gumbel copula and <pkg>VGAM</pkg> 
-      provides the Ali-Mikhail-Haq bivariate distribution. <pkg>nacopula</pkg> provides
+      provides the Ali-Mikhail-Haq bivariate distribution. <pkg>copula</pkg> provides
 	   Ali-Mikhail-Haq, Clayton, Frank, Gumbel and Joe copulas.
 	   <pkg>CDVine</pkg> and <pkg>VineCopula</pkg> provide
 	   Clayton, Gumbel, Frank, Joe, BB1, BB6, BB7 and BB8 copulas.
@@ -666,7 +664,7 @@ or not complete, please let me know.
 	  <pkg>VineCopula</pkg> provide the Gaussian and the Student copula.</li>
       
       <li><i>Extreme value copulas</i>: <pkg>fCopulae</pkg> provides the following copulas
-      Gumbel, Galambos, Husler-Reiss, Tawn, or BB5. <pkg>copula</pkg> also implements
+      Gumbel, Galambos, Husler-Reiss, Tawn, or BB5. <pkg>copula</pkg> implements
       Gumbel, Galambos and Husler-Reiss.</li>
       
       <li><i>Eyraud-Farlie-Gumbel-Morgenstern copula</i>: provided in <pkg>VGAM</pkg>, <pkg>RTDE</pkg>,
@@ -675,7 +673,7 @@ or not complete, please let me know.
       <li><i>Mardia copula</i>: Not yet implemented?</li>   
 	  
 	  <li><i>Nested copulas</i>: arbitrary nested versions of copulas can
-	  be implemented in <pkg>nacopula</pkg>. </li>
+	  be implemented in <pkg>copula</pkg>. </li>
       
       <li><i>Plackett</i>: provided in <pkg>VGAM</pkg>, <pkg>copBasic</pkg> 
 	  and <pkg>copula</pkg>.</li>
@@ -861,7 +859,6 @@ or not complete, please let me know.
   <pkg>distrTEst</pkg> 
   <pkg>e1071</pkg>
   <pkg>emdbook</pkg>
-  <pkg>emg</pkg>
   <pkg>evd</pkg>
   <pkg>evdbayes</pkg>
   <pkg>evir</pkg>
@@ -908,7 +905,6 @@ or not complete, please let me know.
   <pkg>movMF</pkg>
   <pkg>msm</pkg>
   <pkg priority="core">mvtnorm</pkg>
-  <pkg>nacopula</pkg>
   <pkg>nor1mix</pkg> 
   <pkg>NormalGamma</pkg> 
   <pkg>normalp</pkg>
@@ -947,7 +943,6 @@ or not complete, please let me know.
   <pkg priority="core">SuppDists</pkg>
   <pkg>tmvtnorm</pkg>
   <pkg>trapezoid</pkg>
-  <pkg>TRIANG</pkg>
   <pkg>triangle</pkg>
   <pkg>truncnorm</pkg>
   <pkg>TSA</pkg>
@@ -961,7 +956,6 @@ or not complete, please let me know.
 <links> 
   <a href="http://www.rmetrics.org/Meielisalp2009/Presentations/Scott.pdf">Advices to implement (new) distributions in R</a>
   <a href="http://www.johndcook.com/distribution_chart.html">Clickable diagram of distribution relationships</a>
-  <a href="http://wiki.r-project.org/rwiki/doku.php?id=tips:stats-distri">The R wiki on distributions</a>
   <a href="http://www.actuar-project.org/">actuar: An R package for actuarial science</a>
   <a href="http://www.rmetrics.org/">fCopulae, fBasics, randtoolbox packages, part of the Rmetrics project</a>
   <a href="http://www.jstatsoft.org/v16/c02/">Journal of Statistical Software: R programs for truncated distributions</a> 

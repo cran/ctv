@@ -3,14 +3,15 @@
  <name>MetaAnalysis</name>
  <topic>Meta-Analysis</topic>
  <maintainer email = "info@aghmed.fsnet.co.uk">Michael Dewey</maintainer>
- <version>2014-07-25</version>
+ <version>2014-11-29</version>
 
  <info>
 <p>
     This task view covers packages which include facilities for meta-analysis
     of summary statistics from primary studies. The task view does not consider
-    the meta-analysis of individual participant data which can be handled by
-    any of the standard linear modelling functions.
+    the meta-analysis of individual participant data (IPD) which can be handled by
+    any of the standard linear modelling functions but does include some
+    packages which offer special facilities for IPD.
 </p>
 
 <p>
@@ -101,7 +102,12 @@
    <li><pkg>metagen</pkg> provides a range of methods for
    random effects models and also facilities
    for extensive simulation studies of the
-   properties of those methods
+   properties of those methods.
+   </li>
+   <li>
+   <pkg>metaplus</pkg> fits random effects models relaxing the usual
+   assumption that the random effects have a normal
+   distribution. Also provides some diagnostics.
    </li>
    </ul>
 
@@ -177,7 +183,7 @@
    <li>
     <pkg>metasens</pkg> provides Copas's selection model and also
    the method of limit meta-analysis (a regression based
-   approach for dealing with small study effects) due to Ruecker et al.
+   approach for dealing with small study effects) due to Rücker et al.
    </li>
    <li>
    <pkg>selectMeta</pkg> provides various selection models:
@@ -311,6 +317,30 @@
    </li>
    </ul>
 
+<h4>Individual participant data (IPD)</h4>
+
+<p>
+Where all studies can provide indiviual participant data
+then software for analysis of multi--centre trials
+or multi-centre cohort studies should prove adequate
+and is outside the scope of this task view.
+Other packages which provide facilities
+related to IPD are:
+</p>
+<ul>
+<li>
+<pkg>ipdmeta</pkg> which uses information on aggregate
+summary statistics and
+a covariate of interest to assess whether a full IPD analysis
+would have more power.
+</li>
+<li>
+<pkg>ecoreg</pkg> which is designed for ecological studies
+enables estimation of an individual level
+logistic regression from aggregate data or individual data.
+</li>
+</ul>
+
 <h4>Network meta-analysis</h4>
    <p>Also known as multiple treatment comparison.
    This is a very active area of research and development.
@@ -362,11 +392,16 @@
     of sample size in cluster randomised trials.
    </p>
    <p>
-    <pkg>RcmdrPlugin.MA</pkg> and <pkg>RcmdrPlugin.EZR</pkg>
-    provide an interface via the Rcmdr GUI.
-   The former uses <pkg>metafor</pkg> and <pkg>MAd</pkg> and
-   the latter uses <pkg>meta</pkg> and <pkg>metatest</pkg>
-   to do the heavy lifting.
+   <pkg>CAMAN</pkg> offers the possibility of using finite semiparametric mixtures as an
+    alternative to the random effects model where there is heterogeneity.
+   Covariates can be included to provide meta-regression.
+   </p>
+   <p>
+   <pkg>RcmdrPlugin.EZR</pkg> provides an interface via the Rcmdr GUI
+   using <pkg>meta</pkg> and <pkg>metatest</pkg>
+   to do the heavy lifting and <pkg>MAVIS</pkg> provides a shiny
+   interface using <pkg>metafor</pkg>, <pkg>MAc</pkg> and
+   <pkg>MAd</pkg>.
    </p>
 
  </info>
@@ -374,9 +409,11 @@
  <packagelist>
   <pkg>bamdit</pkg>
   <pkg>bspmma</pkg>
+  <pkg>CAMAN</pkg>
   <pkg>compute.es</pkg>
   <pkg>CRTSize</pkg>       
   <pkg>dosresmeta</pkg>
+   <pkg>ecoreg</pkg>
   <pkg>epiR</pkg>
   <pkg>exactmeta</pkg>
   <pkg>extfunnel</pkg>
@@ -384,11 +421,13 @@
   <pkg>gemtc</pkg>
   <pkg>Gmisc</pkg>
   <pkg>HSROC</pkg>
+   <pkg>ipdmeta</pkg>
   <pkg>MAc</pkg>
   <pkg>MAd</pkg>
   <pkg>mada</pkg>
   <pkg>MADAM</pkg>
   <pkg>MAMA</pkg>
+  <pkg>MAVIS</pkg>
   <pkg priority="core">meta</pkg>
   <pkg>MetABEL</pkg>
   <pkg>metacor</pkg>
@@ -400,6 +439,7 @@
   <pkg>metamisc</pkg>
   <pkg>metap</pkg>
   <pkg>MetaPCA</pkg>
+  <pkg>metaplus</pkg>
   <pkg>MetaQC</pkg>
   <pkg>metasens</pkg>
   <pkg>MetaSKAT</pkg>
@@ -413,7 +453,6 @@
   <pkg>psychometric</pkg>
   <pkg>PubBias</pkg>
   <pkg>RcmdrPlugin.EZR</pkg>
-  <pkg>RcmdrPlugin.MA</pkg>
   <pkg>rmeta</pkg>
   <pkg>robumeta</pkg>
   <pkg>SAMURAI</pkg>

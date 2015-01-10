@@ -3,7 +3,7 @@
 <name>ChemPhys</name>
 <topic>Chemometrics and Computational Physics</topic>
 <maintainer email="katharine.mullen@stat.ucla.edu">Katharine Mullen</maintainer>
-<version>2013-07-29</version>
+<version>2014-12-22</version>
 
 <info>
 
@@ -199,8 +199,6 @@ implements two meta-methods for variable selection: stability selection (applyin
   <li>The <pkg>kohonen</pkg> package implements self-organizing maps as well as 
   some extensions for supervised pattern recognition and data fusion.
   The <pkg>som</pkg> package provides functions for self-organizing maps.</li>
-  <li>The package <pkg>wccsom</pkg> provides SOM networks for comparing 
-  patterns with peak shifts.</li>
 </ul>
 
 <p>
@@ -391,8 +389,7 @@ settings, among other features.
 <ul>
   <li>The <pkg>diffractometry</pkg> package provides 
   baseline identification and peak decomposition for x-ray
-  diffractograms. Cross-correlation based comparison of diffractograms
-  is provided in package <pkg>wccsom</pkg>.</li>
+  diffractograms.</li>
 </ul>
 
 <p>
@@ -421,8 +418,8 @@ provided may be grouped into 4 main areas: cosmology, FITS file manipulation, th
 </li>
 <li> The <pkg>celestial</pkg> package includes a number of common astronomy conversion routines, particularly the HMS and degrees schemes.
 </li>
-<li> The <pkg>SCEPtER</pkg> and <pkg>SCEPtERextras</pkg> packages 
-are used to 
+<li> The <pkg>SCEPtER</pkg> package
+is used to 
 estimate stellar mass and radius given observational data of effective 
 temperature, [Fe/H], and astroseismic parameters.
 </li>
@@ -538,7 +535,6 @@ photovoltaics. </li>
   <pkg>sapa</pkg>
   <pkg>simecol</pkg>
   <pkg>SCEPtER</pkg> 
-  <pkg>SCEPtERextras</pkg> 
   <pkg>solaR</pkg>		
   <pkg>som</pkg>
   <pkg>spls</pkg>
@@ -548,7 +544,6 @@ photovoltaics. </li>
   <pkg>TIMP</pkg>
   <pkg>titan</pkg>
   <pkg>varSelRF</pkg>
-  <pkg>wccsom</pkg>
   <pkg>WilcoxCV</pkg>
 </packagelist>
 

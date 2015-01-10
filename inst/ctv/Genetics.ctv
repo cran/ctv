@@ -175,7 +175,7 @@ The <pkg>hierfstat</pkg> package allows the estimation of hierarchical F-statist
           (inlcuding patterns of missing data) and tests for Hardy-Weinberg equilibrium.  Single-point analyses with binary 
           or quantitative traits are implemented via generalized linear models, and multiple SNPs can be anlaysed for 
           haplotypic associations or epistasis. -->
-<bioc>snpMatrix</bioc>
+<a href="http://www.bioconductor.org/packages/2.8/bioc/html/snpMatrix.html">snpMatrix</a>
 	  Implements classes and methods for large-scale SNP association studies.
         </li>        
         <li>
@@ -248,22 +248,19 @@ The <pkg>hierfstat</pkg> package allows the estimation of hierarchical F-statist
 
   <links>
     <view>Phylogenetics</view>
-    <a href="http://rgenetics.org/">
-      The Rgenetics Project
-    </a>
     <a href="http://www.bioconductor.org/">
       Bioconductor
     </a> 
     <bioc>multtest</bioc>
     <bioc>qvalue</bioc>
-    <bioc>snpMatrix</bioc>
+    <a href="http://www.bioconductor.org/packages/2.8/bioc/html/snpMatrix.html">Bioconductor package snpMatrix (2.8)</a>
     <a href="http://mayoresearch.mayo.edu/mayo/research/biostat/splusfunctions.cfm">
      R packages from Divison of Biostatistics, Mayo Clinic
     </a> 
     <a href="http://watson.hgen.pitt.edu/register/">
       QTL-ALL :  provides interfaces between Merlin and/or Simwalk2 and plotting of results in R.
     </a> 
-    <a href="http://www.ucl.ac.uk/~rmjdjhz/software.htm">
+    <a href="http://legacy.mrc-epid.cam.ac.uk/~jinghua.zhao/software.htm">
       Computer programs by Jing Hua Zhao (some are included in the gap package)
     </a>
     <a href="http://www-gene.cimr.cam.ac.uk/clayton/software/">
@@ -272,7 +269,7 @@ The <pkg>hierfstat</pkg> package allows the estimation of hierarchical F-statist
     <a href="http://www.qimr.edu.au/davidD/#R">
       R Software by David Duffy
     </a>
-    <a href="http://astor.som.jhmi.edu/BayesMendel/">
+    <a href="http://bcb.dfci.harvard.edu/bayesmendel/">
       BayesMendel
     </a>
     <a href="http://linkage.rockefeller.edu/yyang/resources.html">
@@ -281,20 +278,14 @@ The <pkg>hierfstat</pkg> package allows the estimation of hierarchical F-statist
     <a href="http://linkage.rockefeller.edu/soft/">
       An alphabetic list of genetic analysis software
     </a>
-    <a href="http://wpicr.wpic.pitt.edu/WPICCompGen/hclust.htm">
+    <a href="http://wpicr.wpic.pitt.edu/WPICCompGen/hclust/hclust.htm">
       Hclust.R, software for Choosing Tag SNPs
     </a>
     <a href="http://wpicr.wpic.pitt.edu/WPICCompGen/bars.htm">
       Bayesian Adaptive Regression Splines (BARS)
     </a>
-    <a href="http://www.mpipsykl.mpg.de/pages/english/research/mueller_downloads.htm">
-      Direct Simulation Approach (DAS), for simulation of p-values
-    </a>
     <a href="http://www.stat.auckland.ac.nz/~yee/VGAM/">
       Vector Generalized Linear and Additive Models (VGLMs/VGAMs)
-    </a>
-    <a href="http://people.fas.harvard.edu/~tjhoffm/pbatR.html">
-      P2BAT tools for family and pedigree based association.
     </a>
     <a href="http://pbil.univ-lyon1.fr/software/mareymap/">
       MareyMap GUI for comparing physical and genetic maps.

@@ -3,7 +3,7 @@
   <name>MachineLearning</name>
   <topic>Machine Learning &amp; Statistical Learning</topic>
   <maintainer email="Torsten.Hothorn@R-project.org">Torsten Hothorn</maintainer>
-  <version>2014-07-18</version>
+  <version>2014-12-18</version>
   
   <info>
     Several add-on packages implement ideas and methods developed at the
@@ -41,8 +41,10 @@
              and node distributions of the response are available in package
              <pkg>party</pkg> as well.
              <br/>
-             An adaptation of <pkg>rpart</pkg> for multivariate responses
-             is available in package <pkg>mvpart</pkg>. For problems with binary input variables
+             Tree-structured varying coefficient models are implemented in
+             package <pkg>vcrpart</pkg>.
+             <br/>
+             For problems with binary input variables
              the package <pkg>LogicReg</pkg> implements logic regression.
              Graphical tools for the visualization of
              trees are available in package <pkg>maptree</pkg>.
@@ -55,7 +57,8 @@
              in <pkg>partykit</pkg>.
 	     This infrastructure is used by package <pkg>evtree</pkg> to implement evolutionary learning 
              of globally optimal trees.
-             Oblique trees are available in package <pkg>oblique.tree</pkg>.</li>
+             Oblique trees are available in package <pkg>oblique.tree</pkg>.
+             </li>
       <li><i>Random Forests</i>: The reference implementation of the random
              forest algorithm for regression and classification is available in 
              package <pkg>randomForest</pkg>. Package <pkg>ipred</pkg> has bagging
@@ -67,7 +70,9 @@
              <pkg>randomForestSRC</pkg> implements a unified treatment of Breiman's random forests for
              survival, regression and classification problems. Quantile regression forests <pkg>quantregForest</pkg>
              allow to regress quantiles of a numeric response on exploratory
-             variables via a random forest approach.
+             variables via a random forest approach. For binary data,
+             <pkg>LogicForest</pkg> is a forest of logic regression trees (package
+             <pkg>LogicReg</pkg>.
              The <pkg>varSelRF</pkg> and <pkg>Boruta</pkg> packages focus on variable selection by means
              for random forest algorithms. For large data sets, package <pkg>bigrf</pkg> 
              computes random forests in parallel and uses large memory objects 
@@ -103,8 +108,8 @@
              in SVMs in penalized models (SCAD or L1 penalties) is implemented
              in package <pkg>penalizedSVM</pkg>. Various forms of
              penalized discriminant analysis are implemented in 
-             packages <pkg>hda</pkg>, <pkg>rda</pkg>, <pkg>sda</pkg>, and
-             <pkg>SDDA</pkg>. Package <pkg>LiblineaR</pkg> offers an interface to 
+             packages <pkg>hda</pkg>, <pkg>rda</pkg>, and <pkg>sda</pkg>.
+	     Package <pkg>LiblineaR</pkg> offers an interface to 
              the LIBLINEAR library.
              The <pkg>ncvreg</pkg> package fits linear and logistic
              regression models under the the SCAD and MCP 
@@ -133,7 +138,10 @@
              The relevant dimension in kernel feature spaces can be estimated
              using <pkg>rdetools</pkg> which also offers procedures for model selection
              and prediction.</li>
-      <li><i>Bayesian Methods</i>: 
+      <li><i>Bayesian Methods</i>: Bayesian Additive Regression Trees (BART),
+             where the final model is defined in terms of the sum over
+             many weak learners (not unlike ensemble methods), 
+             are implemented in package <pkg>BayesTree</pkg>. 
              Bayesian nonstationary, semiparametric nonlinear regression 
              and design by treed Gaussian processes including Bayesian CART and 
              treed linear models are made available by package <pkg>tgp</pkg>.
@@ -167,10 +175,16 @@
              Functions for ROC analysis and other visualisation techniques 
              for comparing candidate classifiers are available from package 
              <pkg>ROCR</pkg>.
+             Packages <pkg>hdi</pkg> and <pkg>stabs</pkg> implement stability 
+             selection for a range of models, <pkg>hdi</pkg>
+             also offers other inference procedures in high-dimensional models.</li>
+      <li><i>Meta packages</i>:
              Package <pkg>caret</pkg> provides miscellaneous functions 
              for building predictive models, including parameter tuning 
              and  variable importance measures. The package can be used 
-             with various parallel implementations (e.g. MPI, NWS etc).</li>
+             with various parallel implementations (e.g. MPI, NWS etc). 
+             In a similar spirit, package <pkg>mlr</pkg> offers a high-level interface
+             to various statistical and machine learning packages.</li>
       <li><i>Elements of Statistical Learning</i>: Data sets, functions and
              examples from the book 
              <a href="http://www-stat.stanford.edu/~tibs/ElemStatLearn/">The Elements of Statistical Learning: Data Mining,
@@ -184,15 +198,12 @@
   several feature selection methods. Similar, package <pkg>rminer</pkg> interfaces
   several learning algorithms implemented in other packages and computes
   several performance measures.
-  <pkg>h2o</pkg> is an R-interface to the <a href="https://github.com/0xdata/h2o">H20</a> 
-  framework for
-  distributed and parallel computing which includes implementations of Deeplearning, 
-  GLMs, Gradient Boosted Machines, Random Forests, PCA, and KMeans.
   </info>
 
   <packagelist>
     <pkg>ahaz</pkg>
     <pkg>arules</pkg>
+    <pkg>BayesTree</pkg>
     <pkg>bigrf</pkg>
     <pkg>bigRR</pkg>
     <pkg>bmrm</pkg>
@@ -217,18 +228,19 @@
     <pkg>GMMBoost</pkg>
     <pkg>grplasso</pkg>
     <pkg>grpreg</pkg>
-    <pkg>h2o</pkg>
     <pkg>hda</pkg>
+    <pkg>hdi</pkg>
     <pkg>ipred</pkg>
     <pkg priority="core">kernlab</pkg>
     <pkg>klaR</pkg>
     <pkg>lars</pkg>
     <pkg>lasso2</pkg>
     <pkg>LiblineaR</pkg>
+    <pkg>LogicForest</pkg>
     <pkg>LogicReg</pkg>
     <pkg>maptree</pkg>
     <pkg priority = "core">mboost</pkg>
-    <pkg>mvpart</pkg>
+    <pkg>mlr</pkg>
     <pkg>ncvreg</pkg>
     <pkg priority="core">nnet</pkg>
     <pkg>oblique.tree</pkg>
@@ -258,11 +270,12 @@
     <pkg>RWeka</pkg>
     <pkg>RXshrink</pkg>
     <pkg>sda</pkg>
-    <pkg>SDDA</pkg>
+    <pkg>stabs</pkg>
     <pkg>svmpath</pkg>
     <pkg>tgp</pkg>
     <pkg>tree</pkg>
     <pkg>varSelRF</pkg>
+    <pkg>vcrpart</pkg>
   </packagelist>
 
   <links>

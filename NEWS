@@ -1,3 +1,9 @@
+Changes in Version 0.8-1
+
+  o Bug fix in check_ctv_packages(): Packages in <packagelist> but not in <info>
+    were not computed correctly.
+
+
 Changes in Version 0.8-0
 
   o HTML generation improved. Now XHTML 1.0 is produced with both

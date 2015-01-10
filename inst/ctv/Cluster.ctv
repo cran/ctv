@@ -3,7 +3,7 @@
 <name>Cluster</name>
 <topic>Cluster Analysis &amp; Finite Mixture Models</topic>
 <maintainer email="Bettina.Gruen@jku.at">Friedrich Leisch and Bettina Gruen</maintainer>
-<version>2014-07-29</version>
+<version>2014-12-18</version>
   
 <info> This CRAN Task View contains a list of packages that can be
 used for finding groups in data and modeling unobserved
@@ -89,7 +89,9 @@ of each package to check under which license it is distributed.</p>
    an interface to the CLUTO vcluster program for clustering
    high-dimensional datasets.</li>
   <li>Package <pkg>trimcluster</pkg> provides trimmed k-means
-  clustering.</li>
+  clustering. Package <pkg>tclust</pkg> also allows for trimmed
+  k-means clustering. In addition using this package other covariance
+  structures can also be specified for the clusters.</li>
 </ul>
 <p><strong>Model-Based Clustering:</strong></p>
 <ul><li>ML estimation:
@@ -103,6 +105,25 @@ of each package to check under which license it is distributed.</p>
   efficient initialization methods for model-based clustering of
   finite mixture Gaussian distribution with unstructured dispersion in
   unsupervised as well as semi-supervised learning situation.</li>
+  <li>Packages <pkg>funHDDC</pkg>, <pkg>funFEM</pkg> and
+  <pkg>MFDA</pkg> implement model-based functional data
+  analysis.
+  The <pkg>funFEM</pkg> package implements the <pkg>funFEM</pkg>
+  algorithm which allows to cluster time series or, more generally,
+  functional data. It is based on a discriminative functional mixture
+  model which allows the clustering of the data in a unique and
+  discriminative functional subspace. This model presents the
+  advantage to be parsimonious and can therefore handle long time
+  series.
+  The <pkg>funHDDC</pkg> package implements the funHDDC algorithm
+  which allows the clustering of functional data within group-specific
+  functional subspaces. The funHDDC algorithm is based on a functional
+  mixture model which models and clusters the data into group-specific
+  functional subspaces. The approach allows afterward meaningful
+  interpretations by looking at the group-specific functional
+  curves. 
+  The <pkg>MFDA</pkg> package uses a mixed-effects model with a
+  smoothing spline model for modeling functional data.</li>
   <li>Package <pkg>FisherEM</pkg> is a subspace clustering method
   which allows for efficient unsupervised classification of
   high-dimensional data. It is based on the Gaussian mixture model and
@@ -139,14 +160,17 @@ of each package to check under which license it is distributed.</p>
   package <pkg>mixsmsn</pkg>.</li>
   <li>Package <pkg>movMF</pkg> fits finite mixtures of von
   Mises-Fisher distributions with the EM algorithm.</li>
-  <li>Package <pkg>MFDA</pkg> implements model-based functional data
-  analysis.</li>
   <li>Package <pkg>GLDEX</pkg> fits mixtures of generalized lambda
   distributions and for grouped conditional data package
   <pkg>mixdist</pkg> can be used.</li>
   <li><pkg>mritc</pkg> provides tools for classification using normal
   mixture models and (higher resolution) hidden Markov normal mixture
   models fitted by various methods.</li>
+  <li>Parsimonious Gaussian mixture models allow to fit mixtures of
+  factor analyzers with a constraints on the components of the factor
+  models. Functionality to fit these models is provided in package
+  <pkg>pgmm</pkg>.
+  </li>
   <li><pkg>prabclus</pkg> clusters a presence-absence matrix
   object by calculating an MDS 
   from the distances, and applying maximum likelihood Gaussian
@@ -233,8 +257,9 @@ of each package to check under which license it is distributed.</p>
   is based on copula functions and therefore allows to group
   observations according to the multivariate dependence structure of
   the generating process without any assumptions on the margins.</li>
-  <li>Fuzzy clustering and bagged clustering are available in
-  package <pkg>e1071</pkg>.</li>
+  <li>Fuzzy clustering and bagged clustering are available in package
+  <pkg>e1071</pkg>. Further and more extensive tools for fuzzy
+  clustering are available in package <pkg>fclust</pkg>.</li>
   <li>Package <pkg>compHclust</pkg> provides complimentary
   hierarchical clustering which was especially designed for microarray
   data to uncover structures present in the data that arise from
@@ -246,13 +271,6 @@ of each package to check under which license it is distributed.</p>
   recursively  partitioning a data set.</li>
   <li>For graphs and networks model-based clustering approaches are
   implemented in packages <pkg>latentnet</pkg> and <pkg>mixer</pkg>.</li>
-  <li>Package <pkg>nnclust</pkg> allows fast clustering of large data sets
-  by constructing a minimum spanning tree for each cluster. For each
-  cluster the procedure is stopped when the nearest-neighbor distance
-  rises above a specified threshold. A set of clusters and a
-  set of "outliers" not in any cluster is returned. The algorithm works best for 
-  well-separated clusters in up to 8 dimensions, and sample sizes up
-  to hundreds of thousands.</li>
   <li>Package <pkg>optpart</pkg> contains a set of algorithms for
   creating partitions and coverings of objects largely based on
   operations on similarity relations (or matrices).</li>
@@ -320,7 +338,7 @@ of each package to check under which license it is distributed.</p>
 <ul>
   <li>Mixtures of univariate normal distributions can be printed
   and plotted using package <pkg>nor1mix</pkg>.</li>
-  <li>Packages <pkg>gcExplorer</pkg> and <pkg>clusterfly</pkg> allow
+  <li>Package <pkg>clusterfly</pkg> allows
   to visualise the results of clustering algorithms.</li>
   <li>Package <pkg>clusterGeneration</pkg> contains functions for
   generating random clusters and random covariance/correlation
@@ -392,15 +410,17 @@ of each package to check under which license it is distributed.</p>
 <pkg>e1071</pkg>
 <pkg>EMCluster</pkg>
 <pkg>FactoClass</pkg>
-<pkg>flashClust</pkg>
 <pkg>fastcluster</pkg>
+<pkg>fclust</pkg>
 <pkg>FisherEM</pkg>
+<pkg>flashClust</pkg>
 <pkg priority="core">flexclust</pkg>
 <pkg priority="core">flexmix</pkg>
 <pkg>fpc</pkg>
 <pkg>FunCluster</pkg>
+<pkg>funFEM</pkg>
+<pkg>funHDDC</pkg>
 <pkg>gamlss.mx</pkg>
-<pkg>gcExplorer</pkg>
 <pkg>GLDEX</pkg>
 <pkg>GSM</pkg>
 <pkg>HDclassif</pkg>
@@ -428,12 +448,12 @@ of each package to check under which license it is distributed.</p>
 <pkg>MOCCA</pkg>
 <pkg>movMF</pkg>
 <pkg>mritc</pkg>
-<pkg>nnclust</pkg>
 <pkg>nor1mix</pkg>
 <pkg>optpart</pkg>
 <pkg>ORIClust</pkg>
 <pkg>pdfCluster</pkg>
 <pkg>pendensity</pkg>
+<pkg>pgmm</pkg>
 <pkg>pmclust</pkg>
 <pkg>poLCA</pkg>
 <pkg>prabclus</pkg>
@@ -451,6 +471,7 @@ of each package to check under which license it is distributed.</p>
 <pkg>skmeans</pkg>
 <pkg>som</pkg>
 <pkg>sparcl</pkg>
+<pkg>tclust</pkg>
 <pkg>teigen</pkg>
 <pkg>trimcluster</pkg>
 <pkg>wle</pkg>

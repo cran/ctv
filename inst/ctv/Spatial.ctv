@@ -2,7 +2,7 @@
   <name>Spatial</name>
   <topic>Analysis of Spatial Data</topic>
   <maintainer email="Roger.Bivand@nhh.no">Roger Bivand</maintainer>
-  <version>2014-06-08</version>
+  <version>2014-12-18</version>
 
   <info>
     <p>Base R includes many functions that can be used for reading,
@@ -34,12 +34,13 @@
 
     <p>The packages in this
     view can be roughly structured into the following topics. If you think
-    that some package is missing from the list, please let me know. Please 
-    also visit and contribute to the <a 
-    href="http://rwiki.sciviews.org/doku.php?id=tips:spatial-data">
-    spatial data handling</a> and <a 
-    href="http://rwiki.sciviews.org/doku.php?id=tips:stats-spatial">
-    spatial statistics</a> pages on the R Wiki.</p>
+    that some package is missing from the list, please let me know.
+<!--
+    Please also visit and contribute to the <a href="http://rwiki.sciviews.org/doku.php?id=tips:spatial-data">
+    spatial data handling</a> and <a href="http://rwiki.sciviews.org/doku.php?id=tips:stats-spatial">
+    spatial statistics</a> pages on the R Wiki.
+-->
+    </p>
     <ul>
 
       <li><p><b>Classes for spatial data</b>: Because many of the
@@ -51,8 +52,6 @@
       <a href="http://CRAN.R-project.org/doc/Rnews/Rnews_2005-2.pdf">R
       News</a>.  Many other packages have become dependent on these
       classes, including <pkg>rgdal</pkg> and <pkg>maptools</pkg>. 
-      Functions provided by <pkg>vec2dtransf</pkg> for applying affine 
-      and similarity transformations on vector spatial data (sp objects). 
       The <pkg>rgeos</pkg> package provides an interface to topology functions
       for <pkg>sp</pkg> objects using 
       <a href="http://trac.osgeo.org/geos/">GEOS</a>. <pkg>rgeos</pkg> 
@@ -104,7 +103,7 @@
       data set, Guerry's "Moral Statistics of France", has been made
       available in the <pkg>Guerry</pkg> package, which provides data
       and maps and examples designed to contribute to the integration
-      of multivariate and spatial analysis. 
+      of multivariate and spatial analysis.
       The <pkg>marmap</pkg> package is designed for downloading, plotting
       and manipulating bathymetric and topographic data in R. <pkg>marmap</pkg>
       can query the ETOPO1 bathymetry and topography database hosted by the
@@ -164,7 +163,7 @@
       functions for choosing class intervals for thematic cartography.
       The <pkg>gmt</pkg> package gives a simple interface between GMT
       map-making software and R. <pkg>geonames</pkg> is an interface to 
-      the <a href="www.geonames.org">www.geonames.org</a> service. If the
+      the <a href="http://www.geonames.org/">www.geonames.org</a> service. If the
       user wishes to place a map backdrop behind other displays, the the
       <pkg>RgoogleMaps</pkg> package for accessing 
       Google Maps(TM) may be useful. <pkg>ggmap</pkg> may be used for 
@@ -200,8 +199,7 @@
       strengths are model-fitting and simulation, and it has a useful
       <a href="http://www.spatstat.org/"> homepage</a>. It is the only
       package that will enable the user to fit inhomogeneous point process
-      models with interpoint interactions. <pkg>MarkedPointProcess</pkg> 
-      is another contemporary point pattern package. 
+      models with interpoint interactions.
       The <pkg>spatgraphs</pkg>
       package provides graphs, graph visualisation and graph based
       summaries to be used with spatial point pattern analysis. The
@@ -335,7 +333,11 @@
       The <pkg>glmmBUGS</pkg> package is a helpful way of passing out spatial
       models to WinBUGS. The <pkg>spaMM</pkg> package fits spatial GLMMs,
       using the Matern correlation function as the basic model for spatial
-      random effects.
+      random effects. The <pkg>PReMiuM</pkg> package is for profile 
+      regression, which is a Dirichlet process Bayesian clustering model;
+      it provides a spatial CAR term that can be included in the fixed
+      effects (which are global, ie. non cluster specific, parameters)
+      to account for any spatial correlation in the residuals.
       The <pkg>spacom</pkg> package provides tools to
       construct and exploit spatially weighted context data, and further
       allows combining the resulting spatially weighted context data with
@@ -479,7 +481,6 @@
     <pkg>maps</pkg>
     <pkg>MBA</pkg>
     <pkg priority="core">maptools</pkg>
-    <pkg>MarkedPointProcess</pkg>
     <pkg>marmap</pkg>
     <pkg>McSpatial</pkg>
     <pkg>micromap</pkg>
@@ -495,6 +496,7 @@
     <pkg>PBSmodelling</pkg>
     <pkg>plotGoogleMaps</pkg>
     <pkg>plotKML</pkg>
+    <pkg>PReMiuM</pkg>
     <pkg>psgp</pkg>
     <pkg>ramps</pkg>
     <pkg priority="core">RandomFields</pkg>
@@ -555,7 +557,6 @@
     <pkg>UScensus2000cdp</pkg>
     <pkg>UScensus2000tract</pkg>
     <pkg>vardiag</pkg>
-    <pkg>vec2dtransf</pkg>
     <pkg>vegan</pkg>
   </packagelist>
 
@@ -563,7 +564,7 @@
   <links>
     <view>Environmetrics</view>
     <a href="http://geodacenter.asu.edu/projects/rsp">Rgeo: Spatial Statistics with R</a>
-    <a href="https://www.stat.math.ethz.ch/mailman/listinfo/R-SIG-Geo/">R-SIG-Geo mailing list</a>
+    <a href="https://stat.ethz.ch/mailman/listinfo/R-SIG-Geo/">R-SIG-Geo mailing list</a>
   </links> 
 
 </CRANTaskView>

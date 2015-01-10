@@ -3,7 +3,7 @@
 <name>TimeSeries</name>
 <topic>Time Series Analysis</topic>
 <maintainer email="Rob.Hyndman@monash.edu">Rob J. Hyndman</maintainer>
-<version>2014-06-28</version>
+<version>2014-12-23</version>
 
 <info>
 <p>
@@ -70,7 +70,6 @@
       time/date information.</li>
   <li>The <code>"mondate"</code> class from the <pkg>mondate</pkg> package
       facilitates computing with dates in terms of months.</li>
-  <li><pkg>TSAgg</pkg> provides functions for aggregation of incomplete time series data.</li>
   <li>The <pkg>tempdisagg</pkg> package includes methods for temporal disaggregation and interpolation of a low frequency time series to a higher frequency series.</li>
   <li><pkg>TimeProjection</pkg> extracts useful time components of a date object, such as day of week, weekend, holiday, day of month, etc, and put it in a data frame.</li>
 </ul>
@@ -182,13 +181,11 @@
       package provides several robust time series filters, while
       <pkg>mFilter</pkg> includes miscellaneous time series filters
       useful for smoothing and extracting trend and cyclical
-      components. <pkg>signalextraction</pkg> provides real-time signal extraction
-        (direct filter approach).</li>
+      components.</li>
   <li><i>Decomposition</i>: Classical decomposition
       is provided via <code>decompose()</code>, more advanced and flexible
       decomposition is available using <code>stl()</code>, both from
-      the basic stats package. <pkg>sltl</pkg> provides time series decomposition
-      using loess and harmonic regression.
+      the basic stats package.
       Autoregressive-based decomposition is provided by <pkg>ArDec</pkg>. <pkg>rmaf</pkg> uses a refined moving average filter for decomposition.
       </li>
   <li><i>Singular Spectrum Analysis</i> is implemented in <pkg>Rssa</pkg> and <pkg>spectral.methods</pkg>.</li>
@@ -233,7 +230,7 @@
 <ul>
   <li><i>Nonlinear autoregression</i>: 
       Various forms of nonlinear autoregression are available in <pkg>tsDyn</pkg> including
-      additive AR, neural nets, SETAR and LSTAR models, threshold VAR and VECM.
+      additive AR, neural nets, SETAR and LSTAR models, threshold VAR and VECM. Neural network autoregression is also provided in <pkg>GMDH</pkg>. 
       <pkg>bentcableAR</pkg> implements Bent-Cable autoregression.
       <pkg>BAYSTAR</pkg> provides Bayesian analysis of threshold autoregressive models.
     </li>
@@ -263,7 +260,8 @@
   <li><i>Time-varying parameter</i> models can be fitted using the
       <pkg>tpr</pkg> package.</li>
   <li><i>MIDAS regression</i> and other econometric methods for mixed frequency time series data analysis are provided by <pkg>midasr</pkg>.</li>
-
+  <li><pkg>gets</pkg> provides GEneral-To-Specific (GETS) model selection for either ARX models with log-ARCH-X errors, or a log-ARCH-X model of the log variance.</li>
+  <li><pkg>orderedLasso</pkg> fits a sparse linear model with an order constraint on the coefficients in order to handle lagged regressors where the coefficients decay as the lag increases.</li>
 </ul>
 
 <p><strong>Multivariate Time Series Models</strong></p>
@@ -278,8 +276,7 @@
       are provided in package <pkg>vars</pkg>, <pkg>tsDyn</pkg>,
       <code>estVARXls()</code> in <pkg>dse</pkg>, and a Bayesian approach is available in <pkg>MSBVAR</pkg>. Another implementation with
       bootstrapped prediction intervals is given in <pkg>VAR.etp</pkg>.
-    <pkg>StVAR</pkg> allows for heteroskedastic Student's t VAR models with specified degrees
-    of freedom and lag length.</li>
+    </li>
   <li><i>VARIMA models</i> and <i>state space models</i> are provided
       in the <pkg>dse</pkg> package. <pkg>EvalEst</pkg> facilitates Monte Carlo experiments to
 	  evaluate the associated estimation methods.</li>
@@ -305,6 +302,7 @@
 <ul>
 	<li><i>Continuous time autoregressive modelling</i> is provided in <pkg>cts</pkg>.</li>
   <li><pkg>Sim.DiffProc</pkg> simulates and models stochastic differential equations.</li>
+  <li>Simulation and inference for stochastic differential equations is provided by <pkg>sde</pkg> and <pkg>yuima</pkg>.</li>
 </ul>
 
 <p><strong>Resampling</strong></p>
@@ -365,7 +363,6 @@
   <li><pkg>RMAWGEN</pkg> is set of S3 and S4   functions for spatial multi-site stochastic generation of daily time-series of temperature and precipitation making use of VAR models. The package can be used in climatology and statistical hydrology.</li>
   <li><pkg>RSEIS</pkg>: Seismic time series analysis tools.</li>
   <li><pkg>rts</pkg>: Raster time series analysis (e.g., time series of satellite images).</li>
-  <li><pkg>sde</pkg>: Simulation and inference for stochastic differential equations.</li>
   <li><pkg>spTimer</pkg>: Spatio-temporal Bayesian modelling.</li>
   <li><pkg>surveillance</pkg>: Temporal and spatio-temporal modeling and monitoring of epidemic phenomena.</li>
   <li><pkg>TED</pkg>: Turbulence time series Event Detection and classification.</li>
@@ -437,8 +434,10 @@
   <pkg>fts</pkg>
   <pkg>GeneCycle</pkg>
   <pkg>GeneNet</pkg>
+  <pkg>gets</pkg>
   <pkg>GEVStableGarch</pkg>
   <pkg>glarma</pkg>
+  <pkg>GMDH</pkg>
   <pkg>gogarch</pkg>
   <pkg>gsarima</pkg>
   <pkg>hydroGOF</pkg>
@@ -472,6 +471,7 @@
   <pkg>nlts</pkg>
   <pkg>nonlinearTseries</pkg>
   <pkg>npst</pkg>
+  <pkg>orderedLasso</pkg>
   <pkg>paleoTS</pkg>
   <pkg>partsm</pkg>
   <pkg>pastecs</pkg>
@@ -500,15 +500,12 @@
   <pkg>seas</pkg>
   <pkg>season</pkg>
   <pkg>seasonal</pkg>
-  <pkg>signalextraction</pkg>
   <pkg>Sim.DiffProc</pkg>
-  <pkg>sltl</pkg>
   <pkg>spectral.methods</pkg>
   <pkg>spTimer</pkg>
   <pkg>stochvol</pkg>
   <pkg>stsm</pkg>
   <pkg>stsm.class</pkg>
-  <pkg>StVAR</pkg>
   <pkg>surveillance</pkg>
   <pkg>TED</pkg>
   <pkg>tempdisagg</pkg>
@@ -523,7 +520,6 @@
   <pkg>tis</pkg>
   <pkg>tpr</pkg>
   <pkg>TSA</pkg>
-  <pkg>TSAgg</pkg>
   <pkg>tsbugs</pkg>
   <pkg>tsintermittent</pkg>
   <pkg>tsoutliers</pkg>
@@ -549,6 +545,7 @@
   <pkg>x12</pkg>
   <pkg>x12GUI</pkg>
   <pkg>xts</pkg>
+  <pkg>yuima</pkg>
   <pkg priority="core">zoo</pkg>
 </packagelist>
 

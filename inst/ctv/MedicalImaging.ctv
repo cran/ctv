@@ -2,7 +2,7 @@
   <name>MedicalImaging</name>
   <topic>Medical Image Analysis</topic>
   <maintainer email = "bwhitcher@gmail.com">Brandon Whitcher</maintainer>
-  <version>2013-08-12</version>
+  <version>2015-01-10</version>
   <info>
     <p><strong>Data Input/Output</strong></p>
     <p><em>DICOM</em></p>
@@ -27,7 +27,7 @@
     <p>Although the industry standard for medical imaging data is
     DICOM, another format has come to be heavily used in the image
     analysis community.  The <a
-    href="http://www.mayo.edu/bir/PDF/ANALYZE75.pdf">ANALYZE</a>
+    href="http://www.mayo.edu/research/labs/biomedical-imaging/software/analyze-software-system">ANALYZE</a>
     format was originally developed in conjunction with an image
     processing system (of the same name) at the Mayo Foundation.  An
     Anlayze (7.5) format image is comprised of two files, the "hdr"
@@ -49,18 +49,6 @@
       NeuroImage (currently only available within the
       <rforge>neuroim</rforge> project on R-Forge) all provide
       functions that read/write ANALYZE and NIfTI files.</li>
-      <li>The <pkg>Rniftilib</pkg> package provides read/write
-      capabilities for the NIfTI-1 format.  The <pkg>Rniftilib</pkg>
-      package provides a R interface to the C reference library
-      provided by the <a
-      href="http://sourceforge.net/projects/niftilib/">Neuroimaging
-      Informatics Technology Initiative</a>.  In contrast to other
-      R packages supporting the ANALYZE and NIfTI-1 format, this
-      package comes without additional functions for data processing
-      and is restricted to functions for data handling as provided by
-      the C reference library.  The aim of the package is to serve as
-      a common basis for the work with multi-dimensional volumetric
-      (neuro)imaging data.</li>
     </ul>
     <p><strong>Magnetic Resonance Imaging (MRI)</strong></p>
     <p><em>Diffusion Tensor Imaging (DTI)</em></p>
@@ -131,7 +119,7 @@
       small-world theory and, with efficient computation techniques,
       tested using simulated attacks.  The brainwaver project is
       complementary to the <a
-      href="http://www-bmu.psychiatry.cam.ac.uk/software">CamBA</a>
+      href="http://sourceforge.net/projects/camba/">CamBA</a>
       project for brain image data processing.  A collection of
       scripts (with a makefile) is available to <a
       href="http://www.gipsa-lab.inpg.fr/~sophie.achard/brainwaver">download</a>
@@ -181,13 +169,6 @@
       <a href="http://dx.doi.org/10.1002/0470863692">Bayesian
       Statistics and Marketing</a>, Chapter 3, and is referred to as
       "rhierLinearModel" in the R package <pkg>bayesm</pkg>.</li>
-      <li>The <pkg>neuRosim</pkg> package allows users to generate
-      functional MRI time series or four-dimensional data.  Some
-      high-level functions are created for fast data generation with
-      only a few arguments and a diversity of functions to define
-      activation and noise characteristics.  For more advanced users
-      it is possible to use the low-level functions and manipulate the
-      arguments.</li>
     </ul>
     <p><em>Structural MRI</em></p>
     <ul>
@@ -286,13 +267,11 @@
     <pkg priority="core">gdimap</pkg>
     <pkg priority="core">mmand</pkg>
     <pkg priority="core">mritc</pkg>
-    <pkg priority="core">neuRosim</pkg>
     <pkg priority="core">occ</pkg>
     <pkg priority="core">oro.dicom</pkg>
     <pkg priority="core">oro.nifti</pkg>
     <pkg priority="core">PET</pkg>
     <pkg>PTAk</pkg>
-    <pkg priority="core">Rniftilib</pkg>
     <pkg priority="core">RNiftyReg</pkg>
     <pkg priority="core">tractor.base</pkg>
     <pkg>waveslim</pkg>

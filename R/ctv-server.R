@@ -1,12 +1,9 @@
 read.ctv <- function(file)
 {
-  ## XML package is only needed here (i.e., only server-side)
-  if(!("package:XML" %in% search())) stopifnot(require("XML"))
-
   ## read raw XML
-  x <- xmlTreeParse(file)
-  if(xmlSize(x$doc$children) > 1) warning("ctv should contain only one view")
-  x <- xmlChildren(x$doc$children$CRANTaskView)
+  x <- XML::xmlTreeParse(file)
+  if(XML::xmlSize(x$doc$children) > 1) warning("ctv should contain only one view")
+  x <- XML::xmlChildren(x$doc$children$CRANTaskView)
 
   ## valid task view?
   ctvNames <- c("name", "topic", "maintainer", "version", "info", "packagelist", "links")
@@ -15,7 +12,7 @@ read.ctv <- function(file)
     stop("The following ctv nodes are missing: ",
       paste(ctvNames[missingChildren], collapse=", "))
 
-  xmlCode <- function(x, ...) htmlify(xmlValue(x, ...))
+  xmlCode <- function(x, ...) htmlify(XML::xmlValue(x, ...))
 
   ## convenience function for transforming
   ## XMLNodes into a character vector
@@ -42,7 +39,7 @@ read.ctv <- function(file)
     }
 
     ## get tag name
-    name <- xmlName(x, full = TRUE)
+    name <- XML::xmlName(x, full = TRUE)
 
     ## if final node, return text
     if(name == "text")
@@ -92,9 +89,9 @@ read.ctv <- function(file)
       return("<br/>")
 
     ## get attributes
-    tmp <- if(!is.null(xmlAttrs(x)))
-      paste(names(xmlAttrs(x)),
-            paste0("\"", htmlify(xmlAttrs(x)), "\""),
+    tmp <- if(!is.null(XML::xmlAttrs(x)))
+      paste(names(XML::xmlAttrs(x)),
+            paste0("\"", htmlify(XML::xmlAttrs(x)), "\""),
             sep = "=", collapse = " ")
       else ""
 
@@ -102,7 +99,7 @@ read.ctv <- function(file)
     rval <- paste0(indent, "<", name, ifelse(tmp != "", " ", ""), tmp, ">")
     ## content
     subIndent <- paste0(indent, "  ")
-    for(i in xmlChildren(x)) {
+    for(i in XML::xmlChildren(x)) {
       xmlPaste_i <- xmlPaste(i, indent = subIndent, packageURL = packageURL, viewURL = viewURL)
       if(!is.null(xmlPaste_i)) rval <- paste(rval, xmlPaste_i, sep = "\n")
     }
@@ -122,25 +119,25 @@ read.ctv <- function(file)
 
 
   ## extraction functions
-  name <- function(x) xmlValue(x$name)
-  topic <- function(x) xmlValue(x$topic)
-  maintainer <- function(x) xmlValue(x$maintainer)
-  email <- function(x) as.vector(xmlAttrs(x$maintainer)["email"])
-  ctvversion <- function(x) xmlValue(x$version)
+  name <- function(x) XML::xmlValue(x$name)
+  topic <- function(x) XML::xmlValue(x$topic)
+  maintainer <- function(x) XML::xmlValue(x$maintainer)
+  email <- function(x) as.vector(XML::xmlAttrs(x$maintainer)["email"])
+  ctvversion <- function(x) XML::xmlValue(x$version)
   info <- function(x) newlineSub(xmlPaste(x$info, indent = "    "))
   package1 <- function(x) {
-    rval <- xmlAttrs(x)["priority"]
+    rval <- XML::xmlAttrs(x)["priority"]
     rval <- if(!is.null(rval) && rval == "core") "core" else "normal"
-    as.vector(c(xmlValue(x), rval))
+    as.vector(c(XML::xmlValue(x), rval))
   }
   packagelist <- function(x) {
-    rval <- t(sapply(xmlChildren(x$packagelist), package1))
+    rval <- t(sapply(XML::xmlChildren(x$packagelist), package1))
     colnames(rval) <- NULL
     rownames(rval) <- NULL
     rval <- data.frame(name = I(rval[,1]), core = rval[,2] == "core")
     rval[order(tolower(rval[,1])), ]
   }
-  links <- function(x) unlist(xmlSApply(x$links, function(z) xmlPaste(z, prefix = TRUE)))
+  links <- function(x) unlist(XML::xmlSApply(x$links, function(z) xmlPaste(z, prefix = TRUE)))
 
   ## collect nodes and return
   rval <- list(name = name(x),
@@ -301,12 +298,13 @@ repos_update_views <- function(repos = ".",
 
   ## generate index HTML file
   if(is.character(index)) {
-    idx <- c("<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.0 Transitional//EN\" \"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd\">",
+    idx <- c("<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.0 Strict//EN\" \"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd\">",
              "<html xmlns=\"http://www.w3.org/1999/xhtml\">",
              "",
 	     "<head>",
              paste0("  <title>", reposname, " Task Views</title>"),
              paste0("  <link rel=\"stylesheet\" type=\"text/css\" href=\"", css, "\" />"),
+            "  <meta http-equiv=\"content-type\" content=\"text/html; charset=UTF-8\" />",
              "</head>",
 	     "",
 	     "<body>",
@@ -340,12 +338,10 @@ repos_update_views <- function(repos = ".",
 check_ctv_packages <- function(file, repos = TRUE, ...)
 {
   pkg_list <- read.ctv(file)$packagelist[, 1]
-  pkg_info <- unique(sapply(
-      getNodeSet(
-        xmlTreeParse(file, useInternalNodes = TRUE),
-      "//*/pkg"),
-    xmlValue))
-  
+  subdoc <- XML::xmlDoc(XML::getNodeSet(XML::xmlTreeParse(file, useInternalNodes = TRUE), "//info")[[1L]])
+  pkg_info <- unique(unlist(XML::xpathApply(subdoc, "//pkg", XML::xmlValue)))
+  XML::free(subdoc)
+
   rval <- list(
     "Packages in <info> but not in <packagelist>" = pkg_info[!(pkg_info %in% pkg_list)],
     "Packages in <packagelist> but not in <info>" = pkg_list[!(pkg_list %in% pkg_info)],

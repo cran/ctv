@@ -3,7 +3,7 @@
 <name>Psychometrics</name>
 <topic>Psychometric Models and Methods</topic>
 <maintainer email="mair@fas.harvard.edu">Patrick Mair</maintainer>
-<version>2014-07-03</version>
+<version>2014-12-12</version>
 
 <info> Psychometrics is concerned with theory and techniques of psychological measurement.
 Psychometricians have also worked collaboratively with those in the field of statistics and
@@ -15,7 +15,7 @@ we only give a brief overview of packages that are closely related to
 psychometric methodology. 
 
 <p>
-<a href="mailto:mair@fas.harvard.edu">Please let us know</a> if we have omitted
+<a href="mailto:mair@fas.harvard.edu">Please let me know</a> if I have omitted
 something of importance, or if a new package or function
 should be mentioned here.
 </p>
@@ -49,6 +49,9 @@ modeling item testlets. Multiple group analysis and mixed effects designs also a
 and modelling item and person covariates. 
   </li>
   <li>
+    <pkg>IRTShiny</pkg> provides an interactive shiny application for IRT analysis.  
+  </li>  
+  <li>
   The <pkg>mcIRT</pkg> package provides functions to estimate the Nominal Response Model and the Nested Logit Model. Both are models to examine multiple-choice items 
   and other polytomous response formats. Some additional uni- and multidimensional item response models (especially for locally dependent item responses) and 
   some exploratory methods (DETECT, LSDM, model-based reliability) are included in <pkg>sirt</pkg>.
@@ -68,15 +71,10 @@ The <pkg>mixRasch</pkg> package estimates mixture Rasch models, including the
 dichotomous Rasch model, the rating scale model, and the partial credit model.
   </li>
   <li>
-     Item and ability parameters can be calibrated using the package 
-     <pkg>plink</pkg>. It provides unidimensional and multidimensional methods
-such as Mean/Mean, Mean/Sigma, Haebara, 
-     and Stocking-Lord methods for dichotomous (1PL, 2PL and 3PL) and/or
-polytomous (graded response, partial credit/generalized partial credit, nominal,
-and multiple-choice model) items. 
-     The multidimensional methods include the Reckase-Martineau method and
-extensions 
-     of the Haebara and Stocking-Lord method. 
+    The <pkg>PP</pkg> package includes estimation of (MLE, WLE, MAP, EAP, ROBUST) person parameters for the 1,2,3,4-PL model and the 
+  GPCM (generalized partial credit model). The parameters are estimated under the assumption that the item parameters are known and fixed. 
+  The package is useful e.g. in the case that items from an item pool/item bank with known item parameters are administered to a new 
+  population of test-takers and an ability estimation for every test-taker is needed.
   </li>
   <li>
   The <pkg>equateIRT</pkg> package computes direct, chain and average (bisector) equating coefficients with 
@@ -113,11 +111,20 @@ detecting various types of differential item functioning (DIF).
 IRT methods. 
   </li>
   <li>
+    The <pkg>mirtCAT</pkg> package provides tools to generate an HTML interface for creating adaptive and non-adaptive educational and psychological tests 
+    using the shiny package. Suitable for applying unidimensional and multidimensional computerized adaptive tests using IRT methodology and 
+    for creating simple questionnaires forms to collect response data directly in R. 
+  </li> 
+  <li>
      The package <pkg>plRasch</pkg> computes maximum likelihood estimates and
      pseudo-likelihood estimates of parameters of Rasch models for polytomous
      (or dichotomous) items and multiple (or single) latent traits. Robust
      standard errors for the pseudo-likelihood estimates are also computed.
   </li>
+  <li>
+    Explicit calculation (not estimation) of Rasch item parameters (dichotomous and polytomous) by means of a pairwise comparison approach 
+    can be done using the <pkg>pairwise</pkg> package. 
+  </li>  
   <li>
      A multilevel Rasch model can be estimated using the package
      <pkg>lme4</pkg>, <pkg>nlme</pkg>, and <pkg>MCMCglmm</pkg> with functions for mixed-effects models with crossed or
@@ -141,10 +148,6 @@ plotting tools.
     The <pkg>RaschSampler</pkg> allows the construction of exact Rasch model
 tests by generating random zero-one matrices with given marginals. 
   </li> 
-  <li>
-     Simple Rasch computations such a simulating data and joint maximum
-likelihood are included in the <pkg>MiscPsycho</pkg> package.
-  </li>
 <li>
     The <pkg>irtProb</pkg> package is designed to estimate multidimensional subject
 parameters (MLE and MAP) such as personnal pseudo-guessing, 
@@ -166,8 +169,9 @@ different programs (ICL, BILOG-MG, and ltm, and a variety of functions useful
 with IRT models.
   </li>
   <li>
-  The <pkg>CDM</pkg> package estimates cognitive diagnosis models (DINA, DINO and GDINA models) and the general diagnostic model with discrete and quasi-continuous multidimensional latent variables which also includes the multidimensional compensatory item response model.
-  </li>
+  The <pkg>CDM</pkg> estimates several cognitive diagnosis models (DINA, DINO, GDINA, RRUM, LCDM, pGDINA, mcDINA), the general diagnostic model (GDM) 
+and structured latent class analysis (SLCA).
+   </li>
   <li>
     Gaussian ordination, related to logistic IRT and also approximated as
     maximum likelihood estimation through canonical correspondence analysis
@@ -382,10 +386,6 @@ nonlinear canonical
 <pkg>pcaPP</pkg> package.
   </li>
   <li>
-  The <pkg>pcaPA</pkg> package performs a parallel analysis of continuous, ordered 
-  (including dichotomous/binary as a special case) or mixed type of data associated with a principal components analysis.
-  </li>
-  <li>
     The package <pkg>psych</pkg> includes functions such as
 <code>fa.parallel()</code> and <code>VSS()</code> for estimating the
     appropriate number of factors/components as well as <code>ICLUST()</code>
@@ -492,14 +492,14 @@ scale.
   <li>
     A number of routines for scale construction and reliability analysis useful
     for personality and experimental psychology are contained in the
-    packages <pkg>psych</pkg> and <pkg>MiscPsycho</pkg>.
+    package <pkg>psych</pkg>.
   </li>
   <li>
     <a href="https://github.com/zief0002/QME">QME</a> (not on CRAN) computes measures from generalizability theory.
   </li>
 </ul>
 
-<p><strong>Knowledge structure analysis:</strong></p>
+<p><strong>Knowledge Structure Analysis:</strong></p>
 <ul>
  <li>
      <pkg>DAKS</pkg> provides functions and example datasets for the
@@ -516,7 +516,7 @@ Functions for fitting probabilistic knowledge structures are included in the
   </li>
 </ul>
 
-<p><strong>Other related packages:</strong></p>
+<p><strong>Other Related Packages:</strong></p>
   <ul>
   <li>
     The <pkg>psychotools</pkg> provides an infrastructure for psychometric
@@ -692,6 +692,7 @@ analysis and cross-validation techniques.
     <pkg>irtoys</pkg>
     <pkg>irtProb</pkg>
     <pkg>irtrees</pkg>
+    <pkg>IRTShiny</pkg>
     <pkg>KernSmoothIRT</pkg>
     <pkg>kst</pkg>
     <pkg>labdsv</pkg>
@@ -709,7 +710,6 @@ analysis and cross-validation techniques.
     <pkg>MCMCpack</pkg>
     <pkg>mcIRT</pkg>
     <pkg>mediation</pkg>
-    <pkg priority="core">MiscPsycho</pkg>
     <pkg>mixRasch</pkg>
     <pkg>MLCM</pkg>
     <pkg>MLDS</pkg>
@@ -719,23 +719,24 @@ analysis and cross-validation techniques.
     <pkg>mpt</pkg>
     <pkg>MPTinR</pkg>
     <pkg priority="core">mirt</pkg>
+    <pkg>mirtCAT</pkg>
     <pkg>mRm</pkg>
     <pkg>MultiLCIRT</pkg>
     <pkg>multiplex</pkg>
     <pkg>nFactors</pkg>
     <pkg>nlme</pkg>
     <pkg>ordinal</pkg>
+    <pkg>pairwise</pkg>
     <pkg>pathmox</pkg>
-    <pkg>pcaPA</pkg>
     <pkg>pcaPP</pkg>
     <pkg>pcIRT</pkg>
     <pkg>pks</pkg>
-    <pkg priority="core">plink</pkg>
     <pkg>plRasch</pkg>
     <pkg>pls</pkg>
     <pkg>plspm</pkg>
     <pkg>poLCA</pkg>
     <pkg>polycor</pkg>
+    <pkg>PP</pkg>
     <pkg priority="core">prefmod</pkg>
     <pkg>profileR</pkg>
     <pkg>pscl</pkg>
@@ -780,7 +781,6 @@ analysis and cross-validation techniques.
     <a href="http://www.jstatsoft.org/v20/">Journal of Statistical Software Special Volume: Psychometrics in R</a>
     <a href="http://www.jstatsoft.org/v48/">Journal of Statistical Software Special Volume: Psychoco - Psychometric Computing in R</a>
     <a href="http://R-Forge.R-project.org/projects/psychor/">PsychoR project platform</a>
-    <a href="http://gifi.stat.ucla.edu/psychoR/">PsychoR snippets</a>
     <a href="http://openmx.psyc.virginia.edu/">OpenMx - Advanced Structural Equation Modeling</a>
 </links>
 

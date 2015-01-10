@@ -3,7 +3,7 @@
   <name>SpatioTemporal</name>
   <topic>Handling and Analyzing Spatio-Temporal Data</topic>
   <maintainer email="edzer.pebesma@uni-muenster.de">Edzer Pebesma</maintainer>
-  <version>2014-01-12</version>
+  <version>2014-12-18</version>
 
   <info>
   <p>This task view aims at presenting R packages that are useful for 
@@ -103,10 +103,10 @@
 	</li>
 
 	<li><b>Point patterns:</b>
-	  package <pkg>stpp</pkg> provides a class <code>stpp</code>
+	  Package <pkg>stpp</pkg> provides a class <code>stpp</code>
 	  for a space-time point pattern.
 
-	  package <pkg>stppResid</pkg> provides a class <code>stwin</code>
+	  Package <pkg>stppResid</pkg> provides a class <code>stwin</code>
 	  for a space-time cuboid, defining a (rectangular)
 	  space-time window, and class <code>stpp</code> for a
 	  spatio-temporal point pattern (including window).
@@ -349,22 +349,60 @@
 	 motion, Brownian motion with measurement error.
 	   </li>
 
+   <li> The <pkg>BayesianAnimalTracker</pkg> package provides a Bayesian 
+   melding approach to combine the GPS observations and Dead-Reckoned path 
+   for an accurate animal's track, or equivalently, use the GPS observations 
+   to correct the Dead-Reckoned path. It can take the measurement errors in 
+   the GPS observations into account and provide uncertainty statement about 
+   the corrected path. The main calculation can be done by the BMAnimalTrack 
+   function.
+	 </li>
+
+   <li> The <pkg>TrackReconstruction</pkg> package reconstructs animal tracks 
+   from magnetometer, accelerometer, depth and optional speed data. Designed 
+   primarily using data from Wildlife Computers Daily Diary tags deployed on 
+   northern fur seals.
+   </li>
+
+   <li> The <pkg>wildlifeDI</pkg> package provides tools for calculating a 
+   suite of indices used for quantifying dynamic interaction with wildlife 
+   telemetry data. Dynamic interaction refers to spatial-temporal associations 
+   in the movements of two (or more) animals. 
+   </li>
+
+   <li> The <pkg>mkde</pkg> package provides functions to compute and 
+   visualize movement-based kernel density estimates (MKDEs) for animal 
+   utilization distributions in 2 or 3 spatial dimensions.
+   </li>
+
+   <li> The <pkg>fishmove</pkg> package provides functions to predict fish 
+   movement parameters based on multiple regression and plotting leptokurtic 
+   fish dispersal kernels (see Radinger and Wolter, 2013: Patterns and 
+   predictors of fish dispersal in rivers. Fish and Fisheries.)
+   </li>
+
+
 	 <li>
 	 The <a href="http://code.google.com/p/geolocation/">
-	 Electronic Tagging Geolocation Packages Repository</a>
+	 Electronic Tagging Geolocation Packages Repository</a> (off-CRAN) 
 	 site provides a collection of statistical models (and R packages)
 	 to estimate position errors, movement model parameters, 
 	 and most probable positions from tracking data.
 	 </li>
 
-
-	 <li><a href="http://ram.biology.dal.ca/~jonsen/code.html">bsam</a>
-	 fits Bayesian state-space models to Argos satellite tracking
+  
+	 <li>The <a href="http://web.science.mq.edu.au/~ijonsen/code.html">bsam</a> (off-CRAN) 
+	 package fits Bayesian state-space models to Argos satellite tracking
 	 data. Currently, models provided are DCRW (for location filtering),
 	 DCRWS (for location filtering and behavioural state estimation), and
 	 hDCRWS (a hierarchical model for location filtering and behavioural
 	 state estimation across multiple animals).
 	 </li>
+
+
+   <li>The <a href="https://github.com/calbertsen/argosTrack">argosTrack</a> (off-CRAN) 
+   package allows fitting movement models to Argos data. 
+   </li>
 
 	 </ul>
 	</li>
@@ -463,19 +501,22 @@
 
   <packagelist>
     <pkg priority="core">adehabitatLT</pkg>
-    <pkg		>animalTrack</pkg>
+    <pkg		            >animalTrack</pkg>
     <pkg                >argosfilter</pkg>
-    <pkg		>BBMM</pkg>
+    <pkg  	            >BayesianAnimalTracker</pkg>
+    <pkg		            >BBMM</pkg>
     <pkg                >bcpa</pkg>
     <pkg                >crawl</pkg>
     <pkg                >cshapes</pkg>
     <pkg                >diveMove</pkg>
+    <pkg                >fishmove</pkg>
     <pkg                >GeoLight</pkg>
     <pkg                >googleVis</pkg>
     <pkg priority="core">gstat</pkg>
     <pkg                >lgcp</pkg>
     <pkg                >lme4</pkg>
     <pkg                >M3</pkg>
+    <pkg                >mkde</pkg>
     <pkg                >move</pkg>
     <pkg                >mvtsplot</pkg>
     <pkg                >ncdf</pkg>
@@ -509,8 +550,10 @@
     <pkg priority="core">stpp</pkg>
     <pkg                >stppResid</pkg>
     <pkg priority="core">surveillance</pkg>
+    <pkg                >TrackReconstruction</pkg>
     <pkg priority="core">trip</pkg>
     <pkg                >tripEstimation</pkg>
+    <pkg                >wildlifeDI</pkg>
     <pkg priority="core">xts</pkg>
   </packagelist>
 
