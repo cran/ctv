@@ -3,7 +3,7 @@
   <name>Genetics</name>
   <topic>Statistical Genetics</topic>
   <maintainer email="g.montana@imperial.ac.uk">Giovanni Montana</maintainer>
-  <version>2014-07-29</version>
+  <version>2015-05-29</version>
   <info>
       <p>
         Great advances have been made in the field of genetic analysis over the last years. The availability of millions
@@ -31,9 +31,7 @@
 <pkg>rmetasim</pkg>
           provides an interface to the metasim engine
       for population genetics simulations.
-<pkg>hapsim</pkg>
-          simulates haplotype data with pre-specified allele frequencies and LD patterns. A few 
-          population genetics functions are also implemeted in
+          A few population genetics functions are also implemeted in
 <pkg>gap</pkg>.
 <pkg>LDheatmap</pkg>
           creates a heat map plot of measures of pairwise LD.
@@ -106,8 +104,6 @@ The <pkg>hierfstat</pkg> package allows the estimation of hierarchical F-statist
             scanone()
           </code>
           for genome-wide scans.
-<pkg>qtlbim</pkg>
-          implements Bayesian Interval Mapping for QTL.
 <pkg>wgaim</pkg>
           builds on the <pkg>qtl</pkg> by including functions for the modelling and summary of QTL intervals from the
           full linkage map whilst
@@ -224,7 +220,6 @@ The <pkg>hierfstat</pkg> package allows the estimation of hierarchical F-statist
     <pkg>haplo.ccs</pkg>
     <pkg>HardyWeinberg</pkg>
     <pkg priority="core">haplo.stats</pkg>
-    <pkg>hapsim</pkg>
     <pkg>hierfstat</pkg>
     <pkg>hwde</pkg>
     <pkg>ibdreg</pkg>
@@ -235,7 +230,6 @@ The <pkg>hierfstat</pkg> package allows the estimation of hierarchical F-statist
     <pkg>pbatR</pkg>
     <pkg>phangorn</pkg>
     <pkg>qtl</pkg>
-    <pkg>qtlbim</pkg>
     <pkg>rmetasim</pkg>
     <pkg>seqinr</pkg>
     <pkg>SNPmaxsel</pkg>
@@ -254,7 +248,7 @@ The <pkg>hierfstat</pkg> package allows the estimation of hierarchical F-statist
     <bioc>multtest</bioc>
     <bioc>qvalue</bioc>
     <a href="http://www.bioconductor.org/packages/2.8/bioc/html/snpMatrix.html">Bioconductor package snpMatrix (2.8)</a>
-    <a href="http://mayoresearch.mayo.edu/mayo/research/biostat/splusfunctions.cfm">
+    <a href="http://www.mayo.edu/research/departments-divisions/department-health-sciences-research/division-biomedical-statistics-informatics/software/s-plus-r-functions">
      R packages from Divison of Biostatistics, Mayo Clinic
     </a> 
     <a href="http://watson.hgen.pitt.edu/register/">

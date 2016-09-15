@@ -3,7 +3,7 @@
   <name>MachineLearning</name>
   <topic>Machine Learning &amp; Statistical Learning</topic>
   <maintainer email="Torsten.Hothorn@R-project.org">Torsten Hothorn</maintainer>
-  <version>2014-12-18</version>
+  <version>2016-06-24</version>
   
   <info>
     Several add-on packages implement ideas and methods developed at the
@@ -15,7 +15,8 @@
       <li><i>Neural Networks</i>: Single-hidden-layer neural network are 
              implemented in package <pkg>nnet</pkg> (shipped with base R).
              Package <pkg>RSNNS</pkg> offers an interface to the Stuttgart 
-             Neural Network Simulator (SNNS).</li>
+             Neural Network Simulator (SNNS). An interface to the FCNN library allows
+             user-extensible artificial neural networks in package <pkg>FCNN4R</pkg>.</li>
       <li><i>Recursive Partitioning</i>: Tree-structured models for
              regression, classification and survival analysis, following the
 	     ideas in the CART book, are
@@ -74,9 +75,8 @@
              <pkg>LogicForest</pkg> is a forest of logic regression trees (package
              <pkg>LogicReg</pkg>.
              The <pkg>varSelRF</pkg> and <pkg>Boruta</pkg> packages focus on variable selection by means
-             for random forest algorithms. For large data sets, package <pkg>bigrf</pkg> 
-             computes random forests in parallel and uses large memory objects 
-             to store the data.</li>
+             for random forest algorithms. In addition, packages <pkg>ranger</pkg> and <pkg>Rborist</pkg>
+             offer R interfaces to fast C++ implementations of random forests.</li>
       <li><i>Regularized and Shrinkage Methods</i>: Regression models with some
              constraint on the parameter estimates can be fitted with the
              <pkg>lasso2</pkg> and <pkg>lars</pkg> packages.  Lasso with
@@ -117,7 +117,11 @@
 	     High-throughput ridge regression (i.e., penalization with many predictor variables) and
 	     heteroskedastic effects models are the focus of the <pkg>bigRR</pkg> package.
              An implementation of bundle methods for regularized risk minimization 
-             is available form package <pkg>bmrm</pkg>.</li> 
+             is available form package <pkg>bmrm</pkg>. The Lasso under non-Gaussian and 
+             heteroscedastic errors is estimated by <pkg>hdm</pkg>,
+             inference on low-dimensional components of Lasso regression and of estimated treatment 
+             effects in a high-dimensional setting are also contained. Package <pkg>SIS</pkg>
+             implements sure independence screening in generalised linear and Cox models.</li> 
       <li><i>Boosting</i>: Various forms of gradient boosting are
              implemented in package <pkg>gbm</pkg> (tree-based functional gradient
              descent boosting). The Hinge-loss is optimized by the boosting implementation 
@@ -178,13 +182,25 @@
              Packages <pkg>hdi</pkg> and <pkg>stabs</pkg> implement stability 
              selection for a range of models, <pkg>hdi</pkg>
              also offers other inference procedures in high-dimensional models.</li>
+      <li><i>Other procedures</i>: Evidential classifiers quantify the uncertainty about the
+             class of a test pattern using a Dempster-Shafer mass function in package <pkg>evclass</pkg>.
+             The <pkg>OneR</pkg> (One Rule) package offers a classification algorithm with 
+             enhancements for sophisticated handling of missing values and numeric data 
+             together with extensive diagnostic functions.</li>
+
       <li><i>Meta packages</i>:
              Package <pkg>caret</pkg> provides miscellaneous functions 
              for building predictive models, including parameter tuning 
              and  variable importance measures. The package can be used 
              with various parallel implementations (e.g. MPI, NWS etc). 
-             In a similar spirit, package <pkg>mlr</pkg> offers a high-level interface
-             to various statistical and machine learning packages.</li>
+             In a similar spirit, package <pkg>mlr</pkg> offers a high-level 
+             interface
+             to various statistical and machine learning packages. Package
+             <pkg>SuperLearner</pkg> implements a similar toolbox.
+             The <pkg>h2o</pkg> package implements a general purpose machine learning
+             platform that has scalable implementations of many popular algorithms such
+             as random forest, GBM, GLM (with elastic net regularization), and deep
+             learning (feedforward multilayer networks), among others.</li>
       <li><i>Elements of Statistical Learning</i>: Data sets, functions and
              examples from the book 
              <a href="http://www-stat.stanford.edu/~tibs/ElemStatLearn/">The Elements of Statistical Learning: Data Mining,
@@ -204,7 +220,6 @@
     <pkg>ahaz</pkg>
     <pkg>arules</pkg>
     <pkg>BayesTree</pkg>
-    <pkg>bigrf</pkg>
     <pkg>bigRR</pkg>
     <pkg>bmrm</pkg>
     <pkg>Boruta</pkg>
@@ -218,7 +233,9 @@
     <pkg>ElemStatLearn</pkg>
     <pkg>earth</pkg>
     <pkg>elasticnet</pkg>
+    <pkg>evclass</pkg>
     <pkg>evtree</pkg>
+    <pkg>FCNN4R</pkg>
     <pkg>frbs</pkg>
     <pkg>GAMBoost</pkg>
     <pkg>gamboostLSS</pkg>
@@ -230,6 +247,8 @@
     <pkg>grpreg</pkg>
     <pkg>hda</pkg>
     <pkg>hdi</pkg>
+    <pkg>hdm</pkg>
+    <pkg>h2o</pkg>
     <pkg>ipred</pkg>
     <pkg priority="core">kernlab</pkg>
     <pkg>klaR</pkg>
@@ -244,6 +263,7 @@
     <pkg>ncvreg</pkg>
     <pkg priority="core">nnet</pkg>
     <pkg>oblique.tree</pkg>
+    <pkg>OneR</pkg>
     <pkg>pamr</pkg>
     <pkg>party</pkg>
     <pkg>partykit</pkg>
@@ -253,7 +273,9 @@
     <pkg>quantregForest</pkg>
     <pkg priority="core">randomForest</pkg>
     <pkg>randomForestSRC</pkg>
+    <pkg>ranger</pkg>
     <pkg>rattle</pkg>
+    <pkg>Rborist</pkg>
     <pkg>rda</pkg>
     <pkg>rdetools</pkg>
     <pkg>relaxo</pkg>
@@ -270,7 +292,9 @@
     <pkg>RWeka</pkg>
     <pkg>RXshrink</pkg>
     <pkg>sda</pkg>
+    <pkg>SIS</pkg>
     <pkg>stabs</pkg>
+    <pkg>SuperLearner</pkg>
     <pkg>svmpath</pkg>
     <pkg>tgp</pkg>
     <pkg>tree</pkg>

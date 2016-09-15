@@ -3,7 +3,7 @@
   <name>Multivariate</name>
   <topic>Multivariate Statistics</topic>
   <maintainer email="Paul.Hewson@plymouth.ac.uk">Paul Hewson</maintainer>
-  <version>2014-12-18</version>
+  <version>2015-07-01</version>
   
   <info>
     <p>Base R contains most of the functionality for classical multivariate analysis,
@@ -77,6 +77,8 @@
           distributions as well as density functions for the multivariate normal distribution.   
           <pkg>mnormt</pkg> provides multivariate normal and multivariate t density and distribution
           functions as well as random number simulation.    <pkg>sn</pkg> provides density, distribution and random number generation for the multivariate skew normal and skew t distribution.
+          <pkg>delt</pkg> provides a range of functions for estimating multivariate densities by 
+          CART and greedy methods.  
 	  Comprehensive information on mixtures is given in the <view>Cluster</view> view, 
           some density estimates and random numbers are provided by 
           <code>rmvnorm.mixt()</code> and <code>dmvnorm.mixt()</code> in <pkg>ks</pkg>, mixture fitting 
@@ -172,7 +174,7 @@
 	  <bioc>hopach</bioc> (Hierarchical Ordered Partitioning and 
           Collapsing Hybrid) algorithm.    <pkg>kohonen</pkg> provides supervised and unsuperised SOMs 
           for high dimensional spectra or patterns.  <pkg>clusterGeneration</pkg> helps simulate clusters. The <view>Environmetrics</view> 
-          task view also gives a topic-related overview of some clustering techniques.   Model based clustering is available in <pkg>mclust</pkg> and model based clustering for functional data is available in <pkg>MFDA</pkg>.</li>
+          task view also gives a topic-related overview of some clustering techniques.   Model based clustering is available in <pkg>mclust</pkg>.</li>
 
           <li><i>Tree methods:</i>
           Full details on tree methods are given in the <view>MachineLearning</view> task view.   
@@ -188,8 +190,10 @@
 	  multivariate adaptive regression splines with <code>mars()</code> and adaptive spline
 	  backfitting with the <code>bruto()</code> function.   Multivariate adaptive regression splines can also be found in <pkg>earth</pkg>.  <pkg>rda</pkg> provides classification 
           for high dimensional data by means of shrunken centroids regularized discriminant analysis.
-          Package <pkg>class</pkg> provides k-nearest 
-          neighbours by <code>knn()</code>.   <pkg>SensoMineR</pkg> provides <code>FDA()</code> for factorial discriminant analysis.   A number of packages provide for 
+	  Package <pkg>class</pkg> provides k-nearest 
+          neighbours by <code>knn()</code>, <pkg>knncat</pkg> provides k-nearest neighbours for 
+          categorical variables.
+	  <pkg>SensoMineR</pkg> provides <code>FDA()</code> for factorial discriminant analysis.   A number of packages provide for 
 	  dimension reduction with the classification. <pkg>klaR</pkg> includes variable
 	  selection and robustness against multicollinearity as well as a number of
 	  visualisation routines. <pkg>superpc</pkg> provides principal components for
@@ -241,6 +245,7 @@
       <p><strong>Miscellaneous utitlies</strong></p>
           <ul><li><pkg>abind</pkg> generalises <code>cbind()</code> and <code>rbind()</code> for arrays, <code>mApply()</code> in <pkg>Hmisc</pkg> generalises <code>apply()</code> for matrices and passes multiple functions.   In addition to functions listed earlier, <pkg>sn</pkg> provides operations such as marginalisation, affine transformations and graphics for the multivariate skew normal and skew t distribution.
 	  <pkg>mAr</pkg> provides for vector auto-regression.   <code>rm.boot()</code> from <pkg>Hmisc</pkg> bootstraps repeated measures models.  <pkg>psy</pkg> also provides a range of statistics based on Cohen's kappa including weighted measures and agreement among more than 2 raters. 
+	  <pkg>cwhmisc</pkg> contains a number of interesting support functions which are of interest, such as <code>ellipse()</code>, <code>normalise()</code> and various rotation functions.
 	  <pkg>desirability</pkg> provides functions for multivariate optimisation.
 	  <pkg>geozoo</pkg> provides plotting of geometric objects in GGobi. </li></ul>
        
@@ -269,7 +274,9 @@
     <pkg>copula</pkg>     
     <pkg>corpcor</pkg>
     <pkg>covRobust</pkg>
-    <pkg>cramer</pkg> 
+    <pkg>cramer</pkg>
+    <pkg>cwhmisc</pkg>
+    <pkg>delt</pkg>
     <pkg>denpro</pkg>
     <pkg>desirability</pkg>
     <pkg>dr</pkg>
@@ -303,6 +310,7 @@
     <pkg>KernSmooth</pkg>
     <pkg>kknn</pkg>
     <pkg>klaR</pkg>
+    <pkg>knncat</pkg>
     <pkg>kohonen</pkg>  
     <pkg>ks</pkg>
     <pkg>lattice</pkg>
@@ -314,7 +322,6 @@
     <pkg>MCMCpack</pkg>  
     <pkg>mclust</pkg> 
     <pkg>mda</pkg> 
-    <pkg>MFDA</pkg>
     <pkg>mice</pkg> 
     <pkg>misc3d</pkg>
     <pkg>mitools</pkg>
@@ -378,7 +385,7 @@
         <bioc>gpls</bioc>
 	<bioc>hopach</bioc>
         <a href="http://www.ggobi.org">GGobi (interactive dynamic visualisation software, available standalone or as an R library)</a>
-        <a href="http://www.research.att.com/areas/stat/xgobi/">XGobi (interactive, dynamic visulisation software), XGvis (for proximity data / multidimensional scaling)</a>
+        <!-- <a href="http://www.research.att.com/areas/stat/xgobi/">XGobi (interactive, dynamic visulisation software), XGvis (for proximity data / multidimensional scaling)</a> -->
         <a href="http://biostat.mc.vanderbilt.edu/twiki/bin/view/Main/HmiscMultivar">Hmisc functions related to multivariate analysis</a>
         <a href = "http://www.cuddyvalley.org/psychoR/">Psychometrics in R, Jan de Leeuw</a>
         <a href = "http://www.qhull.org">qhull library</a>

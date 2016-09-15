@@ -69,10 +69,17 @@ by \code{\link{install.views}} or \code{\link{CRAN.views}}.
   \item{maintainer}{character, maintainer of the task view.}
   \item{email}{character, valid e-mail address (optional).}
   \item{version}{character, version specified via date in ISO format.}
+  \item{url}{character, valid task view URL (optional).}
   \item{info}{character, HTML code with informations about the task view.}
   \item{packagelist}{data frame with the columns \code{name}
     (character, name of package) and \code{core} (logical, Is priority core?).}
   \item{links}{character vector, HTML code with links for the task view.}
+}
+
+\references{
+Zeileis A (2005). CRAN Task Views.
+  \emph{R News}, \bold{5}(1), 39--40.
+  \url{https://CRAN.R-project.org/doc/Rnews/}.
 }
 
 \seealso{\code{\link{install.views}}}

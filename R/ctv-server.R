@@ -63,7 +63,7 @@ read.ctv <- function(file)
       return(paste0("<tt>", xmlCode(x), "</tt>"))
     if(name == "rforge")
       return(paste0(rforgeprefix,
-                    "<a href=\"http://R-Forge.R-project.org/projects/",
+                    "<a href=\"https://R-Forge.R-project.org/projects/",
                     tolower(xmlCode(x)), "/\"", target,
                     "><span class=\"Rforge\">", xmlCode(x),
                     "</span></a>"))
@@ -124,6 +124,12 @@ read.ctv <- function(file)
   maintainer <- function(x) XML::xmlValue(x$maintainer)
   email <- function(x) as.vector(XML::xmlAttrs(x$maintainer)["email"])
   ctvversion <- function(x) XML::xmlValue(x$version)
+  ctvurl <- function(x) {
+    url <- XML::xmlValue(x$url)
+    if(is.na(url)) url <- NULL
+    if(identical(url, "")) url <- NULL
+    url
+  }
   info <- function(x) newlineSub(xmlPaste(x$info, indent = "    "))
   package1 <- function(x) {
     rval <- XML::xmlAttrs(x)["priority"]
@@ -134,6 +140,7 @@ read.ctv <- function(file)
     rval <- t(sapply(XML::xmlChildren(x$packagelist), package1))
     colnames(rval) <- NULL
     rownames(rval) <- NULL
+    if(NCOL(rval) < 2L) stop("packagelist needs to contain at least one pkg")
     rval <- data.frame(name = I(rval[,1]), core = rval[,2] == "core")
     rval[order(tolower(rval[,1])), ]
   }
@@ -145,6 +152,7 @@ read.ctv <- function(file)
 	       maintainer = maintainer(x),
 	       email = email(x),
 	       version = ctvversion(x),
+	       url = ctvurl(x),
 	       info = info(x),
 	       packagelist = packagelist(x),
 	       links = links(x))
@@ -160,6 +168,7 @@ ctv2html <- function(x,
 {
   if(is.character(x)) x <- read.ctv(x)
   if(is.null(file)) file <- paste0(x$name, ".html")
+  if(is.null(x$url) & reposname == "CRAN") x$url <- paste0("https://CRAN.R-project.org/view=", x$name)
 
   ## auxiliary functions
   ampersSub <- function(x) gsub("&", "&amp;", x)
@@ -167,15 +176,12 @@ ctv2html <- function(x,
     as.integer(sapply(unlist(strsplit(gsub("@", " at ", x), NULL)), charToRaw))), collapse = "")    
 
   ## utf8 <- any(unlist(sapply(x[sapply(x, is.character)], Encoding)) == "UTF-8")
-  strip_encoding <- function(x) {
-    if(is.character(x)) Encoding(x) <- "unknown"
-    return(x)
-  }
-  for(i in 1:length(x)) x[[i]] <- strip_encoding(x[[i]])
+  for(i in 1:length(x)) if(is.character(x[[i]])) Encoding(x[[i]]) <- "unknown"
 
   ## create HTML
   ## header
   title <- paste0(reposname, " Task View: ", htmlify(x$topic))
+  
   htm1 <- c("<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.0 Strict//EN\" \"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd\">",
             "<html xmlns=\"http://www.w3.org/1999/xhtml\">",
             "<head>",
@@ -189,16 +195,17 @@ ctv2html <- function(x,
             sprintf("  <meta name=\"citation_publication_date\" content=\"%s\" />",
                     x$version),
             ## See <http://www.monperrus.net/martin/accurate+bibliographic+metadata+and+google+scholar>:
-            sprintf("  <meta name=\"citation_public_url\" content=\"http://CRAN.R-project.org/view=%s\" />",
-                    x$name),
+            if(!is.null(x$url))
+	    sprintf("  <meta name=\"citation_public_url\" content=\"%s\" />",
+                    x$url),
             sprintf("  <meta name=\"DC.title\" content=\"%s\" />", title),
             sprintf("  <meta name=\"DC.creator\" content=\"%s\" />",
                     htmlify(x$maintainer)),
             sprintf("  <meta name=\"DC.issued\" content=\"%s\" />",
                     x$version),
-            if(reposname == "CRAN")
-            sprintf("  <meta name=\"DC.identifier\" content=\"http://CRAN.R-project.org/view=%s\" />",
-                    x$name),
+            if(!is.null(x$url))
+            sprintf("  <meta name=\"DC.identifier\" content=\"%s\" />",
+                    x$url),
             "</head>",
 	    "",
 	    "<body>",
@@ -207,6 +214,7 @@ ctv2html <- function(x,
      paste0("    <tr><td valign=\"top\"><b>Maintainer:</b></td><td>", htmlify(x$maintainer), "</td></tr>"),
      if(!is.null(x$email)) paste0("    <tr><td valign=\"top\"><b>Contact:</b></td><td>", obfuscate(x$email), "</td></tr>"),
      paste0("    <tr><td valign=\"top\"><b>Version:</b></td><td>", htmlify(x$version), "</td></tr>"),
+     if(!is.null(x$url)) paste0("    <tr><td valign=\"top\"><b>URL:</b></td><td><a href=\"", htmlify(x$url), "\">", htmlify(x$url), "</a></td></tr>"),
             "  </table>")
 
   ## info section

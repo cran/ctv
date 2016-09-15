@@ -4,7 +4,7 @@
    <name>HighPerformanceComputing</name>
    <topic>High-Performance and Parallel Computing with R</topic>
    <maintainer email="Dirk.Eddelbuettel@R-project.org">Dirk Eddelbuettel</maintainer>
-   <version>2014-12-20</version>
+   <version>2016-08-18</version>
 
   <info>
     <p>
@@ -30,7 +30,7 @@
       Schmidberger, Martin Morgan, Max Kuhn, Tomas Radivoyevitch,
       Jochen Knaus, Tobias Verbeke, Hao Yu, David Rosenberg, Marco
       Enea, Ivo Welch, Jay Emerson, Wei-Chen Chen, Bill Cleveland, 
-      Ross Boylan, and Ramon Diaz-Uriarte
+      Ross Boylan, Ramon Diaz-Uriarte, Mark Zeligman, and Kevin Ushey
       (as well as others I may have forgotten to add here) are gratefully acknowledged. 
     </p>
     <p> 
@@ -112,23 +112,38 @@
 	alternative to <pkg>snow</pkg>. Functions can be used in sequential or
 	parallel mode.
       </li>
-     <li>The <pkg>biopara</pkg> package by Lazar and Schoenfeld offers socket-based parallel
-        execution with some support for load-balancing and fault-tolerance.
-      </li>
       <li>The <pkg>foreach</pkg> package allows general iteration over
 	elements in a collection without the use of an explicit loop
 	counter. Using foreach without side effects also facilitates
 	executing the loop in parallel which is possible via
 	the <pkg>doMC</pkg> (using parallel/multicore on single
-	workstations),
-	<pkg>doSNOW</pkg> (using <pkg>snow</pkg>, see
-	above), <pkg>doMPI</pkg> (using <pkg>Rmpi</pkg>) packages and
+	workstations), <pkg>doSNOW</pkg> (using <pkg>snow</pkg>, see
+	above), <pkg>doMPI</pkg> (using <pkg>Rmpi</pkg>) packages,
+        <pkg>doFuture</pkg> (using <pkg>future</pkg> or
+        <pkg>future.BatchJobs</pkg>), and
 	<pkg>doRedis</pkg> (using <pkg>rredis</pkg>) packages.
       </li>
-      <li>The <pkg>bigrf</pkg> package provides a Random Forests
-        implementation with support for parellel execution and large
-        memory. 
+      <li>The <pkg>future</pkg> package allows for synchroneous (sequential)
+        and asynchronous (parallel) evaluations via abstraction of futures,
+        either via function calls or implicitly via promises. Global variables
+        are automatically identified. Iteration over elements in a collection
+        is supported.
       </li>
+      <li>The <pkg>Rborist</pkg> package employs OpenMP pragmas to exploit 
+        predictor-level parallelism in the Random Forest algorithm which
+        promotes efficient use of multicore hardware in restaging data and in 
+        determining splitting criteria, both of which are performance 
+        bottlenecks in the algorithm.
+      </li>
+      <li>The <pkg>h2o</pkg> package connects to the h2o open source machine
+        learning environment which has scalable implementations of random
+        forests, GBM, GLM (with elastic net regularization), and deep learning.
+      </li>
+      <li>The <pkg>randomForestSRC</pkg> package can use both OpenMP as well
+        as MPI for random forest extensions suitable for survival analysis,
+        competing risks analysis, classification as well as regression 
+      </li>
+
     </ul>
 
     <p>
@@ -188,9 +203,10 @@
     </p>
     <ul>	     
       <li>
-	The RHIPE package, started by Saptarshi Guha and now developed by a core team via GitHub,   
+	The RHIPE package, started by Saptarshi Guha and now developed by a core team via
+	<a href="https://github.com/saptarshiguha/RHIPE/">GitHub</a>,   
         provides an interface between R and Hadoop for analysis of large complex data wholly from 
-	within R using the Divide and Recombine approach to big data. (<a href="http://www.datadr.org">link</a>)
+	within R using the Divide and Recombine approach to big data.
       </li>
       <li>
 	The rmr package by Revolution Analytics also provides an interface between R and Hadoop
@@ -215,8 +231,8 @@
         as those created by Mappers in a MapReduce application.
       </li>
       <li>
-        The <pkg>toaster</pkg> package by Teradata provides a set of tools to perform
-        in-database analytics with the Teradata Aster platform (which is required).
+        The <pkg>toaster</pkg> package performs in-database computations
+        utilizing the parallel / distributed Teradata Aster analytical platform
       </li>
     </ul>	     
 
@@ -225,7 +241,7 @@
     </p>
     <ul>	     
       <li>Random-number generators for parallel computing are available via
-        the <pkg>rsprng</pkg> package by Li, and the <pkg>rlecuyer</pkg>
+        the <pkg>rlecuyer</pkg>
         package by Sevcikova and Rossini.
       </li>
 
@@ -245,9 +261,8 @@
        <li>
         Job-scheduling toolkits permit management of
 	parallel computing resources and tasks.  The slurm (Simple Linux
-        Utility for Resource Management) set of programs (written by a
-        consortium led by Lawrence Livermore Labs) works well with
-        MPI. (<a href="https://slurm.schedmd.com/">link</a>)
+        Utility for Resource Management) set of programs  works well with
+        MPI. (<a href="http://slurm.schedmd.com/">link</a>)
       </li>
       <li>
         The Condor toolkit (<a href="http://www.cs.wisc.edu/condor/">link</a>) from 
@@ -271,6 +286,11 @@
 	Engine. Multicore and SSH systems are also supported. The
 	<pkg>BatchExperiments</pkg> package extends it with an
 	abstraction layer for running statistical experiments.
+      </li>
+      <li>
+        The <pkg>flowr</pkg> package offers a scatter-gather approach to submit jobs
+        lists (including dependencies) to the computing cluster via simple data.frames
+        as inputs. It supports LSF, SGE, Torque and SLURM.
       </li>
     </ul>
 
@@ -367,6 +387,15 @@
         is <pkg>pls</pkg>, another is <pkg>PGICA</pkg> which can run ICA
         analysis in parallel on SGE or multicore platforms.
       </li>
+      <li>
+        The <pkg>sprint</pkg> (an acronym for "Simple Parallel R INTerface")
+        package provides a parallel computing framework for R making High
+        Performance Computing (HPC) accessible to users who are not familiar
+        with parallel programming and the use of HPC architectures. It
+        contains a library of parallelised R functions for correlation,
+        partitioning around medoids, apply, permutation testing,
+        bootstrapping, random forest, rank product and hamming distance. 
+      </li>
     </ul>
 
     <p>
@@ -379,8 +408,7 @@
         implemented using a mixture of nVidia's CUDA langauge and
         cublas library. Given a computer with an nVidia GPU these
         functions may be substantially more efficient than native R
-        routines.  The <pkg>rpud</pkg> package provides an optimised
-        distance metric for NVidia-based GPUs.
+        routines.
       </li>
       <li>
         The <pkg>cudaBayesreg</pkg> package by da Silva implements
@@ -393,10 +421,6 @@
         analysis by using the GPU.
       </li>
       <li>
-	The <pkg>magma</pkg> package provides an interface to the hybrid
-	GPU/CPU library Magma (see below for link).
-      </li>
-      <li>
 	The <pkg>gcbd</pkg> package implements a benchmarking framework for
 	BLAS and GPUs (using <pkg>gputools</pkg>).
       </li>
@@ -404,11 +428,6 @@
 	The <pkg>OpenCL</pkg> package provides an interface from R to
 	OpenCL permitting hardware- and vendor neutral interfaces to
 	GPU programming.
-      </li>
-      <li>
-        The <pkg>WideLM</pkg> package use CUDA (4.1 or greater) to fit
-        many 'skinny' regression models simultaneously from a single
-        data set.
       </li>
       <li>
         The <pkg>HiPLARM</pkg> package provide High-Performance Linear
@@ -419,6 +438,17 @@
         The <pkg>permGPU</pkg> package computes permutation resampling
         inference in the context of RNA microarray studies on the GPU,
         it uses CUDA (>= 4.5)
+      </li>
+      <li>
+        The <pkg>gmatrix</pkg> package enables the evaluation of matrix and vector 
+        operations using GPU coprocessors such that intermediate computations may be 
+        kept on the coprocessor and reused, with potentially significant performance 
+        enhancements by minimizing data movement.
+      </li>
+      <li>
+        The <pkg>gpuR</pkg> package offers GPU-enabled functions: New gpu*
+        and vcl* classes are provided to wrap typical R objects (e.g. vector,
+        matrix) mirroring typical R syntax without the need to know OpenCL. 
       </li>
     </ul>
 
@@ -461,16 +491,15 @@
 	to support large-than-memory datasets for least-angle regression,
 	lasso and stepwise regression.
       </li>
-      <li>The <pkg>bigrf</pkg> package provides a Random Forests
-        implementation with support for parellel execution and large
-        memory. 
-      </li>
       <li>The <pkg>MonetDB.R</pkg> package allows R to access the MonetDB 
          column-oriented, open source database system as a
 	 backend. 
       </li>
       <li>The <pkg>ffbase</pkg> package by de Jonge et al adds basic
         statistical functionality to the <pkg>ff</pkg> package.
+      </li>
+      <li>The <pkg>LaF</pkg> package provides methods for fast access to
+        large ASCII files in csv or fixed-width format.
       </li>
     </ul>
 
@@ -489,6 +518,14 @@
         functions (and back) easier, and the <pkg>RInside</pkg> package
         by the same authors allows easy embedding of R itself into C++
         applications for faster and more direct data transfer.
+      </li>
+      <li>
+        The <pkg>RcppParallel</pkg> package by Allaire et al. bundles the
+        <a href="https://www.threadingbuildingblocks.org">Intel Threading Building Blocks</a>
+        and <a href="http://tinythreadpp.bitsnbites.eu">TinyThread</a>
+        libraries. Together with <pkg>Rcpp</pkg>, RcppParallel makes it
+        easy to write safe, performant, concurrently-executing C++ code,
+        and use that code within R and R packages.
       </li>
       <li>
 	The <pkg>rJava</pkg> package by Urbanek provides a low-level
@@ -530,12 +567,11 @@
     <pkg>biglars</pkg>
     <pkg>biglm</pkg>
     <pkg>bigmemory</pkg>
-    <pkg>bigrf</pkg>
-    <pkg>biopara</pkg>
     <pkg>bnlearn</pkg>
     <pkg>caret</pkg>
     <pkg>cudaBayesreg</pkg>
     <pkg>dclone</pkg>
+    <pkg>doFuture</pkg>
     <pkg>doMC</pkg>
     <pkg>doMPI</pkg>
     <pkg>doRedis</pkg>
@@ -544,20 +580,26 @@
     <pkg>data.table</pkg>
     <pkg>ff</pkg>
     <pkg>ffbase</pkg>
+    <pkg>flowr</pkg>
     <pkg>foreach</pkg>
+    <pkg>future</pkg>
+    <pkg>future.BatchJobs</pkg>
     <pkg>GAMBoost</pkg>
     <pkg>gcbd</pkg>
     <pkg>Geneland</pkg>
+    <pkg>gmatrix</pkg>
     <pkg>gputools</pkg>
+    <pkg>gpuR</pkg>
     <pkg>GUIProfiler</pkg>
+    <pkg>h2o</pkg>
     <pkg>HadoopStreaming</pkg>
     <pkg>harvestr</pkg>
     <pkg>HiPLARM</pkg>
     <pkg>HistogramTools</pkg>
     <pkg>inline</pkg>
+    <pkg>LaF</pkg>
     <pkg>latentnet</pkg>
     <pkg>lga</pkg>
-    <pkg>magma</pkg>
     <pkg>Matching</pkg>
     <pkg>MonetDB.R</pkg>
     <pkg>nws</pkg>
@@ -579,7 +621,10 @@
     <pkg>profr</pkg>
     <pkg>proftools</pkg>
     <pkg>pvclust</pkg>
+    <pkg>randomForestSRC</pkg>    
+    <pkg>Rborist</pkg>
     <pkg>Rcpp</pkg>
+    <pkg>RcppParallel</pkg>
     <pkg>Rdsm</pkg>
     <pkg>rgenoud</pkg>
     <pkg>Rhpc</pkg>
@@ -589,19 +634,17 @@
     <pkg>rlecuyer</pkg>
     <pkg priority="core">Rmpi</pkg>
     <pkg>RProtoBuf</pkg>
-    <pkg>rpud</pkg>
     <pkg>rredis</pkg>
-    <pkg>rsprng</pkg>
     <pkg priority="core">snow</pkg>
     <pkg>snowfall</pkg>
     <pkg>snowFT</pkg>
     <pkg>speedglm</pkg>
+    <pkg>sprint</pkg>    
     <pkg>sqldf</pkg>
     <pkg>STAR</pkg>
     <pkg>tm</pkg>
     <pkg>toaster</pkg>
     <pkg>varSelRF</pkg>
-    <pkg>WideLM</pkg>
   </packagelist>
 
   <links>
@@ -616,7 +659,7 @@
     <bioc>puma</bioc>
     <gcode>romp</gcode>
     <gcode>bugsparallel</gcode>
-    <a href="https://computing.llnl.gov/linux/slurm/">Slurm project at Lawrence Livermore National Laboratory</a>
+    <a href="http://slurm.schedmd.com/">Slurm open-source workload manager</a>
     <a href="http://www.cs.wisc.edu/condor/">Condor project at University of Wisconsin-Madison</a>
     <a href="http://www.imbi.uni-freiburg.de/parallel/">Parallel Computing in R with sfCluster/snowfall</a>
     <a href="http://en.wikipedia.org/wiki/Message_Passing_Interface">Wikipedia: Message Passing Interface (MPI)</a>
@@ -628,8 +671,8 @@
     <a href="http://thirteen-01.stat.iastate.edu/snoweye/hpsc/">High Performance Statistical Computing for Data Intensive Research</a>
     <a href="http://heather.cs.ucdavis.edu/~matloff/rth.html">Rth: Parallel R through Thrust</a>
     <a href="http://r-pbd.org">Programming with Big Data in R</a>
-    <a href="http://www.datadr.org">RHIPE</a>
-    <a href="http://www.bayesian-inference.com/software">LaplacesDemon</a>
+    <a href="https://github.com/saptarshiguha/RHIPE/">RHIPE</a>
+    <!-- <a href="http://www.bayesian-inference.com/software">LaplacesDemon</a> -->
     <a href="https://github.com/eddelbuettel/ctv-hpc">GitHub repository for this Task View</a>
   </links>
 

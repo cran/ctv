@@ -3,7 +3,7 @@
   <name>DifferentialEquations</name>
   <topic>Differential Equations</topic>
   <maintainer email="karline.soetaert@nioz.nl">Karline Soetaert and Thomas Petzoldt</maintainer>
-  <version>2014-12-26</version>
+  <version>2015-07-03</version>
   
   <info>
     <p> Differential equations (DE) are mathematical equations that describe how a 
@@ -59,6 +59,9 @@
        </li>
        <li> The package <pkg>deTestSet</pkg> contains solvers designed for solving 
         very stiff equations.
+       </li>
+       <li> The package <pkg>odeintr</pkg> generates and compiles C++ ODE solvers on the fly using Rcpp
+            and <a href="http://www.boost.org/">Boost</a> <a href="http://www.odeint.com/">odeint</a>.
        </li>
      </ul>        
     <p><strong>Delay Differential Equations (DDEs)</strong></p> 
@@ -124,8 +127,8 @@
         Next to DE models, it also provides functions for grid-oriented, 
         individual-based, and particle diffusion models. 
       </li>
-      <li> Packages <pkg>scaRabee</pkg> and <pkg>PKfit</pkg> 
-       offer frameworks for simulation and optimization of Pharmacokinetic-Pharmacodynamic Models.
+      <li> Package <pkg>scaRabee</pkg>
+       offers frameworks for simulation and optimization of Pharmacokinetic-Pharmacodynamic Models.
       </li>
       <li>In the package <pkg>FME</pkg> are functions for inverse modelling (fitting to data), 
        sensitivity analysis, identifiability and Monte Carlo Analysis of DE models.
@@ -144,9 +147,9 @@
       </li>
       <li> The <pkg>deTestSet</pkg> package contains many test problems for differential equations.
       </li> 
-      <li>Package <pkg>pracma</pkg> contains solvers for ODEs, as pure R scripts,
-       useful as a learning tool.
-      </li> 
+      <li>Package <pkg>pracma</pkg> implements several adaptive Runge-Kutta
+        solvers such as ode23, ode23s, ode45, or the Burlisch-Stoer algorithm to obtain
+        numerical solutions to ODEs with higher accuracy.</li>
       <li> The <pkg>PBSmodelling</pkg> package adds GUI functions to models. 
       </li>
       <li>Package <pkg>ecolMod</pkg> contains the figures, data sets and examples from a book 
@@ -169,9 +172,9 @@
     <pkg>GillespieSSA</pkg>
     <pkg>mkin</pkg>    
     <pkg>nlmeODE</pkg>
+    <pkg>odeintr</pkg>
     <pkg>PBSddesolve</pkg>
     <pkg>PBSmodelling</pkg>
-    <pkg>PKfit</pkg>    
     <pkg>pomp</pkg>
     <pkg>pracma</pkg>
     <pkg>primer</pkg>

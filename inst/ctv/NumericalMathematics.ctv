@@ -4,8 +4,8 @@
 
   <name>NumericalMathematics</name>
   <topic>Numerical Mathematics</topic>
-  <maintainer email="hwborchers@googlemail.com">Hans W. Borchers</maintainer>
-  <version>2014-12-07</version>
+  <maintainer email="hwb@mailbox.org">Hans W. Borchers</maintainer>
+  <version>2016-02-09</version>
   
   <info>
 
@@ -21,8 +21,8 @@
     the corresponding task views <view>DifferentialEquations</view>, 
     <view>Optimization</view>, and <view>TimeSeries</view>.
     All these task views together will provide a good selection of what is
-    available in R for the area of numerical mathematics.</p>
-    <p>The <view>HighPerformanceComputing</view> task view with its many
+    available in R for the area of numerical mathematics.
+    The <view>HighPerformanceComputing</view> task view with its many
     links for parallel computing may also be of interest.</p>
 
     <p>The task view has been created to provide an overview of the topic. 
@@ -63,10 +63,13 @@
     <li><pkg>eigeninv</pkg> generates matrices with a given set of 
         eigenvalues ('inverse eigenvalue problem').</li>
     <li>Package <pkg>rARPACK</pkg>, a wrapper for the ARPACK library, is 
-        typically used to compute only a few eigenvalues/vectors, e.g., a small 
-        number of largest eigenvalues.</li>
+        typically used to compute only a few eigenvalues/vectors, e.g., a 
+        small number of largest eigenvalues.</li>
     <li><pkg>optR</pkg> uses elementary methods of linear algebra (Gauss, LU, 
         CGM, Cholesky) to solve linear systems.</li>
+    <li><pkg>matrixcalc</pkg> contains a collection of functions for matrix 
+        calculations, special matrices, and tests for matrix properties, 
+        e.g., (semi-)positive definiteness.</li>
     <li>Package <pkg>onion</pkg> contains routines for manipulating 
         quaternions and octonians (normed division algebras over the real 
         numbers); quaternions can be useful for handling rotations in 
@@ -86,8 +89,8 @@
 
     <ul>
     <li>Package <pkg>gsl</pkg> provides an interface to the 'GNU Scientific 
-        Library' that contains implementations of many special functions, for 
-        example the Airy and Bessel functions, elliptic and exponential 
+        Library' that contains implementations of many special functions, 
+        for example the Airy and Bessel functions, elliptic and exponential 
         integrals, the hypergeometric function, Lambert's W function, and
         many more.</li>
     <li>Airy and Bessel functions, for real and complex numbers, are also 
@@ -103,9 +106,11 @@
         computed in <pkg>hypergeo</pkg>, including transformation formulas 
         and special values of the parameters.</li>
     <li>Elliptic and modular functions are available in package 
-        <pkg>elliptic</pkg>, including the Weierstrass P function and Jacobi's 
-        theta functions.
+        <pkg>elliptic</pkg>, including the Weierstrass P function and 
+        Jacobi's theta functions.
         There are tools for visualizing complex functions.</li>
+    <li>Package <pkg>lamW</pkg> implements both real-valued branches of the 
+        Lambert W function (using Rcpp).</li>
     </ul>
 
     <h4>Polynomials</h4>
@@ -138,14 +143,17 @@
 
     <h4>Differentiation and Integration</h4>
 
-    <p><code>D()</code> and <code>deriv()</code> in base R compute derivatives  
-    of simple expressions symbolically.
+    <p><code>D()</code> and <code>deriv()</code> in base R compute 
+    derivatives of simple expressions symbolically.
     Function <code>integrate()</code> implements an approach for numerically 
     integrating univariate functions in R. It applies adaptive Gauss-Kronrod 
     quadrature and can handle singularities and unbounded domains to a certain 
     extent.</p>
 
     <ul>
+    <li>Package <pkg>Deriv</pkg> provides an extended solution for symbolic 
+        differentiation in R; the user can add custom derivative rules, and the 
+        output for a function will be an executable function again.</li>
     <li><pkg>numDeriv</pkg> sets the standard for numerical differentiation 
         in R, providing numerical gradients, Jacobians, and Hessians, computed 
         by simple finite differences, Richardson extrapolation, or the highly 
@@ -173,6 +181,10 @@
         <pkg>R2Cuba</pkg>, a wrapper around the C library Cuba.
         With <code>vegas()</code> it includes an approach to Monte Carlo 
         integration based on importance sampling.</li>
+    <li><pkg>mvQuad</pkg> provides methods for generating multivariate grids 
+        that can be used for multivariate integration. These grids will be 
+        based on different quadrature rules such as Newton-Cotes or Gauss 
+        quadrature formulas.</li>
     <li>Package <pkg>SparseGrid</pkg> provides another approach to 
         multivariate integration in high-dimensional spaces. It creates sparse 
         n-dimensional grids that can be used as with quadrature rules.</li>
@@ -183,10 +195,16 @@
         Both packages comprise exact methods for polynomials.</li>
     <li>Package <pkg>polyCub</pkg> holds some routines for numerical 
         integration over polygonal domains in two dimensions.</li>
+    <li>Package <pkg>Pade</pkg> calculates the numerator and denominator 
+        coefficients of the Pade approximation, given the Taylor series 
+        coefficients of sufficient length.</li>
+    <li><pkg>madness</pkg> allows to compute derivatives of multivariate 
+        functions, defined by matrix operations, via forward differentiation 
+        and the chain rule.</li>
     <li><pkg>features</pkg> extracts features from functional data, such as 
         first and second derivatives, or curvature at critical points, while
-        <pkg>RootsExtremaInflections</pkg> finds roots, extrema and inflection
-        points of curves defined by discrete points.</li>
+        <pkg>RootsExtremaInflections</pkg> finds roots, extrema and 
+        inflection points of curves defined by discrete points.</li>
     </ul>
 
     <h4>Interpolation and Approximation</h4>
@@ -218,6 +236,8 @@
         interpolation based on piecewise rational functions by applying 
         Stineman's algorithm. The interpolating function will be monoton in 
         regions where the specified points change monotonically.</li>
+    <li>Package <pkg>conicfit</pkg> provides several (geometric and algebraic) 
+        algorithms for fitting circles, ellipses, and conics in general.</li>
     </ul>
 
     <h4>Root Finding</h4>
@@ -259,6 +279,8 @@
         continued fractions and partial convergents.</li>
     <li>The <pkg>partitions</pkg> package enumerates additive partitions 
         of integers, including restricted and unequal partitions.</li>
+    <li><pkg>permutations</pkg> treats permutations as invertible functions of 
+        finite sets and includes several mathematical operations on them.</li>
     <li>Package <pkg>combinat</pkg> generates all permutations or all 
         combinations of a certain length of a set of elements (i.e. a vector); 
         it also computes binomial coefficients.</li>
@@ -278,6 +300,9 @@
         libraries. Special numbers and some special functions are included, 
         as well as routines for root finding, integration, and optimization 
         in arbitrary precision.</li>
+    <li><pkg>Brobdingnag</pkg> handles very large numbers by holding their
+        logarithm plus a flag indicating their sign. (An excellent vignette
+        explains how this is done using S4 methods.)</li>
     <li>Package <pkg>rSymPy</pkg> accesses the symbolic algebra system 'SymPy' 
         (written in Python) from R. 
         It supports arbitrary precision computations, linear algebra and 
@@ -324,9 +349,12 @@
     <pkg>appell</pkg>
     <pkg>BB</pkg>
     <pkg>Bessel</pkg>
+    <pkg>Brobdingnag</pkg>
     <pkg>combinat</pkg>
+    <pkg>conicfit</pkg>
     <pkg>contfrac</pkg>
     <pkg>cubature</pkg>
+    <pkg priority="core">Deriv</pkg>
     <pkg>eigeninv</pkg>
     <pkg>elliptic</pkg>
     <pkg>expm</pkg>
@@ -335,28 +363,34 @@
     <pkg>gaussquad</pkg>
     <pkg>geigen</pkg>
     <pkg>gmp</pkg>
-    <pkg priority="core">gsl</pkg>
+    <pkg>gsl</pkg>
     <pkg>hypergeo</pkg>
     <pkg>irlba</pkg>
     <pkg>ktsolve</pkg>
+    <pkg>lamW</pkg>
+    <pkg>madness</pkg>
     <pkg>magic</pkg>
     <pkg>MASS</pkg>
-    <pkg priority="core">Matrix</pkg>
     <pkg>matlab</pkg>
+    <pkg priority="core">Matrix</pkg>
+    <pkg>matrixcalc</pkg>
     <pkg>MonoPoly</pkg>
     <pkg>mpoly</pkg>
     <pkg>multipol</pkg>
+    <pkg>mvQuad</pkg>
     <pkg>nleqslv</pkg>
     <pkg>numbers</pkg>
     <pkg priority="core">numDeriv</pkg>
     <pkg>onion</pkg>
     <pkg>optR</pkg>
     <pkg>orthopolynom</pkg>
+    <pkg>Pade</pkg>
     <pkg>partitions</pkg>
+    <pkg>permutations</pkg>
     <pkg>polyCub</pkg>
     <pkg priority="core">polynom</pkg>
     <pkg>PolynomF</pkg>
-    <pkg>pracma</pkg>
+    <pkg priority="core">pracma</pkg>
     <pkg>QZ</pkg>
     <pkg>R.matlab</pkg>
     <pkg>R2Cuba</pkg>

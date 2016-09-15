@@ -7,7 +7,7 @@
   <topic>Robust Statistical Methods</topic>
   <!--  &amp; Resistant  ?? -->
   <maintainer email="Martin.Maechler@R-project.org">Martin Maechler</maintainer>
-  <version>2014-12-07</version>
+  <version>2016-08-29</version>
 
   <info>
     <p>
@@ -112,8 +112,8 @@
 	where package <pkg>robustloggamma</pkg> focuses on generalized log
 	gamma models.
 
-	Robust ordinal regression is provided by packages
-	<pkg>ror</pkg> (MCDA) and <pkg>rorutadis</pkg> (UTADIS).
+	Robust ordinal regression is provided by
+	<pkg>rorutadis</pkg> (UTADIS).
 
 	Robust Nonlinear model fitting is available through
 	<pkg>robustbase</pkg>'s <code>nlrob()</code>.
@@ -137,7 +137,8 @@
       It is extended by <pkg>rrcovNA</pkg>, providing robust multivariate
       methods for <em>for incomplete</em> or missing (<code>NA</code>) data, and by
       <pkg>rrcovHD</pkg>, providing robust multivariate methods for
-      <em>High Dimensional</em> data.
+      <em>High Dimensional</em> data.  High dimensional data with an
+      emphasis on functional data are treated robustly also by <pkg>roahd</pkg>.
 
       Here, <pkg>robustbase</pkg> contains a slightly more flexible
       version, <code>covMcd()</code> than <pkg>robust</pkg>'s
@@ -259,7 +260,7 @@
       </li>
 
       <li><i>Geostatistics</i>:
-      	Package <rforge>georob</rforge> aims at robust geostatistical
+      	Package <pkg>georob</pkg> aims at robust geostatistical
       	analysis of spatial data, such as kriging and more.
       </li>
 
@@ -357,12 +358,12 @@
     <pkg>robustgam</pkg>
     <pkg>robustloggamma</pkg>
     <pkg>robustreg</pkg>
-    <pkg>ror</pkg>
     <pkg>rorutadis</pkg>
     <pkg>TEEReg</pkg>
     <pkg>robustDA</pkg>
     <pkg>WRS2</pkg>
     <pkg>robeth</pkg>
+    <pkg>roahd</pkg>
   </packagelist>
 
   <links>

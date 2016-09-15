@@ -3,7 +3,7 @@
 <name>ClinicalTrials</name>
 <topic>Clinical Trial Design, Monitoring, and Analysis</topic>
 <maintainer email="Ed.Zhang.jr@gmail.com">Ed Zhang and Harry G. Zhang</maintainer>
-<version>2014-12-07</version>
+<version>2016-08-18</version>
 
 <info>
 
@@ -58,6 +58,7 @@ and a hypothesis about the distribution of future data.</li>
 <li><pkg>PwrGSD</pkg> is a set of tools to compute power in a group sequential
 design.</li>
 <li><pkg>qtlDesign</pkg>provides tools for the design of QTL experiments.</li>
+<li><pkg>samplesize</pkg> computes sample size for Student's t-test with equal and nonequal variances and for the Wilcoxon-Mann-Whitney test for categorical data with and without ties.</li>
 <li><pkg>seqmon</pkg> is computes the probability of crossing sequential
 efficacy and futility boundaries in a clinical trial. It implements the
 Armitage-McPherson and Rowe Algorithm using the method described in Schoenfeld
@@ -105,7 +106,8 @@ gives valid p-values and confidence intervals on p-values.</li>
 <li><pkg>speff2trial</pkg>, the package performs estimation and testing of the
 treatment effect in a 2-group randomized clinical trial with a quantitative or
 dichotomous endpoint.</li>
-<li><pkg>tdm</pkg> This package can be used to estimate individual pharmacokinetic parameters with one or more drug serum/plasma concentrations obtained from a single subject or multiple subjects using OpenBUGS (Bayesian inference Using Gibbs Sampling) interfaced through BRugs. Besides, it also can calculate a suggested dose with the target drug concentration (C ->D) or calculate a predicted drug concentration with a given dose (D -> C).</li>
+
+ <li><pkg>ThreeGroups</pkg> This package implements the Maximum Likelihood estimator for three-group designs proposed by Gerber, Green, Kaplan, and Kern (2010).</li>
 
 </ul>
 
@@ -136,11 +138,6 @@ correlation, censored, ordered and multivariate problems.</li>
 <li><pkg>epibasix</pkg> has functions such as <code>diffdetect</code>,
 <code>n4means</code> for continuous outcome and <code>n4props</code> and
 functions for matched pairs analysis in randomized trials.</li>
-
-<li><pkg>epicalc</pkg> provides a set of functions for sample size calculations,
-such as <code>n.for.2means</code>, <code>n.for.2p</code>,
-<code>n.for.equi.2p</code>, <code>n.for.noninferior.2p</code>,
-<code>n.for.cluster.2p</code>, etc.</li>
 
 <li><code>ae.dotplot</code> from <pkg>HH</pkg> shows a two-panel display
 of the most frequently occurring adverse events
@@ -210,7 +207,6 @@ association and heterogeneity.</li>
   <pkg priority="core">dfcrm</pkg>
   <pkg>DoseFinding</pkg>
   <pkg>epibasix</pkg>
-  <pkg>epicalc</pkg>
   <pkg priority="core">experiment</pkg>
   <pkg>FrF2</pkg>
   <pkg priority="core">GroupSeq</pkg>
@@ -233,12 +229,13 @@ association and heterogeneity.</li>
   <pkg priority="core">PwrGSD</pkg>
   <pkg priority="core">qtlDesign</pkg>
   <pkg>rmeta</pkg>
+  <pkg>samplesize</pkg>
   <pkg priority="core">seqmon</pkg>
   <pkg priority="core">speff2trial</pkg>
   <pkg>ssanv</pkg>
   <pkg priority="core">survival</pkg>
-  <pkg>tdm</pkg>
   <pkg priority="core">TEQR</pkg>
+  <pkg>ThreeGroups</pkg>
   <pkg priority="core">TrialSize</pkg>
 </packagelist>
 

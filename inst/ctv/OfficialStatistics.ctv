@@ -3,7 +3,7 @@
 <name>OfficialStatistics</name>
 <topic>Official Statistics &amp; Survey Methodology</topic>
 <maintainer email="matthias.templ@gmail.com">Matthias Templ</maintainer>
-<version>2014-12-18</version>
+<version>2016-06-28</version>
   
 <info> This CRAN task view contains a list of packages that includes
 methods typically used in official statistics and survey methodology.
@@ -84,10 +84,13 @@ or data from previous rounds of the same survey, may be used.
   or user-defined).
   </li>
   <li>
+Package <pkg>convey</pkg> extends package <pkg>survey</pkg> -- see the topic about indicators below.
+  </li>
+    <li>
   Package <pkg>laeken</pkg> provides functions to estimate certain Laeken 
   indicators (at-risk-of-poverty rate, quintile share ratio, relative median 
   risk-of-poverty gap, Gini coefficient) including their variance for domains 
-  and stratas based on bootstrap resampling. 
+  and stratas using a calibrated bootstrap. 
   </li>
   <li>
   Package <pkg>simFrame</pkg> allows to compare (user-defined) point and 
@@ -117,7 +120,7 @@ Package <pkg>vardpoor</pkg> allows to calculate linearisation of several nonline
   raking/calibration, GREG estimation and trimming of weights. 
   </li>
   <li>
-  The <code>calib()</code> function in Package <pkg>sampling</pkg> allows to 
+  The <code>calib()</code> function in package <pkg>sampling</pkg> allows to 
   calibrate for nonresponse (with response homogeneity groups) for stratified 
   samples.
   </li>
@@ -125,6 +128,12 @@ Package <pkg>vardpoor</pkg> allows to calculate linearisation of several nonline
   The <code>calibWeights()</code> function in package <pkg>laeken</pkg> is a 
   possible faster (depending on the example) implementation of parts of <code>calib()</code> from package 
   <pkg>sampling</pkg>. 
+  </li>
+  <li>
+  The <code>calibSample()</code> function in package <pkg>simPop</pkg> is potential faster than the previous two mentioned functions, and it provides more user-friendlyness. <code>calibVars()</code> can be used to construct a matrix of binary variables for calibration. <code>calibPop()</code> is used to calibrate population person within household data using a simulated annealing approach.
+  </li>
+  <li>
+  Package <pkg>icarus</pkg> focuses on calibration and reweighting in survey sampling and was designed to provide a familiar setting in R for user of the SAS macro <tt>Calmar</tt>.
   </li>
   <li>
   Package <pkg>reweight</pkg> allows for calibration of survey weights for 
@@ -311,9 +320,9 @@ re-identified and by guaranting a minimum amount of information loss.
   The package also comes with a graphical user interface.
   </li>
 <!--  <li>
-  Package <pkg>simPopulation</pkg> simulates synthetic, confidential, close-to-reality populations for 
+  Package <pkg>simPop</pkg> simulates synthetic, confidential, close-to-reality populations for 
   surveys based on sample data. Such population data can then be used for 
-  extensive simulation studies in official statistics, using <pkg>simFrame</pkg> for example.
+  extensive simulation studies in official statistics, using <pkg>simFrame</pkg> for example. See also for more details in the microsimulation section.
   </li> -->
   <li>
   Package <pkg>sdcTable</pkg>  can be used to provide confidential 
@@ -342,7 +351,7 @@ Less functionality but with the support of SEATS Spec is supported by package <p
   </li>
 </ul>
 
-<p><strong>Statistical Record Matching</strong></p>
+<p><strong>Statistical Matching and Record Linkage</strong></p>
 <ul>
   <li>
   Package <pkg>StatMatch</pkg> provides functions to perform statistical 
@@ -358,6 +367,9 @@ Less functionality but with the support of SEATS Spec is supported by package <p
   Package <pkg>MatchIt</pkg> allows nearest neighbor matching, exact matching, optimal matching and full matching amonst
   other matching methods. If two data sets have to be matched, the data must come as one data frame including a factor
   variable which includes information about the membership of each observation.
+  </li>
+  <li>
+  Package <pkg>stringdist</pkg> can calculate various string distances based on edits (damerau-levenshtein, hamming, levenshtein, optimal sting alignment), qgrams (q-gram, cosine, jaccard distance) or heuristic metrics (jaro, jaro-winkler). 
   </li>
 </ul>  
 
@@ -398,6 +410,9 @@ that is used to fit the basic random effects models.
   from continuous univariate distributions such as income variables.
   </li>
   <li>
+  Package <pkg>convey</pkg> estimates variances on indicators of income concentration and poverty using familiar linearized and replication-based designs created by the <pkg>survey</pkg> package such as the Gini coefficient, Atkinson index, at-risk-of-poverty threshold, and more than a dozen others.
+  </li>
+  <li>
   Package <pkg>ineq</pkg> computes various inequality measures (Gini, Theil,
   entropy, among others), concentration measures (Herfindahl, Rosenbluth), and poverty
   measures (Watts, Sen, SST, and Foster). It also computes and draws empirical and theoretical
@@ -425,12 +440,21 @@ support users in visualising their own data. Examples are given, e.g., maps for 
  
 <p><strong>Microsimulation</strong></p>
 <ul>
+<li>
+Using package <pkg>simPop</pkg> one can simulate populations from surveys based on auxiliary data with model-based methods or synthetic reconstruction methods. Hiercharical and cluster structures (such as households) can be considered as well as the methods takes account for samples collected based on complex sample designs. Calibration tools (iterative proportional fitting, iterative proportional updating) and combinatorial optimization tools (simulated annealing) are also available. The code is optimized for fast computations. The package based on a S4 class implementation. The simulated population can serve as basis data for microsimulation studies.
+</li>
   <li>
 The <pkg>MicSim</pkg> package includes methods for microsimulations. Given a initial population, mortality rates, divorce rates, marriage rates, eduction changes, etc. and their transition matrix can be defined and included for the simulation of future states of the population. The package does not contain compiled code but functionality to run the microsimulation in parallel is provided.
   </li>
   <li>
 Package <pkg>sms</pkg> provides facilities to simulate micro-data from given area-based macro-data. Simulated annealing is used to best satisfy the available description of an area. 
 For computational issues, the calculations can be run in parallel mode.
+  </li>
+  <li>
+Package <pkg>synthpop</pkg> using regression tree methods to simulate synthetic data from given data. It is suitable to produce synthetic data when the data have no hierarchical and cluster information (such as households) as well as when the data does not collected with a complex sampling design.
+  </li>
+  <li>
+Package <pkg>saeSim</pkg> Tools for the simulation of data in the context of small area estimation. 
   </li>
 </ul>
   
@@ -479,7 +503,7 @@ Function <code>describe()</code> from package <pkg>questionr</pkg> describes the
     <li>
   The main contributions of
  <pkg>samplingVarEst</pkg> are Jackknife alternatives for variance estimation
- of unequal probability one or two stage designs. 
+ of unequal probability with one or two stage designs. 
   </li>
   <li>
   Package <pkg>TeachingSampling</pkg> includes functionality for sampling 
@@ -505,6 +529,9 @@ Function <code>describe()</code> from package <pkg>questionr</pkg> describes the
   based on a two-stage design. Inclusion probabilities are not considered in the estimation. 
   The package provides a graphical user interface as well. 
   </li>
+  <li>
+  <pkg>mipfp</pkg> provides multidimensional iterative proportional fitting to calibrate n-dimensional arrays given target marginal tables.
+  </li>
 </ul>  
   
 
@@ -515,6 +542,7 @@ Function <code>describe()</code> from package <pkg>questionr</pkg> describes the
   <pkg>Amelia</pkg>
   <pkg>cat</pkg>
   <pkg>CoImp</pkg>
+  <pkg>convey</pkg>
   <pkg>deducorrect</pkg>
   <pkg>editrules</pkg>
   <pkg>FFD</pkg>
@@ -522,6 +550,7 @@ Function <code>describe()</code> from package <pkg>questionr</pkg> describes the
   <pkg>hbsae</pkg>
   <pkg>Hmisc</pkg>
   <pkg>IC2</pkg>
+  <pkg>icarus</pkg>
   <pkg>ineq</pkg>
   <pkg>JoSAE</pkg>
   <pkg>laeken</pkg>
@@ -535,6 +564,7 @@ Function <code>describe()</code> from package <pkg>questionr</pkg> describes the
   <pkg>micEcon</pkg>
   <pkg>MicSim</pkg>
   <pkg>MImix</pkg>
+  <pkg>mipfp</pkg>
   <pkg>missMDA</pkg>
   <pkg>mitools</pkg>
   <pkg>mix</pkg>
@@ -552,6 +582,7 @@ Function <code>describe()</code> from package <pkg>questionr</pkg> describes the
   <pkg>robCompositions</pkg>
   <pkg>rrcovNA</pkg>
   <pkg>rsae</pkg>
+  <pkg>saeSim</pkg>
   <pkg>sampling</pkg>
   <pkg>samplingbook</pkg>
   <pkg>SamplingStrata</pkg>
@@ -563,11 +594,14 @@ Function <code>describe()</code> from package <pkg>questionr</pkg> describes the
   <pkg>seasonal</pkg>
   <pkg>SeleMix</pkg>
   <pkg>simFrame</pkg>
+  <pkg>simPop</pkg>
   <pkg>sms</pkg>
   <pkg>spsurvey</pkg>
   <pkg>StatMatch</pkg>
   <pkg>stratification</pkg>
+  <pkg>stringdist</pkg>
   <pkg priority="core">survey</pkg>
+  <pkg>synthpop</pkg>
   <pkg>tabplot</pkg>
   <pkg>TeachingSampling</pkg>
   <pkg>tmap</pkg>

@@ -3,7 +3,7 @@
 <name>ChemPhys</name>
 <topic>Chemometrics and Computational Physics</topic>
 <maintainer email="katharine.mullen@stat.ucla.edu">Katharine Mullen</maintainer>
-<version>2014-12-22</version>
+<version>2016-08-24</version>
 
 <info>
 
@@ -43,13 +43,13 @@ package <pkg>chemometrics</pkg>.
 A special issue of R News with a focus on 
 <a href="http://CRAN.R-project.org/doc/Rnews/Rnews_2006-3.pdf">R in Chemistry</a> 
 was published in August 2006. A special volume of Journal of Statistical Software (JSS) dedicated to 
-<a href="http://www.jstatsoft.org/v18/">Spectroscopy and Chemometrics in R</a>
+<a href="http://www.jstatsoft.org/v18/">oscopy and Chemometrics in R</a>
 was published in January 2007.   
 </p>
 
 
 <p>
-<a href="mailto:katharine.mullen@stat.ucla.edu">Please let us know</a> if 
+<a href="mailto:katharine.mullen@stat.ucla.edu">Please let us know</a>if 
 we have omitted something of importance, or if a new package or function
 should be mentioned here.
 </p>
@@ -123,6 +123,11 @@ many injections, with features for peak alignment and identification.  </li>
     <li> Package <pkg>plspm</pkg> contains, in addition to the 
     usual functions for PLS regression, also functions for 
     path modeling.</li>
+    <li> The package <pkg>enpls</pkg> implements ensemble partial
+    least squares, a 
+    framework for measuring feature importance, outlier detection,
+    and ensemble modeling based on (sparse) partial least squares
+    regressions.</li>
 </ul>
 
 <p>
@@ -150,6 +155,18 @@ many injections, with features for peak alignment and identification.  </li>
     <li>Factor analysis (FA) is in the package stats as functions
     <code>factanal()</code>; see <view>Psychometrics</view>
     task view for details on extensions.</li>
+</ul>
+
+<p>
+<strong>Compositional Data Analysis</strong>
+</p>
+<ul>
+    <li>  The package <pkg>compositions</pkg> 
+ provides functions for the consistent analysis of compositional data (e.g. portions of substances) and positive numbers (e.g. concentrations).
+See also the book,  <i>Analyzing Compositional Data with
+R</i> by K. Gerald von den Boogaart und Raimon Tolosana-Delgado, 
+ISBN: 978-3-642-36808-0, Springer, 2013.
+    </li>
 </ul>
 
 <p>
@@ -199,6 +216,8 @@ implements two meta-methods for variable selection: stability selection (applyin
   <li>The <pkg>kohonen</pkg> package implements self-organizing maps as well as 
   some extensions for supervised pattern recognition and data fusion.
   The <pkg>som</pkg> package provides functions for self-organizing maps.</li>
+  <li>The package <pkg>wccsom</pkg> provides SOM networks for comparing 
+  patterns with peak shifts.</li>
 </ul>
 
 <p>
@@ -280,6 +299,21 @@ for analyzing bioactivity data, and <bioc>ChemmineOB</bioc>
 for accessing <a href="http://openbabel.org/wiki/Main_Page">OpenBabel</a>
 functionalities from R.
  </li>
+ <li>
+The <pkg>webchem</pkg> package allows users to retreive chemical information
+from various sources on the web and to interact with various APIs. Sources
+include:
+<a href="http://cactus.nci.nih.gov/chemical/structure">Chemical Identifier Resolver</a>,
+<a href="http://www.chemspider.com/">ChemSpider</a>,
+<a href="https://pubchem.ncbi.nlm.nih.gov/">PubChem</a>,
+<a href="http://cts.fiehnlab.ucdavis.edu/">Chemical Translation Service</a>,
+<a href="http://www.pesticideinfo.org/">PAN Pesticide Database</a>,
+<a href="http://www.alanwood.net/pesticides/">Alan Wood's Compendium of Pesticide Common Names</a>,
+<a href="http://www.srcinc.com/what-we-do/environmental/scientific-databases.html">PHYSPROP Database</a>,
+<a href="http://webetox.uba.de/webETOX/index.do">ETOX</a>,
+<a href="http://sitem.herts.ac.uk/aeru/iupac/search.htm">PPDB</a>, and 
+<a href="http://chem.sis.nlm.nih.gov/chemidplus/">ChemIDplus</a>.
+</li>
 </ul>
 
 <p>
@@ -297,8 +331,12 @@ analysis of Raman, IR, NIR, UV/VIS, NMR, etc., spectroscopic data sets.
    	   functions for plotting spectra (NMR, IR, etc) and 
 	   carrying top-down exploratory data analysis, such as HCA, PCA 
            and model-based clustering. </li>
+<li>The  <a href="https://github.com/Chathurga/HyperChemoBridge">
+GitHub package: HyperChemoBridge</a> interconverts <pkg>ChemoSpec</pkg>  and 
+<pkg>hyperSpec</pkg> objects</li>
   <li>The <pkg>Peaks</pkg> package implements functions for spectrum
   manipulation, ported from the ROOT/TSpectrum class.</li>
+  <li> The <pkg>speaq</pkg> package implements the hierarchical Cluster-based Peak Alignment (CluPA) and may be used for aligning NMR spectra. </li>
   <li>Software for the book by Donald B. Percival and Andrew T. Walden,
   <i>Spectral Analysis for Physical Applications,</i> ISBN 978-0-521-43541-3, 
   Cambridge University Press, 1993, is found in the package 
@@ -310,10 +348,6 @@ analysis of Raman, IR, NIR, UV/VIS, NMR, etc., spectroscopic data sets.
    <li>The package <pkg>prospectr</pkg> 
       provides functions for pretreatment and sample selection of visible and near infrared diffuse reflectance spectra. </li>
 <li>The <pkg>resemble</pkg> includes functions for spectral dissimilarity analysis and memory-based learning (a.k.a. local modeling) for non-linear modeling in spectral datasets.</li>
-  <li>Also note that the <rforge>photonics</rforge> project on 
-  <a href="http://R-Forge.R-project.org/">R-Forge</a> 
-  collects various packages related to spectroscopy and optics; however, 
-  these packages are not yet available on CRAN.</li>
 </ul>
 
 <p>
@@ -376,6 +410,14 @@ settings, among other features.
 </ul>
 
 <p>
+<strong>Fluorescence Excitation-Emission Matrix (EEM) </strong>
+</p>
+<ul>
+    <li>The <pkg>EEM</pkg> reads raw EEM
+    data and prepares it for further analysis.</li>
+</ul>
+
+<p>
 <strong>Carbon Dating</strong>
 </p>
 <ul>
@@ -389,22 +431,32 @@ settings, among other features.
 <ul>
   <li>The <pkg>diffractometry</pkg> package provides 
   baseline identification and peak decomposition for x-ray
-  diffractograms.</li>
+  diffractograms. Cross-correlation based comparison of diffractograms
+  is provided in package <pkg>wccsom</pkg>.</li>
 </ul>
 
 <p>
 <strong>Astronomy and astrophysics</strong>
 </p>
 <ul>
+ <li>The <pkg>astrodatR</pkg> package collects 19 datasets from 
+contemporary astronomy research, many of which are described in the aforementioned textbook ‘Modern Statistical Methods for Astronomy with R Applications’. </li>
+<li>The <pkg>astrolibR</pkg> package presents an R interface to low-level utilities and codes from the
+<a href="http://idlastro.gsfc.nasa.gov">Interactive Data Language (IDL) Astronomy Users Library</a>. </li>
+<li> The <pkg>CosmoPhotoz</pkg> package performs 
+photometric redshift estimation using generalized linear models.</li>
+<li>tThe <pkg>CRAC</pkg> collects R functions for cosmological research, with
+its main functions being similar to the python library, cosmolopy.  </li>
+<li>The <pkg>RobPer</pkg> package calculates periodograms based on (robustly) fitting periodic functions to light curves. </li>
+<li>The package <pkg>snapshot</pkg> contains functions for reading and writing N-body snapshots from the GADGET code for cosmological N-body/SPH simulations.
+</li>
+<li>The package <pkg>UPMASK</pkg> performs unsupervised photometric membership assignment in stellar clusters using, e.g., photometry and spatial 
+positions. </li>
   <li>The <pkg>moonsun</pkg> package provides 
   functions for basic astronomical calculations.</li>
  <li>The <pkg>solaR</pkg> package provides functions to determine the movement of the sun from
 the earth and to determine incident solar radiation.  </li>
  <li>The <pkg>FITSio</pkg> package provides utilities to read and write files in the FITS (Flexible Image Transport System) format, a standard format in astronomy.   </li>
- <li>The <pkg>ringscale</pkg> package implements a method for detection of faint
-companions around young stars in speckle patterns of
-VLT/NACO cube mode images.
-    </li>
  <li>The <pkg>stellaR</pkg> package manages and displays stellar tracks and isochrones from the Pisa low-mass database.
     </li>
 <li>The <pkg>astroFns</pkg> provides miscellaneous astronomy functions, utilities, and data.
@@ -423,7 +475,7 @@ is used to
 estimate stellar mass and radius given observational data of effective 
 temperature, [Fe/H], and astroseismic parameters.
 </li>
-<li>  The <a href="https://asaip.psu.edu/forums/software-forum">Astrostatistics and Astroinformatics Portal Software Forum</a> is an R-centric forum for issues concerning software for statistical analysis in astronomy.
+<li>  The <a href="https://asaip.psu.edu/forums/software-forum">Astrostatistics and Astroinformatics Portal Software Forum</a> is an R-centric collection of information and discussion regarding software for statistical analysis in astronomy. 
 </li> 
 </ul>
 
@@ -469,6 +521,17 @@ photovoltaics. </li>
    packages related to water and soil chemistry.</li>
 </ul>
 
+
+<p>
+<strong>Titration Curves</strong>
+</p>
+<ul>
+    <li> The <pkg>titrationCurves</pkg> package provides functions to plot
+    acid/base, complexation, redox, and precipitation titration curves.</li>
+</ul>
+
+
+
 </info>
 
 <packagelist>
@@ -476,6 +539,8 @@ photovoltaics. </li>
   <pkg>AnalyzeFMRI</pkg>
   <pkg>AquaEnv</pkg>
   <pkg>astro</pkg>	
+  <pkg>astrodatR</pkg>
+  <pkg>astrolibR</pkg>
   <pkg>astroFns</pkg>
   <pkg>Bchron</pkg>   
   <pkg>BioMark</pkg>		 
@@ -491,11 +556,16 @@ photovoltaics. </li>
   <pkg>ChemometricsWithRData</pkg>
   <pkg>ChemoSpec</pkg>
   <pkg>clustvarsel</pkg>
+  <pkg>compositions</pkg>
+  <pkg>CosmoPhotoz</pkg>
+  <pkg>CRAC</pkg>
   <pkg>dielectric</pkg>
   <pkg>diffractometry</pkg>
   <pkg>drc</pkg>
   <pkg>drm</pkg>
+  <pkg>EEM</pkg>
   <pkg>elasticnet</pkg>
+  <pkg>enpls</pkg>
   <pkg>fastICA</pkg>    
   <pkg>fmri</pkg>
   <pkg>fpca</pkg>
@@ -530,20 +600,26 @@ photovoltaics. </li>
   <pkg>rcdklibs</pkg>
   <pkg>represent</pkg> 
   <pkg>resemble</pkg> 
+  <pkg>RobPer</pkg>
   <pkg>rpubchem</pkg>
-  <pkg>ringscale</pkg>
   <pkg>sapa</pkg>
   <pkg>simecol</pkg>
   <pkg>SCEPtER</pkg> 
   <pkg>solaR</pkg>		
   <pkg>som</pkg>
+  <pkg>snapshot</pkg> 
+  <pkg>speaq</pkg>
   <pkg>spls</pkg>
   <pkg>stellaR</pkg>
   <pkg>stepPlr</pkg>
   <pkg>subselect</pkg>
+  <pkg>titrationCurves</pkg>
   <pkg>TIMP</pkg>
+  <pkg>UPMASK</pkg>
   <pkg>titan</pkg>
   <pkg>varSelRF</pkg>
+  <pkg>webchem</pkg>
+  <pkg>wccsom</pkg>
   <pkg>WilcoxCV</pkg>
 </packagelist>
 
@@ -553,9 +629,6 @@ photovoltaics. </li>
     <view>Cluster</view>
     <view>Multivariate</view>
     <view>Environmetrics</view>
-    <a href="http://CRAN.R-project.org/doc/Rnews/Rnews_2006-3.pdf">R News: R in Chemistry</a> 
-    <a href="http://www.jstatsoft.org/v18/">Journal of Statistical Software: Spectroscopy and Chemometrics in R</a>
-    <rforge>photonics</rforge>
     <bioc>alsace</bioc>
     <bioc>bioassayR</bioc>
     <bioc>ChemmineOB</bioc>
@@ -567,14 +640,27 @@ photovoltaics. </li>
     <bioc>metaMS</bioc>
     <bioc>MSnbase</bioc>
     <bioc>PROcess</bioc>
-    <bioc>xcms</bioc>	
+    <bioc>xcms</bioc>
+    <a href="http://CRAN.R-project.org/doc/Rnews/Rnews_2006-3.pdf">R News: R in Chemistry</a> 
+    <a href="http://www.jstatsoft.org/v18/">Journal of Statistical Software: Spectroscopy and Chemometrics in R</a>
     <a href="http://web1.sph.emory.edu/apLCMS/">apLCMS</a>
+    <a href="http://idlastro.gsfc.nasa.gov">Interactive Data Language (IDL) Astronomy Users Library</a>
     <a href="https://asaip.psu.edu/forums/software-forum">Astrostatistics and Astroinformatics Portal Software Forum</a>
     <a href="http://sourceforge.net/projects/cdk/">Chemistry Development Kit (CDK)</a>
     <a href="http://sourceforge.net/projects/msprep/">MSPrep</a>  
     <a href="http://openbabel.org/wiki/Main_Page">OpenBabel</a>
     <a href="http://pubchem.ncbi.nlm.nih.gov/">PubChem</a>
     <a href="http://sourceforge.net/projects/xmsanalyzer/">xMSanalyzer</a>  
+    <a href="https://github.com/Chathurga/HyperChemoBridge">GitHub package: HyperChemoBridge</a>    
+    <a href="http://cactus.nci.nih.gov/chemical/structure">Chemical Identifier Resolver</a>
+    <a href="http://www.chemspider.com/">ChemSpider</a>
+    <a href="http://cts.fiehnlab.ucdavis.edu/">Chemical Translation Service</a>
+    <a href="http://www.pesticideinfo.org/">PAN Pesticide Database</a>
+    <a href="http://www.alanwood.net/pesticides/">Alan Wood's Compendium of Pesticide Common Names</a>
+    <a href="http://www.srcinc.com/what-we-do/environmental/scientific-databases.html">PHYSPROP Database</a>
+    <a href="http://webetox.uba.de/webETOX/index.do">ETOX</a>
+    <a href="http://sitem.herts.ac.uk/aeru/iupac/search.htm">PPDB</a>
+    <a href="http://chem.sis.nlm.nih.gov/chemidplus/">ChemIDplus</a>.
 </links>  
 
 </CRANTaskView>
