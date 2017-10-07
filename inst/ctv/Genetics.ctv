@@ -3,7 +3,7 @@
   <name>Genetics</name>
   <topic>Statistical Genetics</topic>
   <maintainer email="g.montana@imperial.ac.uk">Giovanni Montana</maintainer>
-  <version>2015-05-29</version>
+  <version>2017-04-25</version>
   <info>
       <p>
         Great advances have been made in the field of genetic analysis over the last years. The availability of millions
@@ -25,13 +25,10 @@
           implements classes and methods for representing genotype and haplotype data, and has several
           functions for population genetic analysis (e.g. functions for estimation and testing of 
           Hardy-Weinberg and linkage disequilibria, etc.).
-<pkg>Geneland</pkg>
-          has functions for detecting spatial structures from genetic data
-          within a Bayesian framework via MCMC estimation.
 <pkg>rmetasim</pkg>
           provides an interface to the metasim engine
       for population genetics simulations.
-          A few population genetics functions are also implemeted in
+          A few population genetics functions are also implemented in
 <pkg>gap</pkg>.
 <pkg>LDheatmap</pkg>
           creates a heat map plot of measures of pairwise LD.
@@ -78,11 +75,8 @@ The <pkg>hierfstat</pkg> package allows the estimation of hierarchical F-statist
 <pkg>ibdreg</pkg>
           uses Identity By Descent (IBD) Non-Parametric Linkage (NPL) statistics for related pairs calculated
           externally to test for genetic linkage with covariates by regression modelling. 
-<pkg>multic</pkg>
-          also utilises IBD sharing statistics calculated externally for detecting quantitative trait loci
-          under polygenic and major gene models via variance components. Whilst not 
-          official R packages one software suite in particular is worthy of mention.
-<a href="http://pngu.mgh.harvard.edu/~purcell/plink/">
+Whilst not official R packages one software suite in particular is worthy of mention.
+<a href="http://zzz.bwh.harvard.edu/plink/">
   PLINK
 </a>
           is a C++ program for genome wide linkage analysis that supports R-based plug-ins via Rserve allowing
@@ -135,8 +129,8 @@ The <pkg>hierfstat</pkg> package allows the estimation of hierarchical F-statist
           <i>
             Linkage Disequilibrium and haplotype mapping
           </i>:
-          A number of packages provide haplotype estimation for unrelated individuals with amnbiguous haplotypes 
-          (due to unkown linkage phase) and allow testing for associations between the estimated haplotypes and
+          A number of packages provide haplotype estimation for unrelated individuals with ambiguous haplotypes 
+          (due to unknown linkage phase) and allow testing for associations between the estimated haplotypes and
           phenotypes (including co-variates) under a GLM framework.
 <pkg>hapassoc</pkg>
           performs likelihood inference of trait associations with haplotypes in GLMs.
@@ -160,7 +154,7 @@ The <pkg>hierfstat</pkg> package allows the estimation of hierarchical F-statist
           Genome-Wide Association Studies is now a feasible strategy.  A number of packages are available to facilitate
           the analysis of these large data sets.
 <pkg>GenABEL</pkg> 
-          is designed for the efficent storage and handling of GWAS data with fast analysis tools for quality control,
+          is designed for the efficient storage and handling of GWAS data with fast analysis tools for quality control,
           association with binary and quantitative traits, as well as tools for visualizing results.
 <pkg>pbatR</pkg>
           provides a GUI to the powerful PBAT software which performs family and population based family and 
@@ -214,7 +208,6 @@ The <pkg>hierfstat</pkg> package allows the estimation of hierarchical F-statist
     <pkg>dlmap</pkg>
     <pkg priority="core">gap</pkg>
     <pkg>GenABEL</pkg>
-    <pkg>Geneland</pkg>
     <pkg priority="core">genetics</pkg>
     <pkg>hapassoc</pkg>
     <pkg>haplo.ccs</pkg>
@@ -225,7 +218,6 @@ The <pkg>hierfstat</pkg> package allows the estimation of hierarchical F-statist
     <pkg>ibdreg</pkg>
     <pkg>LDheatmap</pkg>
     <pkg>luca</pkg>
-    <pkg>multic</pkg>
     <pkg>ouch</pkg>
     <pkg>pbatR</pkg>
     <pkg>phangorn</pkg>
@@ -251,15 +243,9 @@ The <pkg>hierfstat</pkg> package allows the estimation of hierarchical F-statist
     <a href="http://www.mayo.edu/research/departments-divisions/department-health-sciences-research/division-biomedical-statistics-informatics/software/s-plus-r-functions">
      R packages from Divison of Biostatistics, Mayo Clinic
     </a> 
-    <a href="http://watson.hgen.pitt.edu/register/">
+    <a href="https://watson.hgen.pitt.edu/register/">
       QTL-ALL :  provides interfaces between Merlin and/or Simwalk2 and plotting of results in R.
     </a> 
-    <a href="http://legacy.mrc-epid.cam.ac.uk/~jinghua.zhao/software.htm">
-      Computer programs by Jing Hua Zhao (some are included in the gap package)
-    </a>
-    <a href="http://www-gene.cimr.cam.ac.uk/clayton/software/">
-      R Software by David Clayton
-    </a>
     <a href="http://www.qimr.edu.au/davidD/#R">
       R Software by David Duffy
     </a>
@@ -281,13 +267,13 @@ The <pkg>hierfstat</pkg> package allows the estimation of hierarchical F-statist
     <a href="http://www.stat.auckland.ac.nz/~yee/VGAM/">
       Vector Generalized Linear and Additive Models (VGLMs/VGAMs)
     </a>
-    <a href="http://pbil.univ-lyon1.fr/software/mareymap/">
+    <a href="http://lbbe-shiny.univ-lyon1.fr/MareyMapOnline/">
       MareyMap GUI for comparing physical and genetic maps.
     </a>
     <a href="http://csg.sph.umich.edu/boehnke/p_act.php">
       p_ACT adjustments for multiple testing
     </a> 
-    <a href="http://watson.hgen.pitt.edu/register">
+    <a href="https://watson.hgen.pitt.edu/register">
       SNPCaller family-based genotype calling methods.
     </a>
   </links>

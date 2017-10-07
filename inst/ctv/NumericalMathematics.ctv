@@ -5,7 +5,7 @@
   <name>NumericalMathematics</name>
   <topic>Numerical Mathematics</topic>
   <maintainer email="hwb@mailbox.org">Hans W. Borchers</maintainer>
-  <version>2016-02-09</version>
+  <version>2017-07-07</version>
   
   <info>
 
@@ -52,6 +52,9 @@
     <li><pkg>SparseM</pkg> provides classes and methods for sparse matrices 
         and for solving linear and least-squares problems in sparse linear 
         algebra</li>
+    <li>Package <pkg>rmumps</pkg> provides a wrapper for the MUMPS library,
+        solving large linear systems of equations applying a parallel sparse
+        direct solver</li>
     <li><pkg>svd</pkg> provides R bindings to state-of-the-art implementations 
         of singular value decomposition (SVD) and eigenvalue/eigenvector 
         computations. Package <pkg>ssvd</pkg> will obtain sparse SVDs using an 
@@ -65,6 +68,8 @@
     <li>Package <pkg>rARPACK</pkg>, a wrapper for the ARPACK library, is 
         typically used to compute only a few eigenvalues/vectors, e.g., a 
         small number of largest eigenvalues.</li>
+    <li>Package <pkg>RSpectra</pkg> interfaces the 'Spectra' library for
+        large-scale eigenvalue decomposition and SVD problems.</li>
     <li><pkg>optR</pkg> uses elementary methods of linear algebra (Gauss, LU, 
         CGM, Cholesky) to solve linear systems.</li>
     <li><pkg>matrixcalc</pkg> contains a collection of functions for matrix 
@@ -99,7 +104,7 @@
     <li>Package <pkg>pracma</pkg> includes special functions, such as 
         error functions and inverses, incomplete and complex gamma function, 
         exponential and logarithmic integrals, Fresnel integrals, the 
-        polygamma and the Riemann zeta function.</li>
+        polygamma and the Dirichlet and Riemann zeta functions.</li>
     <li><pkg>appell</pkg> computes Gauss' 2F1 and Appell's F1 hypergeometric 
         functions for complex parameters and arguments quite accurately.</li>
     <li>The hypergeometric (and generalized hypergeometric) function, is 
@@ -109,6 +114,13 @@
         <pkg>elliptic</pkg>, including the Weierstrass P function and 
         Jacobi's theta functions.
         There are tools for visualizing complex functions.</li>
+    <li>Package <pkg>expint</pkg> wraps C-functions from the GNU Scientific 
+        Library to calculate exponential integrals and the incomplete Gamma 
+        function, including negative values for its first argument.</li>
+    <li><pkg>fourierin</pkg> computes Fourier integrals of functions of one 
+        and two variables using the Fast Fourier Transform.</li>
+    <li><pkg>logOfGamma</pkg> uses approximations to compute the natural 
+        logarithms of the Gamma function for large values.</li>
     <li>Package <pkg>lamW</pkg> implements both real-valued branches of the 
         Lambert W function (using Rcpp).</li>
     </ul>
@@ -232,10 +244,23 @@
         and interpolation and approximation of data with rational functions, 
         i.e. in the presence of singularities, in <code>ratinterp()</code> and 
         <code>rationalfit()</code>.</li>
+	<li>The <pkg>interp</pkg> package provides bivariate data interpolation 
+        on regular and irregular grids, either linear or using splines. 
+		Currently the piecewise linear interpolation part is implemented.
+		(It is intended to provide a free replacement for the ACM licensed 
+		<code>akima::interp</code> and <code>tripack::tri.mesh</code> 
+		functions.)</li>
+	<li><pkg>tripack</pkg> for triangulation of irregularly spaced data is a 
+	    constrained two-dimensional Delaunay triangulation package providing 
+		both triangulation and generation of Voronoi mosaics of irregular 
+		spaced data.</li>
     <li><code>sinterp()</code> in package <pkg>stinepack</pkg> realizes 
         interpolation based on piecewise rational functions by applying 
-        Stineman's algorithm. The interpolating function will be monoton in 
+        Stineman's algorithm. The interpolating function will be monotone in 
         regions where the specified points change monotonically.</li>
+    <li><code>Schumaker()</code> in package <pkg>schumaker</pkg> implements
+        shape-preserving splines, guaranteed to be monotonic resp. concave
+        or convex if the data is monotonic, concave, or convex.</li>
     <li>Package <pkg>conicfit</pkg> provides several (geometric and algebraic) 
         algorithms for fitting circles, ellipses, and conics in general.</li>
     </ul>
@@ -312,7 +337,7 @@
         in calculus and linear algebra.</li>
     </ul>
 
-    <h4>MATLAB, Octave, and Python Interfaces</h4>
+    <h4>MATLAB, Octave, Julia, and Python Interfaces</h4>
 
     <p>Interfaces to numerical computation software such as MATLAB 
     (commercial) or Octave (free) will be important when solving difficult 
@@ -322,27 +347,63 @@
     <ul>
     <li>The <pkg>matlab</pkg> emulation package contains about 30 simple 
         functions, replicating MATLAB functions, using the respective MATLAB 
-        names and being implemented in pure R.</li>
+        names and being implemented in pure R.
+    </li>
     <li>Package <pkg>R.matlab</pkg> provides tools to read and write MAT 
         files, which is the MATLAB data format. It also enables a 
         one-directional interface with a MATLAB process, sending and 
-        retrieving objects through a TCP/IP connection.</li>
+        retrieving objects through a TCP/IP connection.
+    </li>
     <li>Package <pkg>RcppOctave</pkg> provides an interface to Octave (a 
         MATLAB clone). It enables calling Octave functions, passing variables 
-        between R and Octave, and browsing Octave documentation.</li>
-    <li>Python, through its modules 'NumPy', 'SciPy', 'Matplotlib', 'SymPy', 
-    	and 'pandas', has elaborate and efficient numerical and graphical 
-    	tools available. R package <pkg>rPython</pkg> permits calls from R to 
-    	Python, while <a href="http://sourceforge.net/projects/rpy/">RPy</a> 
-    	(with Python module 'rpy2') interfaces R from Python.</li>
+        between R and Octave, and browsing Octave documentation.
+    </li>
+    </ul>
+
+    <p>Python, through its modules 'NumPy', 'SciPy', 'Matplotlib', 'SymPy', 
+    and 'pandas', has elaborate and efficient numerical and graphical tools 
+    available. And Julia is "a high-level, high-performance dynamic 
+    programming language for numerical computing", which makes it interesting 
+    for optimization problems and demanding scientific computations in R.</p>
+
+    <ul>
+    <li><pkg>reticulate</pkg> is an R interface to Python modules, classes, 
+        and functions. When calling Python in R data types are automatically 
+        converted to their equivalent Python types; when values are returned 
+        from Python to R they are converted back to R types. This package from 
+        the RStudio team is a kind of standard for calling Python from R.
+    </li>
+    <li>R package <pkg>rPython</pkg> permits calls from R to Python, while 
+        <a href="http://sourceforge.net/projects/rpy/">RPy</a> (with Python 
+        module 'rpy2') interfaces R from Python. <pkg>SnakeCharmR</pkg> is a 
+        fork of 'rPython' with several fixes and improvements.
+    </li>
+    <li><pkg>PythonInR</pkg> is another package to interact with Python from 
+        within R. It provides Python classes for vectors, matrices and 
+        data.frames which allow an easy conversion from R to Python and back.
+    </li>
+    <li><pkg>feather</pkg> provides bindings to read and write feather files, 
+        a lightweight binary data store designed for maximum speed.
+        This storage format can also be accessed in Python, Julia, or Scala.
+    </li>
+    <li><pkg>findpython</pkg> is a package designed to find an acceptable
+        Python binary in the path, incl. minimum version or required modules.
+    </li>
     <li>'pyRserve' is a Python module for connecting Python to an R process 
         running <pkg>Rserve</pkg> as an RPC gateway. This R process can run on 
         a remote machine, variable access and function calls will be delegated 
-        through the network.</li>
+        through the network.
+    </li>
+    <li><pkg>XRPython</pkg> and <pkg>XRJulia</pkg> are based on John Chambers' 
+        <pkg>XR</pkg> package and allow for structured integration of R with 
+        Python resp. Julia. Especially the Julia interface is interesting and 
+        provides direct analogues to Julia function calls. A 'juliaExamples' 
+        package is available on Github.
+    </li>
     </ul>
         
   </info>
-  
+
   <packagelist>
 
     <pkg>akima</pkg>
@@ -357,17 +418,23 @@
     <pkg priority="core">Deriv</pkg>
     <pkg>eigeninv</pkg>
     <pkg>elliptic</pkg>
+    <pkg>expint</pkg>
     <pkg>expm</pkg>
     <pkg>fastGHQuad</pkg>
+    <pkg>feather</pkg>
     <pkg>features</pkg>
+    <pkg>findpython</pkg>
+    <pkg>fourierin</pkg>
     <pkg>gaussquad</pkg>
     <pkg>geigen</pkg>
     <pkg>gmp</pkg>
     <pkg>gsl</pkg>
     <pkg>hypergeo</pkg>
+    <pkg>interp</pkg>
     <pkg>irlba</pkg>
     <pkg>ktsolve</pkg>
     <pkg>lamW</pkg>
+    <pkg>logOfGamma</pkg>
     <pkg>madness</pkg>
     <pkg>magic</pkg>
     <pkg>MASS</pkg>
@@ -377,6 +444,7 @@
     <pkg>MonoPoly</pkg>
     <pkg>mpoly</pkg>
     <pkg>multipol</pkg>
+    <pkg>rmumps</pkg>
     <pkg>mvQuad</pkg>
     <pkg>nleqslv</pkg>
     <pkg>numbers</pkg>
@@ -391,6 +459,7 @@
     <pkg priority="core">polynom</pkg>
     <pkg>PolynomF</pkg>
     <pkg priority="core">pracma</pkg>
+    <pkg>PythonInR</pkg>
     <pkg>QZ</pkg>
     <pkg>R.matlab</pkg>
     <pkg>R2Cuba</pkg>
@@ -399,14 +468,18 @@
     <pkg>RcppArmadillo</pkg>
     <pkg>RcppEigen</pkg>
     <pkg>RcppOctave</pkg>
+    <pkg>reticulate</pkg>
     <pkg>Rmpfr</pkg>
     <pkg>RootsExtremaInflections</pkg>
     <pkg>rPython</pkg>
     <pkg>Rserve</pkg>
+    <pkg>RSpectra</pkg>
     <pkg>rSymPy</pkg>
     <pkg>Ryacas</pkg>
+    <pkg>schumaker</pkg>
     <pkg>signal</pkg>
     <pkg>SimplicialCubature</pkg>
+    <pkg>SnakeCharmR</pkg>
     <pkg>SparseGrid</pkg>
     <pkg>SparseM</pkg>
     <pkg>SphericalCubature</pkg>
@@ -414,6 +487,10 @@
     <pkg>stinepack</pkg>
     <pkg>ssvd</pkg>
     <pkg>svd</pkg>
+    <pkg>tripack</pkg>
+    <pkg>XR</pkg>
+    <pkg>XRJulia</pkg>
+    <pkg>XRPython</pkg>
 
   </packagelist>
   
@@ -427,12 +504,18 @@
     <a href="http://www.worldscientific.com/worldscibooks/10.1142/7814">
         Hands-On Matrix Algebra Using R</a></span>
     <span>Textbook: 
-    <a href="http://www.ms.unimelb.edu.au/spuRs/">Introduction 
-        to Scientific Programming and Simulation Using R</a></span>
+    <a href="http://www.ms.unimelb.edu.au/~apro@unimelb/spuRs/index.html">
+        Introduction to Scientific Programming and Simulation Using R</a>
+    </span>
     <span>Textbook:
     <a href="http://www.crcpress.com/product/isbn/9781439884485">
     Numerical Methods in Science and Engineering Using R</a></span>
+    <span>Textbook:
+    <a href="https://www.crcpress.com/Computational-Methods-for-Numerical-Analysis-with-R/II/p/book/9781498723633">
+    Computational Methods for Numerical Analysis with R</a></span>
 
+    <a href="http://www.math.umaine.edu/~hiebeler/comp/matlabR.html">
+    R and MATLAB</a>
     <a href="http://www.nr.com/aands/">Abramowitz and Stegun. 
         Handbook of Mathematical Functions</a>
     <a href="http://www.nrbook.com/a/bookcpdf.php">Numerical Recipes:

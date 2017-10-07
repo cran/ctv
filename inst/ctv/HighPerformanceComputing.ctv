@@ -4,7 +4,7 @@
    <name>HighPerformanceComputing</name>
    <topic>High-Performance and Parallel Computing with R</topic>
    <maintainer email="Dirk.Eddelbuettel@R-project.org">Dirk Eddelbuettel</maintainer>
-   <version>2016-08-18</version>
+   <version>2017-09-20</version>
 
   <info>
     <p>
@@ -30,8 +30,9 @@
       Schmidberger, Martin Morgan, Max Kuhn, Tomas Radivoyevitch,
       Jochen Knaus, Tobias Verbeke, Hao Yu, David Rosenberg, Marco
       Enea, Ivo Welch, Jay Emerson, Wei-Chen Chen, Bill Cleveland, 
-      Ross Boylan, Ramon Diaz-Uriarte, Mark Zeligman, and Kevin Ushey
-      (as well as others I may have forgotten to add here) are gratefully acknowledged. 
+      Ross Boylan, Ramon Diaz-Uriarte, Mark Zeligman, Kevin Ushey, Graham
+      Jeffries, and Will Landau (as well as others I may have forgotten to
+      add here) are gratefully acknowledged.  
     </p>
     <p> 
       Contributions are always welcome, and encouraged. Since the start of
@@ -39,6 +40,13 @@
       email suggestions. The source file for this particular task view file
       now also reside in a GitHub repository (see below) so that pull
       requests are also possible. 
+    </p>
+    <p>
+      The <code>ctv</code> package supports these Task Views. Its functions
+      <code>install.views</code> and <code>update.views</code> allow,
+      respectively, installation or update of packages from a given Task View;
+      the option <code>coreOnly</code> can restrict operations to packages labeled as
+      <em>core</em> below.
     </p>
     <p>
       <strong>Direct support in R started with release 2.14.0</strong> 
@@ -77,7 +85,7 @@
 	API, as well as a number of R-specific extensions.  <pkg>Rmpi</pkg>
         can be used with the LAM/MPI, MPICH / MPICH2, Open MPI, and Deino MPI 
         implementations. It should be noted that LAM/MPI is now in
-        maintenance mode, and new development is focussed on Open MPI.
+        maintenance mode, and new development is focused on Open MPI.
       </li>
       <li>
         The <pkg>pbdMPI</pkg> package provides S4 classes to directly interface 
@@ -98,7 +106,7 @@
         via MPI profiling libraries, such as fpmpi, mpiP, or TAU.
       </li>
       <li>An alternative is provided by the <pkg>nws</pkg> (NetWorkSpaces)
-        packages from REvolution Computing.  It is the successor to the
+        packages from REvolution Computing. It is the successor to the
 	earlier LindaSpaces approach to parallel computing, and is
 	implemented on top of the Twisted networking toolkit for Python.
       </li>
@@ -123,7 +131,7 @@
         <pkg>future.BatchJobs</pkg>), and
 	<pkg>doRedis</pkg> (using <pkg>rredis</pkg>) packages.
       </li>
-      <li>The <pkg>future</pkg> package allows for synchroneous (sequential)
+      <li>The <pkg>future</pkg> package allows for synchronous (sequential)
         and asynchronous (parallel) evaluations via abstraction of futures,
         either via function calls or implicitly via promises. Global variables
         are automatically identified. Iteration over elements in a collection
@@ -176,12 +184,22 @@
 	programming.
       </li>
       <li>
-        The <pkg>RhpcBLASctl</pkg> detects the number of available
+        The <pkg>RhpcBLASctl</pkg> package detects the number of available
         BLAS cores, and permits explicit selection of the number of
         cores.
       </li>
       <li>
         The <pkg>Rhpc</pkg> permits <code>*apply()</code> style dispatch via MPI.
+      </li>
+      <li>
+        The <pkg>drake</pkg> package is an R-focused reproducible build system.
+        Similarly to <a href="https://www.gnu.org/software/make">Make</a>, it 
+        arranges the intermediate steps of a workflow and executes them in parallelizable stages. 
+        With three alternative backends
+        (powered by <code>parallel::mclapply()</code>, <code>parallel::parLapply()</code>,
+        and <a href="https://www.gnu.org/software/make">Makefiles</a>, respectivly)
+        drake supports implicit parallelism both for low-overhead single-node 
+        applications and for true distributed computing workloads.
       </li>
     </ul>
 
@@ -262,7 +280,8 @@
         Job-scheduling toolkits permit management of
 	parallel computing resources and tasks.  The slurm (Simple Linux
         Utility for Resource Management) set of programs  works well with
-        MPI. (<a href="http://slurm.schedmd.com/">link</a>)
+        MPI and slurm jobs can be submitted from R using the <pkg>rslurm</pkg> 
+        package. (<a href="http://slurm.schedmd.com/">link</a>)
       </li>
       <li>
         The Condor toolkit (<a href="http://www.cs.wisc.edu/condor/">link</a>) from 
@@ -285,12 +304,18 @@
 	computing systems like PBS/Torque, LSF and Sun Grid
 	Engine. Multicore and SSH systems are also supported. The
 	<pkg>BatchExperiments</pkg> package extends it with an
-	abstraction layer for running statistical experiments.
+	abstraction layer for running statistical experiments. Package
+        <pkg>batchtools</pkg> is a successor / extension to both.
       </li>
       <li>
         The <pkg>flowr</pkg> package offers a scatter-gather approach to submit jobs
         lists (including dependencies) to the computing cluster via simple data.frames
         as inputs. It supports LSF, SGE, Torque and SLURM.
+      </li>
+      <li>
+        The <pkg>clustermq</pkg> package sends function calls as jobs on LSF,
+        SGE and SLURM via a single line of code without using network-mounted
+        storage. It also supports use of remote clusters via SSH.
       </li>
     </ul>
 
@@ -332,8 +357,6 @@
       <li>
 	The <pkg>GAMBoost</pkg> package by Binder for <code>glm</code>
 	and <code>gam</code> model fitting via boosting using b-splines,
-	the <pkg>Geneland</pkg> package by Estoup, Guillot and Santos for
-	structure detection from multilocus genetic data,
 	the <pkg>Matching</pkg> package by Sekhon for multivariate and propensity
 	score matching,
 	the <pkg>STAR</pkg> package by Pouzat for spike train analysis,
@@ -342,7 +365,7 @@
 	the <pkg>latentnet</pkg> package by Krivitsky and Handcock for latent
 	position and cluster models,
 	the <pkg>lga</pkg> package by Harrington for linear grouping analysis,
-	the <pkg>peperr</pkg> package by Porzelius and Binder for parallised
+	the <pkg>peperr</pkg> package by Porzelius and Binder for parallelised
 	estimation of prediction error,
 	the <pkg>orloca</pkg> package by Fernandez-Palacin and Munoz-Marquez
 	for operations research locational analysis,
@@ -396,6 +419,16 @@
         partitioning around medoids, apply, permutation testing,
         bootstrapping, random forest, rank product and hamming distance. 
       </li>
+      <li>
+        The <pkg>pbapply</pkg> package offers a progress bar for vectorized R
+        functions in the `*apply` family, and supports several backends.
+      </li>
+      <li>
+        The <pkg>Sim.DiffProc</pkg> package simulates and estimates
+        multidimensional Itô and Stratonovich stochastic differential
+        equations in parallel.
+      </li>
+        
     </ul>
 
     <p>
@@ -405,7 +438,7 @@
       <li>
         The <pkg>gputools</pkg> package by Buckner and Seligman
         provides several common data-mining algorithms which are
-        implemented using a mixture of nVidia's CUDA langauge and
+        implemented using a mixture of nVidia's CUDA language and
         cublas library. Given a computer with an nVidia GPU these
         functions may be substantially more efficient than native R
         routines.
@@ -413,7 +446,7 @@
       <li>
         The <pkg>cudaBayesreg</pkg> package by da Silva implements
         the <code>rhierLinearModel</code> from the <pkg>bayesm</pkg> package 
-	using nVidia's CUDA langauge and tools to provide high-performance
+	using nVidia's CUDA language and tools to provide high-performance
         statistical analysis of fMRI voxels.
       </li>
       <li>
@@ -428,11 +461,6 @@
 	The <pkg>OpenCL</pkg> package provides an interface from R to
 	OpenCL permitting hardware- and vendor neutral interfaces to
 	GPU programming.
-      </li>
-      <li>
-        The <pkg>HiPLARM</pkg> package provide High-Performance Linear
-        Algebra for R using multi-core and/or GPU support using the
-        PLASMA / MAGMA libraries from UTK, CUDA, and accelerated BLAS.
       </li>
       <li>
         The <pkg>permGPU</pkg> package computes permutation resampling
@@ -510,11 +538,11 @@
       <li>
 	The <pkg>inline</pkg> package by Sklyar et al eases adding code in C,
 	C++ or Fortran to R. It takes care of the compilation, linking and
-	loading of embeded code segments that are stored as R strings.
+	loading of embedded code segments that are stored as R strings.
       </li>
       <li>
 	The <pkg>Rcpp</pkg> package by Eddelbuettel and Francois offers a
-        number of C++ clases that makes transferring R objects to C++
+        number of C++ classes that makes transferring R objects to C++
         functions (and back) easier, and the <pkg>RInside</pkg> package
         by the same authors allows easy embedding of R itself into C++
         applications for faster and more direct data transfer.
@@ -560,8 +588,9 @@
   <packagelist>
     <pkg>aprof</pkg>
     <pkg>batch</pkg>
-    <pkg>BatchJobs</pkg>
     <pkg>BatchExperiments</pkg>
+    <pkg>BatchJobs</pkg>
+    <pkg>batchtools</pkg>
     <pkg>bayesm</pkg>
     <pkg>bcp</pkg>
     <pkg>biglars</pkg>
@@ -569,7 +598,9 @@
     <pkg>bigmemory</pkg>
     <pkg>bnlearn</pkg>
     <pkg>caret</pkg>
+    <pkg>clustermq</pkg>
     <pkg>cudaBayesreg</pkg>
+    <pkg>data.table</pkg>
     <pkg>dclone</pkg>
     <pkg>doFuture</pkg>
     <pkg>doMC</pkg>
@@ -577,7 +608,7 @@
     <pkg>doRedis</pkg>
     <pkg>doRNG</pkg>
     <pkg>doSNOW</pkg>
-    <pkg>data.table</pkg>
+    <pkg>drake</pkg>
     <pkg>ff</pkg>
     <pkg>ffbase</pkg>
     <pkg>flowr</pkg>
@@ -586,7 +617,6 @@
     <pkg>future.BatchJobs</pkg>
     <pkg>GAMBoost</pkg>
     <pkg>gcbd</pkg>
-    <pkg>Geneland</pkg>
     <pkg>gmatrix</pkg>
     <pkg>gputools</pkg>
     <pkg>gpuR</pkg>
@@ -594,7 +624,6 @@
     <pkg>h2o</pkg>
     <pkg>HadoopStreaming</pkg>
     <pkg>harvestr</pkg>
-    <pkg>HiPLARM</pkg>
     <pkg>HistogramTools</pkg>
     <pkg>inline</pkg>
     <pkg>LaF</pkg>
@@ -606,6 +635,7 @@
     <pkg>orloca</pkg>
     <pkg>OpenCL</pkg>
     <pkg>partDSA</pkg>
+    <pkg>pbapply</pkg>    
     <pkg>pbdBASE</pkg>
     <pkg>pbdDEMO</pkg>
     <pkg>pbdDMAT</pkg>
@@ -635,6 +665,8 @@
     <pkg priority="core">Rmpi</pkg>
     <pkg>RProtoBuf</pkg>
     <pkg>rredis</pkg>
+    <pkg>Sim.DiffProc</pkg>
+    <pkg>rslurm</pkg>
     <pkg priority="core">snow</pkg>
     <pkg>snowfall</pkg>
     <pkg>snowFT</pkg>
@@ -668,11 +700,12 @@
     <a href="https://gforge.nbic.nl/projects/rgpu/">rgpu project at nbic.nl</a>
     <a href="http://icl.cs.utk.edu/magma/">Magma: Matrix Algebra on GPU and Multicore architectures</a>
     <a href="http://shop.oreilly.com/product/0636920021421.do">Parallel R: Data Analysis in the Distributed World"</a>
-    <a href="http://thirteen-01.stat.iastate.edu/snoweye/hpsc/">High Performance Statistical Computing for Data Intensive Research</a>
+    <a href="https://snoweye.github.io/hpsc/">High Performance Statistical Computing for Data Intensive Research</a>
     <a href="http://heather.cs.ucdavis.edu/~matloff/rth.html">Rth: Parallel R through Thrust</a>
     <a href="http://r-pbd.org">Programming with Big Data in R</a>
     <a href="https://github.com/saptarshiguha/RHIPE/">RHIPE</a>
     <!-- <a href="http://www.bayesian-inference.com/software">LaplacesDemon</a> -->
+    <a href="https://github.com/ljdursi/beyond-single-core-R">Beyond Single Core: Parallel Analysis in R</a>
     <a href="https://github.com/eddelbuettel/ctv-hpc">GitHub repository for this Task View</a>
   </links>
 

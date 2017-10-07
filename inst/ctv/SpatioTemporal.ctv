@@ -3,7 +3,7 @@
   <name>SpatioTemporal</name>
   <topic>Handling and Analyzing Spatio-Temporal Data</topic>
   <maintainer email="edzer.pebesma@uni-muenster.de">Edzer Pebesma</maintainer>
-  <version>2016-08-18</version>
+  <version>2017-07-03</version>
 
   <info>
   <p>This task view aims at presenting R packages that are useful for 
@@ -56,7 +56,7 @@
   gapminder (see links).</li>
 
   <li><b>In space-wide tables:</b>
-  An acample of a space-wide table is the Irish wind data set,
+  An example of a space-wide table is the Irish wind data set,
   obtained by <code>data(wind)</code> in package <pkg>gstat</pkg>.
   It has time series as different columns, each column representing
   one location (weather station).  The <code>stConstruct</code>
@@ -103,9 +103,6 @@
 	</li>
 
 	<li><b>Point patterns:</b>
-	  Package <pkg>stpp</pkg> provides a class <code>stpp</code>
-	  for a space-time point pattern.
-
 	  Package <pkg>stppResid</pkg> provides a class <code>stwin</code>
 	  for a space-time cuboid, defining a (rectangular)
 	  space-time window, and class <code>stpp</code> for a
@@ -209,9 +206,6 @@
 	  <pkg>lgcp</pkg> is a package for spatial and spatio-temporal modelling of point patterns using the log-Gaussian Cox process.
 	  </li>
 
-	  <li><pkg>stpp</pkg> allows Space-Time Point Pattern simulation, visualization and analysis.
-	  </li>
-
 	  <li><pkg>stppResid</pkg> performs residual analysis on space-time point process models.
 	  </li>
 
@@ -249,7 +243,11 @@
 	 to fit linear mixed models, and have facilities to model
 	 spatial and/or temporal effects.  </li>
 
-	 <li><pkg>rsatscan</pkg> provides an R interface to the free (but non-open source) program SaTScan</li>
+	 <li><pkg>rsatscan</pkg> provides an R interface to the free (but non-open source) program SaTScan.</li>
+
+	 <li><pkg>CARBayesST</pkg> implements a class of spatio-temporal
+	 generalised linear mixed models for areal unit data, with inference
+	 in a Bayesian setting using Markov chain Monte Carlo (McMC) simulation. </li>
 	 </ul>
 	</li>
 
@@ -414,7 +412,7 @@
        analysed through corresponding flexible and extensible methods.
        </li>
 
-       <li> The <pkg>VTrack</pkg> is designed to facilitate the
+       <li> The <pkg>VTrack</pkg> package is designed to facilitate the
        assimilation, analysis and synthesis of animal location and
        movement data collected by the VEMCO suite of acoustic
        transmitters and receivers. As well as database and geographic
@@ -425,6 +423,27 @@
        of magnitude, greatly enhancing the synthesis of acoustic
        detection data.
        </li>
+
+	 <li>The <pkg>SimilarityMeasures</pkg> package computes four
+	 different similarity measures. The similarity measures included
+	 are: longest common subsequence (LCSS), Frechet distance,
+	 edit distance and dynamic time warping (DTW). Each of these
+	 similarity measures can be calculated from two n-dimensional
+	 trajectories, both in matrix form.</li>
+
+	<li> the <pkg>sigloc</pkg> package provides a collection of
+	tools for estimating the location of a transmitter signal
+	from radio telemetry studies using the maximum likelihood
+	estimation (MLE) approach described in Lenth (1981).
+	</li>
+
+   <li>
+   The <pkg>FLightR</pkg> provides Hidden Markov Models for Solar Geolocation 
+   Archival Tags; it allows estimating positions of animal from
+   data collected by solar geolocation archival tags; check the citations,
+   which include 
+   <a href="http://www.movementecologyjournal.com/content/3/1/25">Rakhimberdiev et al.</a>
+   </li>
 
 	 <li>
 	 The <a href="http://code.google.com/p/geolocation/">
@@ -474,11 +493,13 @@
 	<li>
 	package <pkg>googleVis</pkg> provides an interface to show R data 
 	(tables) in the
-	<a href="https://developers.google.com/chart/">Google Chart Tools</a>.
+	<a href="https://developers.google.com/chart/">Google Chart Tools</a>. <pkg>spacetime</pkg> has a
+	<a href="https://cran.r-project.org/web/packages/spacetime/vignettes/stgvis.html">vignette</a>
+	demonstrating its use for spatio-temporal data.
 	</li>
 
 	<li>
-	package <pkg>stpp</pkg> and <pkg>splancs</pkg> provide
+	Package <pkg>splancs</pkg> provides
 	animation and 3D interactive plots (using <pkg>rgl</pkg>)
 	for displaying spatio-temporal point patterns.	</li>
 
@@ -545,11 +566,12 @@
 
   <packagelist>
     <pkg priority="core">adehabitatLT</pkg>
-    <pkg		            >animalTrack</pkg>
-    <pkg                >argosfilter</pkg>
-    <pkg  	            >BayesianAnimalTracker</pkg>
-    <pkg		            >BBMM</pkg>
-    <pkg                >bcpa</pkg>
+    <pkg                >animalTrack</pkg>
+    <pkg		>argosfilter</pkg>
+    <pkg		>BayesianAnimalTracker</pkg>
+    <pkg		>BBMM</pkg>
+    <pkg		>bcpa</pkg>
+    <pkg		>CARBayesST</pkg>
     <pkg                >crawl</pkg>
     <pkg                >cshapes</pkg>
     <pkg                >ctmcmove</pkg>
@@ -580,6 +602,7 @@
     <pkg                >rmatio</pkg>
     <pkg                >RNetCDF</pkg>
     <pkg                >rsatscan</pkg>
+    <pkg                >SimilarityMeasures</pkg>
     <pkg                >smam</pkg>
     <pkg                >solaR</pkg>
     <pkg priority="core">sp</pkg>
@@ -595,14 +618,13 @@
     <pkg                >stam</pkg>
     <pkg                >Stem</pkg>
     <pkg                >STMedianPolish</pkg>
-    <pkg priority="core">stpp</pkg>
     <pkg                >stppResid</pkg>
     <pkg priority="core">surveillance</pkg>
-    <pkg>trackeR</pkg>
+    <pkg                >trackeR</pkg>
     <pkg                >TrackReconstruction</pkg>
     <pkg priority="core">trip</pkg>
     <pkg                >tripEstimation</pkg>
-    <pkg>VTrack</pkg>
+    <pkg                >VTrack</pkg>
     <pkg                >wildlifeDI</pkg>
     <pkg priority="core">xts</pkg>
   </packagelist>

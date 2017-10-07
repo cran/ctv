@@ -95,7 +95,7 @@
           </li>
         
           <li>
-          The <code>loglm</code> and <code>loglin</code> functions in the <pkg>MASS</pkg> package fit hierachical loglinear models to contingency tables, the former as a front end to <code>glm</code>, the latter by iterative proportional fitting.
+          The <code>loglm</code> and <code>loglin</code> functions in the <pkg>MASS</pkg> package fit hierarchical loglinear models to contingency tables, the former as a front end to <code>glm</code>, the latter by iterative proportional fitting.
           </li>
           
           <li>
@@ -183,7 +183,7 @@
 		  </li>
       </ul>
     
-    <p><a name="Collections"></a><strong>Collections of Functions:</strong></p>
+    <p><a name="Collections"><strong>Collections of Functions:</strong></a></p>
     
     <p>
     There are some packages that are so heterogeneous that they are difficult to classify, yet contain functions (typically in multiple domains) that are of interest to social scientists:

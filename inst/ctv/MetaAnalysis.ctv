@@ -4,7 +4,7 @@
 <name>MetaAnalysis</name>
 <topic>Meta-Analysis</topic>
 <maintainer email = "lists@dewey.myzen.co.uk">Michael Dewey</maintainer>
-<version>2016-05-13</version>
+<version>2017-07-08</version>
 
 <info>
 <p>
@@ -68,15 +68,38 @@
     studies (proportions, incidence rates, and mean change).
     It also provides for a measure 
     used in psychometrics (Cronbach's alpha).
+   <pkg>esc</pkg> provides
+   a range of effect size calculations with partial overlap
+   with <pkg>metafor</pkg> but with some extras, noticeably
+   for converting test statistics, also includes a
+   convenience function for collating
+   its output for input to another
+   package like <pkg>metafor</pkg>
+   or producing a CSV file.
+   <pkg>effsize</pkg>
+   contains functions to compute effect sizes mean difference (Cohen's
+   d and Hedges g), dominance matrices (Cliff's Delta)
+   and stochastic superiority (Vargha-Delaney A).
   </li>
   <li>
     <pkg>meta</pkg> provides functions to read and work
     with files output by RevMan 4 and 5.
   </li>
   <li>
-    <pkg>metagear</pkg> provides an extensive range of
-    facilities to support the systematic review process,
-    ease data extraction, and generate effect sizes.
+    <pkg>metagear</pkg> provides many tools for the
+    systematic review process including screening articles,
+    downloading the articles, generating a PRISMA diagram,
+    and some tools for effect sizes.
+  </li>
+  <li>
+   <pkg>metavcov</pkg> computes the variance-covariance
+   matrix for multivariate meta-analysis
+   when correlations between outcomes can be
+   provided but not between treatment effects
+  </li>
+  <li>
+    <pkg>metafuse</pkg> uses a fused lasso to merge
+    covariate estimates across a number of independent datasets.
   </li>
   </ul>
 
@@ -158,8 +181,19 @@
     <pkg>metaplus</pkg> fits random effects
     models relaxing the usual
     assumption that the random effects have a normal
-    distribution. Also provides some diagnostics.
+    distribution by providing t or a mixture
+    of normals.
   </li>
+   <li>
+   <pkg>ratesci</pkg>
+   fits random effects models to binary data using
+   a variety of methods for confidence intervals.
+   </li>
+  <li>
+  <pkg>RandMeta</pkg>
+   estimates exact confidence intervals in random effects
+   models using an efficient algorithm.
+   </li>
   </ul>
 
 <i>Graphical methods</i>
@@ -168,25 +202,29 @@
   </p>
   <ul>
   <li>
-    Forest plots are provided in <pkg>forestplot</pkg>,
+    Forest plots are provided in <pkg>forestmodel</pkg>
+    (using ggplot2), <pkg>forestplot</pkg>,
     <pkg>meta</pkg>, <pkg>metafor</pkg> and <pkg>rmeta</pkg>.
     Although the most basic plot can be produced
     by any of them
     they each provide their own choice of enhancements.
   </li>
+
   <li>
     Funnel plots are provided in
-    <pkg>meta</pkg>, <pkg>metafor</pkg> and <pkg>rmeta</pkg>.
+    <pkg>meta</pkg>, <pkg>metafor</pkg>, <pkg>psychometric</pkg>
+    and <pkg>rmeta</pkg>.
     In addition to the standard funnel plots
     an enhanced funnel plot to assess the
     impact of extra evidence
-    is available in <pkg>extfunnel</pkg>, and a funnel plot
+    is available in <pkg>extfunnel</pkg>, a funnel plot
     for limit meta-analysis in
-    <pkg>metasens</pkg>,
+    <pkg>metasens</pkg>, and <pkg>metaviz</pkg> provides
+    funnel plots in the context of visual inference.
   </li>
   <li>
     Radial (Galbraith) plots are provided in
-    <pkg>metafor</pkg>,
+    <pkg>meta</pkg> and <pkg>metafor</pkg>,
   </li>
   <li>
     L'Abbe plots are provided in
@@ -196,11 +234,21 @@
     Baujat plots are provided in
     <pkg>meta</pkg> and <pkg>metafor</pkg>
   </li>
+   <li>
+   <pkg>metaplotr</pkg>
+   provides a crosshair plot
+   </li>
   <li>
-    An extensive series of plots of diagnostic statistics is
-    provided in <pkg>metafor</pkg>.
+   <pkg>MetaAnalyser</pkg> provides an interactive
+   visualisation of the results of a meta-analysis.
+  </li>
+  <li>
+   <pkg>metaviz</pkg> provides rainforestplots, an
+   enhanced version of forest plots. It accepts
+   input from <pkg>metafor</pkg>.
   </li>
   </ul>
+
 
 <i>Investigating heterogeneity</i>
   <ul>
@@ -221,6 +269,21 @@
   </li>
   </ul>
 
+<i>Model criticism</i>
+  <ul>
+  <li>
+    An extensive series of plots of diagnostic statistics is
+    provided in <pkg>metafor</pkg>,
+  </li>
+  <li>
+    <pkg>metaplus</pkg> provides outlier diagnostics.
+  </li>
+  <li>
+   <pkg>ConfoundedMeta</pkg> conducts a sensitivity analysis
+   to estimate the proportion of studies with
+   true effect sizes above a threshold.
+   </li>
+  </ul>
 
 <i>Investigating small study bias</i>
   <p>The issue of whether small studies give different results
@@ -267,7 +330,7 @@
     model and also
     the method of limit meta-analysis (a regression based
     approach for dealing with small study effects)
-    due to R??cker et al.
+    due to Rücker et al.
   </li>
   <li>
     <pkg>selectMeta</pkg> provides various selection models:
@@ -294,6 +357,24 @@
   facilities for using the weight function model
   of Vevea and Hedges.
   </li>
+  </ul>
+
+ <i>Other study designs</i>
+  <ul>
+  <li>
+    <pkg>SCMA</pkg> provides single case meta-analysis.
+    It is part of a suite of packages
+    dedicated to single-case designs.
+  </li>
+  <li>
+    <pkg>joint.Cox</pkg> provides facilities for
+	the meta-analysis of studies of joint time-to-event
+	and disease progression.
+  </li>
+  <li>
+   <pkg>metamisc</pkg> provides for meta-analysis of prognostic studies
+   using the c statistic or the O/E ratio. Some plots are provided.
+</li>
   </ul>
 
 <i>Meta-analysis of significance values</i>
@@ -374,7 +455,7 @@
     This is an active area of research and a variety
     of methods are available
     including what is referred to here called Reitsma's
-    method, and the heirarchical summary receiver operating
+    method, and the hierarchical summary receiver operating
     characteristic (HSROC) method.
     In many situations these are equivalent.
   </p>
@@ -396,7 +477,7 @@
   <li>
     <pkg>Metatron</pkg> provides a method for
     the Reitsma model
-    incuding the case of an imperfect reference standard
+    including the case of an imperfect reference standard
   </li>
   <li>
     <pkg>metamisc</pkg> provides the method
@@ -408,6 +489,7 @@
     <pkg>bamdit</pkg> provides Bayesian meta-analysis
     with a bivariate random effects model
     (using JAGS to implement the MCMC method).
+    Graphical methods are provided.
   </li>
   <li>
     <pkg>meta4diag</pkg>
@@ -474,6 +556,10 @@
     logistic regression from aggregate data or
     individual data.
    </li>
+   <li>
+    <pkg>surrosurv</pkg> evaluates failure time surrogates
+    in the context of IPD meta-analysis
+   </li>
    </ul>
 
 <h4>Network meta-analysis</h4>
@@ -490,27 +576,34 @@
     which acts as a front-end to BUGS
     or JAGS, and <pkg>pcnetmeta</pkg>,
     which uses JAGS.
+   <pkg>nmaINLA</pkg> uses integrated nested Laplace approximations
+   as an alternative to MCMC.It provides a number of data-sets.
     <pkg>netmeta</pkg>  works in a frequentist framework.
     Both <pkg>pcnetmeta</pkg> and <pkg>netmeta</pkg>
     provide network graphs and
     <pkg>netmeta</pkg> provides a heatmap for
-    displaying inconsistency and heterogeneity
+    displaying inconsistency and heterogeneity.
   </p>
 
 <h4>Genetics</h4>
   <p>
     There are a number of packages specialising
     in genetic data:
+   <pkg>CPBayes</pkg>
+   uses a Bayesian approach to study cross-phenotype genetic
+   associations,
     <pkg>EasyStrata</pkg> for startified GWAS meta-analysis
       with graphics,
     <pkg>etma</pkg>
       proposes a new statistical method to detect epistasis,
     <pkg>gap</pkg> combines p-values,
-    <pkg>MAMA</pkg> provides meta-analysis of microarray data,
+   <pkg>getmstatistic</pkg> quantifies systematic heterogeneity,
     <pkg>MetABEL</pkg> provides meta-analysis of
       genome wide SNP association results,
     <pkg>MetaDE</pkg> provides microarray meta-analysis
       of differentially expressed dene detection,
+   <pkg>MetaIntegrator</pkg>
+   provides an extensive set of functions for genetic studies,
     <pkg>metaMA</pkg> provides meta-analysis of
       p-values or moderated
      effect sizes to find differentially expressed genes,
@@ -525,23 +618,12 @@
     <pkg>MultiMeta</pkg> for meta-analysis
       of multivariate GWAS
       results with graphics, designed to accept GEMMA format,
-    <pkg>MetaSKAT</pkg>, <pkg>seqMeta</pkg>, and
-    <pkg>skatMeta</pkg> provide meta-analysis
+   <pkg>MetaSKAT</pkg>, <pkg>seqMeta</pkg>,
+   provide meta-analysis
       for the SKAT test.
   </p>
 <h4>Others</h4>
 
-  <p>
-    <pkg>SCMA</pkg> provides single case meta-analysis.
-    It is part of a suite of packages
-    dedicated to single-case designs.
-  </p>
-
-  <p>
-    <pkg>joint.Cox</pkg> provides facilities for
-	the meta-analysis of studies of joint time-to-event
-	and disease progression.
-  </p>
   <p>
     <pkg>CRTSize</pkg>
     provides meta-analysis as part of a package
@@ -569,6 +651,8 @@
     <pkg>MAd</pkg>.
   </p>
 
+
+
  </info>
 
  <packagelist>
@@ -579,18 +663,23 @@
   <pkg>bspmma</pkg>
   <pkg>CAMAN</pkg>
   <pkg>compute.es</pkg>
+   <pkg>ConfoundedMeta</pkg>
   <pkg>CopulaREMADA</pkg>
+   <pkg>CPBayes</pkg>
   <pkg>CRTSize</pkg>       
   <pkg>dosresmeta</pkg>
   <pkg>EasyStrata</pkg>
    <pkg>ecoreg</pkg>
+   <pkg>effsize</pkg>
   <pkg>epiR</pkg>
   <pkg>etma</pkg>
   <pkg>exactmeta</pkg>
   <pkg>extfunnel</pkg>
+   <pkg>forestmodel</pkg>
   <pkg>forestplot</pkg>
   <pkg>gap</pkg>
   <pkg>gemtc</pkg>
+   <pkg>getmstatistic</pkg>
   <pkg>gmeta</pkg>
   <pkg>hetmeta</pkg>
   <pkg>HSROC</pkg>
@@ -599,23 +688,26 @@
   <pkg>MAc</pkg>
   <pkg>MAd</pkg>
   <pkg>mada</pkg>
-  <pkg>MAMA</pkg>
   <pkg>MAVIS</pkg>
   <pkg priority="core">meta</pkg>
   <pkg>MetABEL</pkg>
  <pkg>metansue</pkg>
   <pkg>meta4diag</pkg>
+ <pkg>MetaAnalyser</pkg>
   <pkg>metacor</pkg>
   <pkg>MetaDE</pkg>
   <pkg priority="core">metafor</pkg>
+   <pkg>metafuse</pkg>
   <pkg>metagear</pkg>
   <pkg>metagen</pkg>
+ <pkg>MetaIntegrator</pkg>
   <pkg>metaLik</pkg>
   <pkg>metaMA</pkg>
   <pkg>metamisc</pkg>
   <pkg>metap</pkg>
   <pkg>MetaPath</pkg>
   <pkg>MetaPCA</pkg>
+ <pkg>metaplotr</pkg>
   <pkg>metaplus</pkg>
   <pkg>MetaQC</pkg>
   <pkg>metaRNASeq</pkg>
@@ -624,14 +716,19 @@
   <pkg>MetaSKAT</pkg>
   <pkg>metatest</pkg>
   <pkg>Metatron</pkg>
+   <pkg>metavcov</pkg>
+   <pkg>metaviz</pkg>
   <pkg>mmeta</pkg>
   <pkg>MultiMeta</pkg>
   <pkg>mvmeta</pkg>
   <pkg>mvtmeta</pkg>
   <pkg>netmeta</pkg>
+   <pkg>nmaINLA</pkg>
   <pkg>pcnetmeta</pkg>
   <pkg>psychometric</pkg>
   <pkg>PubBias</pkg>
+   <pkg>RandMeta</pkg>
+   <pkg>ratesci</pkg>
   <pkg>RcmdrPlugin.EZR</pkg>
   <pkg>RcmdrPlugin.RMTCJags</pkg>
   <pkg>rmeta</pkg>
@@ -640,10 +737,11 @@
   <pkg>SCMA</pkg>
   <pkg>selectMeta</pkg>
   <pkg>seqMeta</pkg>
-  <pkg>skatMeta</pkg>
+   <pkg>surrosurv</pkg>
   <pkg>weightr</pkg>
   <pkg>xmeta</pkg>
- </packagelist>
+  <pkg>esc</pkg>
+</packagelist>
 
  <links>
   <view>Genetics</view>

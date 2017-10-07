@@ -4,7 +4,7 @@
   <name>Finance</name>
   <topic>Empirical Finance</topic>
   <maintainer email="Dirk.Eddelbuettel@R-project.org">Dirk Eddelbuettel</maintainer>
-  <version>2016-09-01</version>
+  <version>2017-09-12</version>
   
   <info>
     <p>
@@ -21,6 +21,13 @@
       <view>Multivariate</view>, <view>Optimization</view>, <view>Robust</view>, 
       <view>SocialSciences</view> and <view>TimeSeries</view> Task Views.
     </p>
+    <p>
+      The <code>ctv</code> package supports these Task Views. Its functions
+      <code>install.views</code> and <code>update.views</code> allow,
+      respectively, installation or update of packages from a given Task View;
+      the option <code>coreOnly</code> can restrict operations to packages labeled as
+      <em>core</em> below.
+    </p>
     <p> 
       Contributions are always welcome, and encouraged. Since the start of
       this CRAN task view in April 2005, most contributions have arrived as
@@ -35,8 +42,8 @@
     <ul>
       <li>A detailed overview of the available regression methodologies is
 	provided by the <view>Econometrics</view> task view. This is
-	complemented by the <view>Robust</view> which focuses on more robust
-	and resistant methods.
+	complemented by the <view>Robust</view> task view, which focuses on more
+	robust and resistant methods.
       </li>
       <li>Linear models such as ordinary least squares (OLS) can be estimated
         by <code>lm()</code> (from by the stats package contained in the basic R
@@ -117,7 +124,7 @@
       </li>
       <li>
           The <pkg>dyn</pkg> and 
-	  <pkg>dynlm</pkg> are suitable for dynamic (linear) regression
+	  <pkg>dynlm</pkg> packages are suitable for dynamic (linear) regression
 	  models.
       </li>
       <li>
@@ -125,7 +132,7 @@
 	  functionality: <pkg>rwt</pkg>, <pkg>wavelets</pkg>, 
           <pkg>waveslim</pkg>, <pkg>wavethresh</pkg>. Some methods from chaos 
           theory are provided by the package <pkg>tseriesChaos</pkg>.
-          <pkg>tsDyn</pkg> adds time series analysis based on dynamical systems therory.
+          <pkg>tsDyn</pkg> adds time series analysis based on dynamical systems theory.
       </li>
       <li>
 	  The <pkg>forecast</pkg> package adds functions for
@@ -140,6 +147,10 @@
 	  Carlo, and <pkg>factorstochvol</pkg> extends this to the
           multivariate case. 
       </li> 
+      <li>
+	  The <pkg>MSGARCH</pkg> package adds methods to fit (by Maximum Likelihood
+          or Bayesian), simulate, and forecast various Markov-Switching GARCH processes. 
+      </li>
     </ul>
 
     <p>
@@ -147,22 +158,24 @@
     </p>
     <ul>
       <li>The Rmetrics suite of packages comprises
-          <pkg>fArma</pkg>, <pkg>fAsianOptions</pkg>, <pkg>fAssets</pkg>, 
+	  <pkg>fAssets</pkg>, 
 	  <pkg>fBasics</pkg>, <pkg>fBonds</pkg>, <pkg>timeDate</pkg> (formerly: fCalendar), 
 	  <pkg>fCopulae</pkg>, <pkg>fExoticOptions</pkg>, 
 	  <pkg>fExtremes</pkg>, <pkg>fGarch</pkg>, <pkg>fImport</pkg>, 
 	  <pkg>fNonlinear</pkg>, <pkg>fOptions</pkg>, <pkg>fPortfolio</pkg>,
 	  <pkg>fRegression</pkg>, <pkg>timeSeries</pkg> (formerly: fSeries), 
-	  <pkg>fTrading</pkg>, <pkg>fUnitRoots</pkg>
+	  <pkg>fTrading</pkg>,
 	  and contains a very large number of relevant functions for different aspect of empirical
 	  and computational finance.
       </li>
       <li>The <pkg>RQuantLib</pkg> package provides several option-pricing
           functions as well as some fixed-income functionality from the
-          QuantLib project to R.  
+          QuantLib project to R.  The <pkg>RcppQuantuccia</pkg> provides a
+          smaller subset of QuantLib functionality as a header-only library;
+          at current only some calendaring functionality is exposed.
       </li>
       <li>The <pkg>quantmod</pkg> package offers a number of functions for
-          quantitative modelling in finance as well as data acqusition, plotting
+          quantitative modelling in finance as well as data acquisition, plotting
           and other utilities.
       </li>
       <li>The <pkg>portfolio</pkg> package contains
@@ -170,8 +183,6 @@
           <pkg>portfolioSim</pkg> builds a related simulation framework. 
           The <pkg>backtest</pkg> offers tools to  
 	  explore portfolio-based hypotheses about financial instruments.
-	  The <pkg>stockPortfolio</pkg> package provides functions for
-	  single index, constant correlation and multigroup models.
 	  The <pkg>pa</pkg> package offers performance attribution
 	  functionality for equity portfolios.
       </li>
@@ -248,8 +259,8 @@
        from option prices.
       </li>
       <li>
-	<pkg>LSMonteCarlo</pkg> can price American Options via the Least Squares Monte Carlo 
-        method 
+	The <pkg>LSMonteCarlo</pkg> package can price American Options via the Least Squares Monte Carlo 
+        method.
       </li>
       <li>
 	The <pkg>BenfordTests</pkg> package provides 
@@ -274,12 +285,7 @@
       </li>
       <li>
 	The <pkg>MarkowitzR</pkg> package provides functions to test
-	the statistical signicance of Markowitz portfolios.
-      </li>
-      <li>
-	The <pkg>egcm</pkg> package implements the Engle-Granger
-	two-stage cointegration modeling procedure with a particular
-	focus on pairs trading.
+	the statistical significance of Markowitz portfolios.
       </li>
       <li>
 	The <pkg>pbo</pkg> package models the probability of backtest
@@ -310,15 +316,57 @@
       <li> The <pkg>obAnalytics</pkg> package analyses and visualizes
         information from events in limit order book data.
       </li>
-      <li> The <pkg>bootTimeInference</pkg> package performs robust
-        resampling tests for the difference in Sharpe ratios.
-      </li>
       <li> The <pkg>derivmkts</pkg> package adds a set of pricing and
-      expository functions useful in teaching derivatives markets..
+      expository functions useful in teaching derivatives markets.
       </li>
       <li> The <pkg>PortfolioEffectHFT</pkg> package provides portfolio
       analysis suitable for intra-day and high-frequency data, and also interfaces the
       PortfolioEffect service.
+      </li>
+      <li> The <pkg>ragtop</pkg> package prices equity derivatives under an extension
+      to Black and Scholes supporting default under a power-law link price
+      and hazard rate.
+      </li>
+      <li> The <pkg>sharpeRratio</pkg> package adds moment-free estimation of Sharpe ratios.
+      </li>
+      <li> The <pkg>QuantTools</pkg> package offers enhanced quantitative trading
+        and modeling tools.
+      </li>
+      <li> The <pkg>pinbasic</pkg> package adds tools for fast and stable estimates the Probability of
+        Informed Trading (PIN) by Easley et al, and offers factorizations of
+        the model likelihood. The <pkg>InfoTrad</pkg> packages also estimates
+        PIN and extends it different factorization and estimation algorithms.
+      </li>
+      <li> The <pkg>FinancialMath</pkg> package contains financial math and derivatives pricing functions
+        as required by the actuarial exams by the Society of Actuaries and Casualty Actuarial Society
+        'Financial Mathematics' exam.
+      </li>
+      <li> The <pkg>tidyquant</pkg> package re-arranges functionality from
+        several other key packages for use in the so-called tidyverse. 
+      </li>
+      <li> The <pkg>BCC1997</pkg> prices European options under the Bakshi,
+        Cao anc Chen (1997) model for stochastic volatility, stochastic rates
+        and random jumps.
+      </li>
+      <li>
+          The <pkg>Sim.DiffProc</pkg> package provides functions to simulate
+          and analyse multidimensional Itô and Stratonovitch stochastic calculus for 
+          continuous-time models.
+      </li>
+      <li>
+          The <pkg>rpgm</pkg> package offers fast simulation of normal and
+          exponential random variables and stochastic differential equations.
+      </li>
+      <li>
+          The <pkg>BLModel</pkg> package computes the posterior distribution
+          in a Black-Litterman model from a prior distribution given by asset
+          returns and continuous distribution of views given by an external function.
+      </li>
+      <li> The <pkg>rpatrec</pkg> package aims to recognise charting patterns
+          in (financial) time series data.
+      </li>
+      <li>The <pkg>PortfolioOptim</pkg> can solve both small and large
+          sample portfolio optimization.
       </li>
     </ul>
 
@@ -326,12 +374,11 @@
     <strong>Risk management</strong>
     </p>
     <ul>
-      <li>Several packages provide functionality for 
-          Extreme Value Theory models: <pkg>evd</pkg>, <pkg>evdbayes</pkg>, 
-          <pkg>evir</pkg>, <pkg>extRemes</pkg>, <pkg>ismev</pkg>.
+      <li>
+         The Task View <view>ExtremeValue</view> regroups a number of relevant packages.
       </li>
       <li>
-	The packages <pkg>CreditMetrics</pkg> and <pkg>crp.CSFP</pkg> provide function for modelling credit risks.
+ 	 The packages <pkg>CreditMetrics</pkg> and <pkg>crp.CSFP</pkg> provide function for modelling credit risks.
       </li>
       <li>
           The <pkg>mvtnorm</pkg> 
@@ -347,7 +394,7 @@
       </li>
       <li>
 	  The <pkg>actuar</pkg> package provides an actuarial
-	  perspective to risk management.
+	  perspective to risk management. 
       </li>
       <li>
 	  The <pkg>ghyp</pkg> package provides generalized hyberbolic distribution
@@ -372,7 +419,7 @@
           follow a t-copula model with generalized hyperbolic or t marginals.  
       </li>
       <li>
-	  The <pkg>GCPM</pkg> package anlyzes the default risk of credit
+	  The <pkg>GCPM</pkg> package analyzes the default risk of credit
           portfolio using both analytical and simulation approaches.
       </li>
       <li>
@@ -385,7 +432,11 @@
         toolbox offered in Kevin Dowd's book "Measuring Market Risk".
       </li>
       <li>
-        The <pkg>PortRisk</pkg> computes portfolio risk attribution.
+        The <pkg>PortRisk</pkg> package computes portfolio risk attribution.
+      </li>
+      <li>
+        The <pkg>NetworkRiskMeasures</pkg> package implements some risk measures for financial networks such as DebtRank, Impact
+        Susceptibility, Impact Diffusion and Impact Fluidity.
       </li>
 
     </ul>
@@ -394,19 +445,14 @@
     <strong>Books</strong>
     </p>
     <ul>
-      <li>The <pkg>FinTS</pkg> package provides an R companion to Tsay (2005),
-         <em>Analysis of Financial Time Series</em>, 2nd ed. Wiley,  
-         and includes data sets, functions and script files to work some 
-         of the examples.  
-      </li>
       <li>The <pkg>NMOF</pkg> package provides functions, examples and data 
-         from <em>Numerical Methods in Finance</em> by Manfred Gilli, Dietmar Maringer and 
+         from <em>Numerical Methods and Optimization in Finance</em> by Manfred Gilli, Dietmar Maringer and 
 	 Enrico Schumann (2011), including the different optimization heuristics such as 
 	 Differential Evolution, Genetic Algorithms, Particle Swarms, and Threshold Accepting.
       </li>
       <li>The <pkg>FRAPO</pkg> package provides data sets and code for the
          book <em>Financial Risk Modelling and Portfolio Optimization with
-         R</em> by Bernhard Paff (2013). 
+         R</em> by Bernhard Pfaff (2013). 
       </li>
     </ul>
 
@@ -414,7 +460,7 @@
     <strong>Data and date management</strong>
     </p>
     <ul>
-      <li>The <pkg>its</pkg>, <pkg>zoo</pkg> and
+      <li>The <pkg>zoo</pkg> and
           <pkg>timeDate</pkg> (part of Rmetrics) packages provide support for
           irregularly-spaced time series. The <pkg>xts</pkg> package extends 
           <pkg>zoo</pkg> specifically for financial time series. See the
@@ -497,6 +543,11 @@
           The <pkg>GetHFData</pkg> package downloads and aggregates tick-by-tick
           trade data for equity and derivatives markets in Brazil.
       </li>
+      <li>
+          The <pkg>fmdates</pkg> package implements common date calculations
+          according to the ISDA schedules, and can check for business in
+          different locales.
+      </li>
 
 
       
@@ -509,10 +560,11 @@
     <pkg>AmericanCallOpt</pkg>
     <pkg>backtest</pkg>
     <pkg>bayesGARCH</pkg>
+    <pkg>BCC1997</pkg>    
     <pkg>BenfordTests</pkg>
     <pkg>betategarch</pkg>
     <pkg>bizdays</pkg>
-    <pkg>bootTimeInference</pkg>    
+    <pkg>BLModel</pkg>
     <pkg>BurStFin</pkg>
     <pkg>BurStMisc</pkg>
     <pkg>CADFtest</pkg>
@@ -531,20 +583,12 @@
     <pkg>dse</pkg>
     <pkg>dyn</pkg>
     <pkg>dynlm</pkg>
-    <pkg>egcm</pkg>
     <pkg>ESG</pkg>
-    <pkg>evd</pkg>
-    <pkg>evdbayes</pkg>
-    <pkg>evir</pkg>
-    <pkg>extRemes</pkg>
     <pkg>factorstochvol</pkg>    
-    <pkg>finreportr</pkg>
     <pkg>fame</pkg>
     <pkg>FatTailsR</pkg>
     <pkg>fgac</pkg>
     <pkg>financial</pkg>
-    <pkg priority="core">fArma</pkg>
-    <pkg priority="core">fAsianOptions</pkg>
     <pkg priority="core">fAssets</pkg>
     <pkg priority="core">fBasics</pkg>
     <pkg priority="core">fBonds</pkg>
@@ -553,15 +597,16 @@
     <pkg priority="core">fExtremes</pkg>
     <pkg priority="core">fGarch</pkg>
     <pkg priority="core">fImport</pkg>
+    <pkg>FinancialMath</pkg>
     <pkg>FinAsym</pkg>
-    <pkg>FinTS</pkg>
+    <pkg>finreportr</pkg>
     <pkg priority="core">fMultivar</pkg>
     <pkg priority="core">fNonlinear</pkg>
     <pkg priority="core">fOptions</pkg>
     <pkg priority="core">fPortfolio</pkg>
     <pkg priority="core">fRegression</pkg>
     <pkg priority="core">fTrading</pkg>
-    <pkg priority="core">fUnitRoots</pkg>
+    <pkg>fmdates</pkg>
     <pkg>forecast</pkg>
     <pkg>fracdiff</pkg>
     <pkg>fractal</pkg>
@@ -578,8 +623,7 @@
     <pkg>GUIDE</pkg>
     <pkg>highfrequency</pkg>
     <pkg>IBrokers</pkg>
-    <pkg>ismev</pkg>
-    <pkg>its</pkg>    
+    <pkg>InfoTrad</pkg>
     <pkg>lgarch</pkg>
     <pkg>lifecontingencies</pkg>
     <pkg>lmtest</pkg>
@@ -590,7 +634,9 @@
     <pkg>MarkowitzR</pkg>
     <pkg>matchingMarkets</pkg>
     <pkg>MSBVAR</pkg>
+    <pkg>MSGARCH</pkg>
     <pkg>mvtnorm</pkg>
+    <pkg>NetworkRiskMeasures</pkg>
     <pkg>nlme</pkg>
     <pkg>NMOF</pkg>
     <pkg>obAnalytics</pkg>
@@ -601,27 +647,35 @@
     <pkg>parma</pkg>
     <pkg>pbo</pkg> 
     <pkg priority="core">PerformanceAnalytics</pkg>
+    <pkg>pinbasic</pkg> 
     <pkg>portfolio</pkg>
     <pkg>PortfolioEffectHFT</pkg>
+    <pkg>PortfolioOptim</pkg>
     <pkg>portfolioSim</pkg>
     <pkg>PortRisk</pkg>
     <pkg>quantmod</pkg>
+    <pkg>QuantTools</pkg>
+    <pkg>ragtop</pkg>
     <pkg>Rbitcoin</pkg>
     <pkg>Rblpapi</pkg>
     <pkg>Rcmdr</pkg>
+    <pkg>RcppQuantuccia</pkg>    
     <pkg>restimizeapi</pkg>
     <pkg>riskSimul</pkg>
     <pkg>rmgarch</pkg> 
     <pkg>RND</pkg>
+    <pkg>rpatrec</pkg>    
+    <pkg>rpgm</pkg>    
     <pkg>RQuantLib</pkg>
-    <pkg>rugarch</pkg> 
+    <pkg priority="core">rugarch</pkg> 
     <pkg>rwt</pkg> 
     <pkg>sandwich</pkg>
     <pkg>sde</pkg>
     <pkg>SharpeR</pkg>
+    <pkg>sharpeRratio</pkg>
+    <pkg>Sim.DiffProc</pkg>    
     <pkg>SmithWilsonYieldCurve</pkg>
     <pkg>stochvol</pkg>
-    <pkg>stockPortfolio</pkg>    
     <pkg>strucchange</pkg>
     <pkg>TAQMNGR</pkg>
     <pkg>timsac</pkg>
@@ -634,6 +688,7 @@
     <pkg>tsfa</pkg>
     <pkg>TTR</pkg>
     <pkg>tawny</pkg>
+    <pkg>tidyquant</pkg>    
     <pkg priority="core">timeDate</pkg>
     <pkg priority="core">timeSeries</pkg>
     <pkg>tis</pkg> 
@@ -655,6 +710,7 @@
 
   <links>
     <view>Econometrics</view>
+    <view>ExtremeValue</view>
     <view>Multivariate</view>
     <view>Optimization</view>
     <view>Robust</view>
