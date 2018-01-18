@@ -2,11 +2,11 @@
   <name>Phylogenetics</name>
   <topic>Phylogenetics, Especially Comparative Methods</topic>
   <maintainer email="omeara.brian@gmail.com">Brian O'Meara</maintainer>
-  <version>2017-06-07</version>
+  <version>2017-12-21</version>
 
 <info>
       <p>
-        The history of life unfolds within a phylogenetic context. Comparative phylogenetic methods are statistical approaches for analyzing historical patterns along phylogenetic trees.  This task view describes R packages that implement a variety of different comparative phylogenetic methods.  This is an active research area and much of the information is subject to change. One thing to note is that many important packages are not on CRAN: either they were formerly on CRAN and were later archived (for example, if they failed to incorporate necessary changes as R is updated) or they are developed elsewhere and have not been put on CRAN yet. Such packages may be found on github, R-forge, or authors' websites.
+        The history of life unfolds within a phylogenetic context. Comparative phylogenetic methods are statistical approaches for analyzing historical patterns along phylogenetic trees.  This task view describes R packages that implement a variety of different comparative phylogenetic methods.  This is an active research area and much of the information is subject to change. One thing to note is that many important packages are not on CRAN: either they were formerly on CRAN and were later archived (for example, if they failed to incorporate necessary changes as R is updated) or they are developed elsewhere and have not been put on CRAN yet. Such packages may be found on GitHub, R-Forge, or authors' websites.
       </p>
       <p>
       <i>Getting trees into R
@@ -62,7 +62,7 @@
           Trait evolution:
         </i>
         Independent contrasts for continuous characters can be calculated using
-<pkg>ape</pkg>, <pkg>picante</pkg>, or <pkg>caper</pkg> (which also implements the brunch and crunch algorithms). Analyses of discrete trait evolution, including models of unequal rates or rates changing at a given instant of time, as well as Pagel's transformations, can be performed in <pkg>geiger</pkg>. <pkg>DiscML</pkg> implements a flexible array of models for discrete traits, including approaches to deal with unobservable data, a gamma rate distribution, and custom transition matrices. <pkg>corHMM</pkg> can look for hidden rates in discrete traits as well as fit correlational models for two or three binary traits (similar to Pagel's old Discrete program) and complex models for multistate traits (similar to Pagel's old Multistate program). Brownian motion models can be fit in <pkg>geiger</pkg>, <pkg>ape</pkg>, and <pkg>paleotree</pkg>. Multiple-rate Brownian motion can be fit
+<pkg>ape</pkg>, <pkg>picante</pkg>, or <pkg>caper</pkg> (which also implements the brunch and crunch algorithms). Analyses of discrete trait evolution, including models of unequal rates or rates changing at a given instant of time, as well as Pagel's transformations, can be performed in <pkg>geiger</pkg>. <pkg>corHMM</pkg> can look for hidden rates in discrete traits as well as fit correlational models for two or three binary traits (similar to Pagel's old Discrete program) and complex models for multistate traits (similar to Pagel's old Multistate program). Brownian motion models can be fit in <pkg>geiger</pkg>, <pkg>ape</pkg>, and <pkg>paleotree</pkg>. Multiple-rate Brownian motion can be fit
 in motmot and RBrownie (both currently not on CRAN, but older versions can be downloaded obtained from the <a href="http://cran.r-project.org/src/contrib/Archive/">archive</a>). Deviations from Brownian motion can be investigated in <pkg>geiger</pkg> and <pkg>OUwie</pkg>. <pkg>mvMORPH</pkg> can fit Brownian motion, early burst, ACDC, OU, and shift models to univariate or multivariate data. Ornstein-Uhlenbeck (OU) models can be fitted in <pkg>geiger</pkg>, <pkg>ape</pkg>,
 <pkg>ouch</pkg> (with multiple means), and <pkg>OUwie</pkg> (with multiple means, rates, and attraction values). <pkg>surface</pkg> wraps <pkg>ouch</pkg> to infer shifts in the OU optimum; <pkg>bayou</pkg> also allows data-driven selection between different OU models. <pkg>geiger</pkg> fits only single-optimum models. Other continuous models, including Pagel's transforms and models with trends, can be fit with <pkg>geiger</pkg>. ANOVA's and MANOVA's in a phylogenetic context can also be implemented in
 <pkg>geiger</pkg>. Traditional GLS methods (sensu Grafen or Martins) can be implemented in <pkg>ape</pkg>, <pkg>PHYLOGR</pkg>, or <pkg>caper</pkg>. Phylogenetic autoregression (sensu Cheverud et al) and Phylogenetic autocorrelation (Moran's I) can be implemented in
@@ -105,7 +105,7 @@ in motmot and RBrownie (both currently not on CRAN, but older versions can be do
           Tree Plotting and Visualization:
         </i>
 
-        User trees can be plotted using <pkg>ape</pkg>, <pkg>adephylo</pkg>, <pkg>phylobase</pkg>, <pkg>phytools</pkg>, <pkg>ouch</pkg>, and <pkg>dendextend</pkg>; several of these have options for branch or taxon coloring based on some criterion (ancestral state, tree structure, etc.). <rforge>paleoPhylo</rforge> and <pkg>paleotree</pkg> are specialized for drawing paleobiological phylogenies. Trees can also be examined (zoomed) and viewed as correlograms using <pkg>ape</pkg>. Ancestral state reconstructions can be visualized along branches using <pkg>ape</pkg> and <pkg>paleotree</pkg>. <pkg>phytools</pkg> can project a tree into a morphospace. <pkg>BAMMtools</pkg> can visualize rate shifts calculated by BAMM on a tree. The popular R visualization package <pkg>ggplot2</pkg> can be extended by <a href="https://github.com/GuangchuangYu/ggtree">ggtree</a> to visualize phylogenies. Trees can also be to interactively explored (as dendrograms) using <pkg>idendr0</pkg>. <pkg>phylocanvas</pkg> is a widget for "htmlwidgets" that enables embedding of phylogenetic trees using the phylocanvas javascript library.
+        User trees can be plotted using <pkg>ape</pkg>, <pkg>adephylo</pkg>, <pkg>phylobase</pkg>, <pkg>phytools</pkg>, <pkg>ouch</pkg>, and <pkg>dendextend</pkg>; several of these have options for branch or taxon coloring based on some criterion (ancestral state, tree structure, etc.). <rforge>paleoPhylo</rforge> and <pkg>paleotree</pkg> are specialized for drawing paleobiological phylogenies. Trees can also be examined (zoomed) and viewed as correlograms using <pkg>ape</pkg>. Ancestral state reconstructions can be visualized along branches using <pkg>ape</pkg> and <pkg>paleotree</pkg>. <pkg>phytools</pkg> can project a tree into a morphospace. <pkg>BAMMtools</pkg> can visualize rate shifts calculated by BAMM on a tree. The popular R visualization package <pkg>ggplot2</pkg> can be extended by <github>GuangchuangYu/ggtree</github> to visualize phylogenies. Trees can also be to interactively explored (as dendrograms) using <pkg>idendr0</pkg>. <pkg>phylocanvas</pkg> is a widget for "htmlwidgets" that enables embedding of phylogenetic trees using the phylocanvas javascript library.
       </p>
 
       <p>
@@ -199,7 +199,6 @@ in motmot and RBrownie (both currently not on CRAN, but older versions can be do
   <pkg>DAMOCLES</pkg>
   <pkg>DDD</pkg>
   <pkg>dendextend</pkg>
-  <pkg>DiscML</pkg>
   <pkg>distory</pkg>
   <pkg>diversitree</pkg>
   <pkg>evobiR</pkg>
@@ -270,7 +269,7 @@ in motmot and RBrownie (both currently not on CRAN, but older versions can be do
 
 <links>
   <view>Genetics</view>
-  <a href="https://github.com/GuangchuangYu/ggtree">ggtree</a>
+  <github>GuangchuangYu/ggtree</github>
   <view>Environmetrics</view>
   <rforge>paleoPhylo</rforge>
   <a href="http://www.christophheibl.de/Rpackages.html">PHYLOCH, LAGOPUS, and PHYLOCLIM packages</a>

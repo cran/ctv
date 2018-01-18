@@ -119,6 +119,13 @@
     Package <pkg>adehabitatLT</pkg> offers a class <code>ltraj</code>
     for trajectories, and methods for analyzing them; the packages <pkg>move</pkg> and 
 	<pkg>trip</pkg> both extend <pkg>sp</pkg> based classes for trajectories. 
+
+	A blog post on <a
+	href="http://r-spatial.org/r/2017/08/28/nest.html">tidy storm
+	trajectories</a> points out how nested dataframes, along with
+	geometry list columns of the <pkg>sf</pkg> package, can be used to model sets
+	of trajectories, and visualise properties at the set level and
+	at the level of individual fixes.
 	</li>
 
   </ul>
@@ -431,7 +438,7 @@
 	 similarity measures can be calculated from two n-dimensional
 	 trajectories, both in matrix form.</li>
 
-	<li> the <pkg>sigloc</pkg> package provides a collection of
+	<li>The <pkg>sigloc</pkg> package provides a collection of
 	tools for estimating the location of a transmitter signal
 	from radio telemetry studies using the maximum likelihood
 	estimation (MLE) approach described in Lenth (1981).
@@ -463,7 +470,7 @@
 	 </li>
 
 
-   <li>The <a href="https://github.com/calbertsen/argosTrack">argosTrack</a> (off-CRAN) 
+   <li>The <github>calbertsen/argosTrack</github> (off-CRAN) 
    package allows fitting movement models to Argos data. 
    </li>
 
@@ -578,6 +585,7 @@
     <pkg                >ctmm</pkg>
     <pkg                >diveMove</pkg>
     <pkg                >fishmove</pkg>
+    <pkg                >FLightR</pkg>
     <pkg                >GeoLight</pkg>
     <pkg                >googleVis</pkg>
     <pkg priority="core">gstat</pkg>
@@ -602,6 +610,8 @@
     <pkg                >rmatio</pkg>
     <pkg                >RNetCDF</pkg>
     <pkg                >rsatscan</pkg>
+    <pkg                >sf</pkg>
+    <pkg                >sigloc</pkg>
     <pkg                >SimilarityMeasures</pkg>
     <pkg                >smam</pkg>
     <pkg                >solaR</pkg>

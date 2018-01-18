@@ -2,7 +2,7 @@
   <name>Spatial</name>
   <topic>Analysis of Spatial Data</topic>
   <maintainer email="Roger.Bivand@nhh.no">Roger Bivand</maintainer>
-  <version>2017-05-09</version>
+  <version>2017-12-21</version>
 
   <info>
     <p>Base R includes many functions that can be used for reading,
@@ -19,7 +19,7 @@
     is posted on the R-Forge rspatial project 
     <a href="http://rspatial.R-Forge.R-project.org/">website</a>, including
     a visualisation gallery. Active development of <pkg>sp</pkg> is 
-    continuing on <a href="https://github.com/edzer/sp">Github</a>.</p>
+    continuing on <github>edzer/sp</github>.</p>
 
     <p>The contributed packages address two broad areas: moving spatial data
     into and out of R, and analysing spatial data in R.</p>
@@ -54,7 +54,7 @@
       News</a>.  
 
       A new package called <pkg>sf</pkg> is now on CRAN, and is being
-      actively developed on <a href="https://github.com/edzer/sfr">GitHub</a>,
+      actively developed on <github>edzer/sfr</github>,
       providing Simple Features for R. The development of the package is
       being supported by the R Consortium. It provides simple features access
       for vector data, and as such is a modern implementation of parts of 
@@ -115,9 +115,8 @@
       range of sampling functions. The <pkg>trip</pkg> package extends sp
       classes to permit the accessing and manipulating of spatial data for
       animal tracking. The <pkg>hdeco</pkg> package provides hierarchical
-      decomposition of entropy for categorical map comparisons. The
-      <pkg>GeoXp</pkg> package permits interactive graphical exploratory
-      spatial data analysis. <pkg>spcosa</pkg> provides spatial coverage
+      decomposition of entropy for categorical map comparisons.
+      <pkg>spcosa</pkg> provides spatial coverage
       sampling and random sampling from compact geographical strata. 
       The <pkg>magclass</pkg> offers a data class for increased
       interoperability working with spatial-temporal data together with
@@ -620,7 +619,6 @@
     <pkg>geosphere</pkg>
     <pkg>geospt</pkg>
     <pkg>geostatsp</pkg>
-    <pkg>GeoXp</pkg>
     <pkg>ggmap</pkg>
     <pkg>ggsn</pkg>
     <pkg>glmmBUGS</pkg>
