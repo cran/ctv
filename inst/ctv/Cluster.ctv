@@ -3,7 +3,7 @@
 <name>Cluster</name>
 <topic>Cluster Analysis &amp; Finite Mixture Models</topic>
 <maintainer email="Bettina.Gruen@jku.at">Friedrich Leisch and Bettina Gruen</maintainer>
-<version>2017-12-05</version>
+<version>2018-05-04</version>
   
 <info> <p>This CRAN Task View contains a list of packages that can be
 used for finding groups in data and modeling unobserved
@@ -143,12 +143,6 @@ of each package to check under which license it is distributed.</p>
   interpretations by looking at the group-specific functional
   curves. 
   </li>
-  <li>Package <pkg>FisherEM</pkg> is a subspace clustering method
-  which allows for efficient unsupervised classification of
-  high-dimensional data. It is based on the Gaussian mixture model and
-  on the idea that the data lives in a common and low dimensional
-  subspace. An EM-like algorithm estimates both the discriminative
-  subspace and the parameters of the mixture model.</li>
   <li>Package <pkg>HDclassif</pkg> provides function <code>hddc</code>
   to fit Gaussian mixture model to high-dimensional data where it is
   assumed that the data lives in a lower dimension than the original
@@ -189,6 +183,12 @@ of each package to check under which license it is distributed.</p>
   <li>Fitting finite mixtures of uni- and multivariate scale mixtures
   of skew-normal distributions with the EM algorithm is provided by
   package <pkg>mixsmsn</pkg>.</li>
+  <li>Package <pkg>MoEClust</pkg> fits parsimonious finite
+  multivariate Gaussian mixtures of experts models via the EM
+  algorithm. Covariates may influence the mixing proportions and/or
+  component densities and all 14 constrained covariance
+  parameterizations from package <pkg>mclust</pkg> are
+  implemented.</li>
   <li>Package <pkg>movMF</pkg> fits finite mixtures of von
   Mises-Fisher distributions with the EM algorithm.</li>
   <li>Package <pkg>GLDEX</pkg> fits mixtures of generalized lambda
@@ -197,11 +197,6 @@ of each package to check under which license it is distributed.</p>
   <li><pkg>mritc</pkg> provides tools for classification using normal
   mixture models and (higher resolution) hidden Markov normal mixture
   models fitted by various methods.</li>
-  <li>Parsimonious Gaussian mixture models allow to fit mixtures of
-  factor analyzers with a constraints on the components of the factor
-  models. Functionality to fit these models is provided in package
-  <pkg>pgmm</pkg>.
-  </li>
   <li><pkg>prabclus</pkg> clusters a presence-absence matrix
   object by calculating an MDS 
   from the distances, and applying maximum likelihood Gaussian
@@ -217,6 +212,11 @@ of each package to check under which license it is distributed.</p>
   model-based clustering for high dimensional (ultra) large data. The
   package uses pbdMPI to perform a parallel version of the EM
   algorithm for mixtures of Gaussians.</li>
+  <li>Package <pkg>rebmix</pkg> implements the REBMIX algorithm to fit
+  mixtures of conditionally independent normal, lognormal, Weibull,
+  gamma, binomial, Poisson, Dirac or von Mises component densities as
+  well as mixtures of multivariate normal component densities with
+  unrestricted variance-covariance matrices.</li>
 </ul></li>
 <li>Bayesian estimation:
 <ul>
@@ -228,10 +228,6 @@ of each package to check under which license it is distributed.</p>
   the moments over MCMC draws, for determining the marginal densities,
   for clustering observations and for plotting the uni- and bivariate
   marginal densities.</li>
-  <li>Package <pkg>bayesMCClust</pkg> provides various Markov Chain
-  Monte Carlo samplers for model-based clustering of discrete-valued
-  time series obtained by observing a categorical variable with
-  several states using a Bayesian approach.</li>
   <li>Package <pkg>bayesmix</pkg> provides Bayesian estimation using
   JAGS.</li>
   <li>Package <pkg>bclust</pkg> allows Bayesian clustering using a
@@ -250,6 +246,12 @@ of each package to check under which license it is distributed.</p>
   <li>Package <pkg>mixAK</pkg> contains a mixture of statistical
   methods including the MCMC methods to analyze normal mixtures with
   possibly censored data.  </li>
+  <li>Package <pkg>IMIFA</pkg> fits Infinite Mixtures of Infinite
+  Factor Analyzers and a flexible suite of related models for
+  clustering high-dimensional data. The number of clusters
+  and/or number of cluster-specific latent factors can be
+  non-parametrically inferred, without recourse to model selection
+  criteria.</li>
   <li>Package <pkg>mcclust</pkg> implements methods for processing a
   sample of (hard) clusterings, e.g. the MCMC output of a Bayesian
   clustering model. Among them are methods that find a single best
@@ -270,8 +272,6 @@ of each package to check under which license it is distributed.</p>
   automatically remove unnecessary clusters, while at the same time
   allowing the simultaneous use of various types of Gaussian mixture
   models.</li>
-  <li>Package <pkg>pendensity</pkg> estimates densities with a penalized
-  mixture approach.</li>
   <li>Circular and orthogonal regression clustering using redescending
   M-estimators is provided by package <pkg>edci</pkg>.</li>
   <li>Robust estimation using Weighted Likelihood can be done with
@@ -406,7 +406,13 @@ of each package to check under which license it is distributed.</p>
   <pkg>cluster</pkg> and <pkg>clValid</pkg> calculates several
   stability measures.</li>
   <li>Package <pkg>clustvarsel</pkg> provides variable selection for
-  model-based clustering.</li>
+  Gaussian model-based clustering.  Variable selection for latent
+  class analysis for clustering multivariate categorical data is
+  implemented in package <pkg>LCAvarsel</pkg>.
+  Package <pkg>VarSelLCM</pkg> provides variable selection for
+  model-based clustering of continuous, count, categorical or
+  mixed-type data with missing values where the models used impose a
+  conditional independence assumption given group membership.</li>
   <li>Functionality to compare the similarity between two cluster
   solutions is provided by <code>cluster.stats()</code> in package
   <pkg>fpc</pkg>.</li>
@@ -440,7 +446,6 @@ of each package to check under which license it is distributed.</p>
 <pkg>apcluster</pkg>
 <pkg>BayesLCA</pkg>
 <pkg>bayesm</pkg>
-<pkg>bayesMCClust</pkg>
 <pkg>bayesmix</pkg>
 <pkg>bgmm</pkg>
 <pkg>bclust</pkg>
@@ -476,7 +481,6 @@ of each package to check under which license it is distributed.</p>
 <pkg>FactoClass</pkg>
 <pkg>fastcluster</pkg>
 <pkg>fclust</pkg>
-<pkg>FisherEM</pkg>
 <pkg>flashClust</pkg>
 <pkg priority="core">flexclust</pkg>
 <pkg>flexCWM</pkg>
@@ -492,11 +496,13 @@ of each package to check under which license it is distributed.</p>
 <pkg>HDclassif</pkg>
 <pkg>hybridHclust</pkg>
 <pkg>idendr0</pkg>
+<pkg>IMIFA</pkg>
 <pkg>isopam</pkg>
 <pkg>kernlab</pkg>
 <pkg>kml</pkg>
 <pkg>largeVis</pkg>
 <pkg>latentnet</pkg>
+<pkg>LCAvarsel</pkg>
 <pkg>lcmm</pkg>
 <pkg>longclust</pkg>
 <pkg>mcclust</pkg>
@@ -512,6 +518,7 @@ of each package to check under which license it is distributed.</p>
 <pkg>mixtools</pkg>
 <pkg>mixture</pkg>
 <pkg>MOCCA</pkg>
+<pkg>MoEClust</pkg>
 <pkg>movMF</pkg>
 <pkg>mritc</pkg>
 <pkg>NbClust</pkg>
@@ -519,8 +526,6 @@ of each package to check under which license it is distributed.</p>
 <pkg>optpart</pkg>
 <pkg>ORIClust</pkg>
 <pkg>pdfCluster</pkg>
-<pkg>pendensity</pkg>
-<pkg>pgmm</pkg>
 <pkg>pmclust</pkg>
 <pkg>poLCA</pkg>
 <pkg>prabclus</pkg>
@@ -531,6 +536,7 @@ of each package to check under which license it is distributed.</p>
 <pkg>psychomix</pkg>
 <pkg>pvclust</pkg>
 <pkg>randomLCA</pkg>
+<pkg>rebmix</pkg>
 <pkg>rjags</pkg>
 <pkg priority="core">Rmixmod</pkg>
 <pkg>RPMM</pkg>
@@ -543,6 +549,7 @@ of each package to check under which license it is distributed.</p>
 <pkg>teigen</pkg>
 <pkg>treeClust</pkg>
 <pkg>trimcluster</pkg>
+<pkg>VarSelLCM</pkg>
 <pkg>wle</pkg>
 </packagelist>
 

@@ -3,7 +3,7 @@
   <name>Econometrics</name>
   <topic>Econometrics</topic>
   <maintainer email="Achim.Zeileis@R-project.org">Achim Zeileis</maintainer>
-  <version>2018-01-06</version>
+  <version>2018-04-24</version>
   
   <info>
     <p>Base R ships with a lot of functionality useful for computational
@@ -168,7 +168,8 @@
           between, and random-effect methods (among others) along with corrected standard
 	  errors, tests, etc. Another implementation of several of these models is in
 	  <pkg>Paneldata</pkg>. Various dynamic panel models are available in <pkg>plm</pkg>
-	  and dynamic panel models with fixed effects in <pkg>OrthoPanels</pkg>.</li>
+	  and dynamic panel models with fixed effects in <pkg>OrthoPanels</pkg>.
+	  Panel vector autoregressions are implemented in <pkg>panelvar</pkg>.</li>
 
       <li><i>Generalized estimation equations and GLMs</i>: GEE models for panel data (or longitudinal
           data in statistical jargon) are in <pkg>geepack</pkg>. The <pkg>pglm</pkg> package provides
@@ -276,7 +277,8 @@
 
       <li><i>Vector autoregression</i>: Simple models can be fitted by <code>ar()</code> in stats, more
 	  elaborate models are provided in package <pkg>vars</pkg> along with suitable diagnostics,
-	  visualizations etc. A Bayesian approach is available in <pkg>MSBVAR</pkg>.</li>
+	  visualizations etc. A Bayesian approach is available in <pkg>MSBVAR</pkg> and panel
+	  vector autoregressions in <pkg>panelvar</pkg>.</li>
 
       <li><i>Unit root and cointegration tests</i>: <pkg>urca</pkg>,
 	  <pkg>tseries</pkg>, <pkg>CADFtest</pkg>. See also <pkg>pco</pkg> for panel cointegration tests.</li>
@@ -357,7 +359,9 @@
           chains are in <pkg>gvc</pkg> and <pkg>decompr</pkg>.</li>
 
       <li><i>Regression discontinuity design</i>: A variety of methods are provided in
-          the <pkg>rdd</pkg>, <pkg>rddapp</pkg>, <pkg>rddtools</pkg>, <pkg>rdrobust</pkg>, and <pkg>rdlocrand</pkg> packages.</li>
+          the <pkg>rdd</pkg>, <pkg>rddapp</pkg>, <pkg>rddtools</pkg>, <pkg>rdrobust</pkg>, and <pkg>rdlocrand</pkg> packages.
+	  The <pkg>rdpower</pkg> package offers power calculations for regression discontinuity designs.
+	  And <pkg>rdmulti</pkg> implements analysis with multiple cutoffs or scores.</li>
       
       <li><i>z-Tree</i>: <pkg>zTree</pkg> can import data from the z-Tree software for
           developing and carrying out economic experiments.</li>
@@ -448,6 +452,7 @@
     <pkg>pampe</pkg>
     <pkg>panelAR</pkg>
     <pkg>Paneldata</pkg>
+    <pkg>panelvar</pkg>
     <pkg>PANICr</pkg>
     <pkg>pco</pkg>
     <pkg>pcse</pkg>
@@ -467,6 +472,8 @@
     <pkg>rddapp</pkg>
     <pkg>rddtools</pkg>
     <pkg>rdlocrand</pkg>
+    <pkg>rdmulti</pkg>
+    <pkg>rdpower</pkg>
     <pkg>rdrobust</pkg>
     <pkg>reldist</pkg>
     <pkg>REndo</pkg>

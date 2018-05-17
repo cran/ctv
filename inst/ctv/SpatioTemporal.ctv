@@ -3,7 +3,7 @@
   <name>SpatioTemporal</name>
   <topic>Handling and Analyzing Spatio-Temporal Data</topic>
   <maintainer email="edzer.pebesma@uni-muenster.de">Edzer Pebesma</maintainer>
-  <version>2017-07-03</version>
+  <version>2018-04-20</version>
 
   <info>
   <p>This task view aims at presenting R packages that are useful for 
@@ -255,6 +255,8 @@
 	 <li><pkg>CARBayesST</pkg> implements a class of spatio-temporal
 	 generalised linear mixed models for areal unit data, with inference
 	 in a Bayesian setting using Markov chain Monte Carlo (McMC) simulation. </li>
+
+	 <li><pkg>gapfill</pkg> provides tools to fill missing values in satellite data and to develop new gap-fill algorithms. The methods are tailored to data (images) observed at equally-spaced points in time. The package is illustrated with MODIS NDVI data.  </li>
 	 </ul>
 	</li>
 
@@ -586,6 +588,7 @@
     <pkg                >diveMove</pkg>
     <pkg                >fishmove</pkg>
     <pkg                >FLightR</pkg>
+    <pkg                >gapfill</pkg>
     <pkg                >GeoLight</pkg>
     <pkg                >googleVis</pkg>
     <pkg priority="core">gstat</pkg>

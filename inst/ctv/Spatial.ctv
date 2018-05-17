@@ -2,7 +2,7 @@
   <name>Spatial</name>
   <topic>Analysis of Spatial Data</topic>
   <maintainer email="Roger.Bivand@nhh.no">Roger Bivand</maintainer>
-  <version>2017-12-21</version>
+  <version>2018-04-11</version>
 
   <info>
     <p>Base R includes many functions that can be used for reading,
@@ -108,9 +108,6 @@
       of distances and routes on geographic grids. <pkg>geosphere</pkg>
       permits computations of distance and area 
       to be carried out on spatial data in geographical coordinates. 
-      The <pkg>dggridR</pkg> package provides an interface to DGGRID for
-      working with discrete global grids, using hexagons, triangles, and
-      diamonds to overcome the issue that every bin have the same area.
       The <pkg>spsurvey</pkg> package provides a
       range of sampling functions. The <pkg>trip</pkg> package extends sp
       classes to permit the accessing and manipulating of spatial data for
@@ -319,8 +316,7 @@
       <pkg>vardiag</pkg>. Automated interpolation using <pkg>gstat</pkg>
       is available in <pkg>automap</pkg>. This family of packages is
       supplemented by <pkg>intamap</pkg> with procedures for automated
-      interpolation and <pkg>psgp</pkg>, which implements projected
-      sparse Gaussian process kriging.  A similar wide range of
+      interpolation.  A similar wide range of
       functions is to be found in the <pkg>fields</pkg> package. The
       <pkg>spatial</pkg> package is shipped with base R, and contains
       several core functions. The <pkg>spBayes</pkg> package fits Gaussian
@@ -500,9 +496,8 @@
       techniques can be used for maximum likelihood fits, while spatial two
       stage least squares and generalised method of moments estimators are
       an alternative. When using GMM, <pkg>sphet</pkg> can be used to 
-      accommodate both autocorrelation and heteroskedasticity. Spatial 
-      count regression is provided using custom MCMC
-      by <pkg>spatcounts</pkg>. The <pkg>McSpatial</pkg> provides functions 
+      accommodate both autocorrelation and heteroskedasticity.
+      The <pkg>McSpatial</pkg> provides functions 
       for locally weighted regression, semiparametric and conditionally 
       parametric regression, fourier and cubic spline functions, GMM and 
       linearized spatial logit and probit, k-density functions and 
@@ -529,7 +524,7 @@
       <li><p><b>Ecological analysis</b>: There are many packages
       for analysing ecological and environmental data. They include
       <pkg>ade4</pkg> for exploratory and Euclidean methods in the
-      environmental sciences,  the <pkg>adehabitat</pkg> family of packages 
+      environmental sciences,  the adehabitat family of packages 
       for the analysis of habitat selection by animals
       (<pkg>adehabitatHR</pkg>, <pkg>adehabitatHS</pkg>,
       <pkg>adehabitatLT</pkg>, and <pkg>adehabitatMA</pkg>),
@@ -574,7 +569,6 @@
 
   <packagelist>
     <pkg>ade4</pkg>
-    <pkg>adehabitat</pkg>
     <pkg>adehabitatHR</pkg>
     <pkg>adehabitatHS</pkg>
     <pkg>adehabitatLT</pkg>
@@ -595,7 +589,6 @@
     <pkg>dbmss</pkg>
     <pkg priority="core">DCluster</pkg>
     <pkg priority="core">deldir</pkg>
-    <pkg priority="core">dggridR</pkg>
     <pkg>diseasemapping</pkg>
     <pkg>DSpat</pkg>
     <pkg>ecespa</pkg>
@@ -666,7 +659,6 @@
     <pkg>postGIStools</pkg>
     <pkg>PReMiuM</pkg>
     <pkg>ProbitSpatial</pkg>
-    <pkg>psgp</pkg>
     <pkg>quickmapr</pkg>
     <pkg>ramps</pkg>
     <pkg priority="core">RandomFields</pkg>
@@ -711,7 +703,6 @@
     <pkg>SpatialEpi</pkg>
     <pkg>SpatialExtremes</pkg>
     <pkg>SpatialPosition</pkg>
-    <pkg>spatcounts</pkg>
     <pkg>spatgraphs</pkg>
     <pkg>spatialprobit</pkg>
     <pkg>spatialsegregation</pkg>

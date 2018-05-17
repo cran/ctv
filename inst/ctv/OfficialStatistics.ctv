@@ -3,7 +3,7 @@
 <name>OfficialStatistics</name>
 <topic>Official Statistics &amp; Survey Methodology</topic>
 <maintainer email="matthias.templ@gmail.com">Matthias Templ</maintainer>
-<version>2018-01-05</version>
+<version>2018-04-20</version>
   
 <info> This CRAN task view contains a list of packages that includes
 methods typically used in official statistics and survey methodology.
@@ -400,9 +400,6 @@ Less functionality but with the support of SEATS Spec is supported by package <p
   Package <pkg>stringdist</pkg> can calculate various string distances based on edits (damerau-levenshtein, hamming, levenshtein, optimal sting alignment), qgrams (q-gram, cosine, jaccard distance) or heuristic metrics (jaro, jaro-winkler). 
   </li>
   <li>
-  Package <pkg>fuzzyjoin</pkg> allows for matching records based on inaccurate keys.
-  </li>
-  <li>
   Package <pkg>XBRL</pkg> allows the extraction of business financial information from XBRL Documents.
   </li>
 </ul>  
@@ -456,6 +453,8 @@ that is used to fit the basic random effects models.
   <li> Package <pkg>IC2</pkg> include three inequality indices: 
   extended Gini, Atkinson and Generalized Entropy. It can deal with sampling weights and 
   subgroup decomposition is supported.
+  </li>
+    <li> Package <pkg>DHS.rates</pkg> estimates key indicators (especially fertility rates) and their variances for the Demographic and Health Survey (DHS) data.
   </li>
   <li>
   Functions <code>priceIndex()</code> from package <pkg>micEconIndex</pkg> allows to 
@@ -538,6 +537,10 @@ Function <code>describe()</code> from package <pkg>questionr</pkg> describes the
 Package <pkg>OECD</pkg> searches and extracts data from the OECD.
 </li>
 <li>
+Package <pkg>Rilostat</pkg> contains 
+tools to download data from the <a href="http://www.ilo.org/ilostat"> international labour organisation database</a> together with search and manipulation utilities. It can also import ilostat data that are available on their data base in SDMX format.
+</li>
+<li>
 Access to Finnish open government data is provided by package <pkg>sorvi</pkg>
 </li>
 <li>
@@ -581,10 +584,6 @@ A wrapper for the U.S. Census Bureau APIs that returns data frames of Census dat
   <li>
   Package <pkg>memisc</pkg> includes tools for the management of survey data, 
   graphics and simulation.
-  </li>
-  <li>
-  Package <pkg>odfWeave.survey</pkg> provides support for <pkg>odfWeave</pkg> 
-  for the <pkg>survey</pkg> package.
   </li>
   <li>
   Package <pkg>spsurvey</pkg> includes facilities for spatial survey design and 
@@ -655,6 +654,7 @@ including data with replication weights (e.g. from bootstrap).
   <pkg>CoImp</pkg>
   <pkg>convey</pkg>
   <pkg>deducorrect</pkg>
+  <pkg>DHS.rates</pkg>
   <pkg>easySdcTable</pkg>
   <pkg>editrules</pkg>
   <pkg>errorlocate</pkg>
@@ -663,7 +663,6 @@ including data with replication weights (e.g. from bootstrap).
   <pkg>FFD</pkg>
   <pkg>foreign</pkg>
   <pkg>Frames2</pkg>
-  <pkg>fuzzyjoin</pkg>
   <pkg>GeomComb</pkg>
   <pkg>gridsample</pkg>
   <pkg>haven</pkg>
@@ -694,11 +693,10 @@ including data with replication weights (e.g. from bootstrap).
   <pkg>mix</pkg>
   <pkg>nlme</pkg>
   <pkg>norm</pkg>
-  <pkg>odfWeave</pkg>
-  <pkg>odfWeave.survey</pkg>
   <pkg>OECD</pkg>
   <pkg>pan</pkg>
   <pkg>panelaggregation</pkg>
+  <pkg>Rilostat</pkg>
   <pkg>pps</pkg>
   <pkg>PracTools</pkg>
   <pkg>prevR</pkg>
