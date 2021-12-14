@@ -2,8 +2,8 @@
 
   <name>Econometrics</name>
   <topic>Econometrics</topic>
-  <maintainer email="Achim.Zeileis@R-project.org">Achim Zeileis</maintainer>
-  <version>2018-04-24</version>
+  <maintainer email="Achim.Zeileis@R-project.org">Achim Zeileis, Grant McDermott</maintainer>
+  <version>2021-11-02</version>
   
   <info>
     <p>Base R ships with a lot of functionality useful for computational
@@ -11,11 +11,7 @@
     functionality is complemented by many packages on CRAN, a brief overview
     is given below. There is also a considerable overlap between the tools
     for econometrics in this view and those in the task views on
-    <view>Finance</view>, <view>SocialSciences</view>, and <view>TimeSeries</view>.    
-    Furthermore, the 
-    <a href="https://stat.ethz.ch/mailman/listinfo/R-SIG-Finance/">Finance SIG</a>    
-    is a suitable mailing list for obtaining help
-    and discussing questions about both computational finance and econometrics.</p>
+    <view>Finance</view>, <view>SocialSciences</view>, and <view>TimeSeries</view>.</p>
     
     <p>The packages in this view can be roughly structured into the following topics.
     If you think that some package is missing from the list, please contact the maintainer.</p>
@@ -35,8 +31,8 @@
           Tests of more general linear hypotheses are implemented in <code>linearHypothesis()</code>
           and for nonlinear hypotheses in <code>deltaMethod()</code> in <pkg>car</pkg>.</li>
 
-      <li><i>Robust standard errors</i>: HC and HAC covariance matrices are available in <pkg>sandwich</pkg>
-          and can be plugged into the inference functions mentioned above.</li>
+      <li><i>Robust standard errors</i>: HC, HAC, clustered, and bootstrap covariance matrices are
+          available in <pkg>sandwich</pkg> and can be plugged into the inference functions mentioned above.</li>
 
       <li><i>Nonnested model comparisons</i>: Various tests for comparing non-nested linear
           models are available in <pkg>lmtest</pkg> (encompassing test, J test, Cox test).
@@ -54,17 +50,19 @@
       <li><i>Generalized linear models (GLMs)</i>: Many standard microeconometric models belong to the
           family of generalized linear models and can be fitted by <code>glm()</code>
 	  from package stats. This includes in particular logit and probit models
-	  for modeling choice data and Poisson models for count data. Effects for typical
+	  for modeling choice data and Poisson models for count data.
+	  Effects for typical
 	  values of regressors in these models can be obtained and visualized using <pkg>effects</pkg>.
 	  Marginal effects tables for certain GLMs can be obtained using the 
-	  <pkg>mfx</pkg> and <pkg>margins</pkg> packages. Interactive visualizations of both effects and marginal
+	  <pkg>margins</pkg> and <pkg>mfx</pkg> packages. Interactive visualizations of both effects and marginal
 	  effects are possible in <pkg>LinRegInteractive</pkg>.</li>
 
       <li><i>Binary responses</i>: The standard logit and probit models (among many others) for binary
           responses are GLMs that can be estimated by <code>glm()</code> with <code>family = binomial</code>.
 	  Bias-reduced GLMs that are robust to complete and quasi-complete separation are provided by
 	  <pkg>brglm</pkg>. Discrete choice models estimated by simulated maximum likelihood are
-	  implemented in <pkg>Rchoice</pkg>. Heteroscedastic probit models (and other heteroscedastic
+	  implemented in <pkg>Rchoice</pkg>. <pkg>bife</pkg> provides binary choice models with fixed effects.
+	  Heteroscedastic probit models (and other heteroscedastic
 	  GLMs) are implemented in <pkg>glmx</pkg> along with parametric link functions and goodness-of-link
 	  tests for GLMs.</li>
 
@@ -80,9 +78,11 @@
 
       <li><i>Multinomial responses</i>: Multinomial models
 	  with individual-specific covariates only are available in <code>multinom()</code>
-	  from package <pkg>nnet</pkg>. Implementations with both individual- and
-	  choice-specific variables are <pkg>mlogit</pkg> and <pkg>mnlogit</pkg>. Generalized
-	  multinomial logit models (e.g., with random effects etc.) are in <pkg>gmnl</pkg>.	  
+	  from package <pkg>nnet</pkg>. An implementation with both individual- and
+	  choice-specific variables is <pkg>mlogit</pkg>. Generalized
+	  multinomial logit models (e.g., with random effects etc.) are in <pkg>gmnl</pkg>.
+	  A flexible framework of various customizable choice models (including multinomial logit and
+	  nested logit among many others) is implemented in the <pkg>apollo</pkg> package.
 	  Generalized additive models
 	  (GAMs) for multinomial responses can be fitted with the <pkg>VGAM</pkg> package.	  
 	  A Bayesian approach to multinomial probit models is provided by <pkg>MNP</pkg>.
@@ -101,11 +101,10 @@
 	  can be fitted by <code>survreg()</code> in <pkg>survival</pkg>, a convenience
 	  interface <code>tobit()</code> is in package <pkg>AER</pkg>. Further censored
 	  regression models, including models for panel data, are provided in <pkg>censReg</pkg>.
-	  Interval regression models are in <pkg>intReg</pkg>. Censored regression models with
-	  conditional heteroscedasticity are in <pkg>crch</pkg>.
+	  Censored regression models with conditional heteroscedasticity are in <pkg>crch</pkg>.
 	  Furthermore, hurdle models for left-censored data at zero can be estimated with
 	  <pkg>mhurdle</pkg>. Models for sample selection are available in <pkg>sampleSelection</pkg>
-	  and semiparametric extensions of these are provided by <pkg>SemiParSampleSel</pkg>.
+          and <pkg>ssmrob</pkg> using classical and robust inference, respectively.
 	  Package <pkg>matchingMarkets</pkg> corrects for selection bias when the sample is the
 	  result of a stable matching process (e.g., a group formation or college admissions problem).</li>
 
@@ -116,6 +115,16 @@
       <li><i>Fraction and proportion responses</i>: Fractional response models are in <pkg>frm</pkg>.
           Beta regression for responses in (0, 1) is in <pkg>betareg</pkg> and <pkg>gamlss</pkg>.</li>
 
+      <li><i>Duration responses</i>: Many classical duration models can be fitted with <pkg>survival</pkg>,
+          e.g., Cox proportional hazard models with <code>coxph()</code> or Weibull models with <code>survreg()</code>.
+	  Many more refined models can be found in the <view>Survival</view> task view. The Heckman
+	  and Singer mixed proportional hazard competing risk model is available in <pkg>durmod</pkg>.</li>
+
+      <li><i>High-dimensional fixed effects</i>: Linear models with potentially high-dimensional
+          fixed effects, also for multiple groups, can be fitted by <pkg>lfe</pkg>.
+	  The corresponding GLMs are covered in <pkg>alpaca</pkg>. Another implementation, based on
+	  C++ code covering both OLS and GLMs is in <pkg>fixest</pkg>.</li>
+
       <li><i>Miscellaneous</i>: Further more refined tools for microeconometrics are provided in
 	  the <pkg>micEcon</pkg> family of packages: Analysis with
 	  Cobb-Douglas, translog, and quadratic functions is in <pkg>micEcon</pkg>;
@@ -125,7 +134,6 @@
 	  Stochastic frontier analysis (SFA) is in <pkg>frontier</pkg> and certain special cases also in <pkg>sfa</pkg>.
 	  Semiparametric SFA in is available in <pkg>semsfa</pkg> and spatial SFA in <pkg>spfrontier</pkg> and <pkg>ssfa</pkg>.
 	  The package <pkg>bayesm</pkg> implements a Bayesian approach to microeconometrics and marketing. 
-	  Estimation and marginal effect computations for multivariate probit models can be carried out with <pkg>mvProbit</pkg>.
 	  Inference for relative distributions is contained in package <pkg>reldist</pkg>.</li>
     </ul>
 
@@ -133,7 +141,7 @@
     
     <ul>
       <li><i>Basic instrumental variables (IV) regression</i>: Two-stage least squares (2SLS)
-          is provided by <code>ivreg()</code> in <pkg>AER</pkg>. Other implementations are in <code>tsls()</code>
+          is provided by <pkg>ivreg</pkg> (previously in <pkg>AER</pkg>). Other implementations are in <code>tsls()</code>
 	  in package <pkg>sem</pkg>, in <pkg>ivpack</pkg>, and <pkg>lfe</pkg> (with particular
 	  focus on multiple group fixed effects).</li>
 
@@ -144,10 +152,9 @@
       <li><i>Panel data</i>: Certain basic IV models for panel data can also be estimated
           with standard 2SLS functions (see above). Dedicated IV panel data models are provided
 	  by <pkg>ivfixed</pkg> (fixed effects) and <pkg>ivpanel</pkg> (between and random effects).</li>
+
       <li><i>Miscellaneous</i>:
           <pkg>REndo</pkg> fits linear models with endogenous regressor using various latent instrumental variable approaches.
-          <pkg>ivbma</pkg> estimates Bayesian IV models with conditional Bayes factors.
-          <pkg>ivlewbel</pkg> implements the Lewbel approach based on GMM estimation of triangular systems using heteroscedasticity-based IVs.
 	  </li>
     </ul>
 
@@ -156,10 +163,11 @@
     
     <ul>
 
-      <li><i>Panel-corrected standard errors</i>: A simple approach for panel data is
+      <li><i>Panel standard errors</i>: A simple approach for panel data is
           to fit the pooling (or independence) model (e.g., via <code>lm()</code> or <code>glm()</code>)
-	  and only correct the standard errors. Different types of panel-corrected standard
-	  errors are available in <pkg>multiwayvcov</pkg>, <pkg>clusterSEs</pkg>, <pkg>pcse</pkg>, <pkg>clubSandwich</pkg>, <pkg>plm</pkg>,
+	  and only correct the standard errors. Different types of clustered, panel, and panel-corrected
+	  standard errors are available in <pkg>sandwich</pkg> (incorporating prior work from <pkg>multiwayvcov</pkg>),
+	  <pkg>clusterSEs</pkg>, <pkg>pcse</pkg>, <pkg>clubSandwich</pkg>, <pkg>plm</pkg>,
 	  and <pkg>geepack</pkg>, respectively. The latter two require estimation of the
 	  pooling/independence models via <code>plm()</code> and <code>geeglm()</code> from
 	  the respective packages (which also provide other types of models, see below).</li>      
@@ -167,8 +175,10 @@
       <li><i>Linear panel models</i>: <pkg>plm</pkg>, providing a wide range of within,
           between, and random-effect methods (among others) along with corrected standard
 	  errors, tests, etc. Another implementation of several of these models is in
-	  <pkg>Paneldata</pkg>. Various dynamic panel models are available in <pkg>plm</pkg>
+	  <pkg>Paneldata</pkg>. Various dynamic panel models are available in <pkg>plm</pkg>,
+          with estimation based on moment conditions in <pkg>pdynmc</pkg>,
 	  and dynamic panel models with fixed effects in <pkg>OrthoPanels</pkg>.
+	  <pkg>feisr</pkg> provides fixed effects individual slope (FEIS) models.
 	  Panel vector autoregressions are implemented in <pkg>panelvar</pkg>.</li>
 
       <li><i>Generalized estimation equations and GLMs</i>: GEE models for panel data (or longitudinal
@@ -180,16 +190,11 @@
 
       <li><i>Instrumental variables</i>: <pkg>ivfixed</pkg> and <pkg>ivpanel</pkg>, see also above.</li>
       
-      <li><i>Heterogeneous time trends</i>: <pkg>phtt</pkg> offers the possibility of
-          analyzing panel data with large dimensions n and T and can be considered when
-	  the unobserved heterogeneity effects are time-varying.</li>
-
       <li><i>Miscellaneous</i>: 
-          Multiple group fixed effects are in <pkg>lfe</pkg>.	  
-          Autocorrelation and heteroscedasticity correction in are available in <pkg>wahc</pkg> and <pkg>panelAR</pkg>.
-	  PANIC Tests of nonstationarity are in <pkg>PANICr</pkg>.
+          Autocorrelation and heteroscedasticity correction are available in <pkg>wahc</pkg>.
 	  Threshold regression and unit root tests are in <pkg>pdR</pkg>.
-          The panel data approach method for program evaluation is available in <pkg>pampe</pkg>. 
+          The panel data approach method for program evaluation is available in <pkg>pampe</pkg>.
+	  Dedicated fast data preprocessing for panel data econometrics is provided by <pkg>collapse</pkg>.
 	  </li>
     </ul>
 
@@ -207,7 +212,7 @@
 
       <li><i>Spatial econometric models</i>: The <view>Spatial</view> view gives details about
           handling spatial data, along with information about (regression) modeling. In particular,
-	  spatial regression models can be fitted using <pkg>spdep</pkg> and <pkg>sphet</pkg> (the
+	  spatial regression models can be fitted using <pkg>spatialreg</pkg> and <pkg>sphet</pkg> (the
 	  latter using a GMM approach). <pkg>splm</pkg> is a package for spatial panel
           models. Spatial probit models are available in <pkg>spatialprobit</pkg>.</li>
 
@@ -220,18 +225,22 @@
 
       <li><i>Simultaneous equation estimation</i>: <pkg>systemfit</pkg>.</li>
 
-      <li><i>Nonparametric kernel methods</i>: <pkg>np</pkg>.</li>
+      <li><i>Nonparametric methods</i>: <pkg>np</pkg> using kernel smoothing and <pkg>NNS</pkg> using partial moments.</li>
 
       <li><i>Linear and nonlinear mixed-effect models</i>: <pkg>nlme</pkg> and <pkg>lme4</pkg>.</li>
 
       <li><i>Generalized additive models (GAMs)</i>: <pkg>mgcv</pkg>, <pkg>gam</pkg>, <pkg>gamlss</pkg>
           and <pkg>VGAM</pkg>.</li>
 
+      <li><i>Design-based inference</i>: <pkg>estimatr</pkg> contains fast procedures for several
+          design-appropriate estimators with robust standard errors and confidence intervals including
+	  linear regression, instrumental variables regression, difference-in-means, among others.</li>
+
+
       <li><i>Extreme bounds analysis</i>: <pkg>ExtremeBounds</pkg>.</li>
 
       <li><i>Miscellaneous</i>: The packages <pkg>VGAM</pkg>, <pkg>rms</pkg> and <pkg>Hmisc</pkg> provide several tools for extended
-	  handling of (generalized) linear regression models. <pkg>Zelig</pkg> is a unified
-	  easy-to-use interface to a wide range of regression models.</li>
+	  handling of (generalized) linear regression models.</li>
     </ul>
 
     <p><strong>Time series data and models</strong></p>
@@ -277,8 +286,7 @@
 
       <li><i>Vector autoregression</i>: Simple models can be fitted by <code>ar()</code> in stats, more
 	  elaborate models are provided in package <pkg>vars</pkg> along with suitable diagnostics,
-	  visualizations etc. A Bayesian approach is available in <pkg>MSBVAR</pkg> and panel
-	  vector autoregressions in <pkg>panelvar</pkg>.</li>
+	  visualizations etc. Panel vector autoregressions are available in <pkg>panelvar</pkg>.</li>
 
       <li><i>Unit root and cointegration tests</i>: <pkg>urca</pkg>,
 	  <pkg>tseries</pkg>, <pkg>CADFtest</pkg>. See also <pkg>pco</pkg> for panel cointegration tests.</li>
@@ -288,8 +296,9 @@
           <li><pkg>tsDyn</pkg> - Threshold and smooth transition models.</li>
 	  <li><pkg>midasr</pkg> - <i>MIDAS regression</i> and other econometric methods for mixed frequency time series data analysis.</li>
           <li><pkg>gets</pkg> - GEneral-To-Specific (GETS) model selection for either ARX models with log-ARCH-X errors, or a log-ARCH-X model of the log variance.</li>
-	  <li><pkg>tsfa</pkg> - Time series factor analysis.</li>
+	  <li><pkg>bimets</pkg> - Econometric modeling of time series data using flexible specifications of simultaneous equation models.</li>
 	  <li><pkg>dlsem</pkg> - Distributed-lag linear structural equation models.</li>
+	  <li><pkg>lpirfs</pkg> - Local projections impulse response functions.</li>
           <li><pkg>apt</pkg> - Asymmetric price transmission models.</li>
 	  </ul>
 	  </li>
@@ -300,12 +309,15 @@
     <ul>
       <li><i>Textbooks and journals</i>: Packages <pkg>AER</pkg>, <pkg>Ecdat</pkg>, and <pkg>wooldridge</pkg>
 	  contain a comprehensive collections of data sets from various standard econometric
-	  textbooks as well as several data sets from the Journal of
-	  Applied Econometrics and the Journal of Business &amp; Economic Statistics
+	  textbooks (including Greene, Stock &amp; Watson, Wooldridge, Baltagi, among others) as well as
+	  several data sets from the Journal of Applied Econometrics and the Journal of Business &amp; Economic Statistics
 	  data archives. <pkg>AER</pkg> and <pkg>wooldridge</pkg> additionally provide extensive sets of
 	  examples reproducing analyses from the textbooks/papers, illustrating
 	  various econometric methods. In <pkg>pder</pkg> a wide collection of data sets for
-	  panel data econometrics with R is available.</li>
+	  "Panel Data Econometrics with R" (Croissant &amp; Millo 2018) is available.
+	  The <github>ccolonescu/PoEdata</github> package on GitHub provides 
+	  the data sets from "Principles of Econometrics" (4th ed, by Hill, Griffiths, and Lim 2011).
+	  </li>
       <li><i>Canadian monetary aggregates</i>: <pkg>CDNmoney</pkg>.</li>
       <li><i>Penn World Table</i>: <pkg>pwt</pkg> provides versions 5.6, 6.x, 7.x. Version 8.x and 9.x
           data are available in <pkg>pwt8</pkg> and <pkg>pwt9</pkg>, respectively.</li>
@@ -319,7 +331,6 @@
           'Empirical Research in Economics: Growing up with R' (Sun, forthcoming).</li>
       <li><i>Panel Study of Income Dynamics (PSID)</i>: <pkg>psidR</pkg> can build panel data sets
           from the Panel Study of Income Dynamics (PSID).</li>
-      <li>US state- and county-level panel data: <pkg>rUnemploymentData</pkg>.</li>
       <li>World Bank data and statistics: The <pkg>wbstats</pkg> package provides
           programmatic access to the World Bank API.</li>
     </ul>
@@ -359,22 +370,33 @@
           chains are in <pkg>gvc</pkg> and <pkg>decompr</pkg>.</li>
 
       <li><i>Regression discontinuity design</i>: A variety of methods are provided in
-          the <pkg>rdd</pkg>, <pkg>rddapp</pkg>, <pkg>rddtools</pkg>, <pkg>rdrobust</pkg>, and <pkg>rdlocrand</pkg> packages.
+          the <pkg>rdd</pkg>, <pkg>rdrobust</pkg>, and <pkg>rdlocrand</pkg> packages.
 	  The <pkg>rdpower</pkg> package offers power calculations for regression discontinuity designs.
 	  And <pkg>rdmulti</pkg> implements analysis with multiple cutoffs or scores.</li>
       
+      <li><i>Gravity models</i>: Estimation of log-log and multiplicative gravity models
+          is available in <pkg>gravity</pkg>.</li>
+      
       <li><i>z-Tree</i>: <pkg>zTree</pkg> can import data from the z-Tree software for
           developing and carrying out economic experiments.</li>
+
+      <li><i>Numerical standard errors</i>: <pkg>nse</pkg> implements various numerical standard
+          errors for time series data, especially in simulation experiments with correlated
+	  outcome sequences.</li>
     </ul>
 
   </info>
 
   <packagelist>
     <pkg priority="core">AER</pkg>
+    <pkg>alpaca</pkg>
     <pkg>aod</pkg>
+    <pkg>apollo</pkg>
     <pkg>apt</pkg>
     <pkg>bayesm</pkg>
     <pkg>betareg</pkg>
+    <pkg>bife</pkg>
+    <pkg>bimets</pkg>
     <pkg>BMA</pkg>
     <pkg>BMS</pkg>
     <pkg>boot</pkg>
@@ -386,15 +408,20 @@
     <pkg>censReg</pkg>
     <pkg>clubSandwich</pkg>
     <pkg>clusterSEs</pkg>
+    <pkg>collapse</pkg>
     <pkg>crch</pkg>
     <pkg>decompr</pkg>
     <pkg>dlsem</pkg>
+    <pkg>durmod</pkg>
     <pkg>dynlm</pkg>
     <pkg>Ecdat</pkg>
     <pkg>effects</pkg>
     <pkg>erer</pkg>
+    <pkg>estimatr</pkg>
     <pkg>expsmooth</pkg>
     <pkg>ExtremeBounds</pkg>
+    <pkg>feisr</pkg>
+    <pkg>fixest</pkg>
     <pkg>fma</pkg>
     <pkg priority="core">forecast</pkg>
     <pkg>frm</pkg>
@@ -407,22 +434,22 @@
     <pkg>glmx</pkg>
     <pkg>gmm</pkg>
     <pkg>gmnl</pkg>
+    <pkg>gravity</pkg>
     <pkg>gvc</pkg>
     <pkg>Hmisc</pkg>
     <pkg>ineq</pkg>
-    <pkg>intReg</pkg>
-    <pkg>ivbma</pkg>
     <pkg>ivfixed</pkg>
-    <pkg>ivlewbel</pkg>
     <pkg>ivpack</pkg>
     <pkg>ivpanel</pkg>
     <pkg>ivprobit</pkg>
+    <pkg>ivreg</pkg>
     <pkg>LARF</pkg>
     <pkg>lavaan</pkg>
     <pkg>lfe</pkg>
     <pkg>LinRegInteractive</pkg>
     <pkg>lme4</pkg>
     <pkg priority="core">lmtest</pkg>
+    <pkg>lpirfs</pkg>
     <pkg>margins</pkg>
     <pkg>MASS</pkg>
     <pkg>matchingMarkets</pkg>
@@ -438,28 +465,25 @@
     <pkg>micEconSNQP</pkg>
     <pkg>midasr</pkg>
     <pkg>mlogit</pkg>
-    <pkg>mnlogit</pkg>
     <pkg>MNP</pkg>
-    <pkg>MSBVAR</pkg>
     <pkg>multiwayvcov</pkg>
-    <pkg>mvProbit</pkg>
     <pkg>nlme</pkg>
     <pkg>nnet</pkg>
+    <pkg>NNS</pkg>
     <pkg>nonnest2</pkg>
     <pkg>np</pkg>
+    <pkg>nse</pkg>
     <pkg>ordinal</pkg>
     <pkg>OrthoPanels</pkg>
     <pkg>pampe</pkg>
-    <pkg>panelAR</pkg>
     <pkg>Paneldata</pkg>
     <pkg>panelvar</pkg>
-    <pkg>PANICr</pkg>
     <pkg>pco</pkg>
     <pkg>pcse</pkg>
     <pkg>pder</pkg>
     <pkg>pdR</pkg>
+    <pkg>pdynmc</pkg>
     <pkg>pglm</pkg>
-    <pkg>phtt</pkg>
     <pkg priority="core">plm</pkg>
     <pkg>pscl</pkg>
     <pkg>psidR</pkg>
@@ -469,8 +493,6 @@
     <pkg>quantreg</pkg>
     <pkg>Rchoice</pkg>
     <pkg>rdd</pkg>
-    <pkg>rddapp</pkg>
-    <pkg>rddtools</pkg>
     <pkg>rdlocrand</pkg>
     <pkg>rdmulti</pkg>
     <pkg>rdpower</pkg>
@@ -479,29 +501,27 @@
     <pkg>REndo</pkg>
     <pkg>rms</pkg>
     <pkg>RSGHB</pkg>
-    <pkg>rUnemploymentData</pkg>
     <pkg>sampleSelection</pkg>
     <pkg priority="core">sandwich</pkg>
     <pkg>segmented</pkg>
     <pkg>sem</pkg>
-    <pkg>SemiParSampleSel</pkg>
     <pkg>semsfa</pkg>
     <pkg>sfa</pkg>
     <pkg>simpleboot</pkg>
     <pkg>SparseM</pkg>
     <pkg>spatialprobit</pkg>
-    <pkg>spdep</pkg>
+    <pkg>spatialreg</pkg>
     <pkg>spfrontier</pkg>
     <pkg>sphet</pkg>
     <pkg>splm</pkg>
     <pkg>ssfa</pkg>
+    <pkg>ssmrob</pkg>
     <pkg>strucchange</pkg>
     <pkg>survival</pkg>
     <pkg>systemfit</pkg>
     <pkg>truncreg</pkg>
     <pkg>tsDyn</pkg>
-    <pkg priority="core">tseries</pkg>    
-    <pkg>tsfa</pkg>
+    <pkg priority="core">tseries</pkg>
     <pkg priority="core">urca</pkg>
     <pkg>vars</pkg>
     <pkg>VGAM</pkg>
@@ -509,9 +529,8 @@
     <pkg>wbstats</pkg>
     <pkg>wooldridge</pkg>
     <pkg>xts</pkg>
-    <pkg>Zelig</pkg>
     <pkg priority="core">zoo</pkg>
-    <pkg>zTree</pkg>   
+    <pkg>zTree</pkg>
   </packagelist>
 
   <links>
@@ -520,14 +539,23 @@
     <view>Psychometrics</view>
     <view>SocialSciences</view>
     <view>Spatial</view>
+    <view>Survival</view>
     <view>TimeSeries</view>
-    <a href="https://stat.ethz.ch/mailman/listinfo/R-SIG-Finance/">Mailing List: R Special Interest Group Finance</a>
+    <github>sgaure/lfe</github>
+    <github>ccolonescu/PoEdata</github>
     <a href="http://www.jstatsoft.org/v27/">Journal of Statistical Software: Special Volume on 'Econometrics in R' (2008)</a>
+    <a href="https://eeecon.uibk.ac.at/~zeileis/teaching/AER/">Book: Applied Econometrics with R (Kleiber and Zeileis)</a>
+    <a href="http://www.urfie.net/">Book: Using R for Introductory Econometrics (Heiss)</a>
+    <a href="https://www.Econometrics-with-R.org/">Book: Introduction to Econometrics with R (Hanck, Arnold, Gerber, Schmelzer)</a>
+    <a href="https://doi.org/10.1142/6895">Book: Hands-On Intermediate Econometrics Using R (Vinod)</a>
+    <a href="https://doi.org/10.1002/9781119504641">Book: Panel Data Econometrics with R (Croissant &amp; Millo)</a>
+    <a href="https://doi.org/10.1016/C2016-0-04332-2">Book: Spatial Econometrics (Kelejian and Piras)</a>
+    <a href="https://bookdown.org/ccolonescu/RPoE4/">Manual: Principles of Econometrics with R (Colonescu)</a>
+    <a href="https://scpoecon.github.io/ScPoEconometrics/">Manual: Introduction to Econometrics with R (Oswald, Robin, Viers)</a>
+    <a href="https://tyleransom.github.io/econometricslabs.html">Manual: Econometrics In-Class Labs (Ransom)</a>
+    <a href="https://github.com/uo-ec607/lectures">Manual: Data Science for Economists (McDermott)</a>
     <a href="https://mondo.su.se/access/content/user/ma@su.se/Public/">A Brief Guide to R for Beginners in Econometrics</a>
     <a href="http://www.mayin.org/ajayshah/KB/R/R_for_economists.html">R for Economists</a>
-    <a href="http://www.springer.com/978-0-387-77316-2">Book: Applied Econometrics with R (Kleiber and Zeileis)</a>
-    <a href="http://www.urfie.net/">Book: Using R for Introductory Econometrics  (Heiss)</a>
-    <a href="http://www.worldscibooks.com/economics/6895.html">Book: Hands-On Intermediate Econometrics Using R (Vinod)</a>
   </links>
 
 </CRANTaskView>

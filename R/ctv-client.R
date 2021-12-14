@@ -1,21 +1,21 @@
 print.ctv <- function(x, packagelist = TRUE, ...)
 {
-  cat(paste("\nCRAN Task View\n--------------\nName:       ",
-            x$name, "\nTopic:      ",
-	    x$topic, "\nMaintainer: ",
-	    x$maintainer,
-	    if(!is.null(x$email)) sprintf("\nContact:    %s", x$email),
-	    sprintf("\nVersion:    %s", x$version),
-	    if(!is.null(x$url)) sprintf("\nURL:        %s", x$url),
-	    "\n",
-	    ifelse(is.null(x$repository), "", paste("Repository: ", x$repository, sep = "")),
+  cat(paste("CRAN Task View\n--------------\nName:       ",
+            x$name,
+            "\nTopic:      ", x$topic,
+            "\nMaintainer: ", x$maintainer,
+	    if(!is.null(x$email))      sprintf("\nContact:    %s", x$email),
+	                               sprintf("\nVersion:    %s", x$version),
+	    if(!is.null(x$url))        sprintf("\nURL:        %s", x$url),
+	    if(!is.null(x$repository)) sprintf("\nRepository: %s", x$repository),
+	    if(!is.null(x$source))     sprintf("\nSource:     %s", x$source),
 	    "\n", sep = ""))
   if(packagelist) {
     pkgs <- paste(strwrap(paste(x$packagelist$name, ifelse(x$packagelist$core, "*", ""), sep = "", collapse = ", "),
       width = getOption("width"), prefix = "            "), collapse = "\n")
     substr(pkgs, 1, 9) <- "Packages:"
     cat(pkgs)
-    cat(ifelse(any(x$packagelist$core), "\n            (* = core package)\n\n", "\n"))
+    if(any(x$packagelist$core)) cat("\n            (* = core package)\n")
   }
   invisible(x)
 }
@@ -77,6 +77,7 @@ available.views <- CRAN.views <- function(repos = NULL, ...)
     for(j in seq_along(x)) x[[j]]$repository <- repos[i]
     rval <- c(rval, x)
   }
+  names(rval) <- sapply(rval, "[[", "name")
   class(rval) <- "ctvlist"
   return(rval)
 }
