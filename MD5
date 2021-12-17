@@ -1,8 +1,8 @@
-8d7392aeea774b57f16e7d6311cfb5f2 *DESCRIPTION
+2a3e717e07b3431528a4741ca18e9dea *DESCRIPTION
 a3d070af4b1af5f0022c532cc073ca7e *NAMESPACE
-f45cbada44154e24c3bb4bca5aeb911c *NEWS.md
+ca09b3471752cba0e09d04f1ce4abff0 *NEWS.md
 189b1d51506d02c49b7bfcf1410432e3 *R/ctv-client.R
-3cfc739389b20aa2f1498bac507d85fd *R/ctv-md.R
+4d1ccb95266bea791f5bfeaba927d8ae *R/ctv-md.R
 4b83902dbc67de9eb5564e6073ef318a *R/ctv-server.R
 28af2df7969cb1689b2013c0b013aa30 *README.md
 8c91e4d1f6c3b50f43317876972352f0 *build/vignette.rds
@@ -12,7 +12,7 @@ cbdf77704b43c8780f8b784c6bd50186 *inst/ctv/Econometrics.ctv
 9a7532e04ae89779e87c862ff9139e15 *inst/doc/ctv-howto.Rmd
 80d3674a288493f5982e53423a834766 *inst/doc/ctv-howto.html
 71c16370b3149ed78482b9b194f47e1e *man/ctv-client.Rd
-2f73c7492ab7c47835e84a238381a0c5 *man/ctv-server.Rd
+0e8df10d364357287810fc7c30c703bc *man/ctv-server.Rd
 78d65f2d46db8577d17f9c5645d57e4b *man/figures/logo_alpha.png
-b25f2c142fac2e008deccece362b6ce8 *tests/read-all.R
+5866ec0cf86582c68ef85481ec550693 *tests/read-all.R
 9a7532e04ae89779e87c862ff9139e15 *vignettes/ctv-howto.Rmd
