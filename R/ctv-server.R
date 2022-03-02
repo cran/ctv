@@ -230,6 +230,25 @@ ctv2html <- function(x,
   if(is.null(packageURL)) {
     packageURL <- if(cran) "../packages/" else "https://CRAN.R-project.org/package=%s"
   }
+  if(cran) {
+    contrib <- paste(c(
+      'Suggestions and improvements for this task view are very welcome and can be made',
+      'through issues or pull requests on GitHub or via e-mail to the maintainer address.',
+      'For further details see the',
+      '<a href="https://github.com/cran-task-views/ctv/blob/main/Contributing.md">Contributing guide</a>.'
+    ), collapse = " ")
+    inst <- paste(c(
+      'The packages from this task view can be installed automatically using the',
+      '<a href="../packages/ctv/index.html">ctv</a> package. For example,',
+      sprintf('<code>ctv::install.packages("%s", coreOnly = TRUE)</code>', x$name),
+      'installs all the core packages or',
+      sprintf('<code>ctv::update.packages("%s")</code>', x$name),
+      'installs all packages that are not yet installed and up-to-date.',
+      'See the <a href="https://github.com/cran-task-views/ctv/">CRAN Task View Initiative</a> for more details.'
+    ), collapse = " ")
+  } else {
+    contrib <- inst <- NULL
+  }
 
   ## auxiliary functions
   ampersSub <- function(x) gsub("&", "&amp;", x)
@@ -242,9 +261,18 @@ ctv2html <- function(x,
   ## create HTML
   ## header
   title <- paste0(reposname, " Task View: ", htmlify(x$topic))
+
+  ## citation
+  cit <- sprintf("%s (%s). %s Task View: %s. Version %s.%s",
+    htmlify(x$maintainer),
+    substr(x$version, 1L, 4L),
+    reposname,
+    htmlify(x$topic),
+    htmlify(x$version),
+    if(is.null(x$url)) "" else paste0(" URL ", htmlify(x$url), "."))
   
-  htm1 <- c("<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.0 Strict//EN\" \"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd\">",
-            "<html xmlns=\"http://www.w3.org/1999/xhtml\">",
+  htm1 <- c("<!DOCTYPE html>",
+            "<html>",
             "<head>",
             paste0("  <title>", title, "</title>"),
             if(!is.null(css)) paste0("  <link rel=\"stylesheet\" type=\"text/css\" href=\"", css, "\" />"),
@@ -270,12 +298,15 @@ ctv2html <- function(x,
 	    "",
 	    "<body>",
      paste0("  <h2>", reposname, " Task View: ", htmlify(x$topic), "</h2>"),
-     paste0("  <table summary=\"", x$name, " task view information\">"),
+     paste0("  <table>"),
      paste0("    <tr><td valign=\"top\"><b>Maintainer:</b></td><td>", htmlify(x$maintainer), "</td></tr>"),
      if(!is.null(x$email)) paste0("    <tr><td valign=\"top\"><b>Contact:</b></td><td>", obfuscate(x$email), "</td></tr>"),
      paste0("    <tr><td valign=\"top\"><b>Version:</b></td><td>", htmlify(x$version), "</td></tr>"),
      if(!is.null(x$url)) paste0("    <tr><td valign=\"top\"><b>URL:</b></td><td><a href=\"", htmlify(x$url), "\">", htmlify(x$url), "</a></td></tr>"),
      if(!is.null(x$source)) paste0("    <tr><td valign=\"top\"><b>Source:</b></td><td><a href=\"", htmlify(x$source), "\">", htmlify(x$source), "</a></td></tr>"),
+     if(!is.null(contrib)) paste0("    <tr><td valign=\"top\"><b>Contributions:</b></td><td>", contrib, "</td></tr>"),
+     paste0("    <tr><td valign=\"top\"><b>Citation:</b></td><td>", cit, "</td></tr>"),
+     if(!is.null(inst)) paste0("    <tr><td valign=\"top\"><b>Installation:</b></td><td>", inst, "</td></tr>"),
             "  </table>")
 
   ## info section
@@ -283,29 +314,35 @@ ctv2html <- function(x,
 
   ## package list
   pkg2html <- if(grepl("%s", packageURL, fixed = TRUE)) {
-    function(a, b)
-      paste0("    <li><a href=\"", sprintf(packageURL, a), "\">", a, "</a>",
-           if(b) " (core)" else "", "</li>")  
+    function(name,  core = FALSE)
+      paste0("<a href=\"", sprintf(packageURL, name), "\">", name, "</a>", if(core) " (core)" else "")
   } else {
-    function(a, b)
-      paste0("    <li><a href=\"", packageURL, a, "/index.html\">", a, "</a>",
-           if(b) " (core)" else "", "</li>")
+    function(name, core = FALSE)
+      paste0("<a href=\"", packageURL, name, "/index.html\">", name, "</a>", if(core) " (core)" else "")
   }
 
-  htm3 <- c(paste0("  <h3>", reposname, " packages:</h3>"),
-            "  <ul>",
-	    sapply(1:NROW(x$packagelist), function(i) pkg2html(x$packagelist[i,1], x$packagelist[i,2])),
-	    "  </ul>")
+  htm3 <- c(paste0("  <h3>", reposname, " packages</h3>"),
+            "  <table>",
+            sprintf("    <tr valign=\"top\"><td><i>Core:</i></td><td>%s.</td></tr>",
+              if(!any(x$packagelist[, 2L])) "<i>None</i>" else paste(sapply(x$packagelist[x$packagelist[, 2L], 1L], pkg2html), collapse = ", ")),
+            sprintf("    <tr valign=\"top\"><td><i>Regular:</i></td><td>%s.</td></tr>",
+              if(all(x$packagelist[, 2L])) "<i>None</i>" else paste(sapply(x$packagelist[!x$packagelist[, 2L], 1L], pkg2html), collapse = ", ")),
+            "  </table>"
+            )
 
   ## further links
-  htm4 <- c("  <h3>Related links:</h3>",
+  htm4 <- if(!is.null(x$links)) {
+          c("  <h3>Related links</h3>",
             "  <ul>",
             sapply(x$links, function(x) paste0("    <li>", x, "</li>")),
 	    "  </ul>")
+          } else {
+            NULL 
+          }
 
   if(!is.null(x$otherlinks)) {
   htm4 <- c(htm4, "",
-            "  <h3>Other resources:</h3>",
+            "  <h3>Other resources</h3>",
             "  <ul>",
             sapply(x$otherlinks, function(x) paste0("    <li>", x, "</li>")),
 	    "  </ul>")
@@ -339,7 +376,7 @@ repos_update_views <- function(repos = ".", cran = TRUE,
   viewsrds <- file.path(contribdir, viewsrds)
 
   ## available views
-  files <- dir(viewdir, pattern = "\\.ctv$")
+  files <- dir(viewdir, pattern = "\\.(ctv|md)$")
   if(length(files) < 1) stop(paste("no .ctv files found at path", viewdir))
 
   ## available packages in repos
@@ -386,8 +423,8 @@ repos_update_views <- function(repos = ".", cran = TRUE,
 
   ## generate index HTML file
   if(is.character(index)) {
-    idx <- c("<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.0 Strict//EN\" \"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd\">",
-             "<html xmlns=\"http://www.w3.org/1999/xhtml\">",
+    idx <- c("<!DOCTYPE html>",
+             "<html>",
              "",
 	     "<head>",
              paste0("  <title>", reposname, " Task Views</title>"),
@@ -406,18 +443,18 @@ repos_update_views <- function(repos = ".", cran = TRUE,
 	     "to endorse the \"best\" packages for a given task.</p>",
              "",
              "<p>To automatically install the views, the <a href=\"https://CRAN.R-project.org/package=ctv\">ctv</a> package needs to be installed, e.g., via<br />",
-	     "<tt>install.packages(\"ctv\")</tt><br />",
-	     "and then the views can be installed via <tt>install.views</tt> or <tt>update.views</tt>",           
+	     "<code>install.packages(\"ctv\")</code><br />",
+	     "and then the views can be installed via <code>install.views</code> or <code>update.views</code>",           
 	     "(where the latter only installs those packages are not installed and up-to-date), e.g.,<br />",
-	     "<tt>ctv::install.views(\"Econometrics\")</tt><br />",
-	     "<tt>ctv::update.views(\"Econometrics\")</tt></p>",
+	     "<code>ctv::install.views(\"Econometrics\")</code><br />",
+	     "<code>ctv::update.views(\"Econometrics\")</code></p>",
 	     "",
              "<p>The resources provided by the <a href=\"https://github.com/cran-task-views/ctv\">CRAN Task View Initiative</a>",
              "provide further information on how to contribute to existing task views and how to propose new task views.</p>",
 	     "",
 	     "<h3>Topics</h3>",
 	     "",
-             paste0("<table summary=\"", reposname," Task Views\">"),
+             paste0("<table>"),
 	     apply(idx, 1, function(x) {
                  paste0("  <tr valign=\"top\">\n    <td><a href=\"",
                         x[1], ".html\">", x[1], "</a></td>\n    <td>",

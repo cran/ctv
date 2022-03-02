@@ -28,7 +28,7 @@ pkg <- function(name, priority = "normal", register = TRUE) {
   ## register package
   if(register) {
     if(name %in% .ctv_env$packagelist$name) {
-      if(identical(priority, "core")) .ctv_env$packagelist$core <- TRUE
+      if(identical(priority, "core")) .ctv_env$packagelist$core[.ctv_env$packagelist$name == "name"] <- TRUE
     } else {
       .ctv_env$packagelist <- rbind(.ctv_env$packagelist,
         data.frame(name = name, core = identical(priority, "core"), stringsAsFactors = FALSE))
@@ -52,7 +52,7 @@ bioc <- function(name, register = TRUE) {
       data.frame(name = name, source = "bioc", stringsAsFactors = FALSE))
   }
   ## return URL
-  sprintf("[%s](https://www.Bioconductor.org/packages/release/bioc/html/%s)", name, name)
+  sprintf("[%s](https://www.Bioconductor.org/packages/release/bioc/html/%s.html)", name, name)
 }
 
 rforge <- function(name, register = TRUE) {
@@ -180,7 +180,7 @@ read_ctv_rmd <- function(file, cran = FALSE, format = "html")
   x$info <- if(format == "html") pandoc(md) else md
 
   ## packagelist
-  x$packagelist <- .ctv_env$packagelist[order(.ctv_env$packagelist$name), ]
+  x$packagelist <- .ctv_env$packagelist[order(tolower(.ctv_env$packagelist$name)), ]
 
   ## links
   x$links <- links  
