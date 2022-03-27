@@ -1,3 +1,12 @@
+# ctv 0.9-3
+
+* Enhance handling of archived packages on CRAN when `read.ctv(..., cran = TRUE)`
+  and `ctv2html(..., cran = TRUE)`.
+
+* Further improvements in `ctv2html()`: Generate HTML5 with `pandoc` now, improve
+  preservation of link breaks (`--wrap=preserve`).
+
+
 # ctv 0.9-2
 
 * Bug fix in `read.ctv()` when `pkg(..., priority = "core")` is used more than
