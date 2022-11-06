@@ -43,6 +43,7 @@ document.addEventListener('DOMContentLoaded', function(e) {
 
 
 
+
 <style type="text/css">body {
 background-color: #fff;
 margin: 1em auto;
@@ -239,6 +240,24 @@ code > span.er { color: #a61717; background-color: #e3d2d2; }
 <h4 class="author">Achim Zeileis</h4>
 
 
+<div id="TOC">
+<ul>
+<li><a href="#overview">Overview</a></li>
+<li><a href="#format">Format</a></li>
+<li><a href="#details">Details</a>
+<ul>
+<li><a href="#metainformation">Metainformation</a></li>
+<li><a href="#main-text">Main text</a></li>
+<li><a href="#links">Links</a></li>
+</ul></li>
+<li><a href="#working-with-task-view-files-in-r">Working with task view
+files in R</a></li>
+<li><a href="#dealing-with-archived-packages">Dealing with archived
+packages</a></li>
+<li><a href="#converting-the-legacy-xml-format-to-rmarkdown">Converting
+the legacy XML format to R/Markdown</a></li>
+</ul>
+</div>
 
 <div id="overview" class="section level2">
 <h2>Overview</h2>
@@ -268,35 +287,38 @@ maintained on GitHub at <a href="https://github.com/cran-task-views/Econometrics
 <pre><code>---
 name: Econometrics
 topic: Econometrics
-maintainer: Achim Zeileis, Grant McDermott
+maintainer: Achim Zeileis, Grant McDermott, Kevin Tappe
 email: Achim.Zeileis@R-project.org
-version: 2021-12-02
+version: 2022-09-13
+source: https://github.com/cran-task-views/Econometrics/
 ---
 
-Base R ships with a lot of functionality useful for computational econometrics,
+Base R ships with a lot of functionality useful for (computational) econometrics,
 in particular in the stats package. This functionality is complemented by many
-packages on CRAN, a brief overview is given below. There is also a considerable
+packages on CRAN, a brief overview is given below. There is also a certain
 overlap between the tools for econometrics in this view and those in the task
-views on `r view(&quot;Finance&quot;)`, `r view(&quot;SocialSciences&quot;)`, and
-`r view(&quot;TimeSeries&quot;)`.
+views on `r view(&quot;Finance&quot;)`, `r view(&quot;TimeSeries&quot;)`, and
+`r view(&quot;CausalInference&quot;)`.
 
 Further information can be formatted with standard Markdown syntax, e.g., for
 _emphasizing text_ or showing something really important in **bold face**.
 R/Markdown syntax with special functions can be used to link to a standard
-package like `r pkg(&quot;ivreg&quot;)` or an important &quot;core&quot; package like
+package like `r pkg(&quot;mlogit&quot;)` or an important &quot;core&quot; package like
 `r pkg(&quot;AER&quot;, priority = &quot;core&quot;)`.
 
 ### Links
-- [Journal of Statistical Software: Econometrics in R](https://www.jstatsoft.org/v27/)
+- Articles: [Special Volume on &quot;Econometrics in R&quot; in JSS (2008)](http://www.jstatsoft.org/v27/)
 - [The Title of a Relevant Homepage](http://path/to/homepage/)</code></pre>
 <p>The document structure consists of three main blocks: (1) Some
 metainformation is given in the YAML header at the beginning (separated
 by lines with <code>---</code>), followed by (2) the information in the
 main text, and (3) a concluding special section called
-<code>Links</code>.</p>
+<code>### Links</code>.</p>
 </div>
 <div id="details" class="section level2">
 <h2>Details</h2>
+<div id="metainformation" class="section level3">
+<h3>Metainformation</h3>
 <p>The metainformation needs to provide the following elements:</p>
 <ul>
 <li><p><code>name</code> gives the name of the task view in
@@ -311,33 +333,46 @@ the task view. In the example above it is identical to the
 <code>name</code> but is often a somewhat longer and more detailed title
 (in title case).</p></li>
 <li><p><code>maintainer</code> gives the name(s) of the maintainer(s) in
-a comma-separated list. The principal contact should be listed first and
-ideally there are a couple of further co-maintainers that help keeping
-the task view up to date.</p></li>
+a comma-separated list. The principal contact should be listed first,
+followed by a couple of further co-maintainers that help keeping the
+task view up to date.</p></li>
 <li><p><code>email</code> is the e-mail address of the principal contact
 or possibly a dedicated mailing list shared by the
 co-maintainers.</p></li>
 <li><p><code>version</code> is specified by a date in ISO 8601 format
 (yyyy-mm-dd).</p></li>
-<li><p>Additionally, there are optional elements <code>source</code>
-which can be used to link to the source repository (e.g., on GitHub) and
-<code>url</code> for the URL of the published task view, respectively.
-The latter is inserted automatically for the official task views on
-CRAN.</p></li>
+<li><p>Additionally, there are may be optional elements:
+<code>source</code> can be used to link to the source repository
+(typically on GitHub) and <code>url</code> for the URL of the published
+task view, respectively. The latter is inserted automatically for the
+official task views on CRAN.</p></li>
 </ul>
+</div>
+<div id="main-text" class="section level3">
+<h3>Main text</h3>
 <p>The information in the main text should be a short description of the
 packages, explaining which packages are useful for which tasks. <a href="https://en.wikipedia.org/wiki/Markdown">Standard Markdown
 format</a> can be used to structure the document with sections, itemized
-and enumerated lists, bold face, italics, etc. Additionally, short R
-code chunks with special functions are used for linking to resources in
-the same repository: <code>pkg()</code> for normal packages,
-<code>pkg(..., priority = &quot;core&quot;)</code> for important “core” packages,
-and <code>view()</code> for related task views. A convenience function
-<code>doi()</code> creates links for DOIs (digital object identifiers).
-The distinction between “normal” and “core” packages is only important
-for the installation of CRAN task views because the user can specify
-whether all packages (default) or only the most important core packages
-should be installed (with all their dependencies).</p>
+and enumerated lists, bold face, italics, etc.</p>
+<p>Additionally, short R code chunks with special functions are used for
+linking to resources in the same repository: <code>pkg()</code> for
+normal packages, <code>pkg(..., priority = &quot;core&quot;)</code> for important
+“core” packages, and <code>view()</code> for related task views. A
+convenience function <code>doi()</code> creates links for DOIs (digital
+object identifiers).</p>
+<ul>
+<li><p>The distinction between “normal” and “core” packages is only
+important for the installation of CRAN task views because the user can
+specify whether all packages (default) or only the most important core
+packages should be installed (with all their dependencies).</p></li>
+<li><p>If a core package is mentioned several times in the document, it
+is sufficient to indicate <code>priority = &quot;core&quot;</code> for one of the
+occurrences.</p></li>
+<li><p>Rather than linking to another task view as a whole, e.g.,
+<code>view(&quot;Econometrics&quot;)</code>, it is also possible to link to
+specific sections of that view, e.g.,
+<code>view(&quot;Econometrics&quot;, &quot;Instrumental variables&quot;)</code>.</p></li>
+</ul>
 <p>Moreover, code projects in other repositories can be linked by using
 the functions:</p>
 <ul>
@@ -345,7 +380,7 @@ the functions:</p>
 <li><code>github()</code> for GitHub projects at <a href="https://github.com/" class="uri">https://github.com/</a>.</li>
 <li><code>rforge()</code> for R-Forge projects at <a href="https://R-Forge.R-project.org/" class="uri">https://R-Forge.R-project.org/</a>.</li>
 <li><code>gcode()</code> for projects in the Google Code archive at <a href="https://Code.Google.com/archive/" class="uri">https://Code.Google.com/archive/</a>.</li>
-<li><code>ohat()</code> for Omegahat packages at <a href="http://www.Omegahat.net/" class="uri">http://www.Omegahat.net/</a>.</li>
+<li><code>ohat()</code> for Omegahat packages at <a href="https://www.Omegahat.net/" class="uri">https://www.Omegahat.net/</a>.</li>
 </ul>
 <p>Note however that CRAN task views are intended mainly for packages on
 CRAN (as the name conveys). Thus, links to other repositories should be
@@ -353,17 +388,22 @@ used for <em>important</em> packages/projects but not list <em>all</em>
 potentially relevant repositories. Also, it is not necessary to list the
 GitHub projects for all listed CRAN packages as these are typically
 provided on the package’s CRAN web page.</p>
+</div>
+<div id="links" class="section level3">
+<h3>Links</h3>
 <p>All CRAN packages included with the <code>pkg()</code> function will
 be listed in a dedicated list below the information text when rendering
 the HTML version of the task view. Also, the task views as well as
 packages/projects in other repositories will be included automatically
 in the list of links at the end of the HTML version.</p>
 <p>Finally, additional links - e.g., to books, papers, blogs, interest
-groups, mailing lists, etc. - can be included in the <code>Links</code>
-section at the end of the file in a standard itemized list. As explained
-above this list of links will be complemented automatically with links
-generated from the functions <code>view()</code>, <code>bioc()</code>,
-<code>github()</code>, etc.</p>
+groups, mailing lists, etc. - can be included in the
+<code>### Links</code> section at the end of the file in a standard
+itemized list. As explained above this list of links will be
+complemented automatically with links generated from the functions
+<code>view()</code>, <code>bioc()</code>, <code>github()</code>,
+etc.</p>
+</div>
 </div>
 <div id="working-with-task-view-files-in-r" class="section level2">
 <h2>Working with task view files in R</h2>
@@ -371,21 +411,58 @@ generated from the functions <code>view()</code>, <code>bioc()</code>,
 be read into R and printed. This should display the metainformation and
 the list of packages. Subsequently, it can be rendered to an HTML page
 and displayed in a browser for checking whether the information text is
-processed correctly.</p>
+processed correctly. Finally, the function
+<code>check_ctv_packages()</code> can be used to check whether some of
+the listed packages are actually not available on CRAN or not currently
+maintained (archived).</p>
 <p>For illustration, the code below employs the
 <code>Econometrics.md</code> file shipped within the <code>ctv</code>
 package. Instead a local <code>MyNewView.md</code> with resulting
 <code>MyNewView.html</code> could be used as well.</p>
 <pre><code>library(&quot;ctv&quot;)
-x &lt;- read.ctv(system.file(&quot;ctv&quot;, &quot;Econometrics.md&quot;, package = &quot;ctv&quot;))
-print(x)
+file.copy(system.file(&quot;ctv&quot;, &quot;Econometrics.md&quot;, package = &quot;ctv&quot;), &quot;Econometrics.md&quot;)
+read.ctv(&quot;Econometrics.md&quot;, cran = TRUE)
 ctv2html(x)
-browseURL(&quot;Econometrics.html&quot;)</code></pre>
+browseURL(&quot;Econometrics.html&quot;)
+check_ctv_packages(&quot;Econometrics.md&quot;)</code></pre>
 <p>Note that the code above is intended for authors of CRAN task views.
-For end-users the functions <code>available.views()</code>,
-<code>install.views()</code>, and <code>update.views()</code> are
-relevant. See <a href="https://github.com/cran-task-views/ctv/" class="uri">https://github.com/cran-task-views/ctv/</a> for more
+For end-users the functions <code>ctv()</code>,
+<code>available.views()</code>, <code>install.views()</code>, and
+<code>update.views()</code> are relevant. See <a href="https://github.com/cran-task-views/ctv/" class="uri">https://github.com/cran-task-views/ctv/</a> for more
 details.</p>
+</div>
+<div id="dealing-with-archived-packages" class="section level2">
+<h2>Dealing with archived packages</h2>
+<p>The CRAN packages listed in task views should ideally be maintained
+actively, so that improved versions are released by the corresponding
+maintainers in case the daily CRAN checks discover any issues.</p>
+<p>However, as even actively maintained packages may be temporarily
+archived on CRAN, the following strategy is adopted:</p>
+<ul>
+<li><p>When a CRAN package from a task view is archived, it is still
+listed in the task view like before. It is only flagged as archived in
+the text and not installed automatically anymore by
+<code>install.views()</code> and <code>update.views()</code>.</p></li>
+<li><p>If the package is still archived after (more than) 60 days, CRAN
+creates an issue in the GitHub repository of the task view (as in <a href="https://github.com/cran-task-views/Econometrics/issues/11">this
+example</a>).</p></li>
+<li><p>At this point the task view maintainers can decide to</p>
+<ul>
+<li><em>exclude</em> the package from the task view immediately, e.g.,
+if they feel it had not been that relevant and/or not been updated in a
+very long time;</li>
+<li><em>reach out to the package maintainer</em> to help with releasing
+an improved version; or</li>
+<li><em>wait some more</em> for an improved version, e.g., when they see
+that the package maintainers already started addressing the
+problem.</li>
+</ul></li>
+<li><p>If the package is still archived after (more than) 100 days, CRAN
+follows up on the issue and requests removal of the package from the
+task view. (For sufficiently relevant packages it may be sensible to
+replace the <code>pkg()</code> link by a <code>github()</code> link in
+the task view.)</p></li>
+</ul>
 </div>
 <div id="converting-the-legacy-xml-format-to-rmarkdown" class="section level2">
 <h2>Converting the legacy XML format to R/Markdown</h2>

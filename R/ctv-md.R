@@ -1,39 +1,48 @@
 initialize_ctv_env <- function(cran = FALSE)
 {
-  .ctv_env <- new.env()
+  .new_ctv_env <- new.env()
 
   ## templates for package and task view URLs to be used
-  .ctv_env$pkg_url  <- if(cran) "../packages/%s/index.html" else "https://CRAN.R-project.org/package=%s"
-  .ctv_env$view_url <- if(cran) "%s.html" else "https://CRAN.R-project.org/view=%s"
+  .new_ctv_env$pkg_url  <- if(cran) "../packages/%s/index.html" else "https://CRAN.R-project.org/package=%s"
+  .new_ctv_env$view_url <- if(cran) "%s.html" else "https://CRAN.R-project.org/view=%s"
 
   ## data frame with (active) package names in task view
-  .ctv_env$packagelist <- data.frame(
+  .new_ctv_env$packagelist <- data.frame(
     name = character(0L),
     core = logical(0L),
     stringsAsFactors = FALSE
   )
 
   ## vector of archived package names
-  .ctv_env$archivelist <- character(0L)
+  .new_ctv_env$archivelist <- character(0L)
 
   ## links
-  .ctv_env$viewlist <- character(0L)
-  .ctv_env$otherlist <- data.frame(
+  .new_ctv_env$viewlist <- character(0L)
+  .new_ctv_env$otherlist <- data.frame(
     name = character(0L),
     source = character(0L),
     stringsAsFactors = FALSE
   )
 
-  ## vectors of packages active or archived on CRAN
+  ## vectors of packages active or archived on CRAN (if cran = TRUE)
+  ## (copy from existing environment if available)
   if(cran) {
-    .ctv_env$cranlist <- cran_package_names()
-    .ctv_env$cranarchivelist <- setdiff(cran_archive_names(), .ctv_env$cranlist)
+    .new_ctv_env$cranlist <- if(length(.ctv_env$cranlist) > 0L) {
+      .ctv_env$cranlist
+    } else {
+      cran_package_names()
+    }
+    .new_ctv_env$cranarchivelist <- if(length(.ctv_env$cranarchivelist) > 0L) {
+      .ctv_env$cranarchivelist
+    } else {
+      setdiff(cran_archive_names(), .new_ctv_env$cranlist)
+    }
   } else {
-    .ctv_env$cranlist <- character(0L)
-    .ctv_env$cranarchivelist <- character(0L)
+    .new_ctv_env$cranlist <- character(0L)
+    .new_ctv_env$cranarchivelist <- character(0L)
   }
 
-  return(.ctv_env)
+  return(.new_ctv_env)
 }
 
 .ctv_env <- initialize_ctv_env()
@@ -55,7 +64,7 @@ pkg <- function(name, priority = "normal", register = TRUE) {
   ## register package
   if(register && status == "active") {
     if(name %in% .ctv_env$packagelist$name) {
-      if(identical(priority, "core")) .ctv_env$packagelist$core[.ctv_env$packagelist$name == "name"] <- TRUE
+      if(identical(priority, "core")) .ctv_env$packagelist$core[.ctv_env$packagelist$name == name] <- TRUE
     } else {
       .ctv_env$packagelist <- rbind(.ctv_env$packagelist,
         data.frame(name = name, core = identical(priority, "core"), stringsAsFactors = FALSE))
@@ -63,6 +72,9 @@ pkg <- function(name, priority = "normal", register = TRUE) {
   }
   if(register && status == "archived") {
     if(!(name %in% .ctv_env$archivelist)) .ctv_env$archivelist <- c(.ctv_env$archivelist, name)
+  }
+  if(register && status == "unavailable") {
+    warning(sprintf("package '%s' is not available on CRAN", name))
   }
   
   ## return URL
@@ -76,11 +88,15 @@ pkg <- function(name, priority = "normal", register = TRUE) {
   return(txt)
 }
 
-view <- function(name, register = TRUE) {
+view <- function(name, section = NULL, register = TRUE) {
   ## register view
   if(register) .ctv_env$viewlist <- unique(c(.ctv_env$viewlist, name))
   ## return URL
-  sprintf("[%s](%s)", name, sprintf(.ctv_env$view_url, name))
+  if(is.null(section)) {
+    sprintf("[%s](%s)", name, sprintf(.ctv_env$view_url, name))
+  } else {
+    sprintf("[%s](%s#%s)", section, sprintf(.ctv_env$view_url, name), gsub(" ", "-", tolower(section), fixed = TRUE))
+  }
 }
 
 bioc <- function(name, register = TRUE) {
@@ -234,6 +250,24 @@ read_ctv_rmd <- function(file, cran = FALSE, format = "html")
     x$otherlinks <- as.character(pandoc(as.list(x$otherlinks), options = "--wrap=preserve"))
     x$otherlinks <- gsub("(^<p>)(.*)(</p>$)", "\\2", x$otherlinks)
   }
+
+  ## add citation for CRAN views
+  x$citation <- utils::bibentry(
+    bibtype = "Manual",
+    author = as.person(x$maintainer),
+    title = sprintf("%sTask View: %s", if(cran) "CRAN " else "", x$topic),
+    year = as.numeric(substr(x$version, 1L, 4L)),
+    note = sprintf("Version %s", x$version),
+    url = if(cran) {
+      paste0("https://CRAN.R-project.org/view=", x$name)
+    } else if(!is.null(x$url)) {
+      x$url
+    } else {
+      x$source
+    },
+    header = sprintf("To cite the %s task view in publications use:", x$name)
+  )
+  class(x$citation) <- c("citation", class(x$citation))
   
   class(x) <- "ctv"
   return(x)

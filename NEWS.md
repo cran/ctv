@@ -1,3 +1,36 @@
+# ctv 0.9-4
+
+* Improved and extended documentation for CRAN task view maintainers in
+  `vignette("ctv-howto", package = "ctv")`.
+
+* CRAN information about packages and archivals is loaded from local files
+  (rather than downloaded) if run on CRAN. Also, it is preserved between subsequent
+  runs of `read.ctv(..., cran = TRUE)` (and hence also `ctv2html(..., cran = TRUE)`
+  etc.).
+
+* `read.ctv(..., cran = TRUE)` now warns if a `pkg()` is not available from CRAN.
+
+* Add Facebook OpenGraph and Twitter tags in task view HTML pages.
+
+* New convenience function `ctv()` that obtains a single `ctv` object
+  with information about a certain task view on CRAN with a given name.
+
+* New list element `$citation` in `ctv` objects containing a citation object
+  inheriting from `bibentry` with information on how to cite a task view.
+
+* The auxiliary `view()` function gained a second argument so that specific
+  sections in other task views can be referenced, e.g.,
+  `view("Econometrics", "Instrumental variables")`.
+
+* Fix typo in task view header it should be `install.views()` and `update.views()`
+  rather than `install.packages()` and `update.packages()`.
+
+* Fix detection of "core" packages if the `priority` is not declared in the
+  first `pkg()` call but in subsequent calls.
+
+* Improve HTML5 output from `ctv2html()`.
+
+
 # ctv 0.9-3
 
 * Enhance handling of archived packages on CRAN when `read.ctv(..., cran = TRUE)`

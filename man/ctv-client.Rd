@@ -4,6 +4,7 @@
 \alias{available.views}
 \alias{download.views}
 \alias{update.views}
+\alias{ctv}
 \alias{print.ctv}
 \alias{print.ctvlist}
 \title{CRAN Task Views: Installing/Updating/Downloading Packages}
@@ -12,6 +13,8 @@ Client-side tools for installing CRAN task views.
 }
 
 \usage{
+ctv(view, repos = NULL, \dots)
+
 available.views(repos = NULL, \dots)
 install.views(views, coreOnly = FALSE, repos = NULL, \dots)
 update.views(views, coreOnly = FALSE, repos = NULL, lib.loc = NULL, filters = NULL, \dots)
@@ -21,7 +24,7 @@ download.views(views, destdir, coreOnly = FALSE, repos = NULL, \dots)
 \method{print}{ctvlist}(x, packagelist = FALSE, \dots)
 }
 \arguments{
-  \item{views}{character vector with the short names of the task views whose
+  \item{view, views}{character vector with the short names of the task views whose
     associated packages should be downloaded and installed. Alternatively,
     \code{views} can also be an object of class \code{"ctvlist"} (as returned
     by \code{available.views}) or an object of class \code{"ctv"} (i.e., an element
@@ -76,6 +79,12 @@ For a more detailed description of the arguments see also \code{\link{install.pa
 
 \examples{
 \dontrun{
+## query only a single view (with known name)
+ctv("Econometrics")
+
+## extract corresponding citation
+ctv("Econometrics")$citation
+
 ## query list of CRAN task views available
 available.views()
 
@@ -84,7 +93,7 @@ install.views("Econometrics")
 ## only with core packages
 install.views("Econometrics", coreOnly = TRUE)
 
-## update Econometrics view
+## update Econometrics view (i.e. only packages that are not current anyway)
 update.views("Econometrics")
 }
 }

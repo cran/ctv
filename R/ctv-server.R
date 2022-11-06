@@ -240,14 +240,19 @@ ctv2html <- function(x,
     inst <- paste(c(
       'The packages from this task view can be installed automatically using the',
       '<a href="../packages/ctv/index.html">ctv</a> package. For example,',
-      sprintf('<code>ctv::install.packages("%s", coreOnly = TRUE)</code>', x$name),
+      sprintf('<code>ctv::install.views("%s", coreOnly = TRUE)</code>', x$name),
       'installs all the core packages or',
-      sprintf('<code>ctv::update.packages("%s")</code>', x$name),
+      sprintf('<code>ctv::update.views("%s")</code>', x$name),
       'installs all packages that are not yet installed and up-to-date.',
       'See the <a href="https://github.com/cran-task-views/ctv/">CRAN Task View Initiative</a> for more details.'
     ), collapse = " ")
+    meta <- c(
+      '  <meta name="DC.publisher" content="Comprehensive R Archive Network (CRAN)" />',
+      '  <meta name="og:image" content="https://CRAN.R-project.org/CRANlogo.png" />',
+      '  <meta name="twitter:site" content="@_R_Foundation" />'
+    )
   } else {
-    contrib <- inst <- NULL
+    contrib <- inst <- meta <- NULL
   }
 
   ## auxiliary functions
@@ -262,7 +267,7 @@ ctv2html <- function(x,
   ## header
   title <- paste0(reposname, " Task View: ", htmlify(x$topic))
 
-  ## citation
+  ## citation (hand-crafted HTML version with simplified formatting)
   cit <- sprintf("%s (%s). %s Task View: %s. Version %s.%s",
     htmlify(x$maintainer),
     substr(x$version, 1L, 4L),
@@ -270,43 +275,41 @@ ctv2html <- function(x,
     htmlify(x$topic),
     htmlify(x$version),
     if(is.null(x$url)) "" else paste0(" URL ", htmlify(x$url), "."))
-  
+
   htm1 <- c("<!DOCTYPE html>",
             "<html>",
             "<head>",
             paste0("  <title>", title, "</title>"),
-            if(!is.null(css)) paste0("  <link rel=\"stylesheet\" type=\"text/css\" href=\"", css, "\" />"),
-            "  <meta http-equiv=\"content-type\" content=\"text/html; charset=UTF-8\" />",
-            sprintf("  <meta name=\"citation_title\" content=\"%s\" />", title),
-            sprintf("  <meta name=\"citation_author\" content=\"%s\" />",
-                    htmlify(x$maintainer)),
-            sprintf("  <meta name=\"citation_publication_date\" content=\"%s\" />",
-                    x$version),
+            if(!is.null(css)) paste0('  <link rel="stylesheet" type="text/css" href="', css, '" />'),
+            '  <meta http-equiv="content-type" content="text/html; charset=UTF-8" />',
+            sprintf('  <meta name="citation_title" content="%s" />', title),
+            sprintf('  <meta name="citation_author" content="%s" />', htmlify(x$maintainer)),
+            sprintf('  <meta name="citation_publication_date" content="%s" />', x$version),
             ## See <http://www.monperrus.net/martin/accurate+bibliographic+metadata+and+google+scholar>:
-            if(!is.null(x$url))
-	    sprintf("  <meta name=\"citation_public_url\" content=\"%s\" />",
-                    x$url),
-            sprintf("  <meta name=\"DC.title\" content=\"%s\" />", title),
-            sprintf("  <meta name=\"DC.creator\" content=\"%s\" />",
-                    htmlify(x$maintainer)),
-            sprintf("  <meta name=\"DC.issued\" content=\"%s\" />",
-                    x$version),
-            if(!is.null(x$url))
-            sprintf("  <meta name=\"DC.identifier\" content=\"%s\" />",
-                    x$url),
+            if(!is.null(x$url)) sprintf('  <meta name="citation_public_url" content="%s" />', x$url),
+            sprintf('  <meta name="DC.title" content="%s" />', title),
+            sprintf('  <meta name="DC.creator" content="%s" />', htmlify(x$maintainer)),
+            sprintf('  <meta name="DC.issued" content="%s" />', x$version),
+            if(!is.null(x$url)) sprintf('  <meta name="DC.identifier" content="%s" />', x$url),
+            sprintf('  <meta name="og:title" content="%s" />', title),
+            sprintf('  <meta name="og:description" content="%s" />', gsub('"', "'", pandoc(x$info[1L], from = "html", to = "plain")[1L], fixed = TRUE)),
+            if(!is.null(x$url)) sprintf('  <meta name="og:url" content="%s" />', x$url),
+            '  <meta name="og:type" content="website" />',
+            '  <meta name="twitter:card" content="summary" />',
+            meta,
             "</head>",
 	    "",
 	    "<body>",
      paste0("  <h2>", reposname, " Task View: ", htmlify(x$topic), "</h2>"),
      paste0("  <table>"),
-     paste0("    <tr><td valign=\"top\"><b>Maintainer:</b></td><td>", htmlify(x$maintainer), "</td></tr>"),
-     if(!is.null(x$email)) paste0("    <tr><td valign=\"top\"><b>Contact:</b></td><td>", obfuscate(x$email), "</td></tr>"),
-     paste0("    <tr><td valign=\"top\"><b>Version:</b></td><td>", htmlify(x$version), "</td></tr>"),
-     if(!is.null(x$url)) paste0("    <tr><td valign=\"top\"><b>URL:</b></td><td><a href=\"", htmlify(x$url), "\">", htmlify(x$url), "</a></td></tr>"),
-     if(!is.null(x$source)) paste0("    <tr><td valign=\"top\"><b>Source:</b></td><td><a href=\"", htmlify(x$source), "\">", htmlify(x$source), "</a></td></tr>"),
-     if(!is.null(contrib)) paste0("    <tr><td valign=\"top\"><b>Contributions:</b></td><td>", contrib, "</td></tr>"),
-     paste0("    <tr><td valign=\"top\"><b>Citation:</b></td><td>", cit, "</td></tr>"),
-     if(!is.null(inst)) paste0("    <tr><td valign=\"top\"><b>Installation:</b></td><td>", inst, "</td></tr>"),
+     paste0("    <tr><td style=\"vertical-align: top;\"><b>Maintainer:</b></td><td>", htmlify(x$maintainer), "</td></tr>"),
+     if(!is.null(x$email)) paste0("    <tr><td style=\"vertical-align: top;\"><b>Contact:</b></td><td>", obfuscate(x$email), "</td></tr>"),
+     paste0("    <tr><td style=\"vertical-align: top;\"><b>Version:</b></td><td>", htmlify(x$version), "</td></tr>"),
+     if(!is.null(x$url)) paste0("    <tr><td style=\"vertical-align: top;\"><b>URL:</b></td><td><a href=\"", htmlify(x$url), "\">", htmlify(x$url), "</a></td></tr>"),
+     if(!is.null(x$source)) paste0("    <tr><td style=\"vertical-align: top;\"><b>Source:</b></td><td><a href=\"", htmlify(x$source), "\">", htmlify(x$source), "</a></td></tr>"),
+     if(!is.null(contrib)) paste0("    <tr><td style=\"vertical-align: top;\"><b>Contributions:</b></td><td>", contrib, "</td></tr>"),
+     paste0("    <tr><td style=\"vertical-align: top;\"><b>Citation:</b></td><td>", cit, "</td></tr>"),
+     if(!is.null(inst)) paste0("    <tr><td style=\"vertical-align: top;\"><b>Installation:</b></td><td>", inst, "</td></tr>"),
             "  </table>")
 
   ## info section
@@ -323,11 +326,11 @@ ctv2html <- function(x,
 
   htm3 <- c(paste0("  <h3>", reposname, " packages</h3>"),
             "  <table>",
-            sprintf("    <tr valign=\"top\"><td><i>Core:</i></td><td>%s.</td></tr>",
+            sprintf("    <tr style=\"vertical-align: top;\"><td><i>Core:</i></td><td>%s.</td></tr>",
               if(!any(x$packagelist[, 2L])) "<i>None</i>" else paste(sapply(x$packagelist[x$packagelist[, 2L], 1L], pkg2html), collapse = ", ")),
-            sprintf("    <tr valign=\"top\"><td><i>Regular:</i></td><td>%s.</td></tr>",
+            sprintf("    <tr style=\"vertical-align: top;\"><td><i>Regular:</i></td><td>%s.</td></tr>",
               if(all(x$packagelist[, 2L])) "<i>None</i>" else paste(sapply(x$packagelist[!x$packagelist[, 2L], 1L], pkg2html), collapse = ", ")),
-            if(length(x$archived) > 0L) sprintf("    <tr valign=\"top\"><td><i>Archived:</i></td><td>%s.</td></tr>",
+            if(length(x$archived) > 0L) sprintf("    <tr style=\"vertical-align: top;\"><td><i>Archived:</i></td><td>%s.</td></tr>",
               paste(sapply(x$archived, pkg2html), collapse = ", ")),
             "  </table>"
             )
@@ -430,8 +433,21 @@ repos_update_views <- function(repos = ".", cran = TRUE,
              "",
 	     "<head>",
              paste0("  <title>", reposname, " Task Views</title>"),
-             paste0("  <link rel=\"stylesheet\" type=\"text/css\" href=\"", css, "\" />"),
-            "  <meta http-equiv=\"content-type\" content=\"text/html; charset=UTF-8\" />",
+             paste0('  <link rel="stylesheet" type="text/css" href="', css, '" />'),
+             '  <meta http-equiv="content-type" content="text/html; charset=UTF-8" />',
+             sprintf('  <meta name="citation_title" content="%s Task Views" />', reposname),
+             sprintf('  <meta name="citation_author" content="%s" />', reposname),
+             sprintf('  <meta name="citation_publication_date" content="%s" />', Sys.Date()),
+             if(cran) '  <meta name="citation_public_url" content="https://CRAN.R-project.org/web/views/" />' else NULL,
+             if(cran) '  <meta name="DC.identifier" content="https://CRAN.R-project.org/web/views/" />' else NULL,
+             if(cran) '  <meta name="DC.publisher" content="Comprehensive R Archive Network (CRAN)" />' else NULL,
+             sprintf('  <meta name="og:title" content="%s Task Views" />', reposname),
+             sprintf('  <meta name="og:description" content="%s task views aim to provide some guidance which packages on %s are relevant for tasks related to a certain topic. They give a brief overview of the included packages which can also be automatically installed using the ctv package." />', reposname, reposname),
+             '  <meta name="og:type" content="website" />',
+             '  <meta name="twitter:card" content="summary" />',
+             if(cran) '  <meta name="og:image" content="https://CRAN.R-project.org/CRANlogo.png" />' else NULL,
+             if(cran) '  <meta name="og:url" content="https://CRAN.R-project.org/web/views/" />' else NULL,
+             if(cran) '  <meta name="twitter:site" content="@_R_Foundation" />' else NULL,
              "</head>",
 	     "",
 	     "<body>",
@@ -439,7 +455,7 @@ repos_update_views <- function(repos = ".", cran = TRUE,
 	     "",
 	     sprintf("<p>%s task views aim to provide some guidance which packages on %s", reposname, reposname),
 	     "are relevant for tasks related to a certain topic. They give a brief overview of the included packages",
-	     "and can be automatically installed using the <a href=\"https://CRAN.R-project.org/package=ctv\">ctv</a>",
+	     "which can also be automatically installed using the <a href=\"https://CRAN.R-project.org/package=ctv\">ctv</a>",
 	     "package. The views are intended to have a sharp focus so that it is sufficiently",
 	     "clear which packages should be included (or excluded) - and they are <em>not</em> meant",
 	     "to endorse the \"best\" packages for a given task.</p>",
@@ -449,16 +465,20 @@ repos_update_views <- function(repos = ".", cran = TRUE,
 	     "and then the views can be installed via <code>install.views</code> or <code>update.views</code>",           
 	     "(where the latter only installs those packages are not installed and up-to-date), e.g.,<br />",
 	     "<code>ctv::install.views(\"Econometrics\")</code><br />",
-	     "<code>ctv::update.views(\"Econometrics\")</code></p>",
+	     "<code>ctv::update.views(\"Econometrics\")</code><br />",
+             "To query information about a particular task view on CRAN from within R or to obtain the list of all task views available, respectively,",
+             "the following commands are provided:<br />",
+	     "<code>ctv::ctv(\"Econometrics\")</code><br />",
+	     "<code>ctv::available.views()</code></p>",
 	     "",
-             "<p>The resources provided by the <a href=\"https://github.com/cran-task-views/ctv\">CRAN Task View Initiative</a>",
+             "<p>The resources available from the <a href=\"https://github.com/cran-task-views/ctv\">CRAN Task View Initiative</a>",
              "provide further information on how to contribute to existing task views and how to propose new task views.</p>",
 	     "",
 	     "<h3>Topics</h3>",
 	     "",
              paste0("<table>"),
 	     apply(idx, 1, function(x) {
-                 paste0("  <tr valign=\"top\">\n    <td><a href=\"",
+                 paste0("  <tr style=\"vertical-align: top;\">\n    <td><a href=\"",
                         x[1], ".html\">", x[1], "</a></td>\n    <td>",
                         gsub("&", "&amp;", x[2]), "</td>\n  </tr>")
              }),
@@ -518,14 +538,20 @@ htmlify <- function(s) {
 }
 
 cran_package_names <- function() {
-  con <- gzcon(url(sprintf("%s/web/packages/packages.rds", cran_repos_url()), open = "rb"))
-  on.exit(close(con))
+  con <- "web/packages/packages.rds"
+  if(!file.exists(con)) {
+    con <- gzcon(url(paste0(cran_repos_url(), "/", con), open = "rb"))
+    on.exit(close(con))
+  }
   as.vector(readRDS(con)[, "Package"])
 }
 
 cran_archive_names <- function() {
-  con <- gzcon(url(sprintf("%s/src/contrib/Meta/archive.rds", cran_repos_url()), open = "rb"))
-  on.exit(close(con))
+  con <- "src/contrib/Meta/archive.rds"
+  if(!file.exists(con)) {
+    con <- gzcon(url(paste0(cran_repos_url(), "/", con), open = "rb"))
+    on.exit(close(con))
+  }
   names(readRDS(con))
 }
 
