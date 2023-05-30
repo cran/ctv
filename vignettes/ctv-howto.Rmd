@@ -62,8 +62,8 @@ package like ``r 'r'` pkg("mlogit")` or an important "core" package like
 ``r 'r'` pkg("AER", priority = "core")`.
 
 ### Links
-- Articles: [Special Volume on "Econometrics in R" in JSS (2008)](http://www.jstatsoft.org/v27/)
-- [The Title of a Relevant Homepage](http://path/to/homepage/)
+- Articles: [Special Volume on "Econometrics in R" in JSS (2008)](https://www.jstatsoft.org/v27/)
+- [The Title of a Relevant Homepage](https://path/to/homepage/)
 ```
 
 The document structure consists of three main blocks: (1) Some metainformation
@@ -97,7 +97,7 @@ mailing list shared by the co-maintainers.
 
 * `version` is specified by a date in ISO 8601 format (yyyy-mm-dd).
 
-* Additionally, there are may be optional elements: `source` can be used to link
+* Additionally, there may be optional elements: `source` can be used to link
 to the source repository (typically on GitHub) and `url` for the URL of the
 published task view, respectively. The latter is inserted automatically for the
 official task views on CRAN.
@@ -112,12 +112,12 @@ structure the document with sections, itemized and enumerated lists, bold face,
 italics, etc.
 
 Additionally, short R code chunks with special functions are used for linking to
-resources in the same repository: `pkg()` for normal packages,
+resources in the same repository: `pkg()` for regular packages,
 `pkg(..., priority = "core")` for important "core" packages,  and `view()` for
 related task views. A convenience function `doi()` creates links for
 DOIs (digital object identifiers).
 
-* The distinction between "normal" and "core" packages is only important for the
+* The distinction between "regular" and "core" packages is only important for the
 installation of CRAN task views because the user can specify whether all
 packages (default) or only the most important core packages should be installed
 (with all their dependencies).
@@ -169,14 +169,13 @@ packages are actually not available on CRAN or not currently maintained
 (archived).
 
 For illustration, the code below employs the `Econometrics.md` file shipped
-within the `ctv` package. Instead a local `MyNewView.md` with resulting
-`MyNewView.html` could be used as well.
+within the `ctv` package. Instead a local `MyTopic.md` with resulting
+`MyTopic.html` could be used as well.
 
 ```
 library("ctv")
 file.copy(system.file("ctv", "Econometrics.md", package = "ctv"), "Econometrics.md")
-read.ctv("Econometrics.md", cran = TRUE)
-ctv2html(x)
+ctv2html("Econometrics.md", cran = TRUE)
 browseURL("Econometrics.html")
 check_ctv_packages("Econometrics.md")
 ```
@@ -193,8 +192,9 @@ The CRAN packages listed in task views should ideally be maintained actively,
 so that improved versions are released by the corresponding maintainers in case
 the daily CRAN checks discover any issues.
 
-However, as even actively maintained packages may be temporarily archived on
-CRAN, the following strategy is adopted:
+However, it is not straightforward to test for active maintenance fully automatically
+and even actively maintained packages may be temporarily archived on
+CRAN. Hence, the following strategy is adopted:
 
 * When a CRAN package from a task view is archived, it is still listed in the
 task view like before. It is only flagged as archived in the text and not
@@ -226,17 +226,17 @@ from the legacy XML format for the task view files to the new R/Markdown format
 described above. Simply using
 
 ```
-ctv:::ctv_xml_to_rmd("MyView.ctv")
+ctv:::ctv_xml_to_rmd("MyTopic.ctv")
 ```
 
-will create a `MyView.md` file from the `.ctv` file. This should do most necessary
+will create a `MyTopic.md` file from the `.ctv` file. This should do most necessary
 transformations automatically. However, it is recommended to thoroughly check
 the resulting file and improve it as appropriate. To check the resulting HTML output
 use
 
 ```
-ctv2html("MyView.md")
-browseURL("MyView.html")
+ctv2html("MyTopic.md")
+browseURL("MyTopic.html")
 ```
 
 Note that one important difference between the XML and R/Markdown format is that

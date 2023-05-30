@@ -235,16 +235,16 @@ ctv2html <- function(x,
       'Suggestions and improvements for this task view are very welcome and can be made',
       'through issues or pull requests on GitHub or via e-mail to the maintainer address.',
       'For further details see the',
-      '<a href="https://github.com/cran-task-views/ctv/blob/main/Contributing.md">Contributing guide</a>.'
+      '<a href="https://github.com/cran-task-views/ctv/blob/main/Contributing.md"><span class="GitHub">Contributing guide</span></a>.'
     ), collapse = " ")
     inst <- paste(c(
       'The packages from this task view can be installed automatically using the',
-      '<a href="../packages/ctv/index.html">ctv</a> package. For example,',
+      '<a href="../packages/ctv/index.html"><span class="CRAN">ctv</span></a> package. For example,',
       sprintf('<code>ctv::install.views("%s", coreOnly = TRUE)</code>', x$name),
       'installs all the core packages or',
       sprintf('<code>ctv::update.views("%s")</code>', x$name),
       'installs all packages that are not yet installed and up-to-date.',
-      'See the <a href="https://github.com/cran-task-views/ctv/">CRAN Task View Initiative</a> for more details.'
+      'See the <a href="https://github.com/cran-task-views/ctv/"><span class="GitHub">CRAN Task View Initiative</span></a> for more details.'
     ), collapse = " ")
     meta <- c(
       '  <meta name="DC.publisher" content="Comprehensive R Archive Network (CRAN)" />',
@@ -259,6 +259,11 @@ ctv2html <- function(x,
   ampersSub <- function(x) gsub("&", "&amp;", x)
   obfuscate <- function(x) paste(sprintf("&#x%x;",
     as.integer(sapply(unlist(strsplit(gsub("@", " at ", x), NULL)), charToRaw))), collapse = "")    
+  span <- if(cran) {
+    function(x, class = "CRAN") sprintf('<span class="%s">%s</span>', class, x)
+  } else {
+    function(x, class = "CRAN") x
+  }
 
   ## utf8 <- any(unlist(sapply(x[sapply(x, is.character)], Encoding)) == "UTF-8")
   for(i in 1:length(x)) if(is.character(x[[i]])) Encoding(x[[i]]) <- "unknown"
@@ -305,8 +310,8 @@ ctv2html <- function(x,
      paste0("    <tr><td style=\"vertical-align: top;\"><b>Maintainer:</b></td><td>", htmlify(x$maintainer), "</td></tr>"),
      if(!is.null(x$email)) paste0("    <tr><td style=\"vertical-align: top;\"><b>Contact:</b></td><td>", obfuscate(x$email), "</td></tr>"),
      paste0("    <tr><td style=\"vertical-align: top;\"><b>Version:</b></td><td>", htmlify(x$version), "</td></tr>"),
-     if(!is.null(x$url)) paste0("    <tr><td style=\"vertical-align: top;\"><b>URL:</b></td><td><a href=\"", htmlify(x$url), "\">", htmlify(x$url), "</a></td></tr>"),
-     if(!is.null(x$source)) paste0("    <tr><td style=\"vertical-align: top;\"><b>Source:</b></td><td><a href=\"", htmlify(x$source), "\">", htmlify(x$source), "</a></td></tr>"),
+     if(!is.null(x$url)) paste0("    <tr><td style=\"vertical-align: top;\"><b>URL:</b></td><td><a href=\"", htmlify(x$url), "\">", span(htmlify(x$url)), "</a></td></tr>"),
+     if(!is.null(x$source)) paste0("    <tr><td style=\"vertical-align: top;\"><b>Source:</b></td><td><a href=\"", htmlify(x$source), "\">", span(htmlify(x$source), "GitHub"), "</a></td></tr>"),
      if(!is.null(contrib)) paste0("    <tr><td style=\"vertical-align: top;\"><b>Contributions:</b></td><td>", contrib, "</td></tr>"),
      paste0("    <tr><td style=\"vertical-align: top;\"><b>Citation:</b></td><td>", cit, "</td></tr>"),
      if(!is.null(inst)) paste0("    <tr><td style=\"vertical-align: top;\"><b>Installation:</b></td><td>", inst, "</td></tr>"),
@@ -318,10 +323,10 @@ ctv2html <- function(x,
   ## package list
   pkg2html <- if(grepl("%s", packageURL, fixed = TRUE)) {
     function(name,  core = FALSE)
-      paste0("<a href=\"", sprintf(packageURL, name), "\">", name, "</a>", if(core) " (core)" else "")
+      paste0("<a href=\"", sprintf(packageURL, name), "\">", span(name), "</a>", if(core) " (core)" else "")
   } else {
     function(name, core = FALSE)
-      paste0("<a href=\"", packageURL, name, "/index.html\">", name, "</a>", if(core) " (core)" else "")
+      paste0("<a href=\"", packageURL, name, "/index.html\">", span(name), "</a>", if(core) " (core)" else "")
   }
 
   htm3 <- c(paste0("  <h3>", reposname, " packages</h3>"),
@@ -442,7 +447,7 @@ repos_update_views <- function(repos = ".", cran = TRUE,
              if(cran) '  <meta name="DC.identifier" content="https://CRAN.R-project.org/web/views/" />' else NULL,
              if(cran) '  <meta name="DC.publisher" content="Comprehensive R Archive Network (CRAN)" />' else NULL,
              sprintf('  <meta name="og:title" content="%s Task Views" />', reposname),
-             sprintf('  <meta name="og:description" content="%s task views aim to provide some guidance which packages on %s are relevant for tasks related to a certain topic. They give a brief overview of the included packages which can also be automatically installed using the ctv package." />', reposname, reposname),
+             sprintf('  <meta name="og:description" content="%s task views aim to provide guidance which packages on %s are relevant for tasks related to a certain topic. They give a brief overview of the included packages which can also be automatically installed using the ctv package." />', reposname, reposname),
              '  <meta name="og:type" content="website" />',
              '  <meta name="twitter:card" content="summary" />',
              if(cran) '  <meta name="og:image" content="https://CRAN.R-project.org/CRANlogo.png" />' else NULL,
@@ -453,7 +458,7 @@ repos_update_views <- function(repos = ".", cran = TRUE,
 	     "<body>",
              paste0("<h1>", reposname, " Task Views</h1>"),
 	     "",
-	     sprintf("<p>%s task views aim to provide some guidance which packages on %s", reposname, reposname),
+	     sprintf("<p>%s task views aim to provide guidance which packages on %s", reposname, reposname),
 	     "are relevant for tasks related to a certain topic. They give a brief overview of the included packages",
 	     "which can also be automatically installed using the <a href=\"https://CRAN.R-project.org/package=ctv\">ctv</a>",
 	     "package. The views are intended to have a sharp focus so that it is sufficiently",
@@ -471,7 +476,7 @@ repos_update_views <- function(repos = ".", cran = TRUE,
 	     "<code>ctv::ctv(\"Econometrics\")</code><br />",
 	     "<code>ctv::available.views()</code></p>",
 	     "",
-             "<p>The resources available from the <a href=\"https://github.com/cran-task-views/ctv\">CRAN Task View Initiative</a>",
+             "<p>The resources available from the <a href=\"https://github.com/cran-task-views/ctv\"><span class=\"GitHub\">CRAN Task View Initiative</span></a>",
              "provide further information on how to contribute to existing task views and how to propose new task views.</p>",
 	     "",
 	     "<h3>Topics</h3>",
