@@ -1,12 +1,12 @@
-194042adf5a44ae607b16c31c5751745 *DESCRIPTION
+92a9c09f1009185090c9cd59abdd1844 *DESCRIPTION
 099ac6ae2355f4eedcfafff6ab07bf33 *NAMESPACE
-4f0b99d99dd8c1fe3eea4e76e6ddcae4 *NEWS.md
+2ca86850366e89dcd17013878d285be1 *NEWS.md
 3b72c41b2007818f820b7bf839c6cee4 *R/ctv-client.R
 44b96b890bc1141a9153dadd0b9e34f2 *R/ctv-md.R
-73d25d80b125aea84a7d1df155ccb01c *R/ctv-server.R
+24dfc843810ae0a074295238b7454384 *R/ctv-server.R
 92416880d91c877a13da5637243cbb6a *README.md
-06d602939bde0d0d642f431c705ac70d *build/vignette.rds
-da3ac5e09982f17255b7d2213a31069c *inst/CITATION
+e3189f0b5d5213fe1df30147227a6f70 *build/vignette.rds
+66cdd64ef2e54b21dc39d603420c86db *inst/CITATION
 6b93bb0df004efe2f80b4bf48123f1fd *inst/ctv/Econometrics.ctv
 e3e7c8d65e5dc04697bddad9137d7c53 *inst/ctv/Econometrics.md
 007dc32609bafbdfda101302f85188f3 *inst/doc/ctv-howto.Rmd
