@@ -5,6 +5,7 @@ output:
   rmarkdown::html_vignette:
     highlight: monochrome
     toc: true
+lang: "en"
 vignette: >
   %\VignetteIndexEntry{CRAN Task Views Documentation}
   %\VignetteEngine{knitr::rmarkdown}
@@ -22,7 +23,7 @@ repository of the [CRAN Task Views Initiative](https://github.com/cran-task-view
 ## Format
 
 The file format for CRAN task views leverages the R/Markdown format
-(see [Xie, Allaire, Grolemund 2019](https://bookdown.org/yihui/rmarkdown/))
+(see [Xie, Allaire, Grolemund 2019](https://yihui.org/rmarkdown/))
 so that standard Markdown can be used for formatting and structuring the
 text and a handful of special R functions are provided to link to CRAN
 packages, other task views, GitHub projects, etc.

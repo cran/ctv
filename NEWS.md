@@ -1,3 +1,14 @@
+# ctv 0.9-8
+
+* The `citation("ctv")` paper has been published:
+  Zeileis A, Bivand R, Eddelbuettel D, Hornik K, Piaskowski J, Vialaneix N (2025).
+  "The CRAN Task View Initiative." _The R Journal_, **17**(2), 4-14.
+  [doi:10.32614/RJ-2025-011](https://doi.org/10.32614/RJ-2025-011).
+
+* Improve HTML output for CRAN Task Views: No trailing slashes in void
+  elements such as `<br>` or `<meta>`. Set language in `<html lang="en">` tags.
+
+
 # ctv 0.9-7
 
 * Check for `rmarkdown::pandoc_available()` before calling
