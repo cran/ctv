@@ -16,6 +16,11 @@ vignette: >
 
 ## Overview
 
+For an introduction to CRAN task views see:
+Zeileis A, Bivand R, Eddelbuettel D, Hornik K, Piaskowski J, Vialaneix N (2025).
+"The CRAN Task View Initiative." _The R Journal_, **17**(2), 4-14.
+[doi:10.32614/RJ-2025-011](https://doi.org/10.32614/RJ-2025-011).
+
 For more details on how to use task views and how to contribute to them, see the
 repository of the [CRAN Task Views Initiative](https://github.com/cran-task-views/ctv/).
 
@@ -23,7 +28,7 @@ repository of the [CRAN Task Views Initiative](https://github.com/cran-task-view
 ## Format
 
 The file format for CRAN task views leverages the R/Markdown format
-(see [Xie, Allaire, Grolemund 2019](https://yihui.org/rmarkdown/))
+(see [Xie, Allaire, Grolemund 2019](https://pkg.yihui.org/rmarkdown-book/))
 so that standard Markdown can be used for formatting and structuring the
 text and a handful of special R functions are provided to link to CRAN
 packages, other task views, GitHub projects, etc.
@@ -135,8 +140,6 @@ Moreover, code projects in other repositories can be linked by using the functio
 * `bioc()` for Bioconductor packages at <https://www.Bioconductor.org/>.
 * `github()` for GitHub projects at <https://github.com/>.
 * `rforge()` for R-Forge projects at <https://R-Forge.R-project.org/>.
-* `gcode()` for projects in the Google Code archive at <https://Code.Google.com/archive/>.
-* `ohat()` for Omegahat packages at <https://www.Omegahat.net/>.
 
 Note however that CRAN task views are intended mainly for packages on CRAN (as the
 name conveys). Thus, links to other repositories should be used for _important_
@@ -173,7 +176,7 @@ For illustration, the code below employs the `Econometrics.md` file shipped
 within the `ctv` package. Instead a local `MyTopic.md` with resulting
 `MyTopic.html` could be used as well.
 
-```
+``` r
 library("ctv")
 file.copy(system.file("ctv", "Econometrics.md", package = "ctv"), "Econometrics.md")
 ctv2html("Econometrics.md", cran = TRUE)
@@ -226,7 +229,7 @@ The `ctv` package provides an (unexported) R function to facilitate the transiti
 from the legacy XML format for the task view files to the new R/Markdown format
 described above. Simply using
 
-```
+``` r
 ctv:::ctv_xml_to_rmd("MyTopic.ctv")
 ```
 
@@ -235,7 +238,7 @@ transformations automatically. However, it is recommended to thoroughly check
 the resulting file and improve it as appropriate. To check the resulting HTML output
 use
 
-```
+``` r
 ctv2html("MyTopic.md")
 browseURL("MyTopic.html")
 ```

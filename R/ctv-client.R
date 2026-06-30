@@ -49,7 +49,7 @@ print.ctvlist <- function(x, packagelist = FALSE, ...)
 available.views <- CRAN.views <- function(repos = NULL, ...)
 {
   ## getOption("repos") replaces getOption("CRAN") from 2.1.0 on
-  if(is.null(repos)) repos <- ifelse(is.null(getOption("repos")), getOption("CRAN"), getOption("repos"))
+  if(is.null(repos)) repos <- getOption("repos", default = getOption("CRAN"))
 
   if("@CRAN@" %in% repos && interactive()) {
       cat(gettext("--- Please select a CRAN mirror for use in this session ---\n"))

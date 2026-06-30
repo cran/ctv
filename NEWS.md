@@ -1,3 +1,21 @@
+# ctv 1.0-0
+
+* Release of version 1.0-0 to accompany the publication in The R Journal (see below).
+
+* The functions `ohat()` and `gcode()` for linking from CRAN Task Views to Omegahat
+  and Google Code have been removed from the vignette. Omegahat.net is defunct and
+  Google Code has been archived and inactive for 10 years now.
+
+* Code repository for the R package changed from R-Forge to Codeberg at:
+  <https://codeberg.org/zeileis/ctv/>
+
+* Added basic altdoc page with overview and documentation at:
+  <https://zeileis.codeberg.page/ctv/>
+
+* Enable working with `ctv` and multiple repositories in `getOption("repos")`
+  (reported and fixed by Henrik Bengtsson, #1 @hb).
+
+
 # ctv 0.9-8
 
 * The `citation("ctv")` paper has been published:

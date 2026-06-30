@@ -40,6 +40,90 @@ ul.task-list{list-style: none;}
 
 
 
+<style type="text/css">
+code {
+white-space: pre;
+}
+.sourceCode {
+overflow: visible;
+}
+</style>
+<style type="text/css" data-origin="pandoc">
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+{ counter-reset: source-line 0; }
+pre.numberSource code > span
+{ position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+{ content: counter(source-line);
+position: relative; left: -1em; text-align: right; vertical-align: baseline;
+border: none; display: inline-block;
+-webkit-touch-callout: none; -webkit-user-select: none;
+-khtml-user-select: none; -moz-user-select: none;
+-ms-user-select: none; user-select: none;
+padding: 0 4px; width: 4em;
+}
+pre.numberSource { margin-left: 3em; padding-left: 4px; }
+div.sourceCode
+{ }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { font-weight: bold; } 
+code span.an { font-style: italic; } 
+code span.cf { font-weight: bold; } 
+code span.co { font-style: italic; } 
+code span.cv { font-style: italic; } 
+code span.do { font-style: italic; } 
+code span.dt { text-decoration: underline; } 
+code span.er { font-weight: bold; } 
+code span.in { font-style: italic; } 
+code span.kw { font-weight: bold; } 
+code span.pp { font-weight: bold; } 
+code span.wa { font-style: italic; } 
+</style>
+<script>
+// apply pandoc div.sourceCode style to pre.sourceCode instead
+(function() {
+  var sheets = document.styleSheets;
+  for (var i = 0; i < sheets.length; i++) {
+    if (sheets[i].ownerNode.dataset["origin"] !== "pandoc") continue;
+    try { var rules = sheets[i].cssRules; } catch (e) { continue; }
+    var j = 0;
+    while (j < rules.length) {
+      var rule = rules[j];
+      // check if there is a div.sourceCode rule
+      if (rule.type !== rule.STYLE_RULE || rule.selectorText !== "div.sourceCode") {
+        j++;
+        continue;
+      }
+      var style = rule.style.cssText;
+      // check if color or background-color is set
+      if (rule.style.color === '' && rule.style.backgroundColor === '') {
+        j++;
+        continue;
+      }
+      // replace div.sourceCode by a pre.sourceCode rule
+      sheets[i].deleteRule(j);
+      sheets[i].insertRule('pre.sourceCode{' + style + '}', j);
+    }
+  }
+})();
+</script>
 
 
 
@@ -261,6 +345,10 @@ legacy XML format to R/Markdown</a></li>
 
 <div id="overview" class="section level2">
 <h2>Overview</h2>
+<p>For an introduction to CRAN task views see: Zeileis A, Bivand R,
+Eddelbuettel D, Hornik K, Piaskowski J, Vialaneix N (2025). “The CRAN
+Task View Initiative.” <em>The R Journal</em>, <strong>17</strong>(2),
+4-14. <a href="https://doi.org/10.32614/RJ-2025-011">doi:10.32614/RJ-2025-011</a>.</p>
 <p>For more details on how to use task views and how to contribute to
 them, see the repository of the <a href="https://github.com/cran-task-views/ctv/">CRAN Task Views
 Initiative</a>.</p>
@@ -268,10 +356,11 @@ Initiative</a>.</p>
 <div id="format" class="section level2">
 <h2>Format</h2>
 <p>The file format for CRAN task views leverages the R/Markdown format
-(see <a href="https://yihui.org/rmarkdown/">Xie, Allaire, Grolemund
-2019</a>) so that standard Markdown can be used for formatting and
-structuring the text and a handful of special R functions are provided
-to link to CRAN packages, other task views, GitHub projects, etc.</p>
+(see <a href="https://pkg.yihui.org/rmarkdown-book/">Xie, Allaire,
+Grolemund 2019</a>) so that standard Markdown can be used for formatting
+and structuring the text and a handful of special R functions are
+provided to link to CRAN packages, other task views, GitHub projects,
+etc.</p>
 <blockquote>
 <p>In <code>ctv</code> versions prior to 0.9-0 (released in December
 2021), task views used an XML-based format (introduced in Zeileis 2005,
@@ -378,8 +467,6 @@ the functions:</p>
 <li><code>bioc()</code> for Bioconductor packages at <a href="https://www.Bioconductor.org/" class="uri">https://www.Bioconductor.org/</a>.</li>
 <li><code>github()</code> for GitHub projects at <a href="https://github.com/" class="uri">https://github.com/</a>.</li>
 <li><code>rforge()</code> for R-Forge projects at <a href="https://R-Forge.R-project.org/" class="uri">https://R-Forge.R-project.org/</a>.</li>
-<li><code>gcode()</code> for projects in the Google Code archive at <a href="https://Code.Google.com/archive/" class="uri">https://Code.Google.com/archive/</a>.</li>
-<li><code>ohat()</code> for Omegahat packages at <a href="https://www.Omegahat.net/" class="uri">https://www.Omegahat.net/</a>.</li>
 </ul>
 <p>Note however that CRAN task views are intended mainly for packages on
 CRAN (as the name conveys). Thus, links to other repositories should be
@@ -418,11 +505,11 @@ maintained (archived).</p>
 <code>Econometrics.md</code> file shipped within the <code>ctv</code>
 package. Instead a local <code>MyTopic.md</code> with resulting
 <code>MyTopic.html</code> could be used as well.</p>
-<pre><code>library(&quot;ctv&quot;)
-file.copy(system.file(&quot;ctv&quot;, &quot;Econometrics.md&quot;, package = &quot;ctv&quot;), &quot;Econometrics.md&quot;)
-ctv2html(&quot;Econometrics.md&quot;, cran = TRUE)
-browseURL(&quot;Econometrics.html&quot;)
-check_ctv_packages(&quot;Econometrics.md&quot;)</code></pre>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" tabindex="-1"></a><span class="fu">library</span>(<span class="st">&quot;ctv&quot;</span>)</span>
+<span id="cb2-2"><a href="#cb2-2" tabindex="-1"></a><span class="fu">file.copy</span>(<span class="fu">system.file</span>(<span class="st">&quot;ctv&quot;</span>, <span class="st">&quot;Econometrics.md&quot;</span>, <span class="at">package =</span> <span class="st">&quot;ctv&quot;</span>), <span class="st">&quot;Econometrics.md&quot;</span>)</span>
+<span id="cb2-3"><a href="#cb2-3" tabindex="-1"></a><span class="fu">ctv2html</span>(<span class="st">&quot;Econometrics.md&quot;</span>, <span class="at">cran =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb2-4"><a href="#cb2-4" tabindex="-1"></a><span class="fu">browseURL</span>(<span class="st">&quot;Econometrics.html&quot;</span>)</span>
+<span id="cb2-5"><a href="#cb2-5" tabindex="-1"></a><span class="fu">check_ctv_packages</span>(<span class="st">&quot;Econometrics.md&quot;</span>)</span></code></pre></div>
 <p>Note that the code above is intended for authors of CRAN task views.
 For end-users the functions <code>ctv()</code>,
 <code>available.views()</code>, <code>install.views()</code>, and
@@ -469,13 +556,13 @@ the task view.)</p></li>
 <p>The <code>ctv</code> package provides an (unexported) R function to
 facilitate the transition from the legacy XML format for the task view
 files to the new R/Markdown format described above. Simply using</p>
-<pre><code>ctv:::ctv_xml_to_rmd(&quot;MyTopic.ctv&quot;)</code></pre>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" tabindex="-1"></a>ctv<span class="sc">:::</span><span class="fu">ctv_xml_to_rmd</span>(<span class="st">&quot;MyTopic.ctv&quot;</span>)</span></code></pre></div>
 <p>will create a <code>MyTopic.md</code> file from the <code>.ctv</code>
 file. This should do most necessary transformations automatically.
 However, it is recommended to thoroughly check the resulting file and
 improve it as appropriate. To check the resulting HTML output use</p>
-<pre><code>ctv2html(&quot;MyTopic.md&quot;)
-browseURL(&quot;MyTopic.html&quot;)</code></pre>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" tabindex="-1"></a><span class="fu">ctv2html</span>(<span class="st">&quot;MyTopic.md&quot;</span>)</span>
+<span id="cb4-2"><a href="#cb4-2" tabindex="-1"></a><span class="fu">browseURL</span>(<span class="st">&quot;MyTopic.html&quot;</span>)</span></code></pre></div>
 <p>Note that one important difference between the XML and R/Markdown
 format is that the “package list” does not need to be listed separately
 anymore, it is auto-generated from the “info” text. Similarly, the
