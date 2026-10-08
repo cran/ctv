@@ -43,6 +43,7 @@ read_ctv_xml <- function(file)
             rforgeprefix <- "R-Forge Project: "
             gcodeprefix <- "Google Code Project: "
             githubprefix <- "GitHub Project: "
+            codebergprefix <- "Codeberg Project: "
             target <- "" #used to be# " target=\"_top\"" #but this is not strict XHTML#
         } else {
             viewprefix <- ""
@@ -51,6 +52,7 @@ read_ctv_xml <- function(file)
             rforgeprefix <- ""
             gcodeprefix <- ""
             githubprefix <- ""
+            codebergprefix <- ""
             target <- ""
         }
 
@@ -111,6 +113,12 @@ read_ctv_xml <- function(file)
                           "<a href=\"https://github.com/",
                           xmlCode(x), "/\"", target,
                           "><span class=\"GitHub\">", strsplit(xmlCode(x), "/", fixed = TRUE)[[1L]][2L],
+                          "</span></a>", sep = ""))
+        if(name == "codeberg")
+            return(paste0(codebergprefix,
+                          "<a href=\"https://codeberg.org/",
+                          xmlCode(x), "/\"", target,
+                          "><span class=\"Gcode\">", strsplit(xmlCode(x), "/", fixed = TRUE)[[1L]][2L],
                           "</span></a>", sep = ""))
         if(name == "doi")
             return(paste0("<a href=\"https://doi.org/",

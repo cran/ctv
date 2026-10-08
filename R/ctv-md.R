@@ -150,6 +150,16 @@ github <- function(name, register = TRUE) {
   sprintf("[%s](https://github.com/%s)", .ctv_env$span(sapply(strsplit(name, "/", fixed = TRUE), "[", 2L), "GitHub"), name)
 }
 
+codeberg <- function(name, register = TRUE) {
+  ## register package
+  if(register && !(name %in% .ctv_env$otherlist$name)) {
+    .ctv_env$otherlist <- rbind(.ctv_env$otherlist,
+      data.frame(name = name, source = "codeberg", stringsAsFactors = FALSE))
+  }
+  ## return URL
+  sprintf("[%s](https://codeberg.org/%s)", .ctv_env$span(sapply(strsplit(name, "/", fixed = TRUE), "[", 2L), "Gcode"), name)
+}
+
 doi <- function(name) {
   sprintf("[doi:%s](https://doi.org/%s)", name, name)
 }
@@ -214,7 +224,7 @@ read_ctv_rmd <- function(file, cran = FALSE, format = "html")
   if(NROW(.ctv_env$otherlist) > 0L) {
     olinks <- .ctv_env$otherlist
     olinks <- olinks[order(tolower(sapply(strsplit(olinks$name, "/", fixed = TRUE), function(x) x[length(x)]))), , drop = FALSE]
-    olinks$source <- factor(olinks$source, levels = c("bioc", "rforge", "github", "ohat", "gcode"))
+    olinks$source <- factor(olinks$source, levels = c("bioc", "rforge", "github", "ohat", "gcode", "codeberg"))
     olinks <- olinks[order(olinks$source), , drop = FALSE]
     for(i in levels(olinks$source)) {
       ii <- which(olinks$source == i)
@@ -224,7 +234,8 @@ read_ctv_rmd <- function(file, cran = FALSE, format = "html")
 	  "rforge" = "R-Forge Project",
 	  "github" = "GitHub Project",
 	  "ohat" = "Omegahat Package",
-	  "gcode" = "Google Code Project"),
+	  "gcode" = "Google Code Project",
+          "codeberg" = "Codeberg Project"),
 	": ",
 	do.call(i, list(name = olinks$name[ii], register = FALSE))
       ))
@@ -304,7 +315,7 @@ ctv_xml_to_rmd <- function(x) {
     }
     return(rval)
   }
-  reg <- rbind(reg, add_reg("view"), add_reg("rforge"), add_reg("gcode"), add_reg("bioc"), add_reg("ohat"), add_reg("github")) 
+  reg <- rbind(reg, add_reg("view"), add_reg("rforge"), add_reg("gcode"), add_reg("bioc"), add_reg("ohat"), add_reg("github"), add_reg("codeberg")) 
 
   ## replace tags in info with R/Markdown code
   for(i in which(reg$type == "corepkg")) {
@@ -315,16 +326,17 @@ ctv_xml_to_rmd <- function(x) {
   }
   make_url <- function(type, name) {
     switch(type,
-      "pkg"    = sprintf('<a href="../packages/%s/index.html">%s</a>', name, name),
-      "view"   = sprintf('<a href="%s.html">%s</a>', name, name),
-      "rforge" = sprintf('<a href="https://R-Forge.R-project.org/projects/%s/"><span class="Rforge">%s</span></a>', tolower(name), name),
-      "gcode"  = sprintf('<a href="https://code.google.com/archive/p/%s/"><span class="Gcode">%s</span></a>', name, name),
-      "bioc"   = sprintf('<a href="https://www.Bioconductor.org/packages/release/bioc/html/%s.html"><span class="BioC">%s</span></a>', name, name),
-      "ohat"   = sprintf('<a href="http://www.Omegahat.net/%s/"><span class="Ohat">%s</span></a>', name, name),
-      "github" = sprintf('<a href="https://github.com/%s/"><span class="GitHub">%s</span></a>', name, strsplit(name, "/", fixed = TRUE)[[1L]][2L])
+      "pkg"      = sprintf('<a href="../packages/%s/index.html">%s</a>', name, name),
+      "view"     = sprintf('<a href="%s.html">%s</a>', name, name),
+      "rforge"   = sprintf('<a href="https://R-Forge.R-project.org/projects/%s/"><span class="Rforge">%s</span></a>', tolower(name), name),
+      "gcode"    = sprintf('<a href="https://code.google.com/archive/p/%s/"><span class="Gcode">%s</span></a>', name, name),
+      "bioc"     = sprintf('<a href="https://www.Bioconductor.org/packages/release/bioc/html/%s.html"><span class="BioC">%s</span></a>', name, name),
+      "ohat"     = sprintf('<a href="http://www.Omegahat.net/%s/"><span class="Ohat">%s</span></a>', name, name),
+      "github"   = sprintf('<a href="https://github.com/%s/"><span class="GitHub">%s</span></a>', name, strsplit(name, "/", fixed = TRUE)[[1L]][2L]),
+      "codeberg" = sprintf('<a href="https://codeberg.org/%s/"><span class="Gcode">%s</span></a>', name, strsplit(name, "/", fixed = TRUE)[[1L]][2L])
     )
   }
-  for(j in c("corepkg", "pkg", "view", "rforge", "gcode", "bioc", "ohat", "github")) {
+  for(j in c("corepkg", "pkg", "view", "rforge", "gcode", "bioc", "ohat", "github", "codeberg")) {
     for(i in which(reg$type == j)) {
       typj <- if(j == "corepkg") "pkg" else j
       nami <- reg$name[i]

@@ -1,3 +1,8 @@
+# ctv 1.0-1
+
+* New function `codeberg()` to link from CRAN Task Views to Codeberg projects.
+
+
 # ctv 1.0-0
 
 * Release of version 1.0-0 to accompany the publication in The R Journal (see below).

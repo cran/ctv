@@ -1,4 +1,4 @@
-<img src="https://cran.r-project.org/web/packages/ctv/readme/man/figures/logo_alpha.png" align="right" alt="ctv logo" width="100" />
+<img src="https://zeileis.codeberg.page/ctv/ctv-alpha.png" align="right" alt="ctv logo" width="100" />
 
 # CRAN Task Views
 
